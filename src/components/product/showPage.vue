@@ -1,6 +1,8 @@
 <template>
 	<div id="showPage">
-		
+		<router-link :to="{path:'/productPage/productPage_index'}">
+			ssss
+		</router-link>
 	</div>
 </template>
 

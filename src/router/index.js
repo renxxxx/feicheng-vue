@@ -36,7 +36,7 @@ const router = new Router({
 			name: 'productPage',
 			component: productPage,
 			meta: {auth:true},
-			redirect:'/hospital/hospital_index',
+			redirect:'/productPage/productPage_index',
 			children:[
 				// 登陆后的页面路径配置
 				{

@@ -16,22 +16,9 @@ export default {
 </script>
 
 <style>
-html {
-  height: 100%;
-}
-body {
-  /* background-color:#FFFFFF; */
-  height: 100%;
-  width: 100%;
-}
-img {
-  object-fit: cover
-}
-
 img[lazy="loading"]{
     object-fit:scale-down!important;
  }
-
 img[lazy="error"]{
     object-fit:scale-down!important;
  }
@@ -39,8 +26,8 @@ img[lazy="error"]{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  position: relative;
+	height: 100%;
+	width: 100%;
 }
 
 </style>
