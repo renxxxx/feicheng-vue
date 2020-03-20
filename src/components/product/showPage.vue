@@ -1,5 +1,5 @@
 <template>
-	<div class="showPage">
+	<div id="showPage">
 		
 	</div>
 </template>
@@ -18,7 +18,7 @@ export default {
 	},
 	beforeRouteLeave(to, from, next) {
 		debugger;
-		let scrollTop = this.scrollTop =document.getElementById('hospital').scrollTop;
+		let scrollTop = this.scrollTop =document.getElementById('showPage').scrollTop;
 		this.scrollTop = scrollTop?scrollTop :0;
 		console.log(this.scrollTop)
 		if(!to.query.time || !from.query.time || to.query.time < from.query.time){
@@ -54,18 +54,18 @@ export default {
 	// 进入该页面时，用之前保存的滚动位置赋值
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
-		  document.getElementById('hospital').scrollTop=document.getElementById('hospital').pageYOffset=vm.scrollTop;
+		  document.getElementById('showPage').scrollTop=document.getElementById('showPage').pageYOffset=vm.scrollTop;
 		});
 
 	},
 	mounted() {
-		 if(this.$store.state.hospitalEntrance.loginRefresh())
-		  this.$toast({message:'已登录',onClose:function(){
-			thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
-		  }})
+		 // if(this.$store.state.hospitalEntrance.loginRefresh())
+		 //  this.$toast({message:'已登录',onClose:function(){
+			// thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
+		 //  }})
 	},
 	activated(){
-		debugger
+		
 	},
 	computed:{
 	   

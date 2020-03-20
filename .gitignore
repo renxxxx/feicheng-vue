@@ -28,7 +28,7 @@ yarn-error.log*
 hs_err_pid*
 
 bin/
-build/
+
 target/
 
 .classpath
