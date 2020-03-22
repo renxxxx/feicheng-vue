@@ -18,7 +18,7 @@ const router = new Router({
 		// unkeepLastRoute为true是不需要缓存路由值
 		//auth为true是需要登陆状态,否则为false
 		{
-		
+
 		  path: '/',
 		  name: 'showPage',
 		  component: showPage,
@@ -50,7 +50,7 @@ const router = new Router({
 	]
 })
 router.afterEach((to,from) => {
-  debugger
+  // debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
   // 缓存最后一次路径
   if(!to.meta.unkeepLastRoute){
