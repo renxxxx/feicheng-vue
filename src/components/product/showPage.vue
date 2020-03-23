@@ -73,7 +73,9 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <span>素材创意</span>
+						<router-link :to="{path:'/productPage/productPage_index'}">
+							<span>素材创意</span>
+						</router-link>
             <span>找抖音号</span>
             <span>LBS打卡</span>
             <span>种草带货</span>
