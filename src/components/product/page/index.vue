@@ -25,36 +25,28 @@
 				</el-col>
 				<el-col :xs="18" :sm="12" :md="15" :lg="17" :xl="18">
 					<el-carousel height="228px">
-							<el-carousel-item>
-								<img src="../../../assets/img/1.png" alt="" style="height: 100%;width: 100%;">
-							</el-carousel-item>
-							<el-carousel-item>
-								<img src="../../../assets/img/2.jpg" alt="" style="height: 100%;width: 100%;">
-							</el-carousel-item>
-							<el-carousel-item>
-								<img src="../../../assets/img/3.jpg" alt="" style="height: 100%;width: 100%;">
-							</el-carousel-item>
-							<el-carousel-item>
-								<img src="../../../assets/img/4.jpg" alt="" style="height: 100%;width: 100%;">
-							</el-carousel-item>
-							<el-carousel-item>
-								<img src="../../../assets/img/5.jpg" alt="" style="height: 100%;width: 100%;">
-							</el-carousel-item>
+						<el-carousel-item v-for="(item,inx) in list" :key="inx">
+							<img :src="item" alt="" style="height: 100%;width: 100%;">
+						</el-carousel-item>
 					</el-carousel>
 				</el-col>
 			</el-row>
 			<el-row class="uer_zhixun" :gutter='2'>
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-					<div class="uer_zhixun_gongneng uer_scroll">
-						<span>[功能] 一句话了解新抖</span>
-						<span v-for="(item,inx) in 99" :key="inx">[教程] 如何快速了解一个城市的抖音号生态情况？</span>
+					<div class="uer_zhixun_gongneng">
+						<div class="uer_zhixun_gongneng_hezi uer_scroll">
+							<span>[功能] 一句话了解新抖</span>
+							<span v-for="(item,inx) in 99" :key="inx">[教程] 如何快速了解一个城市的抖音号生态情况？</span>
+						</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
 					<div class="uer_zhixun_tuisong uer_scroll">
 						<div class="uer_zhixun_tuisongList" v-for="(item,inx) in 99" :key="inx">
-							<p><span>2020-02-17</span>[更新]【品牌营销】模块上线</p>
-							<p>包含<营销创意视频>、<品牌声量>、<带货品牌>、<抖音·品牌热DOU榜>四个功能模块，助你全方位了解品牌DOU势能。</p>
+							<div class="uer_zhixun_tuisongList_hezhi">
+								<p><span>2020-02-17</span>[更新]【品牌营销】模块上线</p>
+								<p>包含<营销创意视频>、<品牌声量>、<带货品牌>、<抖音·品牌热DOU榜>四个功能模块，助你全方位了解品牌DOU势能。</p>
+							</div>
 						</div>
 					</div>
 				</el-col>
@@ -84,6 +76,8 @@ export default {
   name: "gene",
   data() {
     return {
+		list:[require('../../../assets/img/1.png'),require('../../../assets/img/2.jpg'),require('../../../assets/img/3.jpg'),
+		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg'),]
 		
     };
   },
@@ -244,10 +238,15 @@ export default {
     display: none!important;
 }
 .uer_zhixun_gongneng{
-	height: 189px;background: #3a3a3e;
+	height: 142px;background: #3a3a3e;
+	padding: 23px 16px 24px 24px;
+}
+.uer_zhixun_gongneng_hezi{
+	width: 100%;
+	height: 100%;
 	overflow-y: scroll;
 }
-.uer_zhixun_gongneng>span,.uer_zhixun_lishi>span{
+.uer_zhixun_gongneng_hezi>span,.uer_zhixun_lishi>span{
 	height: 30px;
 	line-height: 30px;
 	white-space: nowrap;
@@ -256,33 +255,39 @@ export default {
 	display: block;
 }
 
-.uer_zhixun_gongneng>span:hover,.uer_zhixun_tuisongList:hover,.uer_zhixun_lishi>span:hover{
+.uer_zhixun_gongneng_hezi>span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishi>span:hover{
 	background: hsla(0,0%,100%,.08);
 	    color: #fff;
 }
-..uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
-..uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
+.uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
+.uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
-..uer_scroll::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
-..uer_scroll::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
+.uer_scroll::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
+.uer_scroll::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
 .uer_zhixun_tuisong{
 	height: 189px;background: #3a3a3e;
 	overflow-y: scroll;
+	padding: 23px 16px 24px 24px;
 }
-.uer_zhixun_tuisongList{
+.uer_scroll{
+	/* height: 100%; */
+	/* overflow-y: scroll; */
+}
+.uer_zhixun_tuisongList{}
+.uer_zhixun_tuisongList_hezhi{
 	height: 50px;
 	line-height: 25px;
 }
-.uer_zhixun_tuisongList>p:first-child>span{
+.uer_zhixun_tuisongList_hezhi>p:first-child>span{
 	font-size: 12px;
 	color: #cdcfcf;
 	display: inline-block;
 	margin-right: 2px;
 }
-.uer_zhixun_tuisongList>p:first-child{
+.uer_zhixun_tuisongList_hezhi>p:first-child{
 	color: #fff;
 }
-.uer_zhixun_tuisongList>p{
+.uer_zhixun_tuisongList_hezhi>p{
 	font-size: 14px;
 	color: #787a7a;
 	width: 100%;
