@@ -41,25 +41,29 @@
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
-					<div class="uer_zhixun_tuisong uer_scroll">
-						<div class="uer_zhixun_tuisongList" v-for="(item,inx) in 99" :key="inx">
-							<div class="uer_zhixun_tuisongList_hezhi">
+					<div class="uer_zhixun_tuisong ">
+						<div class="uer_zhixun_tuisongList uer_scroll">
+							<div class="uer_zhixun_tuisongList_hezhi"  v-for="(item,inx) in 99" :key="inx">
 								<p><span>2020-02-17</span>[更新]【品牌营销】模块上线</p>
 								<p>包含<营销创意视频>、<品牌声量>、<带货品牌>、<抖音·品牌热DOU榜>四个功能模块，助你全方位了解品牌DOU势能。</p>
 							</div>
+							<span>查看更多 ></span>
 						</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
-					<div class="uer_zhixun_lishi">
-						<el-steps direction="vertical" :active="1">
-						    <el-step title=''>
-								<p>除了李佳琦的OMG，抖音美妆商品还有哪些带货套路？</p>
-								<p>2 天前</p>
-							</el-step>
-						    <el-step></el-step>
-						    <el-step></el-step>
-						  </el-steps>
+					<div class="uer_zhixun_lishi ">
+						<div class="uer_zhixun_lishiList uer_scroll">
+							<div class="uer_zhixun_lishiList_hezhi"  v-for="(item,inx) in 5" :key="inx">
+								<div class="ant-timeline-item-tail"></div>
+								<div class="ant-timeline-item-head ant-timeline-item-head-gray"></div>
+								<div class="uer_zhixun_lishiList_hezhi_neirong">
+									<span>发发火就能涨粉百万，抖音上有群你不知道的暴躁博主</span>
+									<span>2 小时前</span>
+								</div>
+							</div>
+							<span>查看更多 ></span>
+						</div>
 					</div>
 				</el-col>
 			</el-row>
@@ -255,7 +259,7 @@ export default {
 	display: block;
 }
 
-.uer_zhixun_gongneng_hezi>span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishi>span:hover{
+.uer_zhixun_gongneng_hezi>span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi:hover{
 	background: hsla(0,0%,100%,.08);
 	    color: #fff;
 }
@@ -264,19 +268,32 @@ export default {
 .uer_scroll::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
-.uer_zhixun_tuisong{
-	height: 189px;background: #3a3a3e;
-	overflow-y: scroll;
+.uer_zhixun_tuisong,.uer_zhixun_lishi{
+	height: 142px;background: #3a3a3e;
+	/* width: 100%; */
 	padding: 23px 16px 24px 24px;
 }
 .uer_scroll{
 	/* height: 100%; */
 	/* overflow-y: scroll; */
 }
-.uer_zhixun_tuisongList{}
+.uer_zhixun_tuisongList{
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x:hidden
+}
+.uer_zhixun_tuisongList>span,.uer_zhixun_lishiList>span{
+	display:block;
+	width: 90px;
+	text-align: center;
+	margin: 12px auto 0px;
+	color: #ff7800;
+}
 .uer_zhixun_tuisongList_hezhi{
-	height: 50px;
+	height: 45px;
 	line-height: 25px;
+	margin-bottom: 12px;
 }
 .uer_zhixun_tuisongList_hezhi>p:first-child>span{
 	font-size: 12px;
@@ -297,6 +314,69 @@ export default {
 	text-overflow: ellipsis;
 }
 .uer_zhixun_lishi{
-	height: 189px;background: #3a3a3e;
+	height: 142px;background: #3a3a3e;
+}
+.uer_zhixun_lishiList{
+	/* position: relative; */
+	margin: 0;
+	/* padding: 0 0 20px; */
+	font-size: 14px;
+	list-style: none;
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x:hidden;
+}
+.ant-timeline-item-tail {
+    position: absolute;
+    top: 15px;
+    left: 4px;
+    height: calc(100% - 10px);
+    border-left: 2px solid #6d6d6d;
+}
+.ant-timeline-item-head-gray {
+    color: #6b6d6d;
+    border-color: #6b6d6d!important;
+}
+.ant-timeline-item-head {
+    position: absolute;
+	top: 5px;
+    width: 6px;
+    height: 6px;
+    background-color: #2b2b2e;
+    border: 2px solid transparent;
+    border-radius: 100px;
+}
+.uer_zhixun_lishiList_hezhi{
+	position: relative;
+	margin: 0;
+	/* padding: 0 0 20px; */
+	font-size: 14px;
+	list-style: none;
+	/* padding-bottom: 16px; */
+	height: 60px;
+	
+}
+.uer_zhixun_lishiList_hezhi_neirong{
+	position: relative;
+	/* top: -6px; */
+	margin: 0 0 0 18px;
+	word-break: break-word;
+	padding-left: 5px;
+}
+.uer_zhixun_lishiList_hezhi_neirong>span:first-child{
+	font-size: 14px;
+	display:block;
+	margin-bottom: 8px;
+	padding-right: 10px;
+	color: #fff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.uer_zhixun_lishiList_hezhi_neirong>span:last-child{
+	display:block;
+	font-size: 12px;
+	color: #787a7a;
 }
 </style>
