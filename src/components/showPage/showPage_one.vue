@@ -467,9 +467,15 @@ export default {
   position: relative;
   z-index: 3;
 }
-/* .oneBox_mid_line_top:hover{
-    opacity: 1;
-  } */
+.oneBox_mid_line_top>div{
+      position: absolute;
+      left: 0;
+    width: 240px;
+        height: 245px;
+        background: -webkit-gradient(linear,left top,left bottom,from(rgba(64,64,77,0)),to(#000));
+        background: linear-gradient(180deg,rgba(64,64,77,0),#000);
+        bottom: 0;
+  }
 .oneBox_mid_line_top_one {
   background: url(../../assets/img/video.4531a180.png) 0 0 no-repeat;
   background-size: 100% 100%;

@@ -81,7 +81,7 @@
             <span>种草带货</span>
             <span>品牌营销</span>
             <span>DOU管家</span>
-            <el-button @click="centerDialogVisible = true">登录 / 注册</el-button>
+            <el-button @click="loginFn">登录 / 注册</el-button>
           </div>
         </el-col>
       </el-row>
@@ -173,7 +173,7 @@
 
     <!--  登陆扫码框 -->
 
-      <login></login>
+      <login ref="loginRef"></login>
 
 
 
@@ -250,7 +250,12 @@ export default {
       },
     }
   },
-  methods: {}
+  methods: {
+    loginFn(){
+      this.centerDialogVisible = true;
+      this.$refs.loginRef.getData()
+    }
+  }
 };
 </script>
 
