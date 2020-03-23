@@ -514,21 +514,5 @@ el-row,.el-main {
     padding-top: 108px;
     position: relative;
   }
-  /* 扫码登陆 */
-  .popIndex{
-    text-align: center;
-  }
-  .popIndex .code{
-    width: 322px;
-    height: 230px;
-    margin: 0 auto;
-  }
-  .popIndex  .code>img{
-    width: 230px;
-    height: 230px;
-    display: block;
-        vertical-align: middle;
-        border-style: none;
-        margin: 0 auto;
-  }
+  
 </style>
