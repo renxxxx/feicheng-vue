@@ -81,7 +81,7 @@
             <span>种草带货</span>
             <span>品牌营销</span>
             <span>DOU管家</span>
-            <el-button>登录 / 注册</el-button>
+            <el-button @click="centerDialogVisible = true">登录 / 注册</el-button>
           </div>
         </el-col>
       </el-row>
@@ -159,57 +159,37 @@
             </div>
           </div>
         </div>
-
+        <div class="oneBox">
         <!-- 第一块 -->
         <template>
-          <div class="oneBox">
-            <div class="index_title">
-              <span class="index_span">01</span>
-              <div>
-                <h3 class="index_h3">
-                  海量
-                  <strong>创意素材</strong>
-                  从这里开始
-                </h3>
-                <div class="index_title_box">
-                  <div>全面收录各种素材，从视频、BGM、话题挑战赛到神评论、魔法道具</div>
-                  <div class="index_line"></div>
-                </div>
-              </div>
-            </div>
-            <div class="oneBox_main">
-              <div class="oneBox_lf"></div>
-              <div class="oneBox_mid">
-                <div class="oneBox_mid_line .oneBox_mid_line_one">
-                  <div class="oneBox_mid_line_top .oneBox_mid_line_top_one"><div></div></div>
-                  <div class="oneBox_mid_line_bottom">
-                    <svg></svg>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="oneBox_rt"></div>
-            </div>
-          </div>
+          <showPage_one></showPage_one>
         </template>
-
+        </div>
       </div>
       <div style="height: 1000px;width: 100%;background: #fff;"></div>
     </el-main>
+
+
+
+    <!--  登陆扫码框 -->
+
+      <login></login>
+
+
+
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import showPage_one from '../showPage/showPage_one.vue'
+import login from '../showPage/login.vue'
 export default {
   name: 'account',
   data() {
-    return {};
+    return {
+       // centerDialogVisible: false
+    };
   },
   directives: {},
   beforeRouteLeave(to, from, next) {
@@ -254,15 +234,69 @@ export default {
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
     //  }})
   },
+  components: {
+    showPage_one,
+    login,
+  },
   activated() {},
-  computed: {},
+  computed:{
+    // ...mapGetters(['centerDialogVisible'])
+    centerDialogVisible:{
+      get: function() {
+        return this.$store.state.centerDialogVisible
+      },
+      set: function (newValue) {
+        this.$store.state.centerDialogVisible = newValue;
+      },
+    }
+  },
   methods: {}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* .el-dialog__wrapper {
+	transition-duration: 0.3s;
+}
+.dialog-fade-enter-active{
+	animation: none !important;
+}
+.dialog-fade-leave-active {
+	transition-duration: 0.15s !important;
+	animation: none !important;
+  }
+
+.dialog-fade-enter-active .el-dialog,
+.dialog-fade-leave-active .el-dialog{
+	animation-fill-mode: forwards;
+}
+
+.dialog-fade-enter-active .el-dialog{
+	animation-duration: 0.3s;
+	animation-name: anim-open;
+	animation-timing-function: cubic-bezier(0.6,0,0.4,1);
+}
+
+.dialog-fade-leave-active .el-dialog{
+	animation-duration: 0.3s;
+	animation-name: anim-close;
+}
+
+
+@keyframes anim-open {
+	0% { opacity: 0;  transform: scale3d(0, 0, 1); }
+	100% { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+
+@keyframes anim-close {
+	0% { opacity: 1; }
+	100% { opacity: 0; transform: scale3d(0.5, 0.5, 1); }
+}
+ */
 html {
+
   font-size: 16px;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
@@ -473,128 +507,28 @@ el-row,.el-main {
   -webkit-animation: _2NRMCHUL 1s linear infinite;
   animation: _2NRMCHUL 1s linear infinite;
 }
-/* 第一模块 */
-.oneBox {
-  width: 100%;
-  height: auto;
-  background: #fff;
-}
-.oneBox {
-  padding-top: 108px;
-  position: relative;
-}
-.index_title {
-  width: 1200px;
-  margin: auto;
-  position: relative;
-}
-.index_span {
-  font-size: 88px;
-  font-weight: 700;
-  line-height: 169px;
-  color: #edeef2;
-  position: absolute;
-  top: -53px;
-  left: 0;
-  z-index: 0;
-}
-.index_title > div {
-  position: relative;
-  z-index: 5;
-}
-.index_h3 {
-  font-size: 31px;
-  font-weight: 400;
-  line-height: 109px;
-  color: #262626;
-  text-shadow: 6px 4px 4px hsla(0, 0%, 85.1%, 0.4);
-  margin-bottom: 0;
-}
-.index_h3 strong {
-  font-size: 48px;
-  color: #ff7800;
-}
-.index_title_box {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  line-height: 38px;
-  color: #595959;
-  opacity: 0.8;
-  margin-top: -12px;
-}
-.index_title_box > div:first-child {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  line-height: 18px;
-  color: #595959;
-  opacity: 0.8;
-  color: #fff;
-  background: #ff7800;
-  /* margin-top: -28px; */
-}
-.index_line {
-  width: 100px;
-  height: 1px;
-  background: -webkit-gradient(linear, left top, right top, from(#bfbfbf), to(rgba(225, 226, 229, 0)));
-  background: linear-gradient(90deg, #bfbfbf, rgba(225, 226, 229, 0));
-  margin-left: 16px;
-}
-.oneBox_main {
-  height: 435px;
-  display: flex;
-  margin-top: 88px;
-  position: relative;
-}
-.oneBox_lf {
-  flex-grow: 1;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(231, 237, 245, 0)), to(rgba(231, 237, 245, 0.8)));
-  background: linear-gradient(270deg, rgba(231, 237, 245, 0), rgba(231, 237, 245, 0.8));
-  transform: rotate(180deg);
-}
-.oneBox_mid {
-  width: 1200px;
-}
-.oneBOx_rt {
-  flex-grow: 1;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(231, 237, 245, 0)), to(rgba(231, 237, 245, 0.8)));
-  background: linear-gradient(270deg, rgba(231, 237, 245, 0), rgba(231, 237, 245, 0.8));
-  box-sizing: border-box;
-}
-.oneBox_mid_line {
-  transition: all 0.5s ease-out, opacity 0.8s ease-out;
-  background: url(//xdcdn2.newrank.cn/_next/static/media/video-g.c7cfbf04.png) 0px 0px / 100% 100% no-repeat;
-  opacity: 1;
-  transform: translateX(0px);
-}
-.oneBox_mid_line {
-  width: 240px;
-  text-align: center;
-  opacity: 0;
-  -webkit-transform: translateX(720px);
-  transform: translateX(720px);
-}
-.oneBox_mid_line_top {
-  height: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  opacity: 0;
-  position: relative;
-}
-.oneBox_mid_line_top_one {
-  background: url(../../assets/img/video-g.c7cfbf04.png) 0 0 no-repeat;
-  background-size: 100% 100%;
-}
-.oneBox_mid_line_top > div {
-  position: absolute;
-  left: 0;
-}
-.oneBox_mid_line_top_one > div {
-  width: 240px;
-  height: 245px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(64, 64, 77, 0)), to(#000));
-  background: linear-gradient(180deg, rgba(64, 64, 77, 0), #000);
-  bottom: 0;
-}
+ .oneBox {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding-top: 108px;
+    position: relative;
+  }
+  /* 扫码登陆 */
+  .popIndex{
+    text-align: center;
+  }
+  .popIndex .code{
+    width: 322px;
+    height: 230px;
+    margin: 0 auto;
+  }
+  .popIndex  .code>img{
+    width: 230px;
+    height: 230px;
+    display: block;
+        vertical-align: middle;
+        border-style: none;
+        margin: 0 auto;
+  }
 </style>

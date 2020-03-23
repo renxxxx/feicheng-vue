@@ -5,8 +5,14 @@ Vue.use(Vuex)
 
 
 
-const state={}
-const getters={}
+const state={
+  //登陆弹窗
+  centerDialogVisible:false,
+}
+const getters={
+  //登陆弹窗
+  centerDialogVisible : state => state.centerDialogVisible,
+}
 const actions={}
 const mutations={}
 export default new Vuex.Store({
