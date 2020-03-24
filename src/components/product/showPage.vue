@@ -227,6 +227,7 @@ export default {
     next(vm => {
       document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
     });
+		
   },
   mounted() {
     // if(this.$store.state.hospitalEntrance.loginRefresh())

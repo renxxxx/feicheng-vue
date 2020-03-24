@@ -10,6 +10,7 @@ import page404 from '@/components/404Page.vue'
 //产品页面
 import productPage from '@/components/product/productPage.vue'
 import productPage_index from '@/components/product/page/index.vue'
+import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
 
 Vue.use(Router)
 
@@ -45,6 +46,13 @@ const router = new Router({
 					component: productPage_index,
 					meta: {auth:true,unkeepLastRoute:true},
 				},
+				{
+					path: 'productPage_douyinSearch',
+					name: 'productPage_douyinSearch',
+					component: productPage_douyinSearch,
+					meta: {auth:true},
+				},
+				
 			]
 		},
 	]

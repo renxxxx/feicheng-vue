@@ -15,7 +15,7 @@ import h5p from '../build/h5p.js'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //版本号
-Vue.prototype.$version = '2002281641-8595e87'
+Vue.prototype.$version = ''
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios
