@@ -66,7 +66,7 @@ export default {
               .then(res => {
                 console.log(res)
                 if(res.data.code==0){
-                  	this.$router.push({path:'/productPage/productPage_index'})
+                  	this.$router.replace({path:'/'})
                 }
               })
               .catch(err => {});
