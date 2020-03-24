@@ -161,9 +161,9 @@
         </div>
         <div class="oneBox">
         <!-- 第一块 -->
-        <template>
-          <showPage_one></showPage_one>
-        </template>
+        <showPage_one></showPage_one>
+        <!-- 第二块 -->
+        <showPage_two></showPage_two>
         </div>
       </div>
       <div style="height: 1000px;width: 100%;background: #fff;"></div>
@@ -183,6 +183,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import showPage_one from '../showPage/showPage_one.vue'
+import showPage_two from '../showPage/showPage_two.vue'
 import login from '../showPage/login.vue'
 export default {
   name: 'account',
@@ -236,6 +237,7 @@ export default {
   },
   components: {
     showPage_one,
+    showPage_two,
     login,
   },
   activated() {},
@@ -519,5 +521,5 @@ el-row,.el-main {
     padding-top: 108px;
     position: relative;
   }
-  
+
 </style>

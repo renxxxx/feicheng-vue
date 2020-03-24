@@ -4,7 +4,7 @@
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />
-          <p v-else>123</p>
+          <p v-else>二维码已过期,请 <span @click="getData()"> 刷新二维码</span></p>
         </div>
         <p class="scanNow scanNowFirst">
           打开
@@ -96,6 +96,14 @@ export default {
   vertical-align: middle;
   border-style: none;
   margin: 0 auto;
+}
+.code p{
+  font-size: 16px;
+  line-height: 230px;
+}
+.code p span{
+  color: #ff7800;
+  cursor: pointer;
 }
 .scanNow {
   font-size: 14px;
