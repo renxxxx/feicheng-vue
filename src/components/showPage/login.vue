@@ -3,7 +3,8 @@
     <el-dialog class="popScan" title="欢迎登陆" :visible.sync="centerDialogVisible" width="402px" top="10vh" center>
       <div class="popIndex" style="height: 418px">
         <div class="code">
-          <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA" alt="" />
+          <img v-if="imgSrc" :src="imgSrc" alt="" />
+          <p v-else>123</p>
         </div>
         <p class="scanNow scanNowFirst">
           打开
@@ -14,10 +15,6 @@
           <span class=""><span class="">微信扫码登陆</span></span>
         </div>
         <div class="scanIntro">打开微信扫一扫，经飞辰服务验证后即可登录/注册</div>
-        <!-- <span slot="footer" class="dialog-footer">
-             <el-button @click="centerDialogVisible = false">取 消</el-button>
-             <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
-           </span> -->
       </div>
     </el-dialog>
   </div>
@@ -25,10 +22,16 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import qs from 'qs';
 export default {
   name: 'gene',
   data() {
-    return {};
+    return {
+      imgSrc:'',
+      loginTicket:'',
+      value:1,
+      // imgSrc:'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA'
+    };
   },
   computed: {
     // ...mapGetters(['centerDialogVisible'])
@@ -41,11 +44,42 @@ export default {
       }
     }
   },
-  methods: {}
+  mounted() {
+    // this.getData();
+     this.timer = setInterval(this.get, 20000);
+     console.log(this.imgSrc)
+  },
+  methods: {
+    getData() {
+      this.$axios
+        .get('/user/wx-offiaccount-loginqrcode')
+        .then(res => {
+          console.log(res)
+             this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
+             this.loginTicket=res.data.data.loginTicket
+        })
+        .catch(err => {});
+    },
+    get() {
+            this.$axios
+              .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
+              .then(res => {
+                console.log(res)
+                if(res.data.code==0){
+                  	this.$router.push({path:'/productPage/productPage_index'})
+                }
+              })
+              .catch(err => {});
+            console.log(this.value);
+          }
+  },
+   beforeDestroy() {
+        clearInterval(this.timer);
+      }
 };
 </script>
 
-<style>
+<style scoped>
 /* 扫码登陆 */
 .popIndex {
   text-align: center;
@@ -67,9 +101,8 @@ export default {
   font-size: 14px;
   line-height: 22px;
   margin: 0;
-
 }
-.scanNowFirst{
+.scanNowFirst {
   margin-top: 10px !important;
 }
 .codelogin {
@@ -127,10 +160,10 @@ export default {
 }
 
 /* 重写 */
-.el-dialog__header{
+.el-dialog__header {
   padding-top: 32px;
-  }
-.el-dialog__body{
+}
+.el-dialog__body {
   padding: 0 !important;
 }
 </style>
