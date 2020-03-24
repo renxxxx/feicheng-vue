@@ -228,12 +228,26 @@ export default {
     next(vm => {
       document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
     });
+	//判断回调页是否与当前前进路由相等，如果相等，删除路径
+	let fromRoute =  JSON.stringify({path:from.path,name:from.name,query:from.query})
+	let lastRoute = localStorage.getItem('lastRoute')
+	console.log('fromRoute'+fromRoute)
+	console.log('lastRoute'+lastRoute)
+	if(fromRoute == lastRoute){
+	  localStorage.removeItem('lastRoute')
+	}
   },
   mounted() {
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
     //  }})
+	// 跳转回跳页面
+	let lastRoute = localStorage.getItem('lastRoute')
+	if(lastRoute){
+		this.$router.push(JSON.parse(lastRoute));
+		return
+	}
   },
   components: {
     showPage_one,
