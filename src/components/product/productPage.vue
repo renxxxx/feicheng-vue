@@ -194,7 +194,7 @@
 			</keep-alive>
 		</el-col>
 		</el-row>
-		<login></login>
+		<login ref= "loginRef"></login>
 		
   </div>
 </template>

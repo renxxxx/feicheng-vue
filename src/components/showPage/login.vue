@@ -46,11 +46,11 @@ export default {
   },
   mounted() {
     // this.getData();
-     this.timer = setInterval(this.get, 200000);
+     this.timer = setInterval(this.get, 20000);
      console.log(this.imgSrc)
   },
   methods: {
-    getData() {
+    getData(){
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {

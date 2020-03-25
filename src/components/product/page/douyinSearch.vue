@@ -125,32 +125,32 @@
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
 							<li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
-								<span>作品数</span>
+								<span>视频量</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
 							<li @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''">
 								<svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
-								<span>新榜指数</span>
+								<span>曝光量</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
 						</ul>
 					</div>
 				</el-col>
 			</el-row>
-			<el-row class="searchList_lie">
+			<el-row class="searchList_lie" v-for="(user,index) in userList" :key="index">
 				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 					<div class="searchList_lie_xinxi">
-						<img src="../../../assets/img/touxiang.jpg" alt="">
+						<img :src="user.logo" alt="">
 						<div class="searchList_lie_xinxi_jianjie">
-							<h3>࿐ཉི༗࿆僾༗࿆ཉི࿐</h3><span>社会</span>
-							<svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg>
-							<span>人民日报官方账号</span>
+							<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+							<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
+							<!-- <span>{{user.name}}</span> -->
 							<p>
-								抖音号:lzy217597
+								微信号{{user.wx}}
 								<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
-								<span>34 广西·南宁</span>
+								<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
 							</p>
-							<p class="line-2">简介：电影《亢龙有悔》主演 饰演 唐僧 电影《霍家拳之铁臂娇娃》《唐僧絮说大道理》主演 合作V博❤️陆超SuperLu 合作邮箱❤zhenhaoge@163.com ❤快乐每一天 happy every day ❤录制视频去 V博❤真好哥 参演周星驰电影《美人鱼2》《新喜剧之王》参演刘伟强电影《建军大业》参加节目《星光大道》参演电视剧《绽放吧百合》《青年霍元甲2》</p>
+							<p class="line-2">{{user.brief}}</p>
 						</div>
 					</div>
 				</el-col>
@@ -161,16 +161,16 @@
 								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
 							</li>
 							<li :class="clickData.one? 'xuanzhongColor':''">
-								<span>8079.6w</span>
+								<span>{{user.fansCount}}</span>
 							</li>
 							<li :class="clickData.two? 'xuanzhongColor':''">
-								<span>36亿</span>
+								<span>{{user.likeCount}}</span>
 							</li>
 							<li :class="clickData.three? 'xuanzhongColor':''">
-								<span>1667</span>
+								<span>{{user.videoCount}}</span>
 							</li>
 							<li :class="clickData.four? 'xuanzhongColor':''">
-								<span>1016.9</span>
+								<span>{{user.pv}}</span>
 							</li>
 						</ul>
 					</div>
@@ -227,7 +227,8 @@ export default {
 				{name:'200-400',typeData:false},
 				{name:'400-600',typeData:false},
 				{name:'600-800',typeData:false},
-				{name:'>1000',typeData:false}]
+				{name:'>1000',typeData:false}],
+			userList:[],
 		}
 	},
 	computed:{
@@ -296,11 +297,9 @@ export default {
 			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
 			.then(res =>{
 				if(res.data.code == 20){
-					this.centerDialogVisible =true
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){
-							console.log(i)
 							this.typeList.push({
 								name:res.data.data.itemList[i].name,
 								typeData:false,
@@ -314,18 +313,13 @@ export default {
 			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?")
 			.then(res =>{
 				if(res.data.code == 20){
-					this.centerDialogVisible =true
 				}else{
-					// if(res.data.data.itemList.length !=0){
-					// 	for(let i in res.data.data.itemList){
-					// 		console.log(i)
-					// 		this.typeList.push({
-					// 			name:res.data.data.itemList[i].name,
-					// 			typeData:false,
-					// 			wxVideoaccountRealmId:res.data.data.itemList[i].wxVideoaccountRealmId
-					// 		})
-					// 	}
-					// }
+					if(res.data.data.itemList.length !=0){
+						for(let i in res.data.data.itemList){
+							console.log(i)
+							this.userList.push(res.data.data.itemList[i])
+						}
+					}
 				}
 			})
 			.catch()
@@ -742,7 +736,7 @@ export default {
 	cursor: pointer;
 	color: #ff8b1d;
 }
-.searchList_lie_xinxi_jianjie>span:nth-child(2){
+.biaoqianClass{
 	margin-left: 8px;
 	padding: 2px 8px 1px;
 	line-height: 16px;
@@ -770,7 +764,7 @@ export default {
 	padding: 6px 0;
 }
 @media only screen and (max-width: 1366px) {
-    .searchList_canshu ul li:first-child{
+    .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
     	display: none;
     }
 }
