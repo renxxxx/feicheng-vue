@@ -337,7 +337,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* 第一模块 */
 
 .index_title {

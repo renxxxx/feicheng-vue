@@ -4,7 +4,7 @@
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />
-          <p v-else>123</p>
+          <p v-else>二维码已过期,请 <span @click="getData()"> 刷新二维码</span></p>
         </div>
         <p class="scanNow scanNowFirst">
           打开
@@ -52,7 +52,7 @@ export default {
 	},
   mounted() {
     // this.getData();
-     this.timer = setInterval(this.get, 20000);
+     // this.timer = setInterval(this.get, 20000);
      console.log(this.imgSrc)
   },
   methods: {
@@ -72,8 +72,12 @@ export default {
               .then(res => {
                 console.log(res)
                 if(res.data.code==0){
+<<<<<<< HEAD
 					this.centerDialogVisible = false;
                   	this.$router.replace({path:'/index'})
+=======
+                  	this.$router.push({path:'/productPage/productPage_index'})
+>>>>>>> d9966f2c58bab2d5c5a0985d88f651545d3444f4
                 }
               })
               .catch(err => {});
@@ -103,6 +107,14 @@ export default {
   vertical-align: middle;
   border-style: none;
   margin: 0 auto;
+}
+.code p{
+  font-size: 16px;
+  line-height: 230px;
+}
+.code p span{
+  color: #ff7800;
+  cursor: pointer;
 }
 .scanNow {
   font-size: 14px;
