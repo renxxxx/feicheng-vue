@@ -44,6 +44,12 @@ export default {
       }
     }
   },
+		
+	activated(){
+	},
+	deactivated(){
+		
+	},
   mounted() {
     // this.getData();
      this.timer = setInterval(this.get, 20000);
