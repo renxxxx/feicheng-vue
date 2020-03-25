@@ -46,7 +46,7 @@ export default {
   },
   mounted() {
     // this.getData();
-     this.timer = setInterval(this.get, 20000);
+     this.timer = setInterval(this.get, 200000);
      console.log(this.imgSrc)
   },
   methods: {
@@ -66,7 +66,8 @@ export default {
               .then(res => {
                 console.log(res)
                 if(res.data.code==0){
-                  	this.$router.replace({path:'/'})
+					this.centerDialogVisible = false;
+                  	this.$router.replace({path:'/index'})
                 }
               })
               .catch(err => {});

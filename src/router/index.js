@@ -19,8 +19,14 @@ const router = new Router({
 		// unkeepLastRoute为true是不需要缓存路由值
 		//auth为true是需要登陆状态,否则为false
 		{
-
+		
 		  path: '/',
+		  name: 'showPage',
+		  component: showPage,
+		  meta: {unkeepLastRoute:true},
+		},
+		{
+		  path: '/index',
 		  name: 'showPage',
 		  component: showPage,
 		  meta: {unkeepLastRoute:true},

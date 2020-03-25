@@ -316,7 +316,12 @@ export default {
   data() {
     return {};
   },
-
+	mounted() {
+		
+	},
+	created() {
+		
+	},
   methods: {
     click() {
       alert(1);

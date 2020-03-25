@@ -23,31 +23,31 @@
 					<span>搜索</span>
 				</div>
 			</el-row>
-			<el-row style="height: 47px;line-height: 47px;" class="search_type">
+			<el-row style="line-height: 47px;" class="search_type">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
-					<span class="search_type_span">账号类型:</span>
+					<span class="search_type_span">领域类型:</span>
 				</el-col>
 				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
 					<ul>
-						<li>娱乐</li> <li>才艺</li> <li>萌宠</li> <li>搞笑</li> <li>二次元</li>
-						<li>游戏</li> <li>家居</li> <li>美食</li> <li>旅游</li> <li>健康</li>
-						<li>企业</li> <li>体育</li> <li>教育</li> <li>科技</li> <li>汽车</li>
-						<li>情感</li> <li>时尚</li> <li>文化</li> <li>社会</li> <li>时事</li>
+						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(inx)">
+							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
+						</li>
 					</ul>
 				</el-col>
 			</el-row>
-			<el-row style="height: 47px;line-height: 47px" class="search_type">
+			<el-row style="line-height: 47px" class="search_type">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
 					<span class="search_type_span">新增指数:</span>
 				</el-col>
 				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
 					<ul>
-						<li>0-200</li> <li>200-400</li> <li>400-600</li> <li>600-800</li> <li>800-1000</li>
-						<li>>1000</li>
+						<li v-for="(data,_inx) in numList" :key="_inx" @click="numClickFn(_inx)">
+							<span :class="[data.typeData? 'typeCilckColor':'']">{{data.name}}</span>
+						</li>
 					</ul>
 				</el-col>
 			</el-row>
-			<el-row style="height: 47px;line-height: 47px" class="search_renzheng">
+			<el-row style="line-height: 47px" class="search_renzheng">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
 					<span class="search_type_span">账号认证</span>
 				</el-col>
@@ -93,7 +93,7 @@
 					</ul>
 				</el-col>
 			</el-row>
-			<el-row style="height: 47px;line-height: 47px" class="search_zhishu">
+			<el-row style="line-height: 47px" class="search_zhishu">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
 					<span class="search_type_span">新增指数:</span>
 				</el-col>
@@ -103,13 +103,79 @@
 					</ul>
 				</el-col>
 			</el-row>
-			
 		</div>
 		<div class="searchList"> 
-			<row>
-				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
+			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
+				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
+					<span class="searchList_Title">抖音号</span>
 				</el-col>
-			</row>
+				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
+					<div class="searchList_canshu">
+						<ul>
+							<li>
+								<span>是否开通橱窗</span>
+								<svg width="14" height="14" viewBox="0 0 14 14" class="_3fklY6Jp ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+							</li>
+							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
+								<span>粉丝数</span>
+								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							</li>
+							<li @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''">
+								<span>获赞数</span>
+								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							</li>
+							<li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
+								<span>作品数</span>
+								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							</li>
+							<li @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''">
+								<svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+								<span>新榜指数</span>
+								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							</li>
+						</ul>
+					</div>
+				</el-col>
+			</el-row>
+			<el-row class="searchList_lie">
+				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
+					<div class="searchList_lie_xinxi">
+						<img src="../../../assets/img/touxiang.jpg" alt="">
+						<div class="searchList_lie_xinxi_jianjie">
+							<h3>࿐ཉི༗࿆僾༗࿆ཉི࿐</h3><span>社会</span>
+							<svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg>
+							<span>人民日报官方账号</span>
+							<p>
+								抖音号:lzy217597
+								<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
+								<span>34 广西·南宁</span>
+							</p>
+							<p class="line-2">简介：电影《亢龙有悔》主演 饰演 唐僧 电影《霍家拳之铁臂娇娃》《唐僧絮说大道理》主演 合作V博❤️陆超SuperLu 合作邮箱❤zhenhaoge@163.com ❤快乐每一天 happy every day ❤录制视频去 V博❤真好哥 参演周星驰电影《美人鱼2》《新喜剧之王》参演刘伟强电影《建军大业》参加节目《星光大道》参演电视剧《绽放吧百合》《青年霍元甲2》</p>
+						</div>
+					</div>
+				</el-col>
+				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
+					<div class="searchList_shuju">
+						<ul>
+							<li>
+								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
+							</li>
+							<li :class="clickData.one? 'xuanzhongColor':''">
+								<span>8079.6w</span>
+							</li>
+							<li :class="clickData.two? 'xuanzhongColor':''">
+								<span>36亿</span>
+							</li>
+							<li :class="clickData.three? 'xuanzhongColor':''">
+								<span>1667</span>
+							</li>
+							<li :class="clickData.four? 'xuanzhongColor':''">
+								<span>1016.9</span>
+							</li>
+						</ul>
+					</div>
+				</el-col>
+			</el-row>
 		</div>
 	</div>
 </template>
@@ -127,11 +193,52 @@ export default {
 			searchData:"全部",
 			show_xiala:false,
 			num:0,
-			kw:''
+			kw:'',
+			clickData:{
+				 one:false,
+				 two:false,
+				 three:false,
+				 four:false
+			},
+			typeList:[],
+			// typeList:[
+			// 	{name:'娱乐',typeData:false},
+			// 	{name:'才艺',typeData:false},
+			// 	{name:'萌宠',typeData:false},
+			// 	{name:'搞笑',typeData:false},
+			// 	{name:'二次元',typeData:false},
+			// 	{name:'游戏',typeData:false},
+			// 	{name:'家居',typeData:false},
+			// 	{name:'家居',typeData:false},
+			// 	{name:'旅游',typeData:false},
+			// 	{name:'健康',typeData:false},
+			// 	{name:'企业',typeData:false},
+			// 	{name:'体育',typeData:false},
+			// 	{name:'教育',typeData:false},
+			// 	{name:'科技',typeData:false},
+			// 	{name:'汽车',typeData:false},
+			// 	{name:'情感',typeData:false},
+			// 	{name:'时尚',typeData:false},
+			// 	{name:'文化',typeData:false},
+			// 	{name:'社会',typeData:false},
+			// 	{name:'时事',typeData:false}],
+			numList:[
+				{name:'0-200',typeData:false},
+				{name:'200-400',typeData:false},
+				{name:'400-600',typeData:false},
+				{name:'600-800',typeData:false},
+				{name:'>1000',typeData:false}]
 		}
 	},
 	computed:{
-		
+		centerDialogVisible: {
+		  get: function() {
+		    return this.$store.state.centerDialogVisible;
+		  },
+		  set: function(newValue) {
+		    this.$store.state.centerDialogVisible = newValue;
+		  }
+		}
 	},
 	components:{
 
@@ -182,10 +289,47 @@ export default {
 
   },
 	mounted(){
-
-
+		this.getData();
 	},
 	methods: {
+		getData(){
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
+			.then(res =>{
+				if(res.data.code == 20){
+					this.centerDialogVisible =true
+				}else{
+					if(res.data.data.itemList.length !=0){
+						for(let i in res.data.data.itemList){
+							console.log(i)
+							this.typeList.push({
+								name:res.data.data.itemList[i].name,
+								typeData:false,
+								wxVideoaccountRealmId:res.data.data.itemList[i].wxVideoaccountRealmId
+							})
+						}
+					}
+				}
+			})
+			.catch()
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?")
+			.then(res =>{
+				if(res.data.code == 20){
+					this.centerDialogVisible =true
+				}else{
+					// if(res.data.data.itemList.length !=0){
+					// 	for(let i in res.data.data.itemList){
+					// 		console.log(i)
+					// 		this.typeList.push({
+					// 			name:res.data.data.itemList[i].name,
+					// 			typeData:false,
+					// 			wxVideoaccountRealmId:res.data.data.itemList[i].wxVideoaccountRealmId
+					// 		})
+					// 	}
+					// }
+				}
+			})
+			.catch()
+		},
 		searchChoesFn(_value){
 			this.searchData = _value;
 			this.show_xiala = false
@@ -211,6 +355,37 @@ export default {
 		},
 		clearKwFn(){
 			this.kw = ''
+		},
+		clickFn(_value){
+			this.clickData={one:false,two:false,three:false,four:false};
+			switch(_value){
+				case 'one':
+				this.clickData.one = true;
+				break;
+				case 'two':
+				this.clickData.two = true;
+				break;
+				case 'three':
+				this.clickData.three = true;
+				break;
+				case 'four':
+				this.clickData.four = true;
+				break;
+			}
+		},
+		typeClickFn(_inx){
+			for(let i in this.typeList){
+				this.typeList[i].typeData = false;
+			}
+			this.typeList[_inx].typeData = true
+			console.log(_inx)
+		},
+		numClickFn(_inx){
+			for(let i in this.numList){
+				this.numList[i].typeData = false;
+			}
+			this.numList[_inx].typeData = true
+			console.log(_inx)
 		}
 	},
 }
@@ -227,6 +402,7 @@ export default {
 .douyinSearch::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
+.search{width: 100%;position: relative;}
 .search_box{
 	width: 532px;
 	height: 32px;
@@ -261,6 +437,8 @@ export default {
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
+	white-space: nowrap;
+	    text-overflow: ellipsis;
 }
 .search_box_xiala>ul>li:first-child{
 	margin-top: 5px;
@@ -269,6 +447,9 @@ export default {
 	margin-bottom: 5px;
 }
 .search_box_xiala>ul>li:hover{
+	    transition: background .3s ease;
+		cursor: pointer;
+	transition: all .5s;
 	background-color: hsla(0,0%,100%,.1)!important;
 }
 .search_box_input{
@@ -278,6 +459,7 @@ export default {
 	float: left;
 }
 .search_box_input>input{
+	transition: all .5s;
 	height: 34px;
 	background-color: transparent;
 	border: 1px solid #6d6d6d;
@@ -294,6 +476,7 @@ export default {
 	cursor: pointer;
 }
 .search_box_input>svg:hover{
+	transition: all .5s;
 	color: #e8edee;
 }
 .search_box>span{
@@ -311,6 +494,7 @@ export default {
     color: #fff;
     background-color: #ff9429;
     border-color: #ff9429;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .search_box_input>input[type=search]:focus,.search_box_input>input[type=search]:hover,.search_box_input>input[type=search]:link,search_box_input>input[type=search]:visited{
 	outline: none;
@@ -343,7 +527,30 @@ export default {
 	padding: 0;
 }
 .search_type ul li,.search_zhishu ul li{
-	display: inline-block;margin-right: 18px;
+	display: inline-block;
+	margin-right: 18px;
+	
+}
+.search_type ul li span,.search_zhishu ul li span{
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	left: 22px;
+	border-radius: 4px;
+	padding: 5px;
+}
+
+.search_type ul li span:hover,.search_zhishu ul li span:hover{
+	cursor: pointer;
+	color: #ff9429;
+	transition: all .3s cubic-bezier(.78,.14,.15,.86);
+	/* background-color: #ff7800; */
+}
+.typeCilckColor{
+	color: #fff;
+	background-color: #ff7800;
+	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
 .search_renzheng ul li{
 	display: inline-block;margin-right: 30px;
@@ -360,6 +567,7 @@ export default {
 	border: 1px solid #6d6d6d;
 }
 .search_renzheng ul li:first-child span:hover,.search_zhishu ul li:hover{
+	transition: all .2s;
 	border-color: #ff7800;
 }
 .search_renzheng ul li:nth-child(2) span{
@@ -435,6 +643,135 @@ export default {
 .ant-checkbox-disabled {
     cursor: not-allowed;
 }
+.searchList_Title{
+	color: #cdcfcf;
+	font-weight: 500;
+}
+.searchList_canshu,.searchList_shuju{
+	width: 100%;
+	height: 100%;
+	color: #cdcfcf;
+	font-weight: 500;
+	text-align: left;
+	min-width: 340px;
+}
+.searchList_canshu ul,.searchList_shuju ul{
+	padding: 0;
+	margin: 0;
+	text-align: right;
+}
+.searchList_canshu ul li,.searchList_shuju ul li{
+	text-align: center;
+	display: inline-block;
+	width: 18%;
+	min-width: 56px;
+	max-width: 80px;
+	cursor: pointer;
+	/* margin-right: 3%; */
+}
+.searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
+	cursor: auto;
+	width: 23%;
+	max-width: 140px;
+	min-width: 110px;
+}
+.searchList_canshu ul li:last-child,.searchList_shuju ul li:last-child{
+	width: 18%;
+	max-width: 120px;
+	min-width: 100px;
+}
+.searchList_shuju{
+	margin: auto 0px;
+	position: absolute;
+	right: 0;
+	top: 40%;
+}
+.searchList_shuju ul li{
+	color: #e8edee;
+	font-size: 14px;
+	margin: auto 0px;
+}
+.xuanzhongColor{
+	color: #ff7800!important;
+	transition: all .3s;
+}
+.searchList{
+	position: relative;
+	width: 100%;
+}
+.searchList_lie{
+	padding: 20px 8px 24px 8px;
+	border-radius: 6px;
+	color: #e8edee;
+	font-size: 14px;
+	border-bottom:1px solid #404040;
+	position: relative;
+}
+.searchList_lie:hover{
+	background: #3c3c3e;
+	transition: all .3s,height 0s;
+}
 
-
+.searchList_lie_xinxi{
+	width: 100%;
+	position: relative;
+	min-width: 205px;
+}
+.searchList_lie_xinxi>img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+}
+.searchList_lie_xinxi_jianjie{
+	display: inline-block;
+	margin-left: 75px;
+}
+.searchList_lie_xinxi_jianjie>h3{
+	display: inline-block;
+}
+.searchList_lie_xinxi_jianjie>h3:hover{
+	text-decoration: none;
+	background-color: transparent;
+	outline: none;
+	transition: color .3s;
+	cursor: pointer;
+	color: #ff8b1d;
+}
+.searchList_lie_xinxi_jianjie>span:nth-child(2){
+	margin-left: 8px;
+	padding: 2px 8px 1px;
+	line-height: 16px;
+	font-size: 12px;
+	color: #cdcfcf;
+	border-radius: 11px;
+	border: 1px solid rgba(205,207,207,.3);
+	background-color: rgba(232,237,238,.1);
+	white-space: nowrap;
+	
+}
+.searchList_lie_xinxi_jianjie>p:last-child{
+	width: 90%;
+	height: 42px;
+	color: #787a7a;
+}
+.searchList_lie_xinxi_jianjie>svg{
+	position: absolute;
+	margin-top: 3px;
+}
+.searchList_lie_xinxi_jianjie>span:nth-child(4){
+	margin-left: 20px;
+}
+.searchList_lie_xinxi_jianjie>p:nth-child(5){
+	padding: 6px 0;
+}
+@media only screen and (max-width: 1366px) {
+    .searchList_canshu ul li:first-child{
+    	display: none;
+    }
+}
 </style>
