@@ -20,7 +20,7 @@ a:visited{text-decoration:none; }
 
 /* 按钮文本不可选 */
 button {user-select: none;}
-img {vertical-align: middle;}
+img {vertical-align: middle;border-style: none;}
 /* 加载不出来的图片不要显示灰色边框 */
 img:not([src]),img[src=""] {opacity: 0;}
 table {border-collapse: collapse; border-spacing: 0;}

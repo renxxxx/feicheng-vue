@@ -172,6 +172,8 @@
         <showPage_five></showPage_five>
         <!-- 第六塊 -->
         <showPage_six></showPage_six>
+        <!-- 第七塊 -->
+        <showPage_seven></showPage_seven>
         </div>
       </div>
       <div style="height: 1000px;width: 100%;background: #fff;"></div>
@@ -196,6 +198,8 @@ import showPage_three from '../showPage/showPage_three.vue'
 import showPage_four from '../showPage/showPage_four.vue'
 import showPage_five from '../showPage/showPage_five.vue'
 import showPage_six from '../showPage/showPage_six.vue'
+import showPage_seven from '../showPage/showPage_seven.vue'
+
 
 import login from '../showPage/login.vue'
 export default {
@@ -269,6 +273,7 @@ export default {
     showPage_four,
     showPage_five,
     showPage_six,
+    showPage_seven,
     login,
   },
   activated() {},
