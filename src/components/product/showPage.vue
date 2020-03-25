@@ -164,6 +164,14 @@
         <showPage_one></showPage_one>
         <!-- 第二块 -->
         <showPage_two></showPage_two>
+        <!-- 第三块 -->
+        <showPage_three></showPage_three>
+        <!-- 第四块 -->
+        <showPage_four></showPage_four>
+        <!-- 第五塊 -->
+        <showPage_five></showPage_five>
+        <!-- 第六塊 -->
+        <showPage_six></showPage_six>
         </div>
       </div>
       <div style="height: 1000px;width: 100%;background: #fff;"></div>
@@ -184,6 +192,11 @@
 import { mapActions, mapGetters } from 'vuex';
 import showPage_one from '../showPage/showPage_one.vue'
 import showPage_two from '../showPage/showPage_two.vue'
+import showPage_three from '../showPage/showPage_three.vue'
+import showPage_four from '../showPage/showPage_four.vue'
+import showPage_five from '../showPage/showPage_five.vue'
+import showPage_six from '../showPage/showPage_six.vue'
+
 import login from '../showPage/login.vue'
 export default {
   name: 'account',
@@ -252,6 +265,10 @@ export default {
   components: {
     showPage_one,
     showPage_two,
+    showPage_three,
+    showPage_four,
+    showPage_five,
+    showPage_six,
     login,
   },
   activated() {},
@@ -322,6 +339,7 @@ html {
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   padding: 0;
+  box-sizing: border-box !important;
 }
 #showPage {
   overflow-y: scroll;
