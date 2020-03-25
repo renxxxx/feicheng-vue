@@ -72,12 +72,8 @@ export default {
               .then(res => {
                 console.log(res)
                 if(res.data.code==0){
-<<<<<<< HEAD
 					this.centerDialogVisible = false;
                   	this.$router.replace({path:'/index'})
-=======
-                  	this.$router.push({path:'/productPage/productPage_index'})
->>>>>>> d9966f2c58bab2d5c5a0985d88f651545d3444f4
                 }
               })
               .catch(err => {});
