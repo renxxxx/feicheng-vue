@@ -83,7 +83,8 @@
             <span>种草带货</span>
             <span>品牌营销</span>
             <span>DOU管家</span>
-            <el-button @click="loginFn">登录 / 注册</el-button>
+
+            <el-button v-if='' @click="loginFn">登录 / 注册</el-button>
           </div>
         </el-col>
       </el-row>
@@ -104,7 +105,7 @@
                 <div></div>
                 <div>KOL / BGM / POI / MCN / CPS</div>
               </div>
-              <div>立即使用</div>
+              <div @click="loginFn">立即使用</div>
             </div>
           </div>
         </div>
@@ -250,7 +251,7 @@ export default {
     debugger;
     let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
     this.scrollTop = scrollTop ? scrollTop : 0;
-    console.log(this.scrollTop);
+    // console.log(this.scrollTop);
     if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
       debugger;
       if (this.$vnode && this.$vnode.data.keepAlive) {
@@ -285,25 +286,34 @@ export default {
 	//判断回调页是否与当前前进路由相等，如果相等，删除路径
 	let fromRoute =  JSON.stringify({path:from.path,name:from.name,query:from.query})
 	let lastRoute = localStorage.getItem('lastRoute')
-	console.log('fromRoute'+fromRoute)
-	console.log('lastRoute'+lastRoute)
+	// console.log('fromRoute'+fromRoute)
+	// console.log('lastRoute'+lastRoute)
 	if(fromRoute == lastRoute){
 	  localStorage.removeItem('lastRoute')
 	}
   },
   activated(){
-	debugger
+	// debugger
   },
   mounted() {
     // 获取配置信息
     this.$axios
       .get('/config')
       .then(res => {
-        console.log(res.data.data.servantWxQrcode)
+        // console.log(res.data.data.servantWxQrcode)
           this.codeSrc=res.data.data.servantWxQrcode
            this.servant=res.data.data
       })
       .catch(err => {});
+      // 登陆刷新
+      this.$axios
+        .get('/user/login-refresh')
+        .then(res => {
+          // console.log(res.data.data.servantWxQrcode)
+            // this.codeSrc=res.data.data.servantWxQrcode
+            //  this.servant=res.data.data
+        })
+        .catch(err => {});
 	  // debugger;
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
@@ -470,7 +480,7 @@ el-row,.el-main {
 .tabbarRight span:hover {
   color: #ff7800;
 }
-.tabbarRight span:first-child {
+.tabbarRight a:first-child span {
   margin-left: 0;
 }
 
