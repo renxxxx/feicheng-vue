@@ -73,10 +73,12 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-						<router-link :to="{path:'/productPage/productPage_index'}">
-							<span>素材创意</span>
-						</router-link>
-            <span>找抖音号</span>
+			<router-link :to="{path:'/productPage/productPage_index'}">
+				<span>素材创意</span>
+			</router-link>
+			<router-link :to="{path:'/index'}">
+				<span>找抖音号</span>
+			</router-link>
             <span>LBS打卡</span>
             <span>种草带货</span>
             <span>品牌营销</span>
@@ -258,6 +260,7 @@ export default {
   },
   // 进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
+	  debugger
     next(vm => {
       document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
     });
@@ -270,7 +273,11 @@ export default {
 	  localStorage.removeItem('lastRoute')
 	}
   },
+  activated(){
+	debugger  
+  },
   mounted() {
+	  debugger;
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});

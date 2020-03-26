@@ -194,7 +194,7 @@
 			</keep-alive>
 		</el-col>
 		</el-row>
-		
+		<login ref= "loginRef"></login>
 		
   </div>
 </template>
@@ -202,6 +202,7 @@
 <script>
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
+import login from '../showPage/login.vue'
 export default {
   name: 'productPage',
   data(){
@@ -331,6 +332,9 @@ export default {
   },
   watch:{
    
+  },
+  components: {
+    login,
   },
   methods:{
     handleOpen(key, keyPath) {
@@ -475,16 +479,19 @@ export default {
 	padding-left: 30px;
 }
 .nav_user_search>input:active{
+	transition: all .5s;
 	color:#d95e00;
-	border: 1px solid #d95e00;
+	border: 1px solid #ff9429;
 }
 .nav_user_search>input:hover{
+	transition: all .5s;
 	color:#d95e00;
-	border: 1px solid #d95e00;
+	border: 1px solid #ff9429;
 }
 .nav_user_search>input:focus{
+	transition: all .5s;
 	color:#d95e00;
-	border: 1px solid #d95e00;
+	border: 1px solid #ff9429;
 }
 .nav_function{
 	height: 100%;
@@ -492,6 +499,11 @@ export default {
 	float: right;
 	margin-left: 12px;
 	position: relative;
+}
+.nav_function>svg:hover{
+	cursor: pointer;
+	color: #ff7800;
+	transition: color .2s ease;
 }
 .nav_function>svg:first-child{
 	position: absolute;
@@ -564,6 +576,7 @@ export default {
 	transition: all .3s;
 }
 .nav_data_xiala>ul>li:hover{
+	transition: all .3s;
 	background-color: hsla(0,0%,100%,.1);
 }
 #productPage {
@@ -574,6 +587,7 @@ export default {
   width: 100%;
   background-color: #2b2b2e;
   overflow: hidden;
+  min-width: 800px;
 }
 .height{
 	height: 100%;
@@ -605,6 +619,7 @@ export default {
 }
 .leftNav li:hover{
 	color: #ff7800!important;
+	transition: color .3s;
 	background-color: transparent!important
 }
 .data{

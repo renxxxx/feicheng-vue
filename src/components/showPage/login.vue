@@ -44,13 +44,19 @@ export default {
       }
     }
   },
+		
+	activated(){
+	},
+	deactivated(){
+		
+	},
   mounted() {
     // this.getData();
      // this.timer = setInterval(this.get, 20000);
      console.log(this.imgSrc)
   },
   methods: {
-    getData() {
+    getData(){
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {
@@ -66,7 +72,8 @@ export default {
               .then(res => {
                 console.log(res)
                 if(res.data.code==0){
-                  	this.$router.push({path:'/productPage/productPage_index'})
+					this.centerDialogVisible = false;
+                  	this.$router.replace({path:'/index'})
                 }
               })
               .catch(err => {});
