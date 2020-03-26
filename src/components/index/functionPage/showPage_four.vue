@@ -280,7 +280,7 @@ strong {
   transform: translateX(0px);
 }
 .mainbottom_mid > div {
-  background: url(../../assets/img/cityPic.d155ba3c.png) 0 0 no-repeat;
+  background: url(../../../assets/img/cityPic.d155ba3c.png) 0 0 no-repeat;
   background-size: 117px 117px;
   display: flex;
   padding-left: 57px;

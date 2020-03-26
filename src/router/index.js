@@ -3,7 +3,7 @@ import Store from '../store'
 import Router from 'vue-router'
 
 //展示页面
-import showPage from '@/components/product/showPage.vue'
+import showPage from '@/components/index/showPage.vue'
 //404错误页面
 import page404 from '@/components/404Page.vue'
 
