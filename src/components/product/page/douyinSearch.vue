@@ -137,8 +137,9 @@
 					</div>
 				</el-col>
 			</el-row>
-			<router-link :to="{path:'/searchDetails'}">
-				<el-row class="searchList_lie"  v-for="(user,index) in userList" :key="index">
+			<!-- <div @click="clickNewFn"> -->
+			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
+				<router-link target='_blank' :to="{path:'/searchDetails',query:{name:JSON.stringify(user)}}">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<img :src="user.logo" alt="">
@@ -176,8 +177,9 @@
 							</ul>
 						</div>
 					</el-col>
-				</el-row>
-			</router-link>
+				</router-link>
+			</el-row>
+			<!-- </div> -->
 			
 		</div>
 	</div>
@@ -278,6 +280,13 @@ export default {
 		this.nextPage();
 	},
 	methods: {
+		// clickNewFn(){
+		// 	console.log('ss')
+		// 	debugger
+		// 	this.$router.resolve({
+		// 	    path: '/searchDetails'
+		// 	})
+		// },
 		nextPage(){
 			this.page++;
 			this.getData();
@@ -699,6 +708,7 @@ export default {
 .searchList_lie:hover{
 	background: #3c3c3e;
 	transition: all .3s,height 0s;
+	cursor: pointer;
 }
 
 .searchList_lie_xinxi{
