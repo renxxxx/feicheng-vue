@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog class="popScan" title="欢迎登陆" :visible.sync="centerDialogVisible" width="402px" top="10vh" center>
+    <el-dialog class="popScan" title="欢迎登陆" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />
@@ -30,6 +30,7 @@ export default {
       imgSrc:'',
       loginTicket:'',
       value:1,
+      timer:''
       // imgSrc:'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA'
     };
   },
@@ -44,25 +45,30 @@ export default {
       }
     }
   },
-		
+
 	activated(){
 	},
 	deactivated(){
-		
+
 	},
   mounted() {
     // this.getData();
-     this.timer = setInterval(this.get, 20000);
-     console.log(this.imgSrc)
+
+     // console.log(this.imgSrc)
   },
   methods: {
+    closeLogin(){
+      console.log(123)
+        clearInterval(this.timer);
+    },
     getData(){
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {
-          console.log(res)
+          // console.log(res)
              this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
              this.loginTicket=res.data.data.loginTicket
+             this.timer = setInterval(this.get, 2000);
         })
         .catch(err => {});
     },
@@ -70,14 +76,14 @@ export default {
             this.$axios
               .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
-                console.log(res)
+                // console.log(res)
                 if(res.data.code==0){
-					this.centerDialogVisible = false;
+                    this.centerDialogVisible = false;
                   	this.$router.replace({path:'/index'})
                 }
               })
               .catch(err => {});
-            console.log(this.value);
+            // console.log(this.value);
           }
   },
    beforeDestroy() {

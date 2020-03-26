@@ -83,7 +83,8 @@
             <span>种草带货</span>
             <span>品牌营销</span>
             <span>DOU管家</span>
-            <el-button @click="loginFn">登录 / 注册</el-button>
+
+            <el-button v-if='' @click="loginFn">登录 / 注册</el-button>
           </div>
         </el-col>
       </el-row>
@@ -104,7 +105,7 @@
                 <div></div>
                 <div>KOL / BGM / POI / MCN / CPS</div>
               </div>
-              <div>立即使用</div>
+              <div @click="loginFn">立即使用</div>
             </div>
           </div>
         </div>
@@ -191,11 +192,27 @@
             <div><a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a></div>
             <div><a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a></div>
           </div>
-          <div class="footer_1_2"></div>
-          <div class="footer_1_3"></div>
-          <div class="footer_1_4"></div>
+          <div class="footer_1_2">
+            <div>热门工具</div>
+            <div><a href="https://data.newrank.cn/mins/wechat" target="_blank" rel="noopener noreferrer">分钟级监测</a>></div>
+            <div><a href="https://data.newrank.cn/pick/wechat/page" target="_blank" rel="noopener noreferrer">账号回采</a></div>
+          </div>
+          <div class="footer_1_3">
+            <div class="_GudV7S8W">联系客服</div>
+            <div class="_3gZSHcLe">邮箱：{{servant.servantEmail}}</div>
+            <div class="_3gZSHcLe">电话：{{servant.servantTel}}（工作日周一至周五9:30-18:00）</div>
+          </div>
+          <div class="footer_1_4">
+            <div>新抖服务号</div>
+            <div>
+              <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
+              <img :src="codeSrc" alt="">
+              </div>
+          </div>
         </div>
-        <div class="footer_2"></div>
+        <div class="footer_2">
+          <div class="_1bhE4WcF">{{servant.icp}}</div>
+        </div>
       </div>
     <!-- </el-footer> -->
     <!--  登陆扫码框 -->
@@ -224,6 +241,8 @@ export default {
   name: 'account',
   data() {
     return {
+      codeSrc:'',
+      servant:[]
        // centerDialogVisible: false
     };
   },
@@ -232,7 +251,7 @@ export default {
     debugger;
     let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
     this.scrollTop = scrollTop ? scrollTop : 0;
-    console.log(this.scrollTop);
+    // console.log(this.scrollTop);
     if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
       debugger;
       if (this.$vnode && this.$vnode.data.keepAlive) {
@@ -260,24 +279,42 @@ export default {
   },
   // 进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
-	  debugger
+	  // debugger
     next(vm => {
       document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
     });
 	//判断回调页是否与当前前进路由相等，如果相等，删除路径
 	let fromRoute =  JSON.stringify({path:from.path,name:from.name,query:from.query})
 	let lastRoute = localStorage.getItem('lastRoute')
-	console.log('fromRoute'+fromRoute)
-	console.log('lastRoute'+lastRoute)
+	// console.log('fromRoute'+fromRoute)
+	// console.log('lastRoute'+lastRoute)
 	if(fromRoute == lastRoute){
 	  localStorage.removeItem('lastRoute')
 	}
   },
   activated(){
-	debugger  
+	// debugger
   },
   mounted() {
-	  debugger;
+    // 获取配置信息
+    this.$axios
+      .get('/config')
+      .then(res => {
+        // console.log(res.data.data.servantWxQrcode)
+          this.codeSrc=res.data.data.servantWxQrcode
+           this.servant=res.data.data
+      })
+      .catch(err => {});
+      // 登陆刷新
+      this.$axios
+        .get('/user/login-refresh')
+        .then(res => {
+          // console.log(res.data.data.servantWxQrcode)
+            // this.codeSrc=res.data.data.servantWxQrcode
+            //  this.servant=res.data.data
+        })
+        .catch(err => {});
+	  // debugger;
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
@@ -443,7 +480,7 @@ el-row,.el-main {
 .tabbarRight span:hover {
   color: #ff7800;
 }
-.tabbarRight span:first-child {
+.tabbarRight a:first-child span {
   margin-left: 0;
 }
 
@@ -605,12 +642,52 @@ el-row,.el-main {
 .footer_1_3{
   flex-grow: 1;
 }
-.footer_1_1>div:nth-child(1){
+.footer_1_1>div:nth-child(1),.footer_1_2>div:nth-child(1){
   font-size: 16px;
       color: #ffffff;
       margin-bottom: 32px;
 }
-.footer_1_1>div:nth-child(2){
+.footer_1_1>div:nth-child(2),.footer_1_2>div:nth-child(2){
       margin-bottom: 15px;
+
+}
+.footer_1_1>div ,.footer_1_2>div a{
+    color: #ffffff;
+}
+.footer_1_3>div:nth-child(1){
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 32px;
+}
+.footer_1_3>div:nth-child(2),.footer_1_3>div:nth-child(3){
+      margin-bottom: 15px;
+}
+.footer_1_4{
+  position: relative;
+}
+.footer_1_4>div:nth-child(1){
+  font-size: 14px;
+      color: #fff;
+      text-align: center;
+}
+.footer_1_4>div:nth-child(2){
+      width: 100px;
+      height: 100px;
+      margin-top: 8px;
+}
+.footer_1_4 img{
+  width: 100px;
+  height: 100px;
+}
+.footer_2{
+  background: #353540;
+}
+.footer_2>div{
+  height: 53px;
+      line-height: 53px;
+      color: #787a7a;
+      font-size: 16px;
+      width: 1200px;
+      margin: auto;
 }
 </style>
