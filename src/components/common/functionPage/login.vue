@@ -79,6 +79,7 @@ export default {
                 // console.log(res)
                 if(res.data.code==0){
                     this.centerDialogVisible = false;
+					this.$store.state.refresh.loginRefresh()
                   	this.$router.replace({path:'/index'})
                 }
               })

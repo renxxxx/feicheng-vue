@@ -164,7 +164,7 @@
         </div>
         <div class="oneBox">
         <!-- 第一块 -->
-        <showPage_one></showPage_one>
+        <showPage_one ref="showPage_one"></showPage_one>
         <!-- 第二块 -->
         <showPage_two></showPage_two>
         <!-- 第三块 -->
@@ -296,6 +296,7 @@ export default {
 	// debugger
   },
   mounted() {
+	console.dir(this.$refs.showPage_one.$el.offsetHeight)
     // 获取配置信息
     this.$axios
       .get('/config')
@@ -306,14 +307,15 @@ export default {
       })
       .catch(err => {});
       // 登陆刷新
-      this.$axios
-        .get('/user/login-refresh')
-        .then(res => {
-          // console.log(res.data.data.servantWxQrcode)
-            // this.codeSrc=res.data.data.servantWxQrcode
-            //  this.servant=res.data.data
-        })
-        .catch(err => {});
+	  
+      // this.$axios
+      //   .get('/user/login-refresh')
+      //   .then(res => {
+      //     // console.log(res.data.data.servantWxQrcode)
+      //       // this.codeSrc=res.data.data.servantWxQrcode
+      //       //  this.servant=res.data.data
+      //   })
+      //   .catch(err => {});
 	  // debugger;
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
@@ -355,6 +357,7 @@ export default {
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData()
     }
+	
   }
 };
 </script>
