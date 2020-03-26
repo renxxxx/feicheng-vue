@@ -33,33 +33,35 @@
 			</el-row>
 			<el-row class="uer_zhixun" :gutter='2'>
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-					<div class="uer_zhixun_gongneng">
-						<div class="uer_zhixun_gongneng_hezi uer_scroll">
-							<span>[功能] 一句话了解新抖</span>
-							<span v-for="(item,inx) in 99" :key="inx">[教程] 如何快速了解一个城市的抖音号生态情况？</span>
+					<div class="uer_zhixun_gongneng" >
+						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
+							<span v-for="(item,inx) in articleOne" :key="inx">[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.brief}}</span>
 						</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
 					<div class="uer_zhixun_tuisong ">
-						<div class="uer_zhixun_tuisongList uer_scroll">
-							<div class="uer_zhixun_tuisongList_hezhi"  v-for="(item,inx) in 99" :key="inx">
-								<p><span>2020-02-17</span>[更新]【品牌营销】模块上线</p>
-								<p>包含<营销创意视频>、<品牌声量>、<带货品牌>、<抖音·品牌热DOU榜>四个功能模块，助你全方位了解品牌DOU势能。</p>
+						<div class="uer_zhixun_tuisongList uer_scroll" v-infinite-scroll="nextPageTwo" :infinite-scroll-disabled="loadTwo" infinite-scroll-distance="10">
+							<div class="uer_zhixun_tuisongList_hezhi"  v-for="(item,inx) in articleTwo" :key="inx">
+								<p>
+									<span>{{moment(item.createTime).format('YYYY-MM-DD')}}</span>
+									{{item.name}}
+								</p>
+								<p>{{item.brief}}</p>
 							</div>
 							<span>查看更多 ></span>
 						</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
-					<div class="uer_zhixun_lishi ">
-						<div class="uer_zhixun_lishiList uer_scroll">
-							<div class="uer_zhixun_lishiList_hezhi"  v-for="(item,inx) in 5" :key="inx">
+					<div class="uer_zhixun_lishi "  >
+						<div class="uer_zhixun_lishiList uer_scroll" v-infinite-scroll="nextPageThree" :infinite-scroll-disabled="loadThree" infinite-scroll-distance="10">
+							<div class="uer_zhixun_lishiList_hezhi"  v-for="(item,inx) in articleThree" :key="inx">
 								<div class="ant-timeline-item-tail"></div>
 								<div class="ant-timeline-item-head ant-timeline-item-head-gray"></div>
 								<div class="uer_zhixun_lishiList_hezhi_neirong">
-									<span>发发火就能涨粉百万，抖音上有群你不知道的暴躁博主</span>
-									<span>2 小时前</span>
+									<span>{{item.name}}</span>
+									<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
 								</div>
 							</div>
 							<span>查看更多 ></span>
@@ -81,8 +83,17 @@ export default {
   data() {
     return {
 		list:[require('../../../assets/img/1.png'),require('../../../assets/img/2.jpg'),require('../../../assets/img/3.jpg'),
-		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg'),]
-		
+		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg')],
+		typeList:[],
+		articleOne:[],
+		articleTwo:[],
+		articleThree:[],
+		pageOne:1,
+		pageTwo:1,
+		pageThree:1,
+		loadOne:false,
+		loadTwo:false,
+		loadThree:false,
     };
   },
   components: {
@@ -141,14 +152,81 @@ export default {
 		
 	  },
 	mounted() {
-		
+		this.getDataType()
 	},
 	activated(){
 		
 	},
 	deactivated(){
+		
 	},
 	methods: {
+		getDataType(){
+			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({articleClassificationUpperId:0}))
+			.then(res=>{
+				for(let i in res.data.data.itemList){
+					this.typeList.push(res.data.data.itemList[i])
+				}
+				this.nextPageOne();
+				this.nextPageTwo();
+				this.nextPageThree();
+			})
+			.catch()
+		},
+		getDataOne(){
+			this.loadOne = true
+			this.$axios.get("/user/article/article-list?"+qs.stringify({
+				articleClassificationUpperId:this.typeList[0].articleClassificationId,
+				pn:this.pageOne,
+				ps:5}))
+			.then(res=>{
+				for(let i in res.data.data.itemList){
+					this.articleOne.push(res.data.data.itemList[i])
+				}
+				this.loadOne = false
+			})
+			.catch()
+		},
+		getDataTwo(){
+			this.loadTwo = true
+			this.$axios.get("/user/article/article-list?"+qs.stringify({
+				articleClassificationUpperId:this.typeList[1].articleClassificationId,
+				pn:this.pageTwo,
+				ps:5}))
+			.then(res=>{
+				for(let i in res.data.data.itemList){
+					this.articleTwo.push(res.data.data.itemList[i])
+				}
+				this.loadTwo = false
+			})
+			.catch()
+		},
+		getDataThree(){
+			this.loadThree = true
+			this.$axios.get("/user/article/article-list?"+qs.stringify({
+				articleClassificationUpperId:this.typeList[2].articleClassificationId,
+				pn:this.pageThree,
+				ps:5}))
+			.then(res=>{
+				for(let i in res.data.data.itemList){
+					this.articleThree.push(res.data.data.itemList[i])
+				}
+				this.loadThree = false
+			})
+			.catch()
+		},
+		nextPageOne(){
+			this.getDataOne();
+			this.pageOne++;
+		},
+		nextPageTwo(){
+			this.getDataTwo();
+			this.pageTwo++;
+		},
+		nextPageThree(){
+			this.getDataThree();
+			this.pageThree++;
+		}
 	}
 };
 </script>

@@ -11,7 +11,7 @@ import store from './store'
 import jquery from 'jquery'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
-
+import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //版本号
@@ -23,7 +23,7 @@ Vue.prototype.$store = store
 Vue.prototype.$h5p = h5p
 Vue.prototype.qs = qs
 Vue.prototype.$jquery = jquery
-
+Vue.prototype.moment = moment;
 
 new Vue({
   el: '#app',
