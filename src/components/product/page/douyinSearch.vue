@@ -137,45 +137,48 @@
 					</div>
 				</el-col>
 			</el-row>
-			<el-row class="searchList_lie"  v-for="(user,index) in userList" :key="index">
-				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-					<div class="searchList_lie_xinxi">
-						<img :src="user.logo" alt="">
-						<div class="searchList_lie_xinxi_jianjie">
-							<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
-							<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
-							<!-- <span>{{user.name}}</span> -->
-							<p>
-								微信号{{user.wx}}
-								<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
-								<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
-							</p>
-							<p class="line-2">{{user.brief}}</p>
+			<router-link :to="{path:'/searchDetails'}">
+				<el-row class="searchList_lie"  v-for="(user,index) in userList" :key="index">
+					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
+						<div class="searchList_lie_xinxi">
+							<img :src="user.logo" alt="">
+							<div class="searchList_lie_xinxi_jianjie">
+								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
+								<!-- <span>{{user.name}}</span> -->
+								<p>
+									微信号{{user.wx}}
+									<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
+									<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
+								</p>
+								<p class="line-2">{{user.brief}}</p>
+							</div>
 						</div>
-					</div>
-				</el-col>
-				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
-					<div class="searchList_shuju">
-						<ul>
-							<!-- <li>
-								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
-							</li> -->
-							<li :class="clickData.one? 'xuanzhongColor':''">
-								<span>{{user.fansCount}}</span>
-							</li>
-							<li :class="clickData.two? 'xuanzhongColor':''">
-								<span>{{user.likeCount}}</span>
-							</li>
-							<li :class="clickData.three? 'xuanzhongColor':''">
-								<span>{{user.videoCount}}</span>
-							</li>
-							<li :class="clickData.four? 'xuanzhongColor':''">
-								<span>{{user.pv}}</span>
-							</li>
-						</ul>
-					</div>
-				</el-col>
-			</el-row>
+					</el-col>
+					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
+						<div class="searchList_shuju">
+							<ul>
+								<!-- <li>
+									<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
+								</li> -->
+								<li :class="clickData.one? 'xuanzhongColor':''">
+									<span>{{user.fansCount}}</span>
+								</li>
+								<li :class="clickData.two? 'xuanzhongColor':''">
+									<span>{{user.likeCount}}</span>
+								</li>
+								<li :class="clickData.three? 'xuanzhongColor':''">
+									<span>{{user.videoCount}}</span>
+								</li>
+								<li :class="clickData.four? 'xuanzhongColor':''">
+									<span>{{user.pv}}</span>
+								</li>
+							</ul>
+						</div>
+					</el-col>
+				</el-row>
+			</router-link>
+			
 		</div>
 	</div>
 </template>

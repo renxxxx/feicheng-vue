@@ -12,6 +12,11 @@ import productPage from '@/components/product/productPage.vue'
 import productPage_user from '@/components/product/page/user.vue'
 import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
 
+
+//产品详情页面
+import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
+
+
 Vue.use(Router)
 
 const router = new Router({
@@ -62,7 +67,12 @@ const router = new Router({
 			]
 		},
 		{
-			path:'/productDetails'
+			path: '/searchDetails',
+			name: 'searchDetails',
+			component: searchDetails,
+			meta: {auth:true},
+			// redirect:'/searchDetails/productPage_user',
+			
 		}
 	]
 })
