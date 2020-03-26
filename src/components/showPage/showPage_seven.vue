@@ -78,12 +78,14 @@
 <script></script>
 
 <style scoped>
+
 .main {
   background: #fff;
   padding-bottom: 160px;
   position: relative;
   height: 934px;
   z-index: 10;
+  box-sizing: border-box;
 }
 .main > svg {
   margin-top: 90px;

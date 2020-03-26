@@ -176,15 +176,29 @@
         <showPage_six></showPage_six>
         <!-- 第七塊 -->
         <showPage_seven></showPage_seven>
+        <!-- 第八块 -->
+        <showPage_eight></showPage_eight>
+        <!-- 第九块 -->
+        <showPage_nine></showPage_nine>
         </div>
       </div>
-      <div style="height: 1000px;width: 100%;background: #fff;"></div>
     </el-main>
-
-
-
+    <!-- <el-footer> -->
+      <div class="footer">
+        <div class="footer_1">
+          <div class="footer_1_1">
+            <div>关于我们</div>
+            <div><a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a></div>
+            <div><a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a></div>
+          </div>
+          <div class="footer_1_2"></div>
+          <div class="footer_1_3"></div>
+          <div class="footer_1_4"></div>
+        </div>
+        <div class="footer_2"></div>
+      </div>
+    <!-- </el-footer> -->
     <!--  登陆扫码框 -->
-
       <login ref="loginRef"></login>
 
 
@@ -201,6 +215,8 @@ import showPage_four from '../showPage/showPage_four.vue'
 import showPage_five from '../showPage/showPage_five.vue'
 import showPage_six from '../showPage/showPage_six.vue'
 import showPage_seven from '../showPage/showPage_seven.vue'
+import showPage_eight from '../showPage/showPage_eight.vue'
+import showPage_nine from '../showPage/showPage_nine.vue'
 
 
 import login from '../showPage/login.vue'
@@ -281,6 +297,8 @@ export default {
     showPage_five,
     showPage_six,
     showPage_seven,
+    showPage_eight,
+    showPage_nine,
     login,
   },
   activated() {},
@@ -566,4 +584,33 @@ el-row,.el-main {
     position: relative;
   }
 
+/* 底部 */
+.footer{
+      background: url(../../assets/img/footerBack.56fab624.png) 0 0 no-repeat;
+      background-size: 100% 200px;
+}
+.footer_1{
+  width: 1200px;
+      height: 200px;
+      display: flex;
+      padding-top: 32px;
+      margin: 0 auto;
+      box-sizing: border-box;
+}
+.footer_1_1,.footer_1_2,.footer_1_3,.footer_1_4{
+      margin-right: 64px;
+      position: relative;
+      color: #ffffff;
+}
+.footer_1_3{
+  flex-grow: 1;
+}
+.footer_1_1>div:nth-child(1){
+  font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 32px;
+}
+.footer_1_1>div:nth-child(2){
+      margin-bottom: 15px;
+}
 </style>
