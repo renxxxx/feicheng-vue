@@ -73,7 +73,7 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-			<router-link :to="{path:'/productPage/productPage_index'}">
+			<router-link :to="{path:'/productPage/productPage_user'}">
 				<span>素材创意</span>
 			</router-link>
 			<router-link :to="{path:'/index'}">
@@ -224,18 +224,18 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import showPage_one from '../showPage/showPage_one.vue'
-import showPage_two from '../showPage/showPage_two.vue'
-import showPage_three from '../showPage/showPage_three.vue'
-import showPage_four from '../showPage/showPage_four.vue'
-import showPage_five from '../showPage/showPage_five.vue'
-import showPage_six from '../showPage/showPage_six.vue'
-import showPage_seven from '../showPage/showPage_seven.vue'
-import showPage_eight from '../showPage/showPage_eight.vue'
-import showPage_nine from '../showPage/showPage_nine.vue'
+import showPage_one from './functionPage/showPage_one.vue'
+import showPage_two from './functionPage/showPage_two.vue'
+import showPage_three from './functionPage/showPage_three.vue'
+import showPage_four from './functionPage/showPage_four.vue'
+import showPage_five from './functionPage/showPage_five.vue'
+import showPage_six from './functionPage/showPage_six.vue'
+import showPage_seven from './functionPage/showPage_seven.vue'
+import showPage_eight from './functionPage/showPage_eight.vue'
+import showPage_nine from './functionPage/showPage_nine.vue'
 
 
-import login from '../showPage/login.vue'
+import login from '../common/functionPage/login.vue'
 export default {
   name: 'account',
   data() {

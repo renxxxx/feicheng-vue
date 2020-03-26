@@ -52,7 +52,7 @@ export default {
 	},
   mounted() {
     // this.getData();
-     // this.timer = setInterval(this.get, 20000);
+     this.timer = setInterval(this.get, 20000);
      console.log(this.imgSrc)
   },
   methods: {
