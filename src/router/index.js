@@ -11,11 +11,11 @@ import page404 from '@/components/404Page.vue'
 import productPage from '@/components/product/productPage.vue'
 import productPage_user from '@/components/product/page/user.vue'
 import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
-
+import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
 
 //产品详情页面
 import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
-
+import searchDetails_index from '@/components/productSearchDetails/page/index.vue'
 
 Vue.use(Router)
 
@@ -63,7 +63,12 @@ const router = new Router({
 					component: productPage_douyinSearch,
 					meta: {auth:true},
 				},
-				
+				{	
+					path: 'productPage_ruzhu',
+					name: 'productPage_ruzhu',
+					component: productPage_ruzhu,
+					meta: {auth:true},
+				}
 			]
 		},
 		{
@@ -71,8 +76,17 @@ const router = new Router({
 			name: 'searchDetails',
 			component: searchDetails,
 			meta: {auth:true},
-			// redirect:'/searchDetails/productPage_user',
-			
+			redirect:'/searchDetails/searchDetails_index',
+			children:[
+				// 登陆后的页面路径配置
+				{
+					path: 'searchDetails_index',
+					name: 'searchDetails_index',
+					component: searchDetails_index,
+					meta: {auth:true,unkeepLastRoute:true},
+				},
+
+			]
 		}
 	]
 })
