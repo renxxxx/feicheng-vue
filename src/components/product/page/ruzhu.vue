@@ -1,6 +1,6 @@
 <template>
 	<div class="ruzhu">
-		sssssssssssssssssssssssssssssssssssssssssss
+		1212
 	</div>
 </template>
 
@@ -70,5 +70,5 @@
 	}
 </script>
 
-<style>
+<style scoped>
 </style>
