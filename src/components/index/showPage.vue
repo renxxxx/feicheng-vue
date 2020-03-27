@@ -73,18 +73,13 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-			<router-link :to="{path:'/productPage/productPage_user'}">
-				<span>素材创意</span>
-			</router-link>
-			<router-link :to="{path:'/index'}">
-				<span>找抖音号</span>
-			</router-link>
-            <span>LBS打卡</span>
-            <span>种草带货</span>
-            <span>品牌营销</span>
-            <span>DOU管家</span>
+            <router-link :to="{ path: '/index' }"><span>找视频号</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }"><span>素材创意</span></router-link>
 
-            <el-button v-if='' @click="loginFn">登录 / 注册</el-button>
+            <span>视频号商学院</span>
+            <span>申请成为博主</span>
+
+            <el-button v-if="" @click="loginFn">登录 / 注册</el-button>
           </div>
         </el-col>
       </el-row>
@@ -95,21 +90,42 @@
         <div class="homeBack">
           <div class="homeBackIndex">
             <div>
-              <h1>飞辰全场景AI数据平台</h1>
+              <h1>视频号全场景AI数据平台</h1>
               <p>
-                全方位洞察抖音生态， 发掘热门视频、音乐，爆款商品及优质账号
+                全方位洞察视频号生态， 发掘热门视频、音乐，爆款商品及优质账号
                 <br />
                 有效助力账号运营变现，品牌策略投放
               </p>
               <div class="homeIntro">
                 <div></div>
-                <div>KOL / BGM / POI / MCN / CPS</div>
+                <div class="homeIntro_div">
+                  <span>
+                    <span class="ant-breadcrumb-link">CPS</span>
+                    <span class="ant-breadcrumb-separator">/</span>
+                  </span>
+                  <span>
+                    <span class="ant-breadcrumb-link">CPC</span>
+                    <span class="ant-breadcrumb-separator"></span>
+                  </span>
+                  <!-- <span>
+                    <span class="ant-breadcrumb-link">POI</span>
+                    <span class="ant-breadcrumb-separator">/</span>
+                  </span>
+                  <span>
+                    <span class="ant-breadcrumb-link">MCN</span>
+                    <span class="ant-breadcrumb-separator">/</span>
+                  </span>
+                  <span>
+                    <span class="ant-breadcrumb-link">CPS</span>
+                    <span class="ant-breadcrumb-separator">/</span>
+                  </span> -->
+                </div>
               </div>
               <div @click="loginFn">立即使用</div>
             </div>
           </div>
         </div>
-        <div class="downArrayIcon">
+        <div class="downArrayIcon" ref="showPage1">
           <div>
             <div>
               <svg width="28" height="28" viewBox="0 0 28 28">
@@ -162,88 +178,87 @@
             </div>
           </div>
         </div>
-        <div class="oneBox">
-        <!-- 第一块 -->
-        <showPage_one ref="showPage_one"></showPage_one>
-        <!-- 第二块 -->
-        <showPage_two></showPage_two>
-        <!-- 第三块 -->
-        <showPage_three></showPage_three>
-        <!-- 第四块 -->
-        <showPage_four></showPage_four>
-        <!-- 第五塊 -->
-        <showPage_five></showPage_five>
-        <!-- 第六塊 -->
-        <showPage_six></showPage_six>
-        <!-- 第七塊 -->
-        <showPage_seven></showPage_seven>
-        <!-- 第八块 -->
-        <showPage_eight></showPage_eight>
-        <!-- 第九块 -->
-        <showPage_nine></showPage_nine>
+        <div class="oneBox" ref="showPage2">
+          <!-- 第一块 -->
+          <showPage_one ref="showPage_one"></showPage_one>
+          <!-- 第二块 -->
+          <showPage_two ref="showPage_two"></showPage_two>
+          <!-- 第三块 -->
+          <showPage_three ref="showPage_three"></showPage_three>
+          <!-- 第四块 -->
+          <showPage_four ref="showPage_four"></showPage_four>
+          <!-- 第五塊 -->
+          <showPage_five ref="showPage_five"></showPage_five>
+          <!-- 第六塊 -->
+          <showPage_six ref="showPage_six"></showPage_six>
+          <!-- 第七塊 -->
+          <showPage_seven ref="showPage_seven"></showPage_seven>
+          <!-- 第八块 -->
+          <showPage_eight ref="showPage_eight"></showPage_eight>
+          <!-- 第九块 -->
+          <showPage_nine ref="showPage_nine"></showPage_nine>
         </div>
       </div>
     </el-main>
     <!-- <el-footer> -->
-      <div class="footer">
-        <div class="footer_1">
-          <div class="footer_1_1">
-            <div>关于我们</div>
-            <div><a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a></div>
-            <div><a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a></div>
-          </div>
-          <div class="footer_1_2">
-            <div>热门工具</div>
-            <div><a href="https://data.newrank.cn/mins/wechat" target="_blank" rel="noopener noreferrer">分钟级监测</a>></div>
-            <div><a href="https://data.newrank.cn/pick/wechat/page" target="_blank" rel="noopener noreferrer">账号回采</a></div>
-          </div>
-          <div class="footer_1_3">
-            <div class="_GudV7S8W">联系客服</div>
-            <div class="_3gZSHcLe">邮箱：{{servant.servantEmail}}</div>
-            <div class="_3gZSHcLe">电话：{{servant.servantTel}}（工作日周一至周五9:30-18:00）</div>
-          </div>
-          <div class="footer_1_4">
-            <div>新抖服务号</div>
-            <div>
-              <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
-              <img :src="codeSrc" alt="">
-              </div>
-          </div>
+    <div class="footer">
+      <div class="footer_1">
+        <div class="footer_1_1">
+          <div>关于我们</div>
+          <div><a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a></div>
+          <div><a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a></div>
         </div>
-        <div class="footer_2">
-          <div class="_1bhE4WcF">{{servant.icp}}</div>
+        <div class="footer_1_2">
+          <div>热门工具</div>
+          <div>
+            <a href="https://data.newrank.cn/mins/wechat" target="_blank" rel="noopener noreferrer">分钟级监测</a>
+            >
+          </div>
+          <div><a href="https://data.newrank.cn/pick/wechat/page" target="_blank" rel="noopener noreferrer">账号回采</a></div>
+        </div>
+        <div class="footer_1_3">
+          <div class="_GudV7S8W">联系客服</div>
+          <div class="_3gZSHcLe">邮箱：{{ servant.servantEmail }}</div>
+          <div class="_3gZSHcLe">电话：{{ servant.servantTel }}（工作日周一至周五9:30-18:00）</div>
+        </div>
+        <div class="footer_1_4">
+          <div>新抖服务号</div>
+          <div>
+            <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
+            <img :src="codeSrc" alt="" />
+          </div>
         </div>
       </div>
+      <div class="footer_2">
+        <div class="_1bhE4WcF">{{ servant.icp }}</div>
+      </div>
+    </div>
     <!-- </el-footer> -->
     <!--  登陆扫码框 -->
-      <login ref="loginRef"></login>
-
-
-
+    <login ref="loginRef"></login>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import showPage_one from './functionPage/showPage_one.vue'
-import showPage_two from './functionPage/showPage_two.vue'
-import showPage_three from './functionPage/showPage_three.vue'
-import showPage_four from './functionPage/showPage_four.vue'
-import showPage_five from './functionPage/showPage_five.vue'
-import showPage_six from './functionPage/showPage_six.vue'
-import showPage_seven from './functionPage/showPage_seven.vue'
-import showPage_eight from './functionPage/showPage_eight.vue'
-import showPage_nine from './functionPage/showPage_nine.vue'
+import showPage_one from './functionPage/showPage_one.vue';
+import showPage_two from './functionPage/showPage_two.vue';
+import showPage_three from './functionPage/showPage_three.vue';
+import showPage_four from './functionPage/showPage_four.vue';
+import showPage_five from './functionPage/showPage_five.vue';
+import showPage_six from './functionPage/showPage_six.vue';
+import showPage_seven from './functionPage/showPage_seven.vue';
+import showPage_eight from './functionPage/showPage_eight.vue';
+import showPage_nine from './functionPage/showPage_nine.vue';
 
-
-import login from '../common/functionPage/login.vue'
+import login from '../common/functionPage/login.vue';
 export default {
   name: 'account',
   data() {
     return {
-      codeSrc:'',
-      servant:[]
-       // centerDialogVisible: false
+      codeSrc: '',
+      servant: []
+      // centerDialogVisible: false
     };
   },
   directives: {},
@@ -279,54 +294,53 @@ export default {
   },
   // 进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
-	  // debugger
+    // debugger
     next(vm => {
       document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
     });
-	//判断回调页是否与当前前进路由相等，如果相等，删除路径
-	let fromRoute =  JSON.stringify({path:from.path,name:from.name,query:from.query})
-	let lastRoute = localStorage.getItem('lastRoute')
-	// console.log('fromRoute'+fromRoute)
-	// console.log('lastRoute'+lastRoute)
-	if(fromRoute == lastRoute){
-	  localStorage.removeItem('lastRoute')
-	}
+    //判断回调页是否与当前前进路由相等，如果相等，删除路径
+    let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
+    let lastRoute = localStorage.getItem('lastRoute');
+    // console.log('fromRoute'+fromRoute)
+    // console.log('lastRoute'+lastRoute)
+    if (fromRoute == lastRoute) {
+      localStorage.removeItem('lastRoute');
+    }
   },
-  activated(){
-	// debugger
+  activated() {
+    // debugger
   },
+
   mounted() {
-	console.dir(this.$refs.showPage_one.$el.offsetHeight)
+    // console.log(this.$refs.showPage1.offsetTop);
+    // console.log(this.$refs.showPage2.offsetTop);
+    // console.log(this.$refs.showPage_one.$el.offsetHeight);
+    // console.log(this.$refs.showPage_two.$el.offsetHeight);
+    window.addEventListener('scroll', this.scrollToTop, true);
     // 获取配置信息
     this.$axios
       .get('/config')
       .then(res => {
-        // console.log(res.data.data.servantWxQrcode)
-          this.codeSrc=res.data.data.servantWxQrcode
-           this.servant=res.data.data
+        this.codeSrc = res.data.data.servantWxQrcode;
+        this.servant = res.data.data;
       })
       .catch(err => {});
-      // 登陆刷新
-	  
-      // this.$axios
-      //   .get('/user/login-refresh')
-      //   .then(res => {
-      //     // console.log(res.data.data.servantWxQrcode)
-      //       // this.codeSrc=res.data.data.servantWxQrcode
-      //       //  this.servant=res.data.data
-      //   })
-      //   .catch(err => {});
-	  // debugger;
+    // 登陆刷新
+    this.$axios
+      .get('/user/login-refresh')
+      .then(res => {})
+      .catch(err => {});
+    // debugger;
     // if(this.$store.state.hospitalEntrance.loginRefresh())
     //  this.$toast({message:'已登录',onClose:function(){
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
     //  }})
-	// 跳转回跳页面
-	let lastRoute = localStorage.getItem('lastRoute')
-	if(lastRoute){
-		this.$router.push(JSON.parse(lastRoute));
-		return
-	}
+    // 跳转回跳页面
+    let lastRoute = localStorage.getItem('lastRoute');
+    if (lastRoute) {
+      this.$router.push(JSON.parse(lastRoute));
+      return;
+    }
   },
   components: {
     showPage_one,
@@ -338,26 +352,107 @@ export default {
     showPage_seven,
     showPage_eight,
     showPage_nine,
-    login,
+    login
   },
   activated() {},
-  computed:{
+  computed: {
     // ...mapGetters(['centerDialogVisible'])
-    centerDialogVisible:{
+    centerDialogVisible: {
       get: function() {
-        return this.$store.state.centerDialogVisible
+        return this.$store.state.centerDialogVisible;
       },
-      set: function (newValue) {
+      set: function(newValue) {
         this.$store.state.centerDialogVisible = newValue;
-      },
+      }
     }
   },
   methods: {
-    loginFn(){
+    loginFn() {
       this.centerDialogVisible = true;
-      this.$refs.loginRef.getData()
+      this.$refs.loginRef.getData();
+    },
+    scrollToTop() {
+      var scrollTop = document.getElementById('showPage').scrollTop;
+      // var height1 = this.$refs.showPage1.offsetTop;
+      // var height2 = this.$refs.showPage2.offsetTop;
+      // console.dir(this.$refs.showPage_two.$el.offsetHeight)
+      var height2=0
+      var height3 = height2 + this.$refs.showPage_one.$el.offsetHeight;
+      var height4 = height3 + this.$refs.showPage_two.$el.offsetHeight;
+      var height5 = height4 + this.$refs.showPage_three.$el.offsetHeight;
+      var height6 = height5 + this.$refs.showPage_four.$el.offsetHeight;
+      var height7 = height6 + this.$refs.showPage_five.$el.offsetHeight;
+      var height8 = height7 + this.$refs.showPage_six.$el.offsetHeight;
+      var height9 = height8 + this.$refs.showPage_eight.$el.offsetHeight;
+      var height10 = height9 + this.$refs.showPage_nine.$el.offsetHeight;
+      console.log(scrollTop, height2,height3,height4);
+      if (scrollTop >= height3/2) {
+
+        document.getElementById('one_1').setAttribute('class','oneBox_mid_line oneBox_mid_line_one_1')
+        document.getElementById('one_2').setAttribute('class','oneBox_mid_line oneBox_mid_line_two_1')
+        document.getElementById('one_3').setAttribute('class','oneBox_mid_line oneBox_mid_line_three_1')
+        document.getElementById('one_4').setAttribute('class','oneBox_mid_line oneBox_mid_line_four_1')
+        document.getElementById('one_5').setAttribute('class','oneBox_mid_line oneBox_mid_line_five_1')
+
+      }
+      if(scrollTop>=height3+400){
+        console.log(document.getElementById('two_1'))
+          document.getElementById('two_1').setAttribute('class','box_indexLf transitionlF_2')
+          setTimeout(function(){
+          document.getElementById('two_2').setAttribute('class','box_indexRt transitionlFTwo_2')
+            },200)
+      }
+      if(scrollTop>=height4+400){
+        document.getElementById('three_1').setAttribute('class',' mainmid_one transitionlF_3')
+       setTimeout(function(){
+         document.getElementById('three_2').setAttribute('class',' mainmid_two transitionlFTwo_3')
+       },200)
+      }
+      if(scrollTop>=height5+800){
+        document.getElementById('four_1').setAttribute('class',' mainbottom_top mainbottom_top_transition_4')
+       setTimeout(function(){
+         document.getElementById('four_2').setAttribute('class',' mainbottom_mid mainbottom_mid_transition_4')
+       },200)
+       setTimeout(function(){
+         document.getElementById('four_3').setAttribute('class',' mainbottom_bottom mainbottom_bottom_transition_4')
+       },400)
+      }
+
+      if(scrollTop>=height6+800){
+        document.getElementById('five_1').setAttribute('class',' mainmid_one_top mainmid_one_top_transition_5')
+       setTimeout(function(){
+         document.getElementById('five_2').setAttribute('class',' mainmid_one_mid mainmid_one_mid_transition_5')
+       },200)
+      }
+
+      if(scrollTop>=height7+600){
+        document.getElementById('six_1').setAttribute('class',' mainbottom mainbottom_transition_6')
+      }
+
+      if(scrollTop>=height8+400){
+        document.getElementById('seven_1').setAttribute('class',' maindiv_two_top maindiv_two_top_transition_7')
+        }
+         if(scrollTop>=height8+600){
+           document.getElementById('seven_2').setAttribute('class',' maindiv_two_bottom maindiv_two_bottom_transition_7')
+         }
+         if(scrollTop>=height8+800){
+           document.getElementById('seven_3').setAttribute('class',' maindiv_three maindiv_three_transition_7')
+         }
+
+         if(scrollTop>=height9+600){
+           document.getElementById('eight_1').setAttribute('class',' main_bottom main_bottom_transition_8')
+         }
+ if(scrollTop>=height10+700){
+           document.getElementById('nine_1').setAttribute('class',' main main_transition_9')
+         }
+      //  setTimeout(function(){
+
+      //  },200)
+      //  setTimeout(function(){
+      //    document.getElementById('seven_3').setAttribute('class',' maindiv_three maindiv_three_transition_7')
+      //  },400)
+      // }
     }
-	
   }
 };
 </script>
@@ -404,10 +499,11 @@ export default {
 }
  */
 html {
-
-  font-size: 16px;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 16px;
+  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
   padding: 0;
   box-sizing: border-box !important;
 }
@@ -437,7 +533,8 @@ html {
   background-color: #e0e0e0;
   border-radius: 50px;
 }
-el-row,.el-main {
+el-row,
+.el-main {
   padding: 0;
 }
 .showPage {
@@ -499,14 +596,14 @@ el-row,.el-main {
 }
 .el-main {
   width: 100% !important;
-      min-width: 1300px;
-      overflow: hidden;
-      background: #fff;
+  min-width: 1300px;
+  overflow: hidden;
+  background: #fff;
 }
-.main{
-    min-width: 1300px;
-    overflow: hidden;
-    background: #fff;
+.main {
+  min-width: 1300px;
+  overflow: hidden;
+  background: #fff;
 }
 .homeBack {
   /* width: 100% !important;
@@ -518,22 +615,21 @@ el-row,.el-main {
   position: relative;
   padding: 0; */
   height: 100vh;
-      min-height: 650px;
-      padding-top: 1px;
-      background: #40404d;
-      position: relative;
+  min-height: 650px;
+  padding-top: 1px;
+  background: #40404d;
+  position: relative;
 }
 .homeBackIndex {
-
-      height: 650px;
-      background: url(../../assets/img/homeBack.7ca33676.gif) 0 -123px no-repeat;
-      background-size: cover;
-      position: absolute;
-      width: 100%;
-      left: 0;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
+  height: 650px;
+  background: url(../../assets/img/homeBack.7ca33676.gif) 0 -123px no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .homeBackIndex > div {
   width: 1200px;
@@ -591,7 +687,17 @@ el-row,.el-main {
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
-
+.homeIntro_div{
+     font-family: DINPro Medium,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !important;
+}
+.homeIntro .homeIntro_div>span{
+color: #ffffff;
+font-family: inherit;
+}
+.homeIntro .homeIntro_div>span span:nth-child(2){
+      margin: 0 8px;
+      color: #cdcfcf;
+}
 .downArrayIcon {
   height: 25px;
   width: 1200px;
@@ -616,81 +722,87 @@ el-row,.el-main {
   -webkit-animation: _2NRMCHUL 1s linear infinite;
   animation: _2NRMCHUL 1s linear infinite;
 }
- .oneBox {
-    width: 100%;
-    height: auto;
-    background: #fff;
-    padding-top: 108px;
-    position: relative;
-  }
-
-/* 底部 */
-.footer{
-      background: url(../../assets/img/footerBack.56fab624.png) 0 0 no-repeat;
-      background-size: 100% 200px;
-}
-.footer_1{
-  width: 1200px;
-      height: 200px;
-      display: flex;
-      padding-top: 32px;
-      margin: 0 auto;
-      box-sizing: border-box;
-}
-.footer_1_1,.footer_1_2,.footer_1_3,.footer_1_4{
-      margin-right: 64px;
-      position: relative;
-      color: #ffffff;
-}
-.footer_1_3{
-  flex-grow: 1;
-}
-.footer_1_1>div:nth-child(1),.footer_1_2>div:nth-child(1){
-  font-size: 16px;
-      color: #ffffff;
-      margin-bottom: 32px;
-}
-.footer_1_1>div:nth-child(2),.footer_1_2>div:nth-child(2){
-      margin-bottom: 15px;
-
-}
-.footer_1_1>div ,.footer_1_2>div a{
-    color: #ffffff;
-}
-.footer_1_3>div:nth-child(1){
-      font-size: 16px;
-      color: #fff;
-      margin-bottom: 32px;
-}
-.footer_1_3>div:nth-child(2),.footer_1_3>div:nth-child(3){
-      margin-bottom: 15px;
-}
-.footer_1_4{
+.oneBox {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  padding-top: 108px;
   position: relative;
 }
-.footer_1_4>div:nth-child(1){
+
+/* 底部 */
+.footer {
+  background: url(../../assets/img/footerBack.56fab624.png) 0 0 no-repeat;
+  background-size: 100% 200px;
+}
+.footer_1 {
+  width: 1200px;
+  height: 200px;
+  display: flex;
+  padding-top: 32px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.footer_1_1,
+.footer_1_2,
+.footer_1_3,
+.footer_1_4 {
+  margin-right: 64px;
+  position: relative;
+  color: #ffffff;
+}
+.footer_1_3 {
+  flex-grow: 1;
+}
+.footer_1_1 > div:nth-child(1),
+.footer_1_2 > div:nth-child(1) {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+.footer_1_1 > div:nth-child(2),
+.footer_1_2 > div:nth-child(2) {
+  margin-bottom: 15px;
+}
+.footer_1_1 > div,
+.footer_1_2 > div a {
+  color: #ffffff;
+}
+.footer_1_3 > div:nth-child(1) {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 32px;
+}
+.footer_1_3 > div:nth-child(2),
+.footer_1_3 > div:nth-child(3) {
+  margin-bottom: 15px;
+}
+.footer_1_4 {
+  position: relative;
+}
+.footer_1_4 > div:nth-child(1) {
   font-size: 14px;
-      color: #fff;
-      text-align: center;
+  color: #fff;
+  text-align: center;
 }
-.footer_1_4>div:nth-child(2){
-      width: 100px;
-      height: 100px;
-      margin-top: 8px;
+.footer_1_4 > div:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  margin-top: 8px;
 }
-.footer_1_4 img{
+.footer_1_4 img {
   width: 100px;
   height: 100px;
 }
-.footer_2{
+.footer_2 {
   background: #353540;
 }
-.footer_2>div{
+.footer_2 > div {
   height: 53px;
-      line-height: 53px;
-      color: #787a7a;
-      font-size: 16px;
-      width: 1200px;
-      margin: auto;
+  line-height: 53px;
+  color: #787a7a;
+  font-size: 16px;
+  width: 1200px;
+  margin: auto;
 }
 </style>

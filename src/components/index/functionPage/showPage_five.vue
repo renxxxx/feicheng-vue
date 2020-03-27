@@ -16,8 +16,8 @@
       </div>
       <div class="mainmid">
         <div class="mainmid_one">
-          <div class="mainmid_one_top mainmid_one_top_transition"></div>
-          <div class="mainmid_one_mid mainmid_one_mid_transition"></div>
+          <div id="five_1" class="mainmid_one_top mainmid_one_top_transition"></div>
+          <div id="five_2" class="mainmid_one_mid mainmid_one_mid_transition"></div>
         </div>
         <div class="mainmid_two">
           <div class="_2-fRwiyK"></div>
@@ -114,8 +114,8 @@
         transform: translateX(720px);
         opacity: 0;
   }
-  .mainmid_one_top_transition{
-        transition: all 0.3s ease-out, opacity 0.4s ease-out;
+  .mainmid_one_top_transition_5{
+        transition: all 0.8s ease-out, opacity 0.4s ease-out;
         opacity: 1;
         transform: translateX(0px);
   }
@@ -130,8 +130,8 @@
         background-size: 100% 100%;
         margin-top: 40px;
   }
-  .mainmid_one_mid_transition{
-        transition: all 0.3s ease-out 0.1s, opacity 0.4s ease-out 0.1s;
+  .mainmid_one_mid_transition_5{
+        transition: all 0.8s ease-out 0.1s, opacity 0.4s ease-out 0.1s;
         opacity: 1;
         transform: translateX(0px);
   }

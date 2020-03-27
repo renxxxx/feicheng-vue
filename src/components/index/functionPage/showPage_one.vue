@@ -17,7 +17,7 @@
     <div class="oneBox_main">
       <div class="oneBox_lf"></div>
       <div class="oneBox_mid">
-        <div class="oneBox_mid_line  oneBox_mid_line_one">
+        <div id='one_1' class="oneBox_mid_line  oneBox_mid_line_one">
           <div class="oneBox_mid_line_top  oneBox_mid_line_top_one" ref="mouseImg"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="49" height="49" viewBox="0 0 49 49">
@@ -57,7 +57,7 @@
             <div>视频</div>
           </div>
         </div>
-        <div class="oneBox_mid_line oneBox_mid_line_two">
+        <div id='one_2' class="oneBox_mid_line oneBox_mid_line_two">
           <div class="oneBox_mid_line_top  oneBox_mid_line_top_two" ref="mouseImg"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48.5" height="48.5" viewBox="0 0 48.5 48.5">
@@ -139,7 +139,7 @@
             <div>音乐</div>
           </div>
         </div>
-        <div class="oneBox_mid_line oneBox_mid_line_three">
+        <div id='one_3' class="oneBox_mid_line oneBox_mid_line_three">
           <div class="oneBox_mid_line_top  oneBox_mid_line_top_three" ref="mouseImg"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48" height="48" viewBox="0 0 48 48">
@@ -191,7 +191,7 @@
             <div>评论</div>
           </div>
         </div>
-        <div class="oneBox_mid_line oneBox_mid_line_four">
+        <div id='one_4' class="oneBox_mid_line oneBox_mid_line_four">
           <div class="oneBox_mid_line_top  oneBox_mid_line_top_four" ref="mouseImg"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48.3" height="48.3" viewBox="0 0 48.3 48.3">
@@ -264,7 +264,7 @@
             <div>话题</div>
           </div>
         </div>
-        <div class="oneBox_mid_line oneBox_mid_line_five">
+        <div id='one_5' class="oneBox_mid_line oneBox_mid_line_five">
           <div class="oneBox_mid_line_top  oneBox_mid_line_top_five" ref="mouseImg"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48" height="48" viewBox="0 0 48 48">
@@ -433,31 +433,31 @@ export default {
   -webkit-transform: translateX(720px);
   transform: translateX(720px);
 }
-.oneBox_mid_line_one {
+.oneBox_mid_line_one_1 {
   transition: all 0.5s ease-out, opacity 0.8s ease-out;
   background: url(../../../assets/img/video-g.c7cfbf04.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
-.oneBox_mid_line_two {
+.oneBox_mid_line_two_1 {
   transition: all 0.5s ease-out 0.1s, opacity 0.8s ease-out 0.1s;
   background: url(../../../assets/img/music-g.9f9f527a.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
-.oneBox_mid_line_three {
+.oneBox_mid_line_three_1 {
   transition: all 0.5s ease-out 0.2s, opacity 0.8s ease-out 0.2s;
   background: url(../../../assets/img/topic-g.34bdf7e4.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
-.oneBox_mid_line_four {
+.oneBox_mid_line_four_1 {
   transition: all 0.5s ease-out 0.3s, opacity 0.8s ease-out 0.3s;
   background: url(../../../assets/img/comment-g.31b32840.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
-.oneBox_mid_line_five {
+.oneBox_mid_line_five_1 {
   transition: all 0.5s ease-out 0.4s, opacity 0.8s ease-out 0.4s;
   background: url(../../../assets/img/scene-g.5d527efe.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;

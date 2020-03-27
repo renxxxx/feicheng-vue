@@ -16,13 +16,13 @@
       </div>
       <div class="mainbottom">
         <div>
-          <div class="mainbottom_top mainbottom_top_transition">
+          <div id="four_1" class="mainbottom_top mainbottom_top_transition">
             <div>
               <div class="over_one"></div>
               <div class="over_two"></div>
             </div>
           </div>
-          <div class="mainbottom_mid mainbottom_mid_transition">
+          <div id="four_2" class="mainbottom_mid mainbottom_mid_transition">
             <div>
               <div class="mainbottom_mid_one"></div>
               <div class="mainbottom_mid_two">
@@ -90,7 +90,7 @@
               </div>
             </div>
           </div>
-          <div class="mainbottom_bottom mainbottom_bottom_transition">
+          <div id="four_3" class="mainbottom_bottom mainbottom_bottom_transition">
             <div>POI<svg width="16" height="16"><g data-name="\u7EC4 6059" transform="translate(-.288)"><circle data-name="\u692D\u5706 1520" cx="3" cy="3" r="3" transform="translate(5.288 5)" fill="#ff7800"></circle><g data-name="\u692D\u5706 1521" transform="translate(.288)" stroke="#ff7800" fill="none"><circle cx="8" cy="8" r="8" stroke="none"></circle><circle cx="8" cy="8" r="7.5"></circle></g></g></svg></div>
             <div>KOL<svg width="16" height="16"><g data-name="\u7EC4 6060" transform="translate(-360 -4682.122)"><circle data-name="\u692D\u5706 1522" cx="3" cy="3" r="3" transform="translate(365 4687.122)" fill="#5ca1e6"></circle><g data-name="\u692D\u5706 1523" transform="translate(360 4682.122)" stroke="#5ca1e6" fill="none"><circle cx="8" cy="8" r="8" stroke="none"></circle><circle cx="8" cy="8" r="7.5"></circle></g></g></svg></div>
           </div>
@@ -195,7 +195,7 @@ strong {
   left: 297px;
   top: 255px;
 }
-.mainbottom_top_transition {
+.mainbottom_top_transition_4 {
   transition: all 0.5s ease-out;
   opacity: 1;
 }
@@ -274,7 +274,7 @@ strong {
   position: absolute;
   opacity: 0;
 }
-.mainbottom_mid_transition {
+.mainbottom_mid_transition_4 {
   transition: all 0.4s ease-out 0.2s, opacity 0.4s ease-out 0.2s;
   opacity: 1;
   transform: translateX(0px);
@@ -359,7 +359,7 @@ display: flex;
       top: 522px;
       right: 0;
 }
-.mainbottom_bottom_transition{
+.mainbottom_bottom_transition_4{
   transition: all 0.5s ease-out;
       opacity: 1;
 }

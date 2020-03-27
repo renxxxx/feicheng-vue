@@ -15,10 +15,10 @@
         </div>
       </div>
       <div class="box_index">
-        <div class="box_indexLf transitionlF">
+        <div id="two_1" class="box_indexLf transitionlF">
 
         </div>
-        <div class="box_indexRt transitionlFTwo">
+        <div id="two_2" class="box_indexRt transitionlFTwo">
             <div class="box_indexRt_one">
               <strong>抖音带货效果分析</strong>
               <span>REPORT</span>
@@ -157,23 +157,23 @@ width: 377px;
     -webkit-perspective: 1000;
     position: relative;
    }
-   .transitionlF{
+   .transitionlF_2{
          transition: all 0.5s ease-out, opacity 0.8s ease-out;
          opacity: 1;
          transform: translateX(0px);
    }
    .box_indexRt{
-          /* width: 858px; */
-         /* height: 607px; */
-         width: 761px;
-         height: 471px;
-         background: #40404d;
-         border-radius: 8px 8px 0 8px;
-          padding: 40px 46px 96px 51px;
-         -webkit-backface-visibility: hidden;
-         -webkit-perspective: 1000;
+            width: 858px;
+            height: 607px;
+            background: #40404d;
+            border-radius: 8px 8px 0 8px;
+            padding: 40px 46px 96px 51px;
+            -webkit-backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            box-sizing: border-box;
+            opacity: 0;
    }
-   .transitionlFTwo{
+   .transitionlFTwo_2{
          transition: all 0.5s ease-out 0.4s, opacity 0.8s ease-out 0.4s;
          opacity: 1;
          transform: translateX(0px);

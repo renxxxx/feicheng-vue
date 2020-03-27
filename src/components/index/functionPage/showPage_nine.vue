@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%;">
-    <div class="main main_transition">
+    <div id="nine_1" class="main main_transition">
       <div>
         <div class="main_top"><strong><span>120+</span>项数据永久免费</strong></div>
         <div class="main_mid">
@@ -53,7 +53,7 @@
           transform: translateY(400px);
           background-color: #fff;
     }
-    .main_transition{
+    .main_transition_9{
           transition: all 0.4s ease-out, opacity 0.5s ease-out;
           opacity: 1;
           transform: translateY(0px);
