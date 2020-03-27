@@ -28,7 +28,7 @@ yarn-error.log*
 hs_err_pid*
 
 bin/
-
+build/
 target/
 
 .classpath
@@ -37,3 +37,5 @@ target/
 .svn/
 
 .idea/
+
+node_modules/
