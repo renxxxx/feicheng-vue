@@ -1,17 +1,12 @@
 <template>
   <div class="ruzhu">
-
     <div>
       <el-row style="height: 60px;">
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10"><span class="maintop">博主入驻:</span></el-col>
       </el-row>
     </div>
     <div class="people_detail">
-
-
-
       <el-row>
-
         <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
           <ul>
             <li>基本信息:</li>
@@ -30,6 +25,7 @@
               <el-input  type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
+
               <span>账号类型:</span>
              <el-select v-model="value" placeholder="请选择">
                 <el-option
@@ -104,8 +100,8 @@
       <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
     </div>
   </div>
-</template>
 
+</template>
 <script>
   // const cityOptions = ['上海', '北京', '广州', '深圳'];
 import axios from 'axios';
@@ -218,7 +214,6 @@ export default {
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
       const isLt2M = file.size / 1024 / 1024 < 10;
-
       // if (!isJPG) {
       //   this.$message.error('上传头像图片只能是 JPG/PNG 格式!');
       // }
@@ -244,18 +239,16 @@ export default {
             this.checkAll = checkedCount === this.cities.length;
             this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
           },
-
-
   }
 };
 </script>
-
 <style scoped>
 .ruzhu {
   background: #3a3a3e;
   height: auto;
   min-width: 1000px;
   width: 100%;
+
   height: auto;
   padding-bottom: 50px;
 }
@@ -267,6 +260,8 @@ export default {
   color: #787a7a;
   /* font-weight: bolder; */
 }
+
+
 /* 头像上传 */
 /* .avatorUp {
   width: 100px;
@@ -304,6 +299,7 @@ export default {
     height: 148px;
     display: block;
   }
+
 ul>li{
   font-size: 16px;
    color: #8c939d;
