@@ -35,19 +35,25 @@
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
 					<div class="uer_zhixun_gongneng" >
 						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
-							<span v-for="(item,inx) in articleOne" :key="inx">[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.brief}}</span>
+							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;">
+								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
+									<span >[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.brief}}</span>
+								<!-- </router-link> -->
+							</div>
 						</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
 					<div class="uer_zhixun_tuisong ">
 						<div class="uer_zhixun_tuisongList uer_scroll" v-infinite-scroll="nextPageTwo" :infinite-scroll-disabled="loadTwo" infinite-scroll-distance="10">
-							<div class="uer_zhixun_tuisongList_hezhi"  v-for="(item,inx) in articleTwo" :key="inx">
-								<p>
-									<span>{{moment(item.createTime).format('YYYY-MM-DD')}}</span>
-									{{item.name}}
-								</p>
-								<p>{{item.brief}}</p>
+							<div class="uer_zhixun_tuisongList_hezhi" @click="detailClickFn(item)" v-for="(item,inx) in articleTwo" :key="inx">
+								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
+									<p>
+										<span>{{moment(item.createTime).format('YYYY-MM-DD')}}</span>
+										{{item.name}}
+									</p>
+									<p>{{item.brief}}</p>
+								<!-- </router-link> -->
 							</div>
 							<span>查看更多 ></span>
 						</div>
@@ -56,13 +62,15 @@
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
 					<div class="uer_zhixun_lishi "  >
 						<div class="uer_zhixun_lishiList uer_scroll" v-infinite-scroll="nextPageThree" :infinite-scroll-disabled="loadThree" infinite-scroll-distance="10">
-							<div class="uer_zhixun_lishiList_hezhi"  v-for="(item,inx) in articleThree" :key="inx">
+							<div class="uer_zhixun_lishiList_hezhi" @click="detailClickFn(item)" v-for="(item,inx) in articleThree" :key="inx">
+								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
 								<div class="ant-timeline-item-tail"></div>
 								<div class="ant-timeline-item-head ant-timeline-item-head-gray"></div>
-								<div class="uer_zhixun_lishiList_hezhi_neirong">
-									<span>{{item.name}}</span>
-									<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
-								</div>
+									<div class="uer_zhixun_lishiList_hezhi_neirong">
+										<span>{{item.name}}</span>
+										<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
+									</div>
+								<!-- </router-link> -->
 							</div>
 							<span>查看更多 ></span>
 						</div>
@@ -161,6 +169,15 @@ export default {
 		
 	},
 	methods: {
+		detailClickFn(_data){
+			console.log(_data)
+			if(!_data.link){
+				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
+				window.open('http://localhost:9090/#/articleDetails?data='+JSON.stringify(_data), '_blank');
+			}else{
+				window.open(_data.content, '_blank');
+			}
+		},
 		getDataType(){
 			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({articleClassificationUpperId:0}))
 			.then(res=>{
@@ -316,7 +333,7 @@ export default {
 	height: 100%;
 	overflow-y: scroll;
 }
-.uer_zhixun_gongneng_hezi>span,.uer_zhixun_lishi>span{
+.uer_zhixun_gongneng_hezi span,.uer_zhixun_lishi>span{
 	height: 30px;
 	line-height: 30px;
 	white-space: nowrap;
@@ -325,9 +342,10 @@ export default {
 	display: block;
 }
 
-.uer_zhixun_gongneng_hezi>span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi:hover{
+.uer_zhixun_gongneng_hezi span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi:hover{
 	background: hsla(0,0%,100%,.08);
 	    color: #fff;
+	cursor: pointer;
 }
 .uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
@@ -430,7 +448,7 @@ export default {
 	word-break: break-word;
 	padding-left: 5px;
 }
-.uer_zhixun_lishiList_hezhi_neirong>span:first-child{
+.uer_zhixun_lishiList_hezhi_neirong span:first-child{
 	font-size: 14px;
 	display:block;
 	margin-bottom: 8px;
@@ -440,7 +458,7 @@ export default {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.uer_zhixun_lishiList_hezhi_neirong>span:last-child{
+.uer_zhixun_lishiList_hezhi_neirong span:last-child{
 	display:block;
 	font-size: 12px;
 	color: #787a7a;

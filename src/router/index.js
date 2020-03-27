@@ -17,6 +17,8 @@ import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
 import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
 import searchDetails_index from '@/components/productSearchDetails/page/index.vue'
 
+//文章详情页面
+import articleDetails from '@/components/article/article.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -87,7 +89,25 @@ const router = new Router({
 				},
 
 			]
-		}
+		},
+		{
+			///文章详情页面
+			path: '/articleDetails',
+			name: 'articleDetails',
+			component: articleDetails,
+			meta: {auth:true},
+			// redirect:'/articleDetails/searchDetails_index',
+		// 	children:[
+		// 		// 登陆后的页面路径配置
+		// 		{
+		// 			path: 'searchDetails_index',
+		// 			name: 'searchDetails_index',
+		// 			component: searchDetails_index,
+		// 			meta: {auth:true,unkeepLastRoute:true},
+		// 		},
+		
+		// 	]
+		},
 	]
 })
 router.afterEach((to,from) => {

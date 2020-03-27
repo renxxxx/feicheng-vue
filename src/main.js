@@ -25,6 +25,9 @@ Vue.prototype.qs = qs
 Vue.prototype.$jquery = jquery
 Vue.prototype.moment = moment;
 
+
+
+
 new Vue({
   el: '#app',
   router,

@@ -17,10 +17,10 @@
 						</ul>
 					</div>
 					<div class="search_box_input">
-						<input type="search" v-model="kw" placeholder="请输入抖音名称或抖音号">
+						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入抖音名称或抖音号">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
-					<span>搜索</span>
+					<span @click="searchFn">搜索</span>
 				</div>
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
@@ -139,7 +139,7 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<router-link target='_blank' :to="{path:'/searchDetails',query:{name:JSON.stringify(user)}}">
+				<router-link target='_blank' :to="{path:'/searchDetails',query:{data:JSON.stringify(user)}}">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<img :src="user.logo" alt="">
@@ -293,7 +293,7 @@ export default {
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({pn:this.page,ps:3}))
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,pn:this.page,ps:5}))
 			.then(res =>{
 				if(res.data.code == 20){
 				}else{
@@ -381,6 +381,12 @@ export default {
 			}
 			this.numList[_inx].typeData = true
 			console.log(_inx)
+		},
+		searchFn(){
+			console.log(this.kw)
+			this.page = 1;
+			this.userList = []
+			this.getData()
 		}
 	},
 }
