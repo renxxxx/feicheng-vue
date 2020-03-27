@@ -27,25 +27,26 @@
             <li>
 
               <span>账号类型:</span>
-             <el-select v-model="value" placeholder="请选择">
+             <el-select v-model="value" @change="typeFn(value)"  placeholder="请选择">
                 <el-option
                   v-for="item in type"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value">
+                  :value="item.value"
+						>
                 </el-option>
               </el-select>
             </li>
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" clearable></el-cascader>
+              <el-cascader :options="options" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
               <div class="avatorUp">
                 <el-upload
                   class="avatar-uploader"
-                  action="https://jsonplaceholder.typicode.com/posts/"
+                  action="/upload-file"
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"
                   :before-upload="beforeAvatarUpload">
@@ -81,13 +82,13 @@
               <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                 <div style="margin: 15px 0;"></div>
                 <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-                  <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                  <el-checkbox v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
                 </el-checkbox-group>
             </li>
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+                <el-upload  action="/upload-file" list-type="picture-card" :on-success="uploadCover" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                   <i class="el-icon-plus"></i>
                 </el-upload>
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
@@ -129,20 +130,37 @@ export default {
        checkedCities: [],
        cities: [],
        isIndeterminate: false,
-       type: [{
+       type: [ {
                 value: '0',
-                label: '默认'
-              }, {
-                value: '1',
                 label: '个人号'
               }, {
-                value: '2',
+                value: '1',
                 label: '达人号'
               }, {
-                value: '3',
+                value: '2',
                 label: '企业号'
               }],
-              value: ''
+			value:'默认',
+			num:0,
+			wxVideoaccountRealmIdList:[],
+			wxVideoaccountRealmIdListNow:'',
+			dili:{
+				shenfen:{
+					name:'',
+					id:''
+				},
+				city:{
+					name:'',
+					id:''
+				},
+				qu:{
+					name:'',
+					id:''
+				}
+			},
+			imageUrlNow:'',
+			dialogImageUrlNow:[],
+			dialogImageUrlNowlist:[]
     };
   },
   computed: {},
@@ -191,6 +209,56 @@ export default {
      this.accountRealmIdList()
   },
   methods: {
+	  handleChange(_value){
+		  let name1 = area.find(n=>n.value == _value[0])
+		  let name2 = name1.children.find(n=>n.value == _value[1])
+		  let name3 = name2.children.find(n=>n.value == _value[2])
+		  this.dili = {
+			  shenfen:{
+			  	name:name1.label,
+			  	id:name1.value
+			  },
+			  city:{
+			  	name:name2.label,
+			  	id:name2.value
+			  },
+			  qu:{
+			  	name:name3.label,
+			  	id:name3.value
+			  }
+		  }
+		  console.log(this.dili)
+	  },
+		onSubmit(){
+			this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
+				name:this.name,
+				phone:this.phone,
+				logo:this.imageUrlNow,
+				screenshot:this.dialogImageUrlNow,
+				wx:this.wx,
+				fansCount:this.fansCount,
+				likeCount:this.likeCount,
+				videoCount:this.videoCount,
+				pv:this.pv,
+				brief:this.brief,
+				type:this.num,
+				area1Id:this.dili.shenfen.id,
+				area2Id:this.dili.city.id,
+				area3Id:this.dili.qu.id,
+				area1Name:this.dili.shenfen.name,
+				area2Name:this.dili.city.name,
+				area3Name:this.dili.qu.name,
+				wxVideoaccountRealmIdList:this.wxVideoaccountRealmIdListNow
+			}))
+			.then(res =>{
+				
+			})
+			.catch()
+		},
+		typeFn(_value){
+			this.num = _value
+			// console.log(this.num)
+		},
     // 获取领域列表
     accountRealmIdList(){
       this.$axios
@@ -200,7 +268,7 @@ export default {
           var itemList=res.data.data.itemList
           var cityOptions=[]
           for(var i in itemList){
-            cityOptions.push(itemList[i].name)
+            cityOptions.push(itemList[i])
           }
           console.log(cityOptions)
           this.cities=cityOptions
@@ -209,7 +277,10 @@ export default {
     },
 
     handleAvatarSuccess(res, file) {
+		 this.imageUrlNow = res.data.url
+		 // console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
+		
     },
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
@@ -227,14 +298,33 @@ export default {
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
+		 console.log(this.dialogImageUrl)
       this.dialogVisible = true;
     },
+	 uploadCover(response, file, fileList){
+		 // dialogImageUrlNow
+		 this.dialogImageUrlNowlist.push(response.data.url);
+		 this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(",");
+		 console.log(this.dialogImageUrlNow)
+	 },
     // 选择领域
           handleCheckAllChange(val) {
+				 console.log(val)
             this.checkedCities = val ? this.cities : [];
             this.isIndeterminate = false;
+				this.wxVideoaccountRealmIdList = [];
+				for(let i in this.checkedCities){
+					this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
+				}
+				this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
           },
           handleCheckedCitiesChange(value) {
+				 this.wxVideoaccountRealmIdList = []
+				 for(let i in this.checkedCities){
+				 	this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
+				 }
+				 this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
+				 console.log(this.wxVideoaccountRealmIdList)
             let checkedCount = value.length;
             this.checkAll = checkedCount === this.cities.length;
             this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;

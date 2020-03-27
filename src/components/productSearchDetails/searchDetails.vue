@@ -62,21 +62,21 @@
 							<div class="_28OpAn63">
 								<div class="_3mUgA-Vh">
 									<a target="_blank" rel="noopener noreferrer" href="https://www.iesdouyin.com/share/user/104255897823">
-										<img alt="pic" class="_3t5L3W5T" src="https://p3-dy.byteimg.com/aweme/1080x1080/1e09f0001a25ca05cfc03.jpeg">
+										<img alt="pic" class="_3t5L3W5T" :src="message.logo">
 									</a>
 									<div class="_3DQ4NUnP">
 										<div class="_2Y7mZtYv">
-											<span class="_oBww4Ylt">周新榜指数</span>
-											<span class="_s6WSF95M">1016.9</span>
+											<span class="_oBww4Ylt">曝光量:</span>
+											<span class="_s6WSF95M">{{message.pv}}</span>
 										</div>
-										<div class="_1QJ7qoKs">时事 · NO.1</div>
+										<!-- <div class="_1QJ7qoKs">时事 · NO.1</div> -->
 									</div>
 								</div>
 							</div>
 							<div class="_3Mt2vQgI">
 								<div class="_1bv9Xtl-">
-									<span class="xd-ellipsis _3rF1A6fj" title="人民日报">人民日报</span>
-									<span class="_8TRvoTKy">rmrbxmt</span>
+									<span class="xd-ellipsis _3rF1A6fj" title="人民日报">{{message.name}}</span>
+									<span class="_8TRvoTKy">{{message.wx}}</span>
 								</div>
 								<div class="_1bv9Xtl-">
 									<svg width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
@@ -94,21 +94,21 @@
 							</div>
 							<div class="_LGIbpsVE">
 								<div class="_1AvzJLf2">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="_2Drxa6un _GOHxE8_f">
+									<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="_2Drxa6un _GOHxE8_f">
 										<g transform="translate(-982 -658)">
 											<circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle>
 											<path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z"
 											 transform="translate(918 594)" fill="currentColor"></path>
 										</g>
-									</svg>
-									<span>人民日报官方账号</span>
+									</svg> -->
+									<span>地址:{{message.area1Name}}&nbsp;&nbsp;{{message.area2Name}}</span>
 								</div>
 							</div>
 						</div>
 						<div class="_YylL3JYu">
 							<div class="_2kHrt_Qw">
 								<div class="_3-AyKNj7">
-									<div class="_2xKK16yA">
+									<!-- <div class="_2xKK16yA">
 										<span class="_2LqxHFsa">
 											<span class="_3CsMZ-r3">性别：</span>
 											<span class="_3Im3NTem">未知</span>
@@ -116,8 +116,8 @@
 											<span class="_3CsMZ-r3">地区：</span>
 											<span class="_3Im3NTem">北京</span>
 										</span>
-									</div>
-									<div class="_2xKK16yA">
+									</div> -->
+									<!-- <div class="_2xKK16yA">
 										<span class="_2LqxHFsa">
 											<span class="_3CsMZ-r3">年龄：</span>
 											<span class="_3Im3NTem">未知</span>
@@ -126,36 +126,29 @@
 											<span class="_3CsMZ-r3">星座：</span>
 											<span class="_3Im3NTem">未知</span>
 										</span>
-									</div>
+									</div> -->
 									<div class="_2xKK16yA">
 										<span class="_3CsMZ-r3">简介：</span>
-										<span class="_3Im3NTem">参与、沟通、记录时代。</span>
+										<span class="_3Im3NTem">{{message.brief}}</span>
 									</div>
 									<div class="_2xKK16yA">
 										<span class="_3CsMZ-r3">收录时间：</span>
-										<span class="_3Im3NTem">2019-11-09</span>
+										<span class="_3Im3NTem">{{moment(message.createTime).format('YYYY-MM-DD')}}</span>
 									</div>
 								</div>
 								<div class="_2FDGiJrn"></div>
 								<div class="_3p_jzZA2">
 									<span class="_3CsMZ-r3">内容标签：</span>
 									<div class="_nPO2a5S2">
-										<span class="_DuKD6by7">英雄</span>
-										<span class="_DuKD6by7">医护</span>
-										<span class="_DuKD6by7">致敬</span>
-										<span class="_DuKD6by7">攻略</span>
-										<span class="_DuKD6by7">了解</span>
-										<span class="_DuKD6by7">公祭</span>
-										<span class="_DuKD6by7">中国</span>
-										<span class="_DuKD6by7">年味</span>
-										<span class="_DuKD6by7">加油</span><span class="_DuKD6by7">知道</span></div>
+										<span class="_DuKD6by7" v-for="(item,inx) in message.wxVideoaccountRealmList" :key="inx">{{item.name}}</span>
+									</div>
 								</div>
 								<div class="_2FDGiJrn"></div>
 								<div class="ant-row-flex ant-row-flex-middle" style="margin-left: -5px; margin-right: -5px; margin-bottom: 16px;">
 									<div class="ant-col _3CsMZ-r3" style="padding-left: 5px; padding-right: 5px;">数据表现&nbsp;&nbsp;&nbsp;|</div>
 									<div class="ant-col" style="padding-left: 5px; padding-right: 5px; color: rgb(120, 122, 122);">更新于&nbsp;<span
 										 class="_1mkksQJW">2 小时前</span></div>
-									<div class="ant-col" style="padding-left: 5px; padding-right: 5px; color: rgb(255, 120, 0); cursor: pointer;"><i
+									<div @click="gengxinFn" class="ant-col" style="padding-left: 5px; padding-right: 5px; color: rgb(255, 120, 0); cursor: pointer;"><i
 										 aria-label="图标: sync" class="anticon anticon-sync"><svg viewBox="64 64 896 896" focusable="false" class=""
 											 data-icon="sync" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 												<path d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 0 1 755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 0 0 3 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 0 1 512.1 856a342.24 342.24 0 0 1-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 0 0-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 0 0-8-8.2z"></path>
@@ -172,7 +165,7 @@
 													</g>
 												</g>
 											</svg><span>粉丝数</span></div>
-										<div class="_tLnD2bXY">8100.50w</div>
+										<div class="_tLnD2bXY">{{message.fansCount}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><svg width="14" height="14" viewBox="0 0 14 14" class="_2Xw0et9Q">
@@ -185,32 +178,32 @@
 														 transform="translate(-112 -112)"></path>
 													</g>
 												</g>
-											</svg><span>作品数</span></div>
-										<div class="_tLnD2bXY">1675</div>
+											</svg><span>视频量</span></div>
+										<div class="_tLnD2bXY">{{message.videoCount}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><i aria-label="图标: heart" class="anticon anticon-heart"><svg viewBox="64 64 896 896" focusable="false"
 												 class="" data-icon="heart" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 													<path d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"></path>
 												</svg></i><span>总获赞</span></div>
-										<div class="_tLnD2bXY">36.20亿</div>
+										<div class="_tLnD2bXY">{{message.likeCount}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><svg width="14" height="14" viewBox="0 0 14 14" class="_2Xw0et9Q">
 												<path d="M0 0h14v14H0z" fill="none"></path>
 												<path d="M1.755 6.661a2.543 2.543 0 0 0 2.014.863A2.685 2.685 0 0 0 5.9 6.6a3.559 3.559 0 0 0 .8-2.419 3.453 3.453 0 0 0-.728-2.338 2.538 2.538 0 0 0-2.027-.839 2.723 2.723 0 0 0-2.153.912 3.607 3.607 0 0 0-.8 2.46 3.348 3.348 0 0 0 .763 2.285zm.909-4.034a1.464 1.464 0 0 1 1.231-.6 1.379 1.379 0 0 1 1.183.573 2.72 2.72 0 0 1 .42 1.624 2.806 2.806 0 0 1-.428 1.665 1.418 1.418 0 0 1-1.216.592 1.439 1.439 0 0 1-1.2-.571 2.6 2.6 0 0 1-.441-1.621 2.7 2.7 0 0 1 .451-1.663zm8.037-1.439l-7.831 12.7h1.314l7.831-12.7zM9.052 13.125a2.525 2.525 0 0 0 2.019.876 2.68 2.68 0 0 0 2.118-.925 4.089 4.089 0 0 0 .078-4.78 2.532 2.532 0 0 0-2.022-.842 2.691 2.691 0 0 0-2.145.925 3.654 3.654 0 0 0-.8 2.471 3.37 3.37 0 0 0 .752 2.274zm.894-4.016a1.455 1.455 0 0 1 1.244-.6 1.4 1.4 0 0 1 1.176.563 2.626 2.626 0 0 1 .428 1.621 2.819 2.819 0 0 1-.428 1.663 1.414 1.414 0 0 1-1.216.594 1.435 1.435 0 0 1-1.2-.573 2.572 2.572 0 0 1-.441-1.6 2.758 2.758 0 0 1 .437-1.669z"
 												 fill="#cdcfcf"></path>
-											</svg><span>赞粉比</span></div>
-										<div class="_tLnD2bXY">44.66</div>
+											</svg><span>曝光量</span></div>
+										<div class="_tLnD2bXY">{{message.pv}}</div>
 									</div>
 								</div>
-								<div class="ant-row-flex ant-row-flex-space-between" style="margin-bottom: 16px;">
+								<!-- <div class="ant-row-flex ant-row-flex-space-between" style="margin-bottom: 16px;">
 									<div class="ant-col">
 										<div class="_2xKK16yA _3CsMZ-r3">作品特征:</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="_2MNuenrz">
-									<div class="_3uYJipmG">
+									<!-- <div class="_3uYJipmG">
 										<div><svg width="14" height="14" viewBox="0 0 14 14" class="_2Xw0et9Q">
 												<g transform="translate(-0.003 -0.003)">
 													<rect fill="none" width="14" height="14" transform="translate(0.003 0.003)"></rect>
@@ -226,8 +219,8 @@
 												</g>
 											</svg></div>
 										<div class="_tLnD2bXY">0.00%</div>
-									</div>
-									<div class="_3uYJipmG">
+									</div> -->
+									<!-- <div class="_3uYJipmG">
 										<div><svg width="14" height="13" viewBox="0 0 14 13" class="_2Xw0et9Q">
 												<g fill="none" transform="translate(1 1)">
 													<path stroke="none" stroke-linecap="round" stroke-linejoin="round" d="M6.624,11H5.316V6.231A5.855,5.855,0,0,1,1.678,4.938,4.29,4.29,0,0,1,0,1.6V0H1.394a3.463,3.463,0,0,1,1.35.307,5.887,5.887,0,0,1,1.324.8A6.229,6.229,0,0,1,5.957,3.486a6.514,6.514,0,0,1,.8-1.219A8.005,8.005,0,0,1,7.878,1.143,5.969,5.969,0,0,1,9.181.32,3.277,3.277,0,0,1,10.518,0H12V1.505a4.243,4.243,0,0,1-.458,1.929,4.74,4.74,0,0,1-1.2,1.493A5.6,5.6,0,0,1,6.8,6.231H6.624V11Z"></path>
@@ -240,7 +233,7 @@
 												</g>
 											</svg></div>
 										<div class="_tLnD2bXY">0.00%</div>
-									</div>
+									</div> -->
 								</div>
 								<div class="_2FDGiJrn"></div>
 								<div class="_2xKK16yA _3CsMZ-r3">功能使用:</div>
@@ -402,16 +395,14 @@
 
 <script>
 	import axios from 'axios'
-	import {
-		mapActions,
-		mapGetters
-	} from 'vuex'
+	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
 	export default {
 		name: 'searchDetails',
 		data() {
 			return {
-
+				data:{},
+				message:{}
 			}
 		},
 		computed: {
@@ -462,10 +453,24 @@
 			});
 
 		},
-		mounted() {},
+		mounted() {
+			this.data = JSON.parse(this.$route.query.data);
+			this.getData()
+			console.dir(this.data)
+		},
 		methods: {
 			xiaclickFn(num){
 				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
+			},
+			getData(){
+				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({wxVideoaccountId:this.data.wxVideoaccountId}))
+				.then(res=>{
+					this.message = res.data.data
+				})
+				.catch()
+			},
+			gengxinFn(){
+				this.getData()
 			}
 		},
 	}
@@ -1508,6 +1513,13 @@
 		position: fixed;
 		left: 392px;
 		right: 40px;
-		top:170px
+		top:170px;
+		overflow-y: scroll;
+		bottom: 10px;
+	}
+	.appView{
+		/* width: 100%; */
+		/* height: 100%; */
+		
 	}
 </style>

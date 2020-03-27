@@ -4,10 +4,10 @@
 			<el-row style="height: 60px;">
 				<div class="search_box">
 					<div class="search_box_input">
-						<input type="search" v-model="kw" placeholder="请输入抖音名称或抖音号">
+						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入抖音名称或抖音号">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
-					<span>搜索</span>
+					<span @click="searchFn">搜索</span>
 				</div>
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
@@ -74,9 +74,6 @@
 					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 						<div class="searchList_shuju">
 							<ul>
-								<!-- <li>
-									<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
-								</li> -->
 								<li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.fansCount}}</span>
 								</li>
@@ -128,7 +125,8 @@
 					{name:'近7天',typeData:false},
 					{name:'近30天',typeData:false},
 					{name:'自定义',typeData:false},
-				]
+				],
+				data:{}
 			}
 		},
 		computed: {
@@ -180,6 +178,8 @@
 
 		},
 		mounted() {
+			this.data = JSON.parse(this.$route.query.data)
+			// console.dir(this.data)
 			this.nextPage();
 		},
 		methods: {
@@ -192,7 +192,7 @@
 			},
 			getData(){
 				this.load = true;
-				this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({pn:this.page,ps:3}))
+				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccount:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
 				.then(res =>{
 					if(res.data.code == 20){
 					}else{
@@ -206,6 +206,12 @@
 				})
 				.catch()
 			},
+			searchFn(){
+				console.log(this.kw)
+				this.page = 1;
+				this.userList = []
+				this.getData()
+			}
 		},
 	}
 </script>
@@ -432,6 +438,7 @@
 	width: 23%;
 	max-width: 140px;
 	min-width: 110px;
+	cursor: pointer;
 }
 .searchList_canshu ul li:last-child,.searchList_shuju ul li:last-child{
 	width: 18%;
@@ -557,12 +564,12 @@
 	cursor: pointer;
 	/* margin-right: 3%; */
 }
-.searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
+/* .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
 	cursor: auto;
 	width: 23%;
 	max-width: 140px;
 	min-width: 110px;
-}
+} */
 .searchList_canshu ul li:last-child,.searchList_shuju ul li:last-child{
 	width: 18%;
 	max-width: 120px;
