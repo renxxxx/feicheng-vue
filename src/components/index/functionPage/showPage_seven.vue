@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="maindiv_two">
-          <div class="maindiv_two_top maindiv_two_top_transition">
+          <div id="seven_1" class="maindiv_two_top maindiv_two_top_transition">
             <div class="maindiv_box">
               <div><svg width="64" height="64" viewBox="0 0 64 64"><defs><clipPath id="clip-pathHH"><rect id="\u77E9\u5F62_7995" data-name="\u77E9\u5F62 7995" fill="#fff" stroke="#707070" width="64" height="64" transform="translate(462 5623)"></rect></clipPath><linearGradient id="linear-gradientII" x1="15.616" y1="-50.421" x2="15.602" y2="-50.435" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#40404d" stop-opacity="0.8"></stop><stop offset="1" stop-color="#40404d"></stop></linearGradient><linearGradient id="linear-gradientJJ" x1="15.615" y1="-51.398" x2="15.6" y2="-51.41" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linear-gradientII"></linearGradient><linearGradient id="linear-gradientKK" x1="23.037" y1="-120.648" x2="23.013" y2="-120.674" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linear-gradientII"></linearGradient></defs><g id="\u8499\u7248\u7EC4_798" data-name="\u8499\u7248\u7EC4 798" opacity="0.8" clip-path="url(#clip-pathHH)" transform="translate(-462 -5623)"><g id="\u7EC4_6517" data-name="\u7EC4 6517" transform="translate(462.031 5623.104)"><path id="\u8DEF\u5F84_11567_2_" fill="url(#linear-gradientII)" d="M49.912,3.921a2.507,2.507,0,0,0-1.677.559A31.958,31.958,0,0,0,5.026,49.207a1.172,1.172,0,0,0,1.6.319,1.143,1.143,0,0,0,.319-1.6A29.577,29.577,0,0,1,37.133,2.883,31.144,31.144,0,0,1,46.8,6.4a1.985,1.985,0,0,0-.08.639,3.115,3.115,0,0,0,6.23,0,3.052,3.052,0,0,0-3.035-3.115Z" transform="translate(0 -0.007)"></path><path id="\u8DEF\u5F84_11568_2_" fill="url(#linear-gradientJJ)" d="M62.3,19.158a1.164,1.164,0,1,0-2,1.2A29.612,29.612,0,0,1,20.768,61.649a3.132,3.132,0,1,0-3.993,1.917,4.675,4.675,0,0,0,1.038.16,2.822,2.822,0,0,0,1.358-.319A31.9,31.9,0,0,0,62.3,19.158Z" transform="translate(-2.963 -3.743)"></path><g id="\u7EC4_4803_2_" opacity="0.8" transform="translate(13.169 23.681)"><path id="\u8DEF\u5F84_11569_2_" fill="#40404d" d="M-466.231-3006.886a19.938,19.938,0,0,1-18.689-13.019,1.155,1.155,0,0,1,.719-1.517,1.155,1.155,0,0,1,1.518.719h0a17.514,17.514,0,0,0,22.523,10.383,17.609,17.609,0,0,0,11.5-16.453,16.9,16.9,0,0,0-1.278-6.629,1.155,1.155,0,0,1,.719-1.517,1.121,1.121,0,0,1,1.438.639,19.933,19.933,0,0,1-10.862,25.958,20.958,20.958,0,0,1-7.588,1.438Z" transform="translate(485 3035.001)"></path></g><g id="\u7EC4_4804_2_" opacity="0.05" transform="translate(7.438 7.79)"><circle id="\u692D\u5706_1442_2_" fill="#40404d" cx="24.52" cy="24.52" r="24.52" transform="translate(0)"></circle></g><g id="\u7EC4_4805_2_" opacity="0.1" transform="translate(19.909 20.261)"><circle id="\u692D\u5706_1443_2_" fill="#40404d" cx="12.06" cy="12.06" r="12.06"></circle></g><g id="\u7EC4_4806_2_" transform="translate(12.035 12.077)"><path id="\u8DEF\u5F84_11570_2_" fill="url(#linear-gradientKK)" d="M-465.112-3013.595H-483.8a1.228,1.228,0,0,1-1.2-1.2h0v-.319A19.941,19.941,0,0,1-465.112-3035a19.769,19.769,0,0,1,14.936,6.79,1.235,1.235,0,0,1-.08,1.677h0l-14.057,12.7A1.348,1.348,0,0,1-465.112-3013.595Zm-17.491-2.316h17.092l12.859-11.581a17.547,17.547,0,0,0-24.839,0A17.194,17.194,0,0,0-482.6-3015.911Z" transform="translate(485 3035)"></path></g><path id="\u8DEF\u5F84_13092" data-name="\u8DEF\u5F84 13092" fill="#fe2c55" opacity="0.6" d="M42.061,30.166,35.192,36.4H18.1a16.53,16.53,0,0,1,1.438-6.23A17.505,17.505,0,0,1,42.061,30.166Z" transform="translate(-3.65 -5.246)"></path><rect id="\u77E9\u5F62_7994" data-name="\u77E9\u5F62 7994" fill="none" width="63.896" height="63.896" transform="translate(0.074)"></rect></g></g></svg></div>
               <div>受众人群画像</div>
@@ -46,7 +46,7 @@
               <div>口碑舆情</div>
             </div>
           </div>
-          <div class="maindiv_two_bottom maindiv_two_bottom_transition">
+          <div id="seven_2" class="maindiv_two_bottom maindiv_two_bottom_transition">
             <div class="maindiv_box">
               <div><svg width="64" height="64" viewBox="0 0 64 64"><defs><clipPath id="clip-pathDD"><rect id="\u77E9\u5F62_8064" data-name="\u77E9\u5F62 8064" fill="#fff" stroke="#707070" width="64" height="64" transform="translate(398 5995)"></rect></clipPath></defs><g id="\u8499\u7248\u7EC4_830" data-name="\u8499\u7248\u7EC4 830" opacity="0.8" clip-path="url(#clip-pathDD)" transform="translate(-398 -5995)"><path id="\u591A\u8FB9\u5F62_49" data-name="\u591A\u8FB9\u5F62 49" fill="#646570" opacity="0.1" d="M24.75,0,33,14,24.75,28H8.25L0,14,8.25,0Z" transform="translate(443.5 6010.5) rotate(90)"></path><g id="\u7EC4_6663" data-name="\u7EC4 6663" transform="translate(401.5 5995)"><g id="\u7EC4_6646" data-name="\u7EC4 6646" opacity="0.6" transform="translate(36.058 24.98)"><path id="\u8DEF\u5F84_13186" data-name="\u8DEF\u5F84 13186" fill="#ff7800" d="M47.048,40.417,59.817,47.8c.231.154.462,0,.462-.308V32.8a.364.364,0,0,0-.462-.308L47.048,39.879C46.817,40.032,46.817,40.34,47.048,40.417Z" transform="translate(-46.875 -32.474)"></path></g><g id="\u7EC4_6647" data-name="\u7EC4 6647" opacity="0.6" transform="translate(12.769 25.844)"><path id="\u8DEF\u5F84_13187" data-name="\u8DEF\u5F84 13187" fill="#ff7800" d="M29.523,40.676l-12.077-7a.563.563,0,0,0-.846.462v14a.54.54,0,0,0,.846.462l12.077-7A.513.513,0,0,0,29.523,40.676Z" transform="translate(-16.6 -33.597)"></path></g><g id="\u7EC4_6648" data-name="\u7EC4 6648" transform="translate(26.923 18.154)"><path id="\u8DEF\u5F84_13188" data-name="\u8DEF\u5F84 13188" fill="#40404d" d="M36.154,51.908A1.183,1.183,0,0,1,35,50.754v-26a1.154,1.154,0,0,1,2.308,0V50.677A1.2,1.2,0,0,1,36.154,51.908Z" transform="translate(-35 -23.6)"></path></g><g id="\u7EC4_6649" data-name="\u7EC4 6649" transform="translate(8.231 21.981)"><path id="\u8DEF\u5F84_13189" data-name="\u8DEF\u5F84 13189" fill="#40404d" d="M11.931,46.825a1.81,1.81,0,0,1-.615-.154,1.2,1.2,0,0,1-.615-1V29.748a1.2,1.2,0,0,1,.615-1,1.048,1.048,0,0,1,1.154,0l13.769,7.923a1.12,1.12,0,0,1,0,2l-13.769,8A1.112,1.112,0,0,1,11.931,46.825Zm1.154-15.077V43.671l10.308-5.923Z" transform="translate(-10.7 -28.575)"></path></g><g id="\u7EC4_6650" data-name="\u7EC4 6650" transform="translate(31.231 22.058)"><path id="\u8DEF\u5F84_13190" data-name="\u8DEF\u5F84 13190" fill="#40404d" d="M55.523,46.848a1.81,1.81,0,0,1-.615-.154L41.215,38.771a1.12,1.12,0,0,1,0-2l13.769-7.923a1.048,1.048,0,0,1,1.154,0,1.2,1.2,0,0,1,.615,1V45.771a1.2,1.2,0,0,1-.615,1C55.908,46.771,55.754,46.848,55.523,46.848ZM44.062,37.771l10.308,5.923V31.771Z" transform="translate(-40.6 -28.675)"></path></g><g id="\u7EC4_6651" data-name="\u7EC4 6651" transform="translate(54.308 16.769)"><path id="\u8DEF\u5F84_13191" data-name="\u8DEF\u5F84 13191" fill="none" stroke="#40404d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3px" d="M70.6,21.8" transform="translate(-70.6 -21.8)"></path></g><g id="\u7EC4_6652" data-name="\u7EC4 6652" transform="translate(0.923 0.519)"><path id="\u8DEF\u5F84_13192" data-name="\u8DEF\u5F84 13192" fill="#40404d" d="M28.508,63.233a1.81,1.81,0,0,1-.615-.154L1.815,48A1.2,1.2,0,0,1,1.2,47V16.925a1.2,1.2,0,0,1,.615-1L27.892.848a1.048,1.048,0,0,1,1.154,0l15.923,9.231A1.121,1.121,0,1,1,43.815,12L28.431,3.156,3.585,17.54V46.31L28.508,60.694,54.046,46A1.121,1.121,0,0,1,55.2,47.925L29.046,63.079A1.426,1.426,0,0,1,28.508,63.233Z" transform="translate(-1.2 -0.675)"></path></g><g id="\u7EC4_6653" data-name="\u7EC4 6653" opacity="0.5" transform="translate(0.538 41.846)"><path id="\u8DEF\u5F84_13193" data-name="\u8DEF\u5F84 13193" fill="#40404d" d="M1.854,60.246a1.2,1.2,0,0,1-1-.615,1.083,1.083,0,0,1,.462-1.538l6.231-3.538a1.136,1.136,0,1,1,1.077,2L2.392,60.092A1.426,1.426,0,0,1,1.854,60.246Z" transform="translate(-0.7 -54.4)"></path></g><g id="\u7EC4_6654" data-name="\u7EC4 6654" opacity="0.5" transform="translate(47.462 20.692)"><path id="\u8DEF\u5F84_13194" data-name="\u8DEF\u5F84 13194" fill="none" stroke="#40404d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3px" d="M61.7,26.9" transform="translate(-61.7 -26.9)"></path></g><g id="\u7EC4_6655" data-name="\u7EC4 6655" opacity="0.5" transform="translate(48.846 16.385)"><path id="\u8DEF\u5F84_13195" data-name="\u8DEF\u5F84 13195" fill="#40404d" d="M64.654,26.531a1.2,1.2,0,0,1-1-.615,1.083,1.083,0,0,1,.462-1.538l5.077-2.923a1.136,1.136,0,0,1,1.077,2l-5.077,2.923A1.426,1.426,0,0,1,64.654,26.531Z" transform="translate(-63.5 -21.3)"></path></g><g id="\u7EC4_6656" data-name="\u7EC4 6656" transform="translate(43.04 9.809)"><path id="\u8DEF\u5F84_13196" data-name="\u8DEF\u5F84 13196" fill="#40404d" d="M67.22,20.866a1.112,1.112,0,0,1-.538-.154L56.527,14.866a1.121,1.121,0,1,1,1.154-1.923l10.154,5.846a1.059,1.059,0,0,1,.385,1.538A1.315,1.315,0,0,1,67.22,20.866Z" transform="translate(-55.952 -12.752)"></path></g><g id="\u7EC4_6657" data-name="\u7EC4 6657" transform="translate(53.846 44.231)"><circle id="\u692D\u5706_1600" data-name="\u692D\u5706 1600" fill="#40404d" cx="2" cy="2" r="2"></circle></g><g id="\u7EC4_6658" data-name="\u7EC4 6658" transform="translate(26.154 60)"><circle id="\u692D\u5706_1601" data-name="\u692D\u5706 1601" fill="#40404d" cx="2" cy="2" r="2"></circle></g><g id="\u7EC4_6659" data-name="\u7EC4 6659" transform="translate(26.154 0)"><circle id="\u692D\u5706_1602" data-name="\u692D\u5706 1602" fill="#40404d" cx="2" cy="2" r="2"></circle></g><g id="\u7EC4_6660" data-name="\u7EC4 6660" transform="translate(0 44.231)"><circle id="\u692D\u5706_1603" data-name="\u692D\u5706 1603" fill="#40404d" cx="2" cy="2" r="2"></circle></g><g id="\u7EC4_6661" data-name="\u7EC4 6661" transform="translate(53.846 15)"><circle id="\u692D\u5706_1604" data-name="\u692D\u5706 1604" fill="#40404d" cx="2" cy="2" r="2"></circle></g><g id="\u7EC4_6662" data-name="\u7EC4 6662" transform="translate(0 15)"><circle id="\u692D\u5706_1605" data-name="\u692D\u5706 1605" fill="#40404d" cx="2" cy="2" r="2"></circle></g></g></g></svg></div>
               <div>收藏对比</div>
@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="maindiv_three maindiv_three_transition">
+        <div id="seven_3" class="maindiv_three maindiv_three_transition">
           <div></div>
           <div>· 在新抖，你还可以找到及时更新的情报、深度报道、知识百科、导航、交流社区等 ·</div>
           <div></div>
@@ -154,7 +154,7 @@ display: flex;
     -webkit-transform: translateY(220px);
     transform: translateY(220px);
 }
-.maindiv_two_top_transition{
+.maindiv_two_top_transition_7{
       transition: all 0.3s ease-out, opacity 0.4s ease-out;
       opacity: 1;
       transform: translateY(0px);
@@ -166,7 +166,7 @@ display: flex;
     -webkit-transform: translateY(220px);
     transform: translateY(220px);
 }
-.maindiv_two_bottom_transition{
+.maindiv_two_bottom_transition_7{
       transition: all 0.3s ease-out 0.3s, opacity 0.4s ease-out 0.3s;
       opacity: 1;
       transform: translateY(0px);
@@ -224,6 +224,7 @@ display: flex;
       top: 122px;
       text-align: center;
       width: 100%;
+
 }
 .maindiv_three{
       margin-top: 21px;
@@ -235,8 +236,9 @@ display: flex;
           align-items: center;
           justify-content: center;
           margin-top: 10px;
+                opacity: 0;
 }
-.maindiv_three_transition{
+.maindiv_three_transition_7{
       transition: all 0.3s ease-out 0.6s, opacity 0.4s ease-out 0.6s;
       opacity: 1;
       transform: translateY(0px);

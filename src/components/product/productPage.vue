@@ -60,7 +60,7 @@
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>						
 							</div>
 							<div class="nav_user_search">
-								<input type="search" placeholder="搜索">
+								<input type="search" placeholder="DOU·可以搜">
 								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
 							</div>
 						</div>
@@ -75,18 +75,17 @@
 				<div class="leftNav">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-						
+						<el-menu-item index="1">
+							<template slot="title">
+								<img alt="">
+								<span>飞橙</span>
+							</template>
+						</el-menu-item>
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
 								<img src="../../assets/img/shouyeLogo.svg" alt="">
 								<svg width="1em" height="1em" viewBox="0 0 19.71 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
-								<span>商学院</span>
-							</template>
-						</el-menu-item>
-						<el-menu-item index="/productPage/productPage_ruzhu">
-							<template slot="title">
-								<img alt="">
-								<span>博主入驻</span>
+								<span>首页</span>
 							</template>
 						</el-menu-item>
 						<el-submenu index="3">
@@ -137,7 +136,7 @@
 								 <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</el-menu-item>
 						</el-submenu>
-						<!-- <el-submenu index="7">
+						<el-submenu index="7">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" class=""><g id="\u54C1\u724C\u9009\u4E2D" transform="translate(-136.855 -178.541)"><path id="\u8DEF\u5F84_12954" data-name="\u8DEF\u5F84 12954" d="M150.757,182.193a1.481,1.481,0,0,1-.117-.233c-1.2-2.357-1.758-2.157-3.665-2.157H142.93c-1.9,0-2.462-.166-3.665,2.157a1.48,1.48,0,0,0-.117.233c-1.056,2.092-1.671,3.187,0,5.411l3.194,3.716c1.173,1.361,1.847,2.19,2.609,2.157.761,0,1.435-.8,2.609-2.157l3.194-3.718C152.428,185.377,151.812,184.282,150.757,182.193Z" transform="translate(-0.098 -0.098)" fill="#6b6d6d"></path><path id="\u8DEF\u5F84_12955" data-name="\u8DEF\u5F84 12955" d="M148.85,187.228l-.465.541a13.867,13.867,0,0,1-1.241,1.284,1.763,1.763,0,0,1-2.6,0,14.08,14.08,0,0,1-1.241-1.284l-.467-.541a.694.694,0,0,1,.031-.947.566.566,0,0,1,.869.035l.464.541a12.047,12.047,0,0,0,1.118,1.184.937.937,0,0,0,.528.3c.154,0,.31-.1.527-.3.31-.271.651-.676,1.118-1.184l.465-.541a.591.591,0,0,1,.868-.035A.7.7,0,0,1,148.85,187.228Z" transform="translate(-0.986 -1.328)"></path><g id="\u7EC4_6861" data-name="\u7EC4 6861" transform="translate(137.613 179.299)"><g id="\u7EC4_6860" data-name="\u7EC4 6860"><g id="\u77E9\u5F62_5799" data-name="\u77E9\u5F62 5799" transform="translate(0.242 0.242)" fill="none" stroke="#f2f2f2" stroke-miterlimit="10" stroke-width="1" opacity="0"><rect width="14" height="14" stroke="none"></rect><rect x="-0.5" y="-0.5" width="15" height="15" fill="none"></rect></g></g></g></g></svg>
 								<span>{{leftNavList[4].name}}</span>
@@ -184,7 +183,7 @@
 								 <span>{{child.name}}</span>
 								 <svg v-if="leftNavList[7].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</el-menu-item>
-						</el-submenu> -->
+						</el-submenu>
 					</el-menu>
 				</div>
 			</el-col>
@@ -208,84 +207,82 @@ export default {
   data(){
   	return{
 		tanShow : false,
-		msg	: '数据平台',
+		msg	: '抖音数据平台',
 		// 左侧导航栏数据
 		leftNavList: [{
-			name:'找视频号',
+			name:'找抖音号',
 			icon:'',
 			data:false,
 			onechild:[{name:'抖音号搜索',data:'',url:'/productPage/productPage_douyinSearch'},
-					// {name:'MCN机构',data:'',url:''},
-					// {name:'地域找号',data:'',url:''},
-					// {name:'指数排行榜',data:'',url:''},
-					// {name:'单项指标排行',data:'',url:''},
-					// {name:'抖音·明星爱DOU榜',data:'',url:''},
+					{name:'MCN机构',data:'',url:''},
+					{name:'地域找号',data:'',url:''},
+					{name:'指数排行榜',data:'',url:''},
+					{name:'单项指标排行',data:'',url:''},
+					{name:'抖音·明星爱DOU榜',data:'',url:''},
 		]},
 		{
 			name:'素材创意',
 			icon:'',
 			data:true,
 			onechild:[{name:'视频搜索',data:'true',url:''},
-					// {name:'抖音·热门视频',data:'true',url:''},
-					// {name:'抖音·实时热点',data:'true',url:''},
-					// {name:'音乐BGM',data:'true',url:''},
-					// {name:'抖音·DOU听音乐榜',data:'true',url:''},
-					// {name:'话题挑战赛',data:'true',url:''},
-					// {name:'魔法道具',data:'true',url:''},
-					// {name:'神评论',data:'true',url:''},
+					{name:'抖音·热门视频',data:'true',url:''},
+					{name:'抖音·实时热点',data:'true',url:''},
+					{name:'音乐BGM',data:'true',url:''},
+					{name:'抖音·DOU听音乐榜',data:'true',url:''},
+					{name:'话题挑战赛',data:'true',url:''},
+					{name:'魔法道具',data:'true',url:''},
+					{name:'神评论',data:'true',url:''},
 		]},
 		{
 			name:'探店打卡',
 			icon:'',
 			data:true,
-			onechild:[
-				{name:'打卡地点搜索',data:'true',url:''},
-					// {name:'热门城市',data:'true',url:''},
+			onechild:[{name:'打卡地点搜索',data:'true',url:''},
+					{name:'热门城市',data:'true',url:''},
 		]},
 		{
-			name:'我的收藏',
+			name:'种草带货',
 			icon:'',
 			data:true,
-			onechild:[
-					{name:'博主列表',data:'true',url:''},
-					// {name:'热门商品排行',data:'true',url:''},
-					// {name:'KOL带货风向',data:'true',url:''},
-					// {name:'带货视频',data:'true',url:''},
-					// {name:'种草视频',data:'true',url:''},
-					// {name:'抖音·小店达人榜',data:'true',url:''},
+			onechild:[{name:'查找商品',data:'true',url:''},
+					{name:'热门商品排行',data:'true',url:''},
+					{name:'KOL带货风向',data:'true',url:''},
+					{name:'带货视频',data:'true',url:''},
+					{name:'种草视频',data:'true',url:''},
+					{name:'抖音·小店达人榜',data:'true',url:''},
 		]},
-		// {
-		// 	name:'品牌营销',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'营销创意视频',data:'true',url:''},
-		// 			{name:'品牌声量',data:'true',url:''},
-		// 			{name:'带货品牌',data:'true',url:''},
-		// 			{name:'抖音·品牌热DOU榜',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'DOU 管家',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'运营报表导出',data:'true',url:''},
-		// 			{name:'视频实时看板',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'收藏 / 工具',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'我的收藏',data:'true',url:''},
-		// 			{name:'分钟级监测视频',data:'true',url:''},
-		// 			{name:'账号回采数据',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'权限管理',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'购买续费',data:'true',url:''},
-		// 			{name:'我的权限',data:'true',url:''},
-		// 			{name:'推广新抖',data:'true',url:''},
-		// ]},
+		{
+			name:'品牌营销',
+			icon:'',
+			data:true,
+			onechild:[{name:'营销创意视频',data:'true',url:''},
+					{name:'品牌声量',data:'true',url:''},
+					{name:'带货品牌',data:'true',url:''},
+					{name:'抖音·品牌热DOU榜',data:'true',url:''},
+		]},
+		{
+			name:'DOU 管家',
+			icon:'',
+			data:true,
+			onechild:[{name:'运营报表导出',data:'true',url:''},
+					{name:'视频实时看板',data:'true',url:''},
+		]},
+		{
+			name:'收藏 / 工具',
+			icon:'',
+			data:true,
+			onechild:[{name:'我的收藏',data:'true',url:''},
+					{name:'分钟级监测视频',data:'true',url:''},
+					{name:'账号回采数据',data:'true',url:''},
+		]},
+		{
+			name:'权限管理',
+			icon:'',
+			data:true,
+			onechild:[{name:'购买续费',data:'true',url:''},
+					{name:'我的权限',data:'true',url:''},
+					{name:'推广新抖',data:'true',url:''},
+		]},
 		]
     }
   },
@@ -346,11 +343,11 @@ export default {
         console.log(key, keyPath);
     },
 	changeActive(){
-		this.tanShow = false;
-		this.msg = 'POWER'
+		this.tanShow = true;
+		this.msg = 'POWERED BY '
 	},
 	removeActive(){
-		this.msg = '数据平台'
+		this.msg = '抖音数据平台'
 		this.tanShow = false
 	},
   },

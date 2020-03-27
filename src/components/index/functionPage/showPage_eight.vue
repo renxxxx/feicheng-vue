@@ -11,7 +11,7 @@
             <div class="_2esJSl7h"></div>
           </div>
         </div>
-        <div class="main_bottom main_bottom_transition">
+        <div id="eight_1" class="main_bottom main_bottom_transition">
               <div class="carousel">
                 <el-carousel trigger="click" height="484px"  :interval="5000" arrow="never">
                       <el-carousel-item v-for="(item,inx) in list" :key="inx">
@@ -25,7 +25,7 @@
                               <div class="_3UBU2LVd line-3">{{items.content}}</div>
                             </div>
                         </div>
-                          
+
                       </el-carousel-item>
                     </el-carousel>
               </div>
@@ -191,14 +191,16 @@
   background: -webkit-gradient(linear,left top,right top,from(#e1e2e5),to(rgba(225,226,229,0)));
   background: linear-gradient(90deg,#e1e2e5,rgba(225,226,229,0));
 }
-.showPage_eight .main_bottom{
+ .main_bottom{
      width: 1240px;
      margin: 44px auto auto;
+     opacity: 0;
  }
- .showPage_eight .main_bottom_transition{
-   transition: all 0.3s ease-out, opacity 0.4s ease-out; */
-       opacity: 1;
+ .showPage_eight .main_bottom_transition_8{
+   transition: all 0.3s ease-out, opacity 0.4s ease-out; 
+
        transform: translateY(0px);
+       opacity: 1;
  }
  .showPage_eight .carousel{
        margin: 0;
