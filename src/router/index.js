@@ -3,13 +3,19 @@ import Store from '../store'
 import Router from 'vue-router'
 
 //展示页面
-import showPage from '@/components/product/showPage.vue'
+import showPage from '@/components/index/showPage.vue'
 //404错误页面
 import page404 from '@/components/404Page.vue'
 
 //产品页面
 import productPage from '@/components/product/productPage.vue'
-import productPage_index from '@/components/product/page/index.vue'
+import productPage_user from '@/components/product/page/user.vue'
+import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
+import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
+
+//产品详情页面
+import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
+import searchDetails_index from '@/components/productSearchDetails/page/index.vue'
 
 Vue.use(Router)
 
@@ -20,6 +26,12 @@ const router = new Router({
 		{
 		
 		  path: '/',
+		  name: 'showPage',
+		  component: showPage,
+		  meta: {unkeepLastRoute:true},
+		},
+		{
+		  path: '/index',
 		  name: 'showPage',
 		  component: showPage,
 		  meta: {unkeepLastRoute:true},
@@ -36,21 +48,50 @@ const router = new Router({
 			name: 'productPage',
 			component: productPage,
 			meta: {auth:true},
-			redirect:'/productPage/productPage_index',
+			redirect:'/productPage/productPage_user',
 			children:[
 				// 登陆后的页面路径配置
 				{
-					path: 'productPage_index',
-					name: 'productPage_index',
-					component: productPage_index,
+					path: 'productPage_user',
+					name: 'productPage_user',
+					component: productPage_user,
 					meta: {auth:true,unkeepLastRoute:true},
 				},
+				{
+					path: 'productPage_douyinSearch',
+					name: 'productPage_douyinSearch',
+					component: productPage_douyinSearch,
+					meta: {auth:true},
+				},
+				{	
+					path: 'productPage_ruzhu',
+					name: 'productPage_ruzhu',
+					component: productPage_ruzhu,
+					meta: {auth:true},
+				}
 			]
 		},
+		{
+			path: '/searchDetails',
+			name: 'searchDetails',
+			component: searchDetails,
+			meta: {auth:true},
+			redirect:'/searchDetails/searchDetails_index',
+			children:[
+				// 登陆后的页面路径配置
+				{
+					path: 'searchDetails_index',
+					name: 'searchDetails_index',
+					component: searchDetails_index,
+					meta: {auth:true,unkeepLastRoute:true},
+				},
+
+			]
+		}
 	]
 })
 router.afterEach((to,from) => {
-  debugger
+  // debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
   // 缓存最后一次路径
   if(!to.meta.unkeepLastRoute){

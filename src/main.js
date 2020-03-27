@@ -11,11 +11,11 @@ import store from './store'
 import jquery from 'jquery'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
-
+import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //版本号
-Vue.prototype.$version = '2002281641-8595e87'
+Vue.prototype.$version = ''
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios
@@ -23,7 +23,7 @@ Vue.prototype.$store = store
 Vue.prototype.$h5p = h5p
 Vue.prototype.qs = qs
 Vue.prototype.$jquery = jquery
-
+Vue.prototype.moment = moment;
 
 new Vue({
   el: '#app',
@@ -32,4 +32,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-debugger
+// debugger
