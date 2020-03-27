@@ -348,17 +348,18 @@
 									<div class="ant-tabs-nav-scroll">
 										<div class="ant-tabs-nav ant-tabs-nav-animated">
 											<div>
-												<div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 56px;">
+												<div ref="xiahuaxian" class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="display: block; transform: translate3d(0px, 0px, 0px); width: 64px;"></div>
+												<div role="tab" @click="xiaclickFn(0)" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 56px;">
 													<router-link :to="{path:'/searchDetails'}" class="_1zlCAgAE">
 														趋势表现
 													</router-link>
 												</div>
-												<div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
+												<div role="tab" @click="xiaclickFn(125)" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
 													<router-link :to="{path:'/productPage'}" class="_1zlCAgAE">
 														视频列表
 													</router-link>
 												</div>
-												<div role="tab" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
+												<div role="tab" @click="xiaclickFn(250)" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
 													<div class="_1zlCAgAE _2AXT3VPr">
 														<router-link :to="{path:'/productPage/productPage_douyinSearch'}" class="_1zlCAgAE">
 															作品分析
@@ -371,7 +372,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="display: block; transform: translate3d(120px, 0px, 0px); width: 64px;"></div>
+											
 										</div>
 									</div>
 								</div>
@@ -463,7 +464,9 @@
 		},
 		mounted() {},
 		methods: {
-
+			xiaclickFn(num){
+				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
+			}
 		},
 	}
 </script>
@@ -1502,6 +1505,9 @@
 	    opacity: 0;
 	}
 	.appView{
-		position:relative;
+		position: fixed;
+		left: 392px;
+		right: 40px;
+		top:170px
 	}
 </style>
