@@ -38,7 +38,7 @@
           </el-table-column>
           <el-table-column label="视频名称" prop="name"></el-table-column>
           <el-table-column label="视频封面" align="center">
-            <template scope="scope">
+          <!-- <template scope="scope">
               <img :src="scope.row.cover" width="50" height="50" />
             </template>
           </el-table-column>
@@ -46,7 +46,7 @@
           <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
-            </template>
+            </template> -->
           </el-table-column>
         </el-table>
       </div>

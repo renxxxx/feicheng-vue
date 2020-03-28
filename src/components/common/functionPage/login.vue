@@ -22,6 +22,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import Router from 'vue-router'
 import qs from 'qs';
 export default {
   name: 'gene',
@@ -63,8 +64,7 @@ export default {
   methods: {
     closeLogin(){
           clearInterval(this.timer);
-          this.closeData.data = this.$store.state.refresh.loginRefresh()
-             this.closeData.value = false;
+          this.centerDialogVisible = false;
     },
     getData(){
       this.$axios
@@ -83,12 +83,16 @@ export default {
               .then(res => {
                 // console.log(res)
                 if(res.data.code==0){
-                    this.centerDialogVisible = false;
                     this.$store.state.refresh.loginRefresh()
-                    if(this.$store.state.refresh.loginRefresh()){
-
-                    }
-                  	this.$router.replace({path:'/index'})
+                    this.centerDialogVisible = false;
+                    
+					if(this.$router.currentRoute.fullPath == '/index'){
+						// this.$router.go(0);
+						this.$parent.initData()
+					}else{
+						this.$router.replace({path:'/index'})
+					}
+					// console.log(this.$router)
                 }
               })
               .catch(err => {});

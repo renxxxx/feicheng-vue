@@ -37,8 +37,8 @@
 							
 							
 							<div class="nav_data" >
-								<img src="../../assets/img/touxiang.jpg" alt="">
-								<span>Boy</span>
+								<img :src="this.$store.state.refresh.loginRefresh().userLogo" alt="">
+								<span>{{this.$store.state.refresh.loginRefresh().userNickname}}</span>
 								<el-popover
 								    placement="top-start"
 								    trigger="hover">

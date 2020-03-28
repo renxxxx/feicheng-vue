@@ -9,8 +9,8 @@
 					<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 						<div class="nav_user">
 							<div class="nav_data">
-								<img src="../../assets/img/touxiang.jpg" alt="">
-								<span>Boy</span>
+								<img :src="this.$store.state.refresh.loginRefresh().userLogo" alt="">
+								<span>{{this.$store.state.refresh.loginRefresh().userNickname}}</span>
 								<el-popover placement="top-start" trigger="hover">
 									<div class="nav_data_xiala">
 										<ul>

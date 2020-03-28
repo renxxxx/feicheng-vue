@@ -79,10 +79,10 @@
             <span class="lf48">视频号商学院</span>
             <span class="lf48">申请成为博主</span>
 
-            <el-button   v-if="this.$store.state.refresh.loginRefresh()? false:true" @click="loginFn" >登录 / 注册</el-button>
+            <el-button   v-if="showData? false:true" @click="loginFn" >登录 / 注册</el-button>
             <div v-else class="userToGo">
-              <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()?this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
-              <span>{{this.$store.state.refresh.loginRefresh()?this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
+              <span><img style="border-radius: 50%;" :src="showData ?this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
+              <span>{{showData?this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
               <router-link :to="{ path: '/productPage/productPage_user' }"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
               </router-link>
             </div>
@@ -127,8 +127,8 @@
                   </span> -->
                 </div>
               </div>
-              <div v-if="loginIf" @click="loginFn">立即使用</div>
-              <div v-else class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
+              <div v-if="!showData" @click="loginFn">立即使用</div>
+              <div v-if="showData" class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
             </div>
           </div>
         </div>
@@ -268,8 +268,16 @@ export default {
       loginIf:true,
       userName:'',
       useravator:'',
+	  showData:false,
       // centerDialogVisible: false
     };
+  },
+  watch:{
+     $route(to,from){
+         console.log(to);
+         console.log(from)
+         
+     }
   },
   directives: {},
   beforeRouteLeave(to, from, next) {
@@ -384,17 +392,22 @@ export default {
       }
     }
   },
-  watch:{
-        '$route':'fetchData'
-    },
+  // watch:{
+  //       '$route':'fetchData'
+  //   },
      created() {
             var self = this;
-            self.fetchData();
+            // self.fetchData();
       },
   methods: {
-fetchData(){
-           console.log('路由发送变化doing...');
-     },
+// fetchData(){
+//            console.log('路由发送变化doing...');
+//      },
+	initData(){
+		this.showData = true;
+		// console.log('路由发送变化doing...');
+		// Object.assign(this.$data, this.$options.data());
+	},
     loginFn() {
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData();

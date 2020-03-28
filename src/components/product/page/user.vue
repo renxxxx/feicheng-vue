@@ -15,8 +15,8 @@
 							</div> -->
 						</div>
 						<div class="user_message">
-							<img src="../../../assets/img/touxiang.jpg" alt="">
-							<h5>Boy</h5>
+							<img :src="this.$store.state.refresh.loginRefresh().userLogo" alt="">
+							<h5>{{this.$store.state.refresh.loginRefresh().userNickname}}</h5>
 							<p>你好，暂未<span>开通权限</span></p>
 						</div>
 						<div class="_1aHAtMPw _1xvNCILN"></div>
