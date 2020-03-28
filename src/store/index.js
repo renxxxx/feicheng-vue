@@ -12,7 +12,7 @@ const state={
 		loginRefresh:function(){
 			let login;
 			if(localStorage.getItem('refresh')){
-				login = localStorage.getItem('refresh')
+				login = JSON.parse(localStorage.getItem('refresh'))
 			}else{
 				Vue.prototype.$jquery.ajax({
 					url:'/user/login-refresh',
@@ -21,7 +21,7 @@ const state={
 					success:function(res){
 						if(res.code == 0){
 							login=res.data
-							localStorage.setItem('refresh',login)
+							localStorage.setItem('refresh',JSON.stringify(login))
 						}
 					}
 				})

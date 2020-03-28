@@ -351,6 +351,14 @@ export default {
       this.$router.push(JSON.parse(lastRoute));
       return;
     }
+    if(this.$store.state.refresh.loginRefresh().userLogo){
+      this.useravator=this.$store.state.refresh.loginRefresh().userLogo
+      this.userName=this.$store.state.refresh.loginRefresh().userName
+      this.loginIf=false
+      console.log(this.loginIf)
+      console.log(1)
+    }
+    console.dir(this.$store.state.refresh.loginRefresh().userLogo)
   },
   components: {
     showPage_one,
