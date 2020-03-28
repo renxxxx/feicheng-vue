@@ -11,9 +11,6 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
 
-var appData = require('../area.json')；
-var runRedLight = appData.runRedLight;
-var redLightRoad = appData.redLightRoad;
 
 
 

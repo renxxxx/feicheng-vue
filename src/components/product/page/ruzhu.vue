@@ -37,6 +37,7 @@
                 </el-option>
               </el-select>
             </li>
+
             <li>
               <span>城市:</span>
               <el-cascader :options="options" clearable @change="handleChange"></el-cascader>
@@ -45,6 +46,7 @@
               <span>头像:</span>
               <div class="avatorUp">
                 <el-upload
+                accept='image/*'
                   class="avatar-uploader"
                   action="/upload-file"
                   :show-file-list="false"
@@ -88,7 +90,7 @@
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload  action="/upload-file" list-type="picture-card" :on-success="uploadCover" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+                <el-upload  accept='image/*' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                   <i class="el-icon-plus"></i>
                 </el-upload>
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
@@ -104,7 +106,6 @@
 
 </template>
 <script>
-  // const cityOptions = ['上海', '北京', '广州', '深圳'];
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
@@ -209,6 +210,9 @@ export default {
      this.accountRealmIdList()
   },
   methods: {
+    handleExceed(files, fileList) {
+      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+    },
 	  handleChange(_value){
 		  let name1 = area.find(n=>n.value == _value[0])
 		  let name2 = name1.children.find(n=>n.value == _value[1])
@@ -218,6 +222,7 @@ export default {
 			  	name:name1.label,
 			  	id:name1.value
 			  },
+        
 			  city:{
 			  	name:name2.label,
 			  	id:name2.value
@@ -251,7 +256,6 @@ export default {
 				wxVideoaccountRealmIdList:this.wxVideoaccountRealmIdListNow
 			}))
 			.then(res =>{
-				
 			})
 			.catch()
 		},
@@ -280,7 +284,6 @@ export default {
 		 this.imageUrlNow = res.data.url
 		 // console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
-		
     },
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
@@ -301,6 +304,7 @@ export default {
 		 console.log(this.dialogImageUrl)
       this.dialogVisible = true;
     },
+
 	 uploadCover(response, file, fileList){
 		 // dialogImageUrlNow
 		 this.dialogImageUrlNowlist.push(response.data.url);

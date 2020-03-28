@@ -73,13 +73,19 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/index' }"><span>找视频号</span></router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }"><span>素材创意</span></router-link>
+            <router-link :to="{ path: '/index' }"><span class="lf48">找视频号</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">素材创意</span></router-link>
 
-            <span>视频号商学院</span>
-            <span>申请成为博主</span>
+            <span class="lf48">视频号商学院</span>
+            <span class="lf48">申请成为博主</span>
 
-            <el-button v-if="" @click="loginFn">登录 / 注册</el-button>
+            <el-button v-if="loginIf" @click="loginFn">登录 / 注册</el-button>
+            <div v-else class="userToGo">
+              <span><img src="" alt=""></span>
+              <span>xuxk</span>
+              <router-link :to="{ path: '/productPage/productPage_user' }"><span>去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+              </router-link>
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -121,7 +127,8 @@
                   </span> -->
                 </div>
               </div>
-              <div @click="loginFn">立即使用</div>
+              <div v-if="loginIf" @click="loginFn">立即使用</div>
+              <div v-else class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
             </div>
           </div>
         </div>
@@ -257,7 +264,10 @@ export default {
   data() {
     return {
       codeSrc: '',
-      servant: []
+      servant: [],
+      loginIf:true,
+      userName:'',
+      useravator:'',
       // centerDialogVisible: false
     };
   },
@@ -459,6 +469,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .userToGo{
+    margin-left: 48px;
+    display: inline-block;
+  }
+  .userToGo>span:nth-child(1){
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 18px;
+            background: transparent;
+            display: inline-block;
+  }
+   .userToGo>span:nth-child(1) img{
+        display: block;
+        width: 24px;
+        height: 24px;
+        -o-object-fit: cover;
+        object-fit: cover;
+
+  }
+  .userToGo>span:nth-child(2){
+        margin: 0 8px;
+        display: inline-block;
+  }
+  .userToGo>span:nth-child(3){
+   color: #faad14;
+   display: inline-block;
+   }
 /* .el-dialog__wrapper {
 	transition-duration: 0.3s;
 }
@@ -498,6 +536,8 @@ export default {
 	100% { opacity: 0; transform: scale3d(0.5, 0.5, 1); }
 }
  */
+
+
 html {
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
@@ -573,9 +613,12 @@ el-row,
   color: #edeef2;
   cursor: pointer;
   font-size: 14px;
-  margin-left: 48px;
+
   height: 64px;
   line-height: 64px;
+}
+.tabbarRight .lf48{
+  margin-left: 48px;
 }
 .tabbarRight span:hover {
   color: #ff7800;
@@ -687,6 +730,10 @@ el-row,
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
+.homeBackIndex > div > .userTo{
+             background: #ff7800 !important;
+       }
+
 .homeIntro_div{
      font-family: DINPro Medium,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !important;
 }

@@ -8,7 +8,9 @@
           种升级版本<svg width="24" height="24" viewBox="0 0 24 24"><defs><clipPath id="clip-ededpath"><rect id="\u77E9\u5F62_8355" data-name="\u77E9\u5F62 8355" width="24" height="24" transform="translate(-5723 5535)" fill="#fff" stroke="#707070" stroke-width="1"></rect></clipPath></defs><g id="\u8499\u7248\u7EC4_911" data-name="\u8499\u7248\u7EC4 911" transform="translate(5723 -5535)" clip-path="url(#clip-ededpath)"><g id="\u7EC4_7032" data-name="\u7EC4 7032" transform="translate(-5721.975 5535.957)"><path id="\u8DEF\u5F84_13290" data-name="\u8DEF\u5F84 13290" d="M21.5.5A12.9,12.9,0,0,0,9.1,3.7a5.04,5.04,0,0,0-5,1.7C2.5,7.3,3,10.2,3.8,10.8s1-.1,1-.1L6,9.9s-.5,2.4-.2,2.7l3.6,3.6c.3.3,2.7-.2,2.7-.2l-.7,1.1s-.7.3-.1,1,3.5,1.3,5.4-.3a4.92,4.92,0,0,0,1.6-5A12.371,12.371,0,0,0,21.5.5ZM14.6,7.4a2.781,2.781,0,0,1,0-3.8,2.781,2.781,0,0,1,3.8,0,2.781,2.781,0,0,1,0,3.8h0A2.781,2.781,0,0,1,14.6,7.4Z" fill="#595959"></path><path id="\u8DEF\u5F84_13291" data-name="\u8DEF\u5F84 13291" d="M1.4,17.5a.91.91,0,0,1-1.2,0,.785.785,0,0,1,0-1.1L3,13.6a.91.91,0,0,1,1.2,0,.785.785,0,0,1,0,1.1Z" fill="#595959"></path><path id="\u8DEF\u5F84_13294" data-name="\u8DEF\u5F84 13294" d="M1.4,17.5a.91.91,0,0,1-1.2,0,.785.785,0,0,1,0-1.1L3,13.6a.91.91,0,0,1,1.2,0,.785.785,0,0,1,0,1.1Z" transform="translate(4.5 4.468)" fill="#595959"></path><path id="\u8DEF\u5F84_13293" data-name="\u8DEF\u5F84 13293" d="M2.2,21A.91.91,0,0,1,1,21a.785.785,0,0,1,0-1.1l4.1-4.1a.91.91,0,0,1,1.2,0,.91.91,0,0,1,0,1.2h0Z" fill="#595959"></path></g></g></svg>
           」 ，满足专业人士的诉求<svg width="118.555" height="28" viewBox="0 0 118.555 28" style="margin-left:16px"><g id="\u7EC4_7018" data-name="\u7EC4 7018" transform="translate(-896 -6428)"><path id="\u8054\u5408_9" data-name="\u8054\u5408 9" fill="#ff7800" opacity="0.69" d="M3198.106-4602v-.015h-6.555l6.555-4.753V-4628a2,2,0,0,1,2-2h108a2,2,0,0,1,2,2v24a2,2,0,0,1-2,2Z" transform="translate(-2295.552 11058)"></path><text id="\u652F\u6301\u591A\u4EBA\u534F\u540C" fill="#fff" font-size="16px" font-weight="700" font-family="MicrosoftYaHei-Bold, Microsoft YaHei" transform="translate(958.555 6448)"><tspan x="-48" y="0">支持多人协同</tspan></text></g></svg>
         </div>
-        <div class="main_bottom" @click="loginFn">立即使用</div>
+
+        <div class="main_bottom" v-if="loginIf" @click="loginFn">立即使用</div>
+        <div v-else class="main_bottom userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
       </div>
     </div>
   </div>
@@ -21,7 +23,7 @@
 	  name: 'accounts',
 	  data() {
 	    return {
-
+        loginIf:true,
 	    };
 	  },
     computed:{
@@ -89,5 +91,8 @@
              cursor: pointer;
              -webkit-transition: all .1s linear;
              transition: all .1s linear;
+       }
+       .userTo{
+             background: #ff7800 !important;
        }
 </style>
