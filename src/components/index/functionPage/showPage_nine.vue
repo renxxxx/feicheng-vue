@@ -42,8 +42,6 @@
       this.useravator=this.$store.state.refresh.loginRefresh().userLogo
       this.userName=this.$store.state.refresh.loginRefresh().userName
       this.loginIf=false
-      console.log(this.loginIf)
-      console.log(1)
     }
     },
     methods:{

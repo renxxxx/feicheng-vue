@@ -30,7 +30,11 @@ export default {
       imgSrc:'',
       loginTicket:'',
       value:1,
-      timer:''
+      timer:'',
+      closeData:{
+          data:{},
+          value:''
+         }
       // imgSrc:'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA'
     };
   },
@@ -58,7 +62,9 @@ export default {
   },
   methods: {
     closeLogin(){
-        clearInterval(this.timer);
+          clearInterval(this.timer);
+          this.closeData.data = this.$store.state.refresh.loginRefresh()
+             this.closeData.value = false;
     },
     getData(){
       this.$axios
@@ -80,7 +86,7 @@ export default {
                     this.centerDialogVisible = false;
                     this.$store.state.refresh.loginRefresh()
                     if(this.$store.state.refresh.loginRefresh()){
-                      
+
                     }
                   	this.$router.replace({path:'/index'})
                 }
