@@ -27,7 +27,7 @@ Vue.prototype.moment = moment;
 
 
 
-
+ 
 new Vue({
   el: '#app',
   router,
