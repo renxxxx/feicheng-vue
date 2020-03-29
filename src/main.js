@@ -15,7 +15,7 @@ import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //版本号
-Vue.prototype.$version = ''
+Vue.prototype.$version = '2003291606-5496daf'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios
