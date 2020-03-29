@@ -492,6 +492,7 @@ export default {
 	border-radius: 0px 4px 4px 0px;
 }
 .search_box>span:focus, .search_box>span:hover{
+	cursor: pointer;
     color: #fff;
     background-color: #ff9429;
     border-color: #ff9429;
@@ -544,7 +545,7 @@ export default {
 
 .search_type ul li span:hover,.search_zhishu ul li span:hover{
 	cursor: pointer;
-	color: #ff9429;
+	/* color: #ff9429; */
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 	/* background-color: #ff7800; */
 }

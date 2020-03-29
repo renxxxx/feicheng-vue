@@ -339,9 +339,8 @@ export default {
 .ruzhu {
   background: #3a3a3e;
   height: auto;
-  min-width: 1000px;
+  min-width: 500px;
   width: 100%;
-
   height: auto;
   padding-bottom: 50px;
 }
@@ -413,5 +412,17 @@ ul>li{
     text-align: center;
     line-height: 130px;
     margin-bottom: 70px;
+  }
+  .el-input {
+      width: 50%;
+  }
+  .el-textarea{
+      width: 50%;
+  }
+  .el-select{
+	  width: 50%;
+  }
+  .el-cascader{
+	  width: 50%;
   }
 </style>

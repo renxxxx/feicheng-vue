@@ -2,8 +2,9 @@
 	<div class="article">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<router-link :to="{path:'/'}">
-					<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
+					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
+					<img src="../../assets/img/logo.png" style="height:100%" alt="">
 				</router-link>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
@@ -45,7 +46,7 @@
 								</svg>
 							</div>
 							<div class="nav_user_search">
-								<input type="search" placeholder="DOU·可以搜">
+								<input type="search" placeholder="搜索">
 								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor"
 								 aria-hidden="true">
 									<path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
@@ -148,7 +149,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .article{
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -388,7 +389,10 @@ export default {
 		margin-right: 7px;
 		position: relative;
 	}
-	
+	.nav_data>h5{
+		display: inline;
+		margin-right: 5px;
+	}
 	.nav_data:before {
 		content: '';
 		/* height: 100%; */
@@ -414,19 +418,26 @@ export default {
 		border: 1px solid #66666d;
 		background: rgba(102, 102, 109, .1);
 	}
-	
+	.nav_data_xiala{
+		width: 100px;
+		margin: 0px auto;
+	}
 	.nav_data_xiala>ul {
 		width: 100px;
 		/* height: 166px; */
 		border-radius: 4px;
+		padding: 0px;
 		background-color: #2b2b2e;
+		-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 	}
 	
 	.nav_data_xiala>ul>li {
-		height: 31px;
-		line-height: 32px;
+		height: 42px;
+		line-height: 42px;
+		text-align: center;
 		width: 100%;
-		padding: 5px 12px;
+		/* padding: 5px 12px; */
 		color: #e8edee;
 		font-weight: 400;
 		font-size: 14px;
@@ -445,5 +456,35 @@ export default {
 		width: 100%;
 		text-align: center;
 		color: rgba(255, 255, 255, 0.65);
+	}
+	.data{
+		color: #cdcfcf;
+	}
+	.el-popover {
+	    position: absolute;
+	    background: transparent;
+	    min-width: none;
+	    border: none;
+	    padding: 0px;
+	    z-index: 2000;
+	    color: #cdcfcf;
+	    line-height: 0;
+	    text-align: justify;
+	    font-size: 14px;
+	   box-shadow:none;
+	    word-break: break-all;
+		top: 30px!important;
+		left: auto!important;
+		right: 0px;
+		    /* left: 285px!important; */
+	}
+	.el-popper[x-placement^=top] .popper__arrow{
+		display: none;
+	}
+	.el-popper[x-placement^=bottom] .popper__arrow{
+		display: none;
+	}
+	.el-icon--right {
+	    display: none;
 	}
 </style>

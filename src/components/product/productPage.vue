@@ -2,8 +2,9 @@
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<router-link :to="{path:'/'}">
-					<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
+					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
+					<img src="../../assets/img/logo.png" style="width:50%" alt="">
 				</router-link>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
@@ -88,7 +89,7 @@
 						<el-menu-item index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
-								<span>博主入驻</span>
+								<span style="margin-left: 14px;">博主入驻</span>
 							</template>
 						</el-menu-item>
 						<el-submenu index="3">
@@ -579,24 +580,34 @@ export default {
 	border: 1px solid #66666d;
 	background: rgba(102,102,109,.1);
 }
-.nav_data_xiala>ul{
-	width: 100px;
-	/* height: 166px; */
-	border-radius: 4px;background-color: #2b2b2e;
-}
-.nav_data_xiala>ul>li{
-	height: 31px;
-	line-height: 32px;
-	width: 100%;
-	padding: 5px 12px;
-	color: #e8edee;
-	font-weight: 400;
-	font-size: 14px;
-	/* line-height: 22px; */
-	white-space: nowrap;
-	cursor: pointer;
-	transition: all .3s;
-}
+.nav_data_xiala{
+		width: 100px;
+		margin: 0px auto;
+	}
+	.nav_data_xiala>ul {
+		width: 100px;
+		/* height: 166px; */
+		border-radius: 4px;
+		padding: 0px;
+		background-color: #2b2b2e;
+		-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+	}
+	
+	.nav_data_xiala>ul>li {
+		height: 42px;
+		line-height: 42px;
+		text-align: center;
+		width: 100%;
+		/* padding: 5px 12px; */
+		color: #e8edee;
+		font-weight: 400;
+		font-size: 14px;
+		/* line-height: 22px; */
+		white-space: nowrap;
+		cursor: pointer;
+		transition: all .3s;
+	}
 .nav_data_xiala>ul>li:hover{
 	transition: all .3s;
 	background-color: hsla(0,0%,100%,.1);
@@ -648,31 +659,32 @@ export default {
 	color: #cdcfcf;
 }
 .el-popover {
-    position: absolute;
-    background: transparent;
-    min-width: 0px;
-    border: none;
-    padding: 0px;
-    z-index: 2000;
-    color: #cdcfcf;
-    line-height: 0;
-    text-align: justify;
-    font-size: 14px;
-    -webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    word-break: break-all;
-	top: 17px!important;
-	    /* left: 285px!important; */
-}
-.el-popper[x-placement^=top] .popper__arrow{
-	display: none;
-}
-.el-popper[x-placement^=bottom] .popper__arrow{
-	display: none;
-}
-.el-icon--right {
-    display: none;
-}
+	    position: absolute;
+	    background: transparent;
+	    min-width: none;
+	    border: none;
+	    padding: 0px;
+	    z-index: 2000;
+	    color: #cdcfcf;
+	    line-height: 0;
+	    text-align: justify;
+	    font-size: 14px;
+	   box-shadow:none;
+	    word-break: break-all;
+		top: 30px!important;
+		/* left: auto!important; */
+		right: 0px;
+		    /* left: 285px!important; */
+	}
+	.el-popper[x-placement^=top] .popper__arrow{
+		display: none;
+	}
+	.el-popper[x-placement^=bottom] .popper__arrow{
+		display: none;
+	}
+	.el-icon--right {
+	    display: none;
+	}
 /* .el-icon-arrow-down{
     content: "\E6DF";
 	padding-top: 25px;
