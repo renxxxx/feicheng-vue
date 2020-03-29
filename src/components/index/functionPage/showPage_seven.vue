@@ -67,7 +67,7 @@
         </div>
         <div id="seven_3" class="maindiv_three maindiv_three_transition">
           <div></div>
-          <div>· 在新抖，你还可以找到及时更新的情报、深度报道、知识百科、导航、交流社区等 ·</div>
+          <div>· 在飞橙，你还可以找到及时更新的情报、深度报道、知识百科、导航、交流社区等 ·</div>
           <div></div>
         </div>
       </div>

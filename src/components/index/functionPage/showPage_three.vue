@@ -16,7 +16,7 @@
       </div>
       <div class="mainmid">
         <div id="three_1" class="mainmid_one transitionlF">
-          <div class="mainmid_one_top"><strong><span class=""></span>抖音号搜索</strong><div>支持认证信息、数据表现，粉丝画像，内容及带货等多维筛选</div></div>
+          <div class="mainmid_one_top"><strong><span class=""></span>视频号搜索</strong><div>支持认证信息、数据表现，粉丝画像，内容及带货等多维筛选</div></div>
           <div class="mainmid_one_top"><strong><span class=""></span>排行榜查找</strong><div>各模块数据交叉对比，既有单项最强也有综合比较</div></div>
         </div>
         <div id="three_2" class="mainmid_two transitionlFTwo">

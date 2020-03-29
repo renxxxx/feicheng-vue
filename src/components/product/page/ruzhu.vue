@@ -103,7 +103,6 @@
       <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
     </div>
   </div>
-
 </template>
 <script>
 import axios from 'axios';

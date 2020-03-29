@@ -38,7 +38,7 @@
           </el-table-column>
           <el-table-column label="视频名称" prop="name"></el-table-column>
           <el-table-column label="视频封面" align="center">
-          <!-- <template scope="scope">
+            <template slot-scope="scope">
               <img :src="scope.row.cover" width="50" height="50" />
             </template>
           </el-table-column>
@@ -46,7 +46,7 @@
           <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
-            </template> -->
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -64,7 +64,14 @@
           <li>
             <span>视频封面:</span>
             <div class="avatorUp">
-              <el-upload class="avatar-uploader" action="/upload-file"  accept='image/*' :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+              <el-upload
+                class="avatar-uploader"
+                action="/upload-file"
+                accept="image/*"
+                :show-file-list="false"
+                :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload"
+              >
                 <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
               </el-upload>
@@ -82,7 +89,7 @@
               :on-exceed="handleExceed"
               :file-list="fileList"
               :on-success="uploadVideo"
-              accept='video/*'
+              accept="video/*"
             >
               <el-button size="small" type="primary" style="margin-top: 15px;">点击上传</el-button>
               <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
@@ -104,26 +111,26 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="centerDialogVisible = false">取 消</el-button>
-        <el-button type="primary"  @click="onSubmit">确 定</el-button>
+        <el-button type="primary" @click="onSubmit">确 定</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
-  import axios from 'axios';
-  import { mapActions, mapGetters } from 'vuex';
-  import qs from 'qs';
+import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
+import qs from 'qs';
 export default {
   data() {
     return {
-      name:'',
-      likeCount:'',
-      pv:'',
-      brief:'',
-      imageUrl:'',
-      video:'',
-      videolist:[],
+      name: '',
+      likeCount: '',
+      pv: '',
+      brief: '',
+      imageUrl: '',
+      video: '',
+      videolist: [],
       fileList: [
         // { name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100' },
         // { name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100' }
@@ -134,11 +141,10 @@ export default {
   },
   methods: {
     // 视频上传
-    uploadVideo(response, file, fileList){
-
-		 this.video = response.data.url;
-		 console.log(this.video)
-	 },
+    uploadVideo(response, file, fileList) {
+      this.video = response.data.url;
+      console.log(this.video);
+    },
     deleteRow(index, rows) {
       rows.splice(index, 1);
     },
@@ -171,28 +177,26 @@ export default {
       return isLt2M; // isJPG && isLt2M;
     },
     // 提交视频
-    onSubmit(){
-    	this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
-    		name:this.name,
-    		pv:this.pv,
-    		cover:this.imageUrlNow,
-    		likeCount:this.likeCount,
-        brief:this.brief,
-    		video:this.video
-    	}))
-    	.then(res =>{
-        this.centerDialogVisible=false
-        this.tableData.push({'name': this.name,
-          'cover': this.imageUrlNow,
-          'video': this.video,
-          'likeCount': this.likeCount,
-          'pv': this.pv,
-          'brief':this.brief
+    onSubmit() {
+      this.$axios
+        .post(
+          '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
+          qs.stringify({
+            name: this.name,
+            pv: this.pv,
+            cover: this.imageUrlNow,
+            likeCount: this.likeCount,
+            brief: this.brief,
+            video: this.video
+          })
+        )
+        .then(res => {
+          this.centerDialogVisible = false;
+          this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+          console.log(this.tableData);
         })
-        console.log(this.tableData)
-    	})
-    	.catch()
-    },
+        .catch();
+    }
   }
 };
 </script>

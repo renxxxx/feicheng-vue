@@ -73,17 +73,17 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/index' }"><span class="lf48">找视频号</span></router-link>
+            <router-link :to="{ path: '/index' }"><span class="lf48">找飞橙</span></router-link>
             <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">素材创意</span></router-link>
 
-            <span class="lf48">视频号商学院</span>
+            <span class="lf48">飞橙商学院</span>
             <span class="lf48">申请成为博主</span>
 
             <el-button   v-if="showData? false:true" @click="loginFn" >登录 / 注册</el-button>
             <div v-else class="userToGo">
               <span><img style="border-radius: 50%;" :src="showData ?this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
               <span>{{showData?this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
-              <router-link :to="{ path: '/productPage/productPage_user' }"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+              <router-link :to="{ path: '/productPage/productPage_user' }"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"W><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
               </router-link>
             </div>
           </div>
@@ -96,9 +96,9 @@
         <div class="homeBack">
           <div class="homeBackIndex">
             <div>
-              <h1>视频号全场景AI数据平台</h1>
+              <h1>飞橙全场景AI数据平台</h1>
               <p>
-                全方位洞察视频号生态， 发掘热门视频、音乐，爆款商品及优质账号
+                全方位洞察飞橙生态， 发掘热门视频、音乐，爆款商品及优质账号
                 <br />
                 有效助力账号运营变现，品牌策略投放
               </p>
@@ -229,7 +229,7 @@
           <div class="_3gZSHcLe">电话：{{ servant.servantTel }}（工作日周一至周五9:30-18:00）</div>
         </div>
         <div class="footer_1_4">
-          <div>新抖服务号</div>
+          <div>飞橙服务号</div>
           <div>
             <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
             <img :src="codeSrc" alt="" />
@@ -276,7 +276,7 @@ export default {
      $route(to,from){
          console.log(to);
          console.log(from)
-         
+
      }
   },
   directives: {},

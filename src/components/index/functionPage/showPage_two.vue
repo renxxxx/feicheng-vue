@@ -20,7 +20,7 @@
         </div>
         <div id="two_2" class="box_indexRt transitionlFTwo">
             <div class="box_indexRt_one">
-              <strong>抖音带货效果分析</strong>
+              <strong>视频带货效果分析</strong>
               <span>REPORT</span>
             </div>
             <div class="box_indexRt_two">
@@ -42,14 +42,14 @@
               <div>
                 <svg width="34.665" height="19.957"><g data-name="\u7EC4 6433"><g data-name="\u7EC4 6182" fill="none" stroke="#cdcfcf" stroke-linecap="round" stroke-width="2" opacity="0.09"><path data-name="\u8DEF\u5F84 12909" d="M1.413 18.544l7.672-8.282 12.7 8.282L32.923 1.572l.671 8.942" stroke-linejoin="round"></path><path data-name="\u8DEF\u5F84 12910" d="M24.239 5.154l8.627-3.834"></path></g></g></svg>指标增量走势图
               </div>
-              <div class="_3-l53XPK"><span><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>商品销量</span><span class="_2bL9D8ei"><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>抖音访客趋势</span></div>
+              <div class="_3-l53XPK"><span><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>商品销量</span><span class="_2bL9D8ei"><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>视频访客趋势</span></div>
             </div>
             <div class="box_indexRt_four">
               <div>
                 <div class="box_indexRt_four_top">2019-12-27 热度解读</div>
                 <div class="box_indexRt_four_middle">
 <div class="midicon1"><div class="" style="background:#5CA1E6"></div><span>商品销量</span>31620</div>
-<div class="midicon2"><div class="" style="background:#FF7800"></div><span>抖音访客</span>398665</div>
+<div class="midicon2"><div class="" style="background:#FF7800"></div><span>视频访客</span>398665</div>
                 </div>
                 <div class="box_indexRt_four_bottom">暂未监测到当日发布的关联该商品的视频</div>
               </div>
