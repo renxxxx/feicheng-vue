@@ -4,7 +4,7 @@
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
 				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
 					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
-					<img src="../../assets/img/logo.png" style="width:50%" alt="">
+					<img src="../../assets/img/logo.png" class='logo'  alt="">
 				</router-link>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
@@ -51,10 +51,10 @@
 											<li>我的收藏</li>
 											<li>购买续费</li>
 											<li>我的权限</li>
-											<li>退出</li>
+											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-									<span slot="reference">免费版 </span>	
+									<span slot="reference" style="cursor: pointer;">免费版 </span>	
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
@@ -73,8 +73,8 @@
 				
 			</el-col>
 		</el-row>
-		<el-row class="height" :gutter='17'>
-			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4" class="height">
+		<el-row class="height" :gutter='0'>
+			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
 				<div class="leftNav">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
@@ -191,7 +191,7 @@
 					</el-menu>
 				</div>
 			</el-col>
-			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20" class="height">
+			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21" class="height">
 			<keep-alive>
 				<router-view class="appView"/>
 			</keep-alive>
@@ -374,6 +374,22 @@ export default {
 		this.msg = '数据平台'
 		this.tanShow = false
 	},
+	exitFn(){
+		this.$axios.post("user/logout")
+		.then(res=>{
+			if(res.data.code == 0){
+				localStorage.clear();
+				this.$router.push('/')
+				location.reload()
+			}
+		})
+		// this.$router.push('/')
+		// var exp = new Date();
+		//       exp.setTime(exp.getTime() - 1);
+		//       var cval = getCookie(name);
+		//      if (cval != null)
+		//      document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+	}
   },
 }
 </script>
@@ -384,6 +400,13 @@ export default {
 	height: 55px;
 	line-height: 55px;
 	border-bottom: 1px solid #3a3a3e;
+}
+.logo{
+	width:40%
+}
+
+.logo::after{
+	color: rgb(255, 120, 0);
 }
 .nav_title{
 	width: 100%;
@@ -649,6 +672,9 @@ export default {
 }
 .leftNav i{
 	color: #e8edee;
+}
+.leftNav li{
+	max-width: 196px;
 }
 .leftNav li:hover{
 	color: #ff7800!important;

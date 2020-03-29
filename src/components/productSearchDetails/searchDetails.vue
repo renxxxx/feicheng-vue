@@ -262,7 +262,7 @@
 				</div>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20" class="height">
-				<div class="_1mYqP-NC">
+				<!-- <div class="_1mYqP-NC">
 					<div class="ant-tabs ant-tabs-top _1nF74FAR ant-tabs-line">
 						<div role="tablist" class="ant-tabs-bar ant-tabs-top-bar" tabindex="0">
 							<div class="ant-tabs-nav-container ant-tabs-nav-container-scrolling">
@@ -332,7 +332,7 @@
 						</div>
 						<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
 					</div>
-				</div>
+				</div> -->
 				<router-view class="appView2" />
 			</el-col>
 		</el-row>
@@ -1449,7 +1449,7 @@
 		position: fixed;
 		left: 392px;
 		right: 40px;
-		top:170px;
+		top:70px;
 		overflow-y: scroll;
 		bottom: 10px;
 	}

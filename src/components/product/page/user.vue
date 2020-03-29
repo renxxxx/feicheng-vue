@@ -17,7 +17,12 @@
 						<div class="user_message">
 							<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
 							<h5>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</h5>
-							<p>你好，暂未<span>开通权限</span></p>
+							<p>
+								你好，暂未
+								<router-link :to="{path:'/productPage/productPage_ruzhu'}">
+									<span>入住博主</span>
+								</router-link>
+							</p>
 						</div>
 						<div class="_1aHAtMPw _1xvNCILN"></div>
 						<div class="_1aHAtMPw"></div>
@@ -317,7 +322,7 @@ export default {
 	font-size: 20px;
 	padding: 20px 0px 10px;
 }
-.user_message>p>span{
+.user_message>p span{
 	color: #1890ff;
 	cursor: pointer;
 }

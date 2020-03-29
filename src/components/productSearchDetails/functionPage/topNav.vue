@@ -20,10 +20,10 @@
 										<li>我的收藏</li>
 										<li>购买续费</li>
 										<li>我的权限</li>
-										<li>退出</li>
+										<li @click="exitFn">退出</li>
 									</ul>
 								</div>
-								<span slot="reference">免费版 </span>
+								<span slot="reference" style="cursor: pointer;">免费版 </span>
 							</el-popover>
 							<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 						</div>
@@ -59,6 +59,43 @@
 </template>
 
 <script>
+export default {
+  name: 'topNav',
+  data(){
+  	return{
+    }
+  },
+  computed:{
+    centerDialogVisible: {
+      get: function() {
+        return this.$store.state.centerDialogVisible;
+      },
+      set: function(newValue) {
+        this.$store.state.centerDialogVisible = newValue;
+      }
+    }
+  },
+  mounted(){
+	
+  },
+  watch:{
+   
+  },
+  components: {
+  },
+  methods:{
+	exitFn(){
+		this.$axios.post("user/logout")
+		.then(res=>{
+			if(res.data.code == 0){
+				localStorage.clear();
+				this.$router.push('/')
+				this.$router.go(0);
+			}
+		})
+	}
+  },
+}
 </script>
 
 <style>

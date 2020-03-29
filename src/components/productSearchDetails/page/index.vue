@@ -665,4 +665,21 @@
 .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;
 }
+.search_box_input>input[type=search]:focus,.search_box_input>input[type=search]:hover,.search_box_input>input[type=search]:link,search_box_input>input[type=search]:visited{
+	outline: none;
+	border: 1px solid #ff9429;
+	padding-right: 5px;
+}
+.search_box_input>input[type=search]::-webkit-search-cancel-button{
+	-webkit-appearance: none; 
+	/* position: relative; 
+	height: 10px;
+	width: 10px;
+	line-height: 10px;
+	text-align: center;
+	background : url("../../../assets/img/detele.png") no-repeat center;
+	background-size: 7px 7px;
+	border:1px solid #999999;
+	border-radius: 100%; */
+}
 </style>

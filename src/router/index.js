@@ -6,6 +6,8 @@ import Router from 'vue-router'
 import showPage from '@/components/index/showPage.vue'
 //404错误页面
 import page404 from '@/components/404Page.vue'
+//替换路由
+import tihuan from '@/components/common/tihuan.vue'
 
 //产品页面
 import productPage from '@/components/product/productPage.vue'
@@ -43,6 +45,12 @@ const router = new Router({
 			path: '*',
 			name: 'error',
 			component: page404,
+			meta: {unkeepLastRoute:true},
+		},
+		{
+			path: '/tihuan',
+			name: 'tihuan',
+			component: tihuan,
 			meta: {unkeepLastRoute:true},
 		},
 		{
@@ -111,7 +119,7 @@ const router = new Router({
 	]
 })
 router.afterEach((to,from) => {
-  // debugger
+  debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
   // 缓存最后一次路径
   if(!to.meta.unkeepLastRoute){
