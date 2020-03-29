@@ -90,7 +90,7 @@ export default {
 						// this.$router.go(0);
 						this.$parent.initData();
 					}else{
-						this.$router.replace({path:'/index'});
+						this.$router.push({path:'/index'});
 						let showData = true;
 						localStorage.setItem('showData',showData)
 					}

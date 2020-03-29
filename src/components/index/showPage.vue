@@ -6,7 +6,7 @@
         <router-link :to="{ path: '/productPage/productPage_index' }">
           <el-col :span="6" style="padding: 0;">
             <div class="grid-content bg-purple fclogo">
-              <svg width="125.336" height="33.144">
+             <!-- <svg width="125.336" height="33.144">
                 <g data-name="\u7EC4 7218" transform="translate(-360 -16)">
                   <g data-name="\u7EC4 7209">
                     <path
@@ -67,7 +67,8 @@
                   ></path>
                   <circle data-name="\u692D\u5706 1759" cx="1" cy="1" r="1" transform="translate(419 27)" fill="#fff"></circle>
                 </g>
-              </svg>
+              </svg> -->
+			  <img src="../../assets/img/feicheng.png" alt="" style="width: 125.336px;height: 33.144px;object-fit: cover;margin-top: 13px">
             </div>
           </el-col>
         </router-link>
@@ -359,7 +360,7 @@ export default {
       this.$router.push(JSON.parse(lastRoute));
       return;
     }
-    if(this.$store.state.refresh.loginRefresh().userLogo){
+    if(this.$store.state.refresh.loginRefresh()){
       this.useravator=this.$store.state.refresh.loginRefresh().userLogo
       this.userName=this.$store.state.refresh.loginRefresh().userName
       this.loginIf=false
