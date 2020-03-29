@@ -365,7 +365,7 @@ export default {
       this.loginIf=false
 
     }
-
+	this.showData = localStorage.getItem('showData')
 
   },
   components: {
@@ -405,6 +405,7 @@ export default {
 //      },
 	initData(){
 		this.showData = true;
+		localStorage.setItem('showData',this.showData)
 		// console.log('路由发送变化doing...');
 		// Object.assign(this.$data, this.$options.data());
 	},

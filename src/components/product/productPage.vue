@@ -2,7 +2,9 @@
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				<router-link :to="{path:'/'}">
+					<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				</router-link>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
 				<div class="topNav">
@@ -37,8 +39,8 @@
 							
 							
 							<div class="nav_data" >
-								<img :src="this.$store.state.refresh.loginRefresh().userLogo" alt="">
-								<span>{{this.$store.state.refresh.loginRefresh().userNickname}}</span>
+								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
+								<span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
 								<el-popover
 								    placement="top-start"
 								    trigger="hover">
@@ -194,7 +196,7 @@
 			</keep-alive>
 		</el-col>
 		</el-row>
-		<login ref= "loginRef"></login>
+		<login ref="loginRef"></login>
 		
   </div>
 </template>
@@ -328,9 +330,21 @@ export default {
   
   },
   computed:{
-    
+    centerDialogVisible: {
+      get: function() {
+        return this.$store.state.centerDialogVisible;
+      },
+      set: function(newValue) {
+        this.$store.state.centerDialogVisible = newValue;
+      }
+    }
   },
   mounted(){
+	  // console.log(this.$store.state.refresh.loginRefresh())
+	  if(!this.$store.state.refresh.loginRefresh()){
+		  this.centerDialogVisible = true;
+		  this.$refs.loginRef.getData();
+	  }
   },
   watch:{
    
@@ -339,6 +353,12 @@ export default {
     login,
   },
   methods:{
+	// initData(){
+	// 	let showData = true;
+	// 	localStorage.setItem('showData',showData)
+	// 	// console.log('路由发送变化doing...');
+	// 	// Object.assign(this.$data, this.$options.data());
+	// },
     handleOpen(key, keyPath) {
        console.log(key, keyPath);
     },

@@ -1,16 +1,18 @@
 <template>
-	<div class="searchDetails">
+	<div id="searchDetails">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				<router-link :to="{path:'/'}">
+					<span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span>
+				</router-link>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
 				<div class="topNav">
 					<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 						<div class="nav_user">
 							<div class="nav_data">
-								<img :src="this.$store.state.refresh.loginRefresh().userLogo" alt="">
-								<span>{{this.$store.state.refresh.loginRefresh().userNickname}}</span>
+								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
+								<span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
 								<el-popover placement="top-start" trigger="hover">
 									<div class="nav_data_xiala">
 										<ul>
@@ -389,7 +391,7 @@
 				<router-view class="appView" />
 			</el-col>
 		</el-row>
-
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -397,6 +399,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
+	import login from '../common/functionPage/login.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
@@ -406,10 +409,17 @@
 			}
 		},
 		computed: {
-
+			centerDialogVisible: {
+			  get: function() {
+			    return this.$store.state.centerDialogVisible;
+			  },
+			  set: function(newValue) {
+			    this.$store.state.centerDialogVisible = newValue;
+			  }
+			}
 		},
 		components: {
-
+			login,
 		},
 		beforeCreate() {
 
@@ -456,7 +466,11 @@
 		mounted() {
 			this.data = JSON.parse(this.$route.query.data);
 			this.getData()
-			console.dir(this.data)
+			// console.dir(this.data)
+			if(!this.$store.state.refresh.loginRefresh()){
+				this.centerDialogVisible = true;
+				this.$refs.loginRef.getData();
+			}
 		},
 		methods: {
 			xiaclickFn(num){
@@ -477,7 +491,7 @@
 </script>
 
 <style>
-	.searchDetails {
+	#searchDetails {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;

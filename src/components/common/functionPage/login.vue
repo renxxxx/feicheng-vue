@@ -88,9 +88,11 @@ export default {
                     
 					if(this.$router.currentRoute.fullPath == '/index'){
 						// this.$router.go(0);
-						this.$parent.initData()
+						this.$parent.initData();
 					}else{
-						this.$router.replace({path:'/index'})
+						this.$router.replace({path:'/index'});
+						let showData = true;
+						localStorage.setItem('showData',showData)
 					}
 					// console.log(this.$router)
                 }
