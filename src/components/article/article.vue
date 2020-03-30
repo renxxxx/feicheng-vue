@@ -139,8 +139,8 @@ export default {
 		// this.$refs.urlPageRef.innerHTML = this.data.content
 		// console.log(this.data);
 		if(!this.$store.state.refresh.loginRefresh()){
-			// this.centerDialogVisible = true;
-			// this.$refs.loginRef.getData();
+			this.centerDialogVisible = true;
+			this.$refs.loginRef.getData();
 		}
 	},
 	methods: {

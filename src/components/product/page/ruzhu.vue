@@ -102,6 +102,7 @@
       <video_supply></video_supply>
       <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
     </div>
+		<login ref="loginRef"></login>
   </div>
 </template>
 <script>
@@ -109,6 +110,7 @@ import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 import area from '../../../assets/area.json';
+import login from '../../common/functionPage/login.vue'
 import video_supply from './page_in/video_supply.vue';
 export default {
   name: 'ruzhu',
@@ -165,7 +167,7 @@ export default {
   },
   computed: {},
   components: {
-    video_supply,
+    video_supply,login
   },
   beforeCreate() {},
   created() {},

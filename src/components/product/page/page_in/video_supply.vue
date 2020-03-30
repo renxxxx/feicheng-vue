@@ -114,6 +114,7 @@
         <el-button type="primary" @click="onSubmit">确 定</el-button>
       </span>
     </el-dialog>
+		<login ref="loginRef"></login>
   </div>
 </template>
 
@@ -121,6 +122,7 @@
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
+import login from '../../../common/functionPage/login.vue'
 export default {
   data() {
     return {
@@ -139,6 +141,9 @@ export default {
       tableData: []
     };
   },
+	components: {
+	  login
+	},
   methods: {
     // 视频上传
     uploadVideo(response, file, fileList) {
@@ -155,7 +160,7 @@ export default {
       console.log(file);
     },
     handleExceed(files, fileList) {
-      this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`确定移除 ${file.name}？`);
@@ -191,9 +196,14 @@ export default {
           })
         )
         .then(res => {
-          this.centerDialogVisible = false;
-          this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
-          console.log(this.tableData);
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					this.centerDialogVisible = false;
+					this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+					console.log(this.tableData);
+				}
         })
         .catch();
     }

@@ -182,6 +182,7 @@
 			<!-- </div> -->
 			
 		</div>
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -189,6 +190,7 @@
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
+import login from '../../common/functionPage/login.vue'
 export default {
 	name: 'douyinSearch',
 	data () {
@@ -230,7 +232,7 @@ export default {
 		}
 	},
 	components:{
-
+		login
 	},
 	beforeCreate(){
 
@@ -291,6 +293,8 @@ export default {
 			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,pn:this.page,ps:5}))
 			.then(res =>{
 				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){
@@ -306,6 +310,8 @@ export default {
 			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
 			.then(res =>{
 				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){

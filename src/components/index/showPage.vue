@@ -68,7 +68,7 @@
                   <circle data-name="\u692D\u5706 1759" cx="1" cy="1" r="1" transform="translate(419 27)" fill="#fff"></circle>
                 </g>
               </svg> -->
-			  <img src="../../assets/img/feicheng.png" alt="" style="height: 80px;object-fit: cover;">
+              <img src="../../assets/img/feicheng.png" alt="" style="height: 80px;object-fit: cover;">
             </div>
           </el-col>
         </router-link>
@@ -745,7 +745,7 @@ el-row,
   background: -webkit-gradient(linear, left top, right top, from(hsla(0, 0%, 100%, 0.3)), to(hsla(0, 0%, 100%, 0)));
   background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
   opacity: 0.3;
-  
+
 }
 .homeBackIndex > div .homeIntro div:nth-child(2) {
   position: absolute;
@@ -766,7 +766,7 @@ el-row,
   cursor: pointer;
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
-  
+
 }
 .homeBackIndex > div > .userTo{
              background: #ff7800 !important;

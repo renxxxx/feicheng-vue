@@ -94,6 +94,7 @@
 			<!-- </div> -->
 			
 		</div>
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -101,6 +102,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
+	import login from '../../common/functionPage/login.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
@@ -133,7 +135,7 @@
 
 		},
 		components: {
-
+			login
 		},
 		beforeCreate() {
 
@@ -215,6 +217,7 @@
 				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccount:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
 				.then(res =>{
 					if(res.data.code == 20){
+						this.centerDialogVisible = true;						this.$refs.loginRef.getData();
 					}else{
 						if(res.data.data.itemList.length !=0){
 							for(let i in res.data.data.itemList){

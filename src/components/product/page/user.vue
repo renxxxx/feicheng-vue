@@ -83,7 +83,7 @@
 				</el-col>
 			</el-row>
 		</div>
-		
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -91,6 +91,7 @@
 import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 import qs from "qs";
+import login from '../../common/functionPage/login.vue'
 export default {
   name: "gene",
   data() {
@@ -110,6 +111,7 @@ export default {
     };
   },
   components: {
+	  login
   },
   computed: {
   },
@@ -118,7 +120,7 @@ export default {
     
   },
   created() {
-
+	
   },
   beforeRouteLeave(to, from, next) {
   	let scrollTop = this.scrollTop =document.getElementById('productPage').scrollTop;
@@ -186,8 +188,13 @@ export default {
 		getDataType(){
 			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({articleClassificationUpperId:0}))
 			.then(res=>{
-				for(let i in res.data.data.itemList){
-					this.typeList.push(res.data.data.itemList[i])
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					for(let i in res.data.data.itemList){
+						this.typeList.push(res.data.data.itemList[i])
+					}					
 				}
 				this.nextPageOne();
 				this.nextPageTwo();
@@ -202,8 +209,13 @@ export default {
 				pn:this.pageOne,
 				ps:5}))
 			.then(res=>{
-				for(let i in res.data.data.itemList){
-					this.articleOne.push(res.data.data.itemList[i])
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					for(let i in res.data.data.itemList){
+						this.articleOne.push(res.data.data.itemList[i])
+					}
 				}
 				this.loadOne = false
 			})
@@ -216,10 +228,15 @@ export default {
 				pn:this.pageTwo,
 				ps:5}))
 			.then(res=>{
-				for(let i in res.data.data.itemList){
-					this.articleTwo.push(res.data.data.itemList[i])
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					for(let i in res.data.data.itemList){
+						this.articleTwo.push(res.data.data.itemList[i])
+					}
+					this.loadTwo = false
 				}
-				this.loadTwo = false
 			})
 			.catch()
 		},
@@ -230,10 +247,15 @@ export default {
 				pn:this.pageThree,
 				ps:5}))
 			.then(res=>{
-				for(let i in res.data.data.itemList){
-					this.articleThree.push(res.data.data.itemList[i])
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					for(let i in res.data.data.itemList){
+						this.articleThree.push(res.data.data.itemList[i])
+					}
+					this.loadThree = false
 				}
-				this.loadThree = false
 			})
 			.catch()
 		},

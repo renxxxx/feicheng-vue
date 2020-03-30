@@ -10,7 +10,7 @@
           </h3>
           <div class="maintop_index_bottom">
             <div class="maintop_index_bg"></div>
-            <div>寻找网红打卡地，观察城市DOU势力分布</div>
+            <div>寻找网红打卡地，观察城市博主分布</div>
           </div>
         </div>
       </div>
