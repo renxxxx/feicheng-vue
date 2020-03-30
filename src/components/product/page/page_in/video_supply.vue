@@ -193,7 +193,13 @@ export default {
         .then(res => {
           this.centerDialogVisible = false;
           this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
-          console.log(this.tableData);
+          this.name=''
+          this.pv=''
+          this.imageUrlNow=''
+          this.likeCount=''
+          this.brief=''
+          this.video=''
+          // console.log(this.tableData);
         })
         .catch();
     }
