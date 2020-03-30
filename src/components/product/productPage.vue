@@ -86,7 +86,7 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item index="/productPage/productPage_ruzhu" v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'>
+						<el-menu-item index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
