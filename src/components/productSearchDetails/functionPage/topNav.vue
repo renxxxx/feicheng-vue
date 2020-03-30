@@ -298,7 +298,9 @@ export default {
 	
 	.nav_data {
 		float: right;
-		margin-right: 20px;
+		    margin-right: 20px;
+		    height: 56px;
+		    line-height: 5px!important;
 	}
 	
 	.nav_data>img {

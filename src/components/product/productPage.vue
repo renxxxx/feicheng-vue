@@ -74,7 +74,7 @@
 				
 			</el-col>
 		</el-row>
-		<el-row class="height" :gutter='0'>
+		<el-row class="height" :gutter='17'>
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
 				<div class="leftNav">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
@@ -588,6 +588,8 @@ export default {
 .nav_data{
 	float: right;
 	margin-right: 20px;
+	height: 56px;
+	line-height: 5px!important;
 }
 .nav_data>img{
 	height: 24px;width: 24px;border-radius: 50%;margin-right: 7px;
