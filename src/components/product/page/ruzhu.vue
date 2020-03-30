@@ -294,10 +294,15 @@ export default {
           // path:'/productPage/productPage_user'
           		// this.$router.push({path:'/productPage/productPage_user'});
               // console.dir(this.$refs.refChild.tableData)
-              var tableData=this.$refs.refChild.tableData
-              for(var i in tableData){
-                this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
+              if(this.$refs.refChild.tableData&&this.$refs.refChild.tableData.length>0){
+                var tableData=this.$refs.refChild.tableData
+                for(var i in tableData){
+                  this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
+                }
+              }else{
+                this.$router.push({path:'/productPage/productPage_user'});
               }
+
 
 
         }else{

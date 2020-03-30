@@ -38,8 +38,8 @@
 					</el-col>
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9">
 						<div class="nav_user">
-							
-							
+
+
 							<div class="nav_data" >
 								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
 								<span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
@@ -55,13 +55,13 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-									<span slot="reference" style="cursor: pointer;">体验版 </span>	
+									<span slot="reference" style="cursor: pointer;">体验版 </span>
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
 							<div class="nav_function">
 								<svg width="16" height="16" viewBox="0 0 16 16" class="_pniUROVW"><path fill="#25f4ee" d="M6.992 3.829c.011-1.276 0-2.553.011-3.829h2.609a3.251 3.251 0 0 0 .057.666h-1.92v10.369a2.477 2.477 0 0 1-.316 1.265 2.141 2.141 0 0 1-1.651 1.048 2.212 2.212 0 0 1-1.254-.26 2.151 2.151 0 0 1-.734-.655 2.153 2.153 0 0 0 2.18-.079 2.217 2.217 0 0 0 1.028-1.852c-.011-2.225-.011-4.45-.011-6.675zm4.3-.734a3.78 3.78 0 0 0 1.186.5 3.373 3.373 0 0 0 .757.079v.587a3.719 3.719 0 0 1-1.943-1.163zm0 0"></path><path fill="#25f4ee" d="M2.294 6.348a4.726 4.726 0 0 1 3.163-.666v.621a5.7 5.7 0 0 0-.87.1 4.955 4.955 0 0 0-1.943.87 4.707 4.707 0 0 0-1.423 1.8 4.833 4.833 0 0 0-.463 2.146 4.886 4.886 0 0 0 .61 2.315 3.7 3.7 0 0 0 .655.9 4.634 4.634 0 0 1-1.355-1.491 4.89 4.89 0 0 1-.666-2.609 4.967 4.967 0 0 1 .712-2.383 4.773 4.773 0 0 1 1.58-1.603zm0 0"></path><path d="M7.749.666H9.68a3.957 3.957 0 0 0 .373 1.062 3.252 3.252 0 0 0 1.152 1.288.264.264 0 0 1 .079.079 3.707 3.707 0 0 0 1.954 1.163c.011.678 0 1.367 0 2.044a6.117 6.117 0 0 1-3.592-1.141c0 1.626 0 3.253.011 4.88 0 .215.011.429 0 .655a5.338 5.338 0 0 1-.7 2.259 4.914 4.914 0 0 1-1.355 1.536 4.354 4.354 0 0 1-2.474.847 5.359 5.359 0 0 1-1.344-.113 4.836 4.836 0 0 1-1.728-.757l-.034-.034a4.019 4.019 0 0 1-.655-.9 4.939 4.939 0 0 1 1.276-6.257 4.954 4.954 0 0 1 1.943-.87 5.543 5.543 0 0 1 .87-.1c.011.26 0 .52.011.768v1.321a1.869 1.869 0 0 0-1.028-.034 2.545 2.545 0 0 0-1.107.542 2.024 2.024 0 0 0-.474.6 2.227 2.227 0 0 0-.226 1.265 2.13 2.13 0 0 0 .5 1.141 2.794 2.794 0 0 0 .655.553 2.151 2.151 0 0 0 .734.655 2.309 2.309 0 0 0 1.254.26 2.113 2.113 0 0 0 1.649-1.051 2.478 2.478 0 0 0 .316-1.265c.023-3.479.011-6.935.011-10.391zm0 0" fill="#fff"></path><path fill="#fe2c55" d="M9.685.666c.226.011.452 0 .689 0a3.715 3.715 0 0 0 .678 2.135c.056.079.113.147.169.215a3.171 3.171 0 0 1-1.152-1.288A4.258 4.258 0 0 1 9.685.666zm3.558 3.592a3.374 3.374 0 0 0 .757.079v2.632a6.173 6.173 0 0 1-3.626-1.175v5.218a4.558 4.558 0 0 1-.113 1.175 4.851 4.851 0 0 1-1.92 2.925 4.7 4.7 0 0 1-1.717.768 4.745 4.745 0 0 1-4.552-1.412 4.646 4.646 0 0 0 1.728.757 5.358 5.358 0 0 0 1.344.113 4.354 4.354 0 0 0 2.474-.847 5.057 5.057 0 0 0 1.355-1.536 5.338 5.338 0 0 0 .7-2.259 6.371 6.371 0 0 0 0-.655c-.011-1.627-.011-3.253-.011-4.88a6.118 6.118 0 0 0 3.592 1.141c-.015-.677-.004-1.366-.015-2.044zm0 0"></path><path fill="#fe2c55" d="M5.468 6.287a5.662 5.662 0 0 1 .757.045v2.7a2.064 2.064 0 0 0-1.141-.045 2.205 2.205 0 0 0-1.276 3.434 2.375 2.375 0 0 1-.655-.553 2.13 2.13 0 0 1-.5-1.141 2.227 2.227 0 0 1 .226-1.265 2.022 2.022 0 0 1 .474-.6A2.746 2.746 0 0 1 4.46 8.32a1.87 1.87 0 0 1 1.028.034V7.032c-.02-.222-.009-.481-.02-.745zm0 0"></path><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M11.5 13.5h4M13.5 11.5v4"></path></g></svg>
-								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>						
+								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
 								<input type="search" placeholder="搜索">
@@ -69,9 +69,9 @@
 							</div>
 						</div>
 					</el-col>
-					
+
 				</div>
-				
+
 			</el-col>
 		</el-row>
 		<el-row class="height" :gutter='17'>
@@ -79,7 +79,7 @@
 				<div class="leftNav">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-						
+
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
 								<img src="../../assets/img/shouyeLogo.svg" alt="">
@@ -87,7 +87,7 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item index="/productPage/productPage_ruzhu">
+						<el-menu-item index="/productPage/productPage_ruzhu" v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'>
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
@@ -199,7 +199,7 @@
 		</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
-		
+
   </div>
 </template>
 
@@ -329,7 +329,7 @@ export default {
     next(vm => {
    document.getElementById('productPage').scrollTop=document.getElementById('productPage').pageYOffset=vm.scrollTop;
   });
-  
+
   },
   computed:{
     centerDialogVisible: {
@@ -349,7 +349,7 @@ export default {
 	  }
   },
   watch:{
-   
+
   },
   components: {
     login,
@@ -631,7 +631,7 @@ export default {
 		-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 	}
-	
+
 	.nav_data_xiala>ul>li {
 		height: 42px;
 		line-height: 42px;
