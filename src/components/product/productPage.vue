@@ -82,8 +82,7 @@
 						
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
-								<img src="../../assets/img/shouyeLogo.svg" alt="">
-								<svg width="1em" height="1em" viewBox="0 0 19.71 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
+								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
@@ -591,6 +590,9 @@ export default {
 	height: 56px;
 	line-height: 5px!important;
 }
+.nav_data>i{
+		line-height: 0;
+	}
 .nav_data>img{
 	height: 24px;width: 24px;border-radius: 50%;margin-right: 7px;
 	position: relative;

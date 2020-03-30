@@ -385,11 +385,15 @@ export default {
 		bottom: 0px;
 		margin: auto 0px;
 	}
-	.nav_data {
+	.nav_data{
 		float: right;
 		margin-right: 20px;
+		height: 56px;
+		line-height: 5px!important;
 	}
-	
+	.nav_data>i{
+			line-height: 0;
+		}
 	.nav_data>img {
 		height: 24px;
 		width: 24px;
