@@ -2,7 +2,7 @@
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3">
-				<router-link :to="{path:'/'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
+				<router-link :to="{path:'/index'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
 					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
 					<div class="before"></div>
 					<img src="../../assets/img/logo.png"   alt="">
