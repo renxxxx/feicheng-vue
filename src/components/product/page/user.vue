@@ -40,7 +40,7 @@
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
 					<div class="uer_zhixun_gongneng" >
 						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
-							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;">
+							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;padding: 5px;overflow-x:hidden ;">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
 									<span >[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.brief}}</span>
 								<!-- </router-link> -->
@@ -337,6 +337,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .uer_zhixun_gongneng_hezi span,.uer_zhixun_lishi>span{
 	height: 30px;
@@ -349,8 +350,9 @@ export default {
 
 .uer_zhixun_gongneng_hezi span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi:hover{
 	background: hsla(0,0%,100%,.08);
-	    color: #fff;
+	color: #fff;
 	cursor: pointer;
+	transition: all .3s,height 0s;
 }
 .uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
@@ -382,7 +384,9 @@ export default {
 .uer_zhixun_tuisongList_hezhi{
 	height: 45px;
 	line-height: 25px;
-	margin-bottom: 12px;
+	margin-bottom: 7px;
+	padding: 5px;
+	/* border-radius: 4px; */
 }
 .uer_zhixun_tuisongList_hezhi>p:first-child>span{
 	font-size: 12px;
@@ -451,7 +455,7 @@ export default {
 	/* top: -6px; */
 	margin: 0 0 0 18px;
 	word-break: break-word;
-	padding-left: 5px;
+	padding: 5px;
 }
 .uer_zhixun_lishiList_hezhi_neirong span:first-child{
 	font-size: 14px;

@@ -1,13 +1,14 @@
 <template>
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
-			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
+			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3">
+				<router-link :to="{path:'/'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
 					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
-					<img src="../../assets/img/logo.png" class='logo'  alt="">
+					<div class="before"></div>
+					<img src="../../assets/img/logo.png"   alt="">
 				</router-link>
 			</el-col>
-			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
+			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21">
 				<div class="topNav">
 					<el-col :xs="7" :sm="6" :md="12" :lg="13" :xl="15">
 						<div class="nav_title">
@@ -401,12 +402,24 @@ export default {
 	line-height: 55px;
 	border-bottom: 1px solid #3a3a3e;
 }
-.logo{
-	width:40%
+.logo>img{
+	width:50%;
+	position:absolute;
+	left: 0px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
 }
 
-.logo::after{
-	color: rgb(255, 120, 0);
+.before{
+	width: 2px;
+	height: 38px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+	background-color: rgb(255, 120, 0);
 }
 .nav_title{
 	width: 100%;
