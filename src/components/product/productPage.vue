@@ -55,7 +55,7 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-									<span slot="reference" style="cursor: pointer;">免费版 </span>	
+									<span slot="reference" style="cursor: pointer;">体验版 </span>	
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>

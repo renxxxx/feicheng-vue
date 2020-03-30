@@ -17,7 +17,7 @@
 						</ul>
 					</div>
 					<div class="search_box_input">
-						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入抖音名称或抖音号">
+						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
 					<span @click="searchFn">搜索</span>
@@ -219,6 +219,12 @@ export default {
 			load:false,
 			wxVideoaccountRealmId:[],
 			wxVideoaccountRealmIdNow:'',
+			sort:'',
+			order:'',
+			one:0,
+			two:0,
+			three:0,
+			four:0,
 		}
 	},
 	computed:{
@@ -290,7 +296,13 @@ export default {
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,pn:this.page,ps:5}))
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({
+				kw:this.kw,
+				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
+				sort:this.sort,
+				order:this.order,
+				pn:this.page,ps:5,
+			}))
 			.then(res =>{
 				if(res.data.code == 20){
 					this.centerDialogVisible = true;
@@ -356,15 +368,55 @@ export default {
 			this.clickData={one:false,two:false,three:false,four:false};
 			switch(_value){
 				case 'one':
+				if(this.one%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "fansCount"
+				this.one++;
+				this.nextPage()
 				this.clickData.one = true;
 				break;
 				case 'two':
+				if(this.two%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "likeCount"
+				this.two++;
+				this.nextPage()
 				this.clickData.two = true;
 				break;
 				case 'three':
+				if(this.three%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "videoCount"
+				this.three++;
+				this.nextPage()
 				this.clickData.three = true;
 				break;
 				case 'four':
+				if(this.four%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "pv"
+				this.four++;
+				this.nextPage()
 				this.clickData.four = true;
 				break;
 			}
@@ -372,13 +424,17 @@ export default {
 		typeClickFn(_item,_inx){
 			// console.log(_item)
 			if(this.typeList[_inx].typeData){
-				this.typeList[_inx].typeData = false;
+				
+				// this.typeList[_inx].typeData = false;
 				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
 				// this.wxVideoaccountRealmId = a
 				this.userList = [];
 				this.page = 1;
 				this.getData()
 			}else{
+				for(let i in this.typeList){
+					this.typeList[i].typeData = false;
+				}
 				this.typeList[_inx].typeData = true;
 				// this.wxVideoaccountRealmId.push(_item.wxVideoaccountRealmId)
 				this.wxVideoaccountRealmIdNow = _item.wxVideoaccountRealmId

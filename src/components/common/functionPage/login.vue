@@ -89,6 +89,7 @@ export default {
                     this.centerDialogVisible = false;
 					console.log(this.centerDialogVisible)
 						debugger
+						clearInterval(this.timer);
 										if(this.$router.currentRoute.fullPath == '/index'){
 											// this.$router.go(0);
 											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
