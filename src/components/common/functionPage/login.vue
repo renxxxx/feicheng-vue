@@ -35,7 +35,7 @@ export default {
       closeData:{
           data:{},
           value:''
-         }
+         },
       // imgSrc:'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA'
     };
   },
@@ -65,8 +65,8 @@ export default {
     closeLogin(){
           clearInterval(this.timer);
           this.centerDialogVisible = false;
-		  debugger
-					console.log(this.centerDialogVisible)
+		  // debugger
+					// console.log(this.centerDialogVisible)
     },
     getData(){
       this.$axios

@@ -2,8 +2,9 @@
   <div class="video">
     <el-row>
       <div>
-        <span>视频列表</span>
-        <el-button type="text" @click="centerDialogVisible = true">点击添加视频</el-button>
+        <!-- <span>视频列表</span> -->
+        <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
+        <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
       </div>
       <div>
         <el-table stripe :data="tableData" style="width: 100%">
@@ -96,11 +97,11 @@
             </el-upload>
           </li>
           <li>
-            <span>点赞量:(单位/万)</span>
+            <span>点赞量:</span>
             <el-input placeholder="请输入内容" v-model="likeCount" clearable></el-input>
           </li>
           <li>
-            <span>曝光量:(单位/万)</span>
+            <span>曝光量:</span>
             <el-input placeholder="请输入内容" v-model="pv" clearable></el-input>
           </li>
           <li>
@@ -115,6 +116,9 @@
       </span>
     </el-dialog>
 		<login ref="loginRef"></login>
+
+
+    <!-- <child ref="refChild" hidden>{{tableData}}</child> -->
   </div>
 </template>
 
@@ -183,35 +187,51 @@ export default {
     },
     // 提交视频
     onSubmit() {
-      this.$axios
-        .post(
-          '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
-          qs.stringify({
-            name: this.name,
-            pv: this.pv,
-            cover: this.imageUrlNow,
-            likeCount: this.likeCount,
-            brief: this.brief,
-            video: this.video
-          })
-        )
-        .then(res => {
-				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
-				}else{
-					this.centerDialogVisible = false;
-					this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
-					this.name=''
-					this.pv=''
-					this.imageUrlNow=''
-					this.likeCount=''
-					this.brief=''
-					this.video=''
-				}
-
-        })
-        .catch();
+     this.centerDialogVisible = false;
+     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+     this.name=''
+     this.pv=''
+     this.imageUrl=''
+     this.video= ''
+     // this.imageUrlNow=''
+     this.likeCount=''
+     this.brief=''
+     // this.video=''
+     this.videolist=[]
+     this.fileList=[]
+     console.log(this.tableData)
+    //   this.$axios
+    //     .post(
+    //       '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
+    //       qs.stringify({
+    //         name: this.name,
+    //         pv: this.pv,
+    //         cover: this.imageUrlNow,
+    //         likeCount: this.likeCount,
+    //         brief: this.brief,
+    //         video: this.video
+    //       })
+    //     )
+    //     .then(res => {
+				// if(res.data.code == 20){
+				// 	this.centerDialogVisible = true;
+				// 	this.$refs.loginRef.getData();
+				// }else 	if(res.data.code == 0){
+				// 	this.centerDialogVisible = false;
+				// 	this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+				// 	this.name=''
+				// 	this.pv=''
+				// 	this.imageUrlNow=''
+				// 	this.likeCount=''
+				// 	this.brief=''
+				// 	this.video=''
+    //       this.videolist=[]
+    //       this.fileList=[]
+				// }else{
+    //       this.$message.error(res.data.codeMsg);
+    //     }
+        // })
+        // .catch();
     }
   }
 };
@@ -220,7 +240,9 @@ export default {
 <style scoped>
 .video {
   width: 90%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  /* float: left; */
+  margin-left: 40px;
 }
 .demo-table-expand {
   font-size: 0;
