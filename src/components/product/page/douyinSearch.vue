@@ -129,7 +129,7 @@
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
 							<li @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''">
-								<svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+								<!-- <svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg> -->
 								<span>曝光量</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
@@ -219,6 +219,12 @@ export default {
 			load:false,
 			wxVideoaccountRealmId:[],
 			wxVideoaccountRealmIdNow:'',
+			sort:'',
+			order:'',
+			one:0,
+			two:0,
+			three:0,
+			four:0,
 		}
 	},
 	computed:{
@@ -290,7 +296,13 @@ export default {
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,pn:this.page,ps:5}))
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({
+				kw:this.kw,
+				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
+				sort:this.sort,
+				order:this.order,
+				pn:this.page,ps:5,
+			}))
 			.then(res =>{
 				if(res.data.code == 20){
 					this.centerDialogVisible = true;
@@ -356,15 +368,55 @@ export default {
 			this.clickData={one:false,two:false,three:false,four:false};
 			switch(_value){
 				case 'one':
+				if(this.one%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "fansCount"
+				this.one++;
+				this.nextPage()
 				this.clickData.one = true;
 				break;
 				case 'two':
+				if(this.two%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "likeCount"
+				this.two++;
+				this.nextPage()
 				this.clickData.two = true;
 				break;
 				case 'three':
+				if(this.three%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "videoCount"
+				this.three++;
+				this.nextPage()
 				this.clickData.three = true;
 				break;
 				case 'four':
+				if(this.four%2){
+					this.order = 'desc';
+				}else{
+					this.order = 'asc';
+				}
+				this.userList = [];
+				this.page = 0;
+				this.sort = "pv"
+				this.four++;
+				this.nextPage()
 				this.clickData.four = true;
 				break;
 			}
@@ -372,13 +424,17 @@ export default {
 		typeClickFn(_item,_inx){
 			// console.log(_item)
 			if(this.typeList[_inx].typeData){
-				this.typeList[_inx].typeData = false;
+				
+				// this.typeList[_inx].typeData = false;
 				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
 				// this.wxVideoaccountRealmId = a
 				this.userList = [];
 				this.page = 1;
 				this.getData()
 			}else{
+				for(let i in this.typeList){
+					this.typeList[i].typeData = false;
+				}
 				this.typeList[_inx].typeData = true;
 				// this.wxVideoaccountRealmId.push(_item.wxVideoaccountRealmId)
 				this.wxVideoaccountRealmIdNow = _item.wxVideoaccountRealmId

@@ -2,7 +2,7 @@
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3">
-				<router-link :to="{path:'/'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
+				<router-link :to="{path:'/index'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
 					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
 					<div class="before"></div>
 					<img src="../../assets/img/logo.png"   alt="">
@@ -55,7 +55,7 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-									<span slot="reference" style="cursor: pointer;">免费版 </span>	
+									<span slot="reference" style="cursor: pointer;">体验版 </span>	
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
@@ -74,7 +74,7 @@
 				
 			</el-col>
 		</el-row>
-		<el-row class="height" :gutter='0'>
+		<el-row class="height" :gutter='17'>
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
 				<div class="leftNav">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
@@ -588,6 +588,8 @@ export default {
 .nav_data{
 	float: right;
 	margin-right: 20px;
+	height: 56px;
+	line-height: 5px!important;
 }
 .nav_data>img{
 	height: 24px;width: 24px;border-radius: 50%;margin-right: 7px;
