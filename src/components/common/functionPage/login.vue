@@ -14,7 +14,7 @@
         <div class="codelogin" role="separator">
           <span class=""><span class="">微信扫码登陆</span></span>
         </div>
-        <div class="scanIntro">打开微信扫一扫，经飞辰服务验证后即可登录/注册</div>
+        <div class="scanIntro">打开微信扫一扫，经飞橙服务验证后即可登录/注册</div>
       </div>
     </el-dialog>
   </div>

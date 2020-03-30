@@ -94,6 +94,7 @@
 			<!-- </div> -->
 			
 		</div>
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -101,6 +102,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
+	import login from '../../common/functionPage/login.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
@@ -133,7 +135,7 @@
 
 		},
 		components: {
-
+			login
 		},
 		beforeCreate() {
 
@@ -183,6 +185,25 @@
 			this.nextPage();
 		},
 		methods: {
+			typeClickFn(_item,_inx){
+				// console.log(_item)
+				if(this.dataList[_inx].typeData){
+					this.dataList[_inx].typeData = false;
+					this.wxVideoaccountRealmId = '';
+					this.userList = [];
+					this.page = 1;
+					this.getData()
+				}else{
+					// for(let i in this.dataList){
+					// 	this.dataList[i].typeData = false;
+					// }
+					this.dataList[_inx].typeData = true;
+					this.wxVideoaccountRealmId = _item.wxVideoaccountRealmId
+					this.userList = [];
+					this.page = 1;
+					this.getData()
+				}
+			},
 			xiaclickFn(num){
 				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
 			},
@@ -190,11 +211,13 @@
 				this.page++;
 				this.getData();
 			},
+			
 			getData(){
 				this.load = true;
 				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccount:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
 				.then(res =>{
 					if(res.data.code == 20){
+						this.centerDialogVisible = true;						this.$refs.loginRef.getData();
 					}else{
 						if(res.data.data.itemList.length !=0){
 							for(let i in res.data.data.itemList){
@@ -563,6 +586,11 @@
 	max-width: 80px;
 	cursor: pointer;
 	/* margin-right: 3%; */
+}
+.typeCilckColor{
+	color: #fff!important;
+	background-color: #ff7800;
+	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
 /* .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
 	cursor: auto;

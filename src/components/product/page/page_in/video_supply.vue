@@ -91,7 +91,7 @@
               :on-success="uploadVideo"
               accept="video/*"
             >
-              <el-button size="small" type="primary" style="margin-top: 15px;">点击上传</el-button>
+              <el-button size="small" type="primary" style="margin-top: 15px;">上传视频</el-button>
               <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
             </el-upload>
           </li>
@@ -114,6 +114,7 @@
         <el-button type="primary" @click="onSubmit">确 定</el-button>
       </span>
     </el-dialog>
+		<login ref="loginRef"></login>
   </div>
 </template>
 
@@ -121,6 +122,7 @@
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
+import login from '../../../common/functionPage/login.vue'
 export default {
   data() {
     return {
@@ -139,6 +141,9 @@ export default {
       tableData: []
     };
   },
+	components: {
+	  login
+	},
   methods: {
     // 视频上传
     uploadVideo(response, file, fileList) {
@@ -191,15 +196,20 @@ export default {
           })
         )
         .then(res => {
-          this.centerDialogVisible = false;
-          this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
-          this.name=''
-          this.pv=''
-          this.imageUrlNow=''
-          this.likeCount=''
-          this.brief=''
-          this.video=''
-          // console.log(this.tableData);
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}else{
+					this.centerDialogVisible = false;
+					this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+					this.name=''
+					this.pv=''
+					this.imageUrlNow=''
+					this.likeCount=''
+					this.brief=''
+					this.video=''
+				}
+
         })
         .catch();
     }

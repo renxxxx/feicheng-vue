@@ -102,6 +102,7 @@
       <video_supply></video_supply>
       <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
     </div>
+		<login ref="loginRef"></login>
   </div>
 </template>
 <script>
@@ -109,6 +110,7 @@ import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 import area from '../../../assets/area.json';
+import login from '../../common/functionPage/login.vue'
 import video_supply from './page_in/video_supply.vue';
 export default {
   name: 'ruzhu',
@@ -165,7 +167,7 @@ export default {
   },
   computed: {},
   components: {
-    video_supply,
+    video_supply,login
   },
   beforeCreate() {},
   created() {},
@@ -255,6 +257,10 @@ export default {
 				wxVideoaccountRealmIdList:this.wxVideoaccountRealmIdListNow
 			}))
 			.then(res =>{
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}
 			})
 			.catch()
 		},
@@ -267,14 +273,19 @@ export default {
       this.$axios
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
-          console.log(res.data.data.itemList)
-          var itemList=res.data.data.itemList
-          var cityOptions=[]
-          for(var i in itemList){
-            cityOptions.push(itemList[i])
-          }
-          console.log(cityOptions)
-          this.cities=cityOptions
+					if(res.data.code == 20){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
+					}else{
+						console.log(res.data.data.itemList)
+						var itemList=res.data.data.itemList
+						var cityOptions=[]
+						for(var i in itemList){
+							cityOptions.push(itemList[i])
+						}
+						console.log(cityOptions)
+						this.cities=cityOptions
+					}
         })
         .catch(err => {});
     },

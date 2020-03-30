@@ -29,7 +29,7 @@
 				</el-col>
 				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
 					<ul>
-						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(inx)">
+						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(item,inx)">
 							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
 						</li>
 					</ul>
@@ -182,6 +182,7 @@
 			<!-- </div> -->
 			
 		</div>
+		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -189,6 +190,7 @@
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
+import login from '../../common/functionPage/login.vue'
 export default {
 	name: 'douyinSearch',
 	data () {
@@ -215,6 +217,8 @@ export default {
 			userList:[],
 			page:0,
 			load:false,
+			wxVideoaccountRealmId:[],
+			wxVideoaccountRealmIdNow:'',
 		}
 	},
 	computed:{
@@ -228,7 +232,7 @@ export default {
 		}
 	},
 	components:{
-
+		login
 	},
 	beforeCreate(){
 
@@ -280,22 +284,17 @@ export default {
 		this.nextPage();
 	},
 	methods: {
-		// clickNewFn(){
-		// 	console.log('ss')
-		// 	debugger
-		// 	this.$router.resolve({
-		// 	    path: '/searchDetails'
-		// 	})
-		// },
 		nextPage(){
 			this.page++;
 			this.getData();
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,pn:this.page,ps:5}))
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({kw:this.kw,wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,pn:this.page,ps:5}))
 			.then(res =>{
 				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){
@@ -311,6 +310,8 @@ export default {
 			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
 			.then(res =>{
 				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){
@@ -368,12 +369,30 @@ export default {
 				break;
 			}
 		},
-		typeClickFn(_inx){
-			for(let i in this.typeList){
-				this.typeList[i].typeData = false;
+		typeClickFn(_item,_inx){
+			// console.log(_item)
+			if(this.typeList[_inx].typeData){
+				this.typeList[_inx].typeData = false;
+				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
+				// this.wxVideoaccountRealmId = a
+				this.userList = [];
+				this.page = 1;
+				this.getData()
+			}else{
+				this.typeList[_inx].typeData = true;
+				// this.wxVideoaccountRealmId.push(_item.wxVideoaccountRealmId)
+				this.wxVideoaccountRealmIdNow = _item.wxVideoaccountRealmId
+				this.userList = [];
+				this.page = 1;
+				this.getData()
 			}
-			this.typeList[_inx].typeData = true
-			console.log(_inx)
+			// if(this.wxVideoaccountRealmId.length>1){
+			// 	this.wxVideoaccountRealmIdNow = this.wxVideoaccountRealmId.join(',')
+			// 	console.dir(this.wxVideoaccountRealmIdNow)
+			// }else{
+			// 	console.dir(this.wxVideoaccountRealmIdNow)
+			// 	this.wxVideoaccountRealmIdNow = this.wxVideoaccountRealmId
+			// }
 		},
 		numClickFn(_inx){
 			for(let i in this.numList){
@@ -545,12 +564,12 @@ export default {
 
 .search_type ul li span:hover,.search_zhishu ul li span:hover{
 	cursor: pointer;
-	/* color: #ff9429; */
+	color: #ff9429;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 	/* background-color: #ff7800; */
 }
 .typeCilckColor{
-	color: #fff;
+	color: #fff!important;
 	background-color: #ff7800;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
@@ -675,7 +694,7 @@ export default {
 	/* margin-right: 3%; */
 }
 .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
-	cursor: auto;
+	cursor: pointer;
 	width: 23%;
 	max-width: 140px;
 	min-width: 110px;

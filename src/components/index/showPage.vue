@@ -3,7 +3,7 @@
     <!-- 顶部导航 -->
     <el-header class="navBar">
       <el-row class="indexNav">
-        <router-link :to="{ path: '/productPage/productPage_index' }">
+        <router-link :to="{ path: '/productPage/productPage_user' }">
           <el-col :span="6" style="padding: 0;">
             <div class="grid-content bg-purple fclogo">
              <!-- <svg width="125.336" height="33.144">
@@ -82,9 +82,9 @@
 
             <el-button   v-if="this.$store.state.refresh.loginRefresh()? false:true" @click="loginFn" >登录 / 注册</el-button>
             <div v-else class="userToGo">
-              <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh() ?this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
+              <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
               <span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
-              <router-link :to="{ path: '/productPage/productPage_user' }"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+              <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"W><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
               </router-link>
             </div>
           </div>
