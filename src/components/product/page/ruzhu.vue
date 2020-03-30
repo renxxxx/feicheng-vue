@@ -301,7 +301,7 @@ export default {
 
 
         }else{
-          this.$message(res.data.codeMsg);
+          this.$message.error(res.data.codeMsg);
         }
 			})
 			.catch()

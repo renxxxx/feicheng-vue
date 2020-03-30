@@ -87,7 +87,6 @@ export default {
                 if(res.data.code==0){
                     this.$store.state.refresh.loginRefresh()
                     this.centerDialogVisible = false;
-					console.log(this.centerDialogVisible)
 						debugger
 										if(this.$router.currentRoute.fullPath == '/index'){
 											// this.$router.go(0);
@@ -99,6 +98,8 @@ export default {
 											// localStorage.setItem('showData',showData)
 										}
 					// console.log(this.$router)
+                }else{
+                   // this.$message.error(res.data.codeMsg);
                 }
               })
               .catch(err => {});
