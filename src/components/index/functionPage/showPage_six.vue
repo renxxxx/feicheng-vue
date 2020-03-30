@@ -56,7 +56,7 @@
         <div class="mainbottom_rt">
             <div class="mainbottom_rt_top">
               <div class="_bGvpTp2_"></div>
-              <div class="_bGvpTp2_"></div>实时数据<strong>助力dou+投放<span class="_3hclmUyu"></span></strong><div class="_2PSDJLVs"></div><div class="_2PSDJLVs"></div>
+              <div class="_bGvpTp2_"></div>实时数据<strong>助力视频号投放<span class="_3hclmUyu"></span></strong><div class="_2PSDJLVs"></div><div class="_2PSDJLVs"></div>
             </div>
             <div class="mainbottom_rt_bottom">
               <div class="rt_one"></div>
@@ -83,7 +83,7 @@
                 <span>实时增速</span>0/min
               </div>
               <div class="rt_seven">
-              投<svg id="\u7EC4_7157" data-name="\u7EC4 7157" width="30.671" height="19" style="vertical-align:-3px;margin-left:3px"><path id="\u8DEF\u5F84_13351" data-name="\u8DEF\u5F84 13351" fill="#fff" d="M599 111.657V106.9h1.027v4.746z" transform="translate(-583.18 -104.077)"></path><path id="\u8DEF\u5F84_13352" data-name="\u8DEF\u5F84 13352" fill="#fff" d="M1127.5 260.368V250.9h.885v9.45z" transform="translate(-1097.722 -244.274)"></path><path id="\u77E9\u5F62_8459" data-name="\u77E9\u5F62 8459" fill="#fff" transform="translate(15.82 6.626)" d="M0 0h14.576v.953H0z"></path><path id="\u77E9\u5F62_8460" data-name="\u77E9\u5F62 8460" fill="#fff" transform="translate(27.422 15.036)" d="M0 0h3.249v1.049H0z"></path><path id="\u77E9\u5F62_8461" data-name="\u77E9\u5F62 8461" fill="#fff" transform="translate(13.512 17.381)" d="M0 0h3.679v.911H0z"></path><path id="\u77E9\u5F62_8462" data-name="\u77E9\u5F62 8462" fill="#fff" transform="translate(16.105 15.841)" d="M0 0h1.085v2.208H0z"></path><g id="\u7EC4_7156" data-name="\u7EC4 7156"><path id="\u8DEF\u5F84_13355" data-name="\u8DEF\u5F84 13355" fill="#fff" d="M487.055 3.5l.621-.679L484.889 0 483.6.013l1.614 1.632z" transform="translate(-470.828)"></path><path id="\u8DEF\u5F84_13356" data-name="\u8DEF\u5F84 13356" fill="#fff" d="M14.246 8.509V3.763L10.683.2H0v18.995h14.246V16.82h13.932V8.509zm-1.188 0H2.374v8.309h10.684v1.188H1.186V1.388h7.123v4.749h4.749v2.372zm-4.9 1.239H9.41l.982 1.825.99-1.825h1.244L10.984 12.5l1.762 2.895h-1.26l-1.093-1.968-1.086 1.967h-1.26L9.8 12.5zM7.2 12.056v.982H4.971v1.373h2.617v.982H3.869V9.748h3.719v.985H4.971v1.326H7.2zm5.86-7.107H9.5V1.388h.71l2.85 2.85v.71zm1.273 8.737a.9.9 0 00.227.481.868.868 0 00.705.293.917.917 0 00.951-.8h1.117a2.121 2.121 0 01-.7 1.318 2.227 2.227 0 01-2.905-.151 1.621 1.621 0 01-.46-.848 7.71 7.71 0 01-.1-1.405 7.75 7.75 0 01.1-1.405 1.621 1.621 0 01.46-.848 2.227 2.227 0 012.905-.151 2.107 2.107 0 01.7 1.318h-1.117a.917.917 0 00-.951-.8.868.868 0 00-.705.293.9.9 0 00-.227.481 7.762 7.762 0 00-.053 1.115 8.12 8.12 0 00.053 1.108zm7.675-2.953h-2.617v1.326h2.229v.982h-2.229v1.373h2.617v.986h-3.721V9.748h3.719v.985zm4.743 4.662h-3.665V9.748h1.1v4.664h2.562v.982z" transform="translate(0 -.195)"></path></g></svg>
+                投 <strong style="font-style: oblique;font-size: 16px;">"视频号"</strong>
 
               </div>
             </div>
