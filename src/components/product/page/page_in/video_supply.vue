@@ -91,7 +91,7 @@
               :on-success="uploadVideo"
               accept="video/*"
             >
-              <el-button size="small" type="primary" style="margin-top: 15px;">点击上传</el-button>
+              <el-button size="small" type="primary" style="margin-top: 15px;">上传视频</el-button>
               <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
             </el-upload>
           </li>

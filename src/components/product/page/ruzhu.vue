@@ -257,6 +257,10 @@ export default {
 				wxVideoaccountRealmIdList:this.wxVideoaccountRealmIdListNow
 			}))
 			.then(res =>{
+				if(res.data.code == 20){
+					this.centerDialogVisible = true;
+					this.$refs.loginRef.getData();
+				}
 			})
 			.catch()
 		},
@@ -269,14 +273,19 @@ export default {
       this.$axios
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
-          console.log(res.data.data.itemList)
-          var itemList=res.data.data.itemList
-          var cityOptions=[]
-          for(var i in itemList){
-            cityOptions.push(itemList[i])
-          }
-          console.log(cityOptions)
-          this.cities=cityOptions
+					if(res.data.code == 20){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
+					}else{
+						console.log(res.data.data.itemList)
+						var itemList=res.data.data.itemList
+						var cityOptions=[]
+						for(var i in itemList){
+							cityOptions.push(itemList[i])
+						}
+						console.log(cityOptions)
+						this.cities=cityOptions
+					}
         })
         .catch(err => {});
     },
