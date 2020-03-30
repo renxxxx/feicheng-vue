@@ -218,7 +218,7 @@ export default {
 			name:'找视频号',
 			icon:'',
 			data:false,
-			onechild:[{name:'抖音号搜索',data:'',url:'/productPage/productPage_douyinSearch'},
+			onechild:[{name:'视频号搜索',data:'',url:'/productPage/productPage_douyinSearch'},
 					// {name:'MCN机构',data:'',url:''},
 					// {name:'地域找号',data:'',url:''},
 					// {name:'指数排行榜',data:'',url:''},
@@ -403,9 +403,9 @@ export default {
 	border-bottom: 1px solid #3a3a3e;
 }
 .logo>img{
-	width:50%;
-	position:absolute;
-	left: 0px;
+	width: 34%;
+	    position: absolute;
+	    left: 34px;
 	top: 0;
 	bottom: 0;
 	margin: auto 0px;

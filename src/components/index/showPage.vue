@@ -84,7 +84,7 @@
             <div v-else class="userToGo">
               <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
               <span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
-              <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"W><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+              <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
               </router-link>
             </div>
           </div>
@@ -220,7 +220,6 @@
           <div>热门工具</div>
           <div>
             <a href="https://data.newrank.cn/mins/wechat" target="_blank" rel="noopener noreferrer">分钟级监测</a>
-            >
           </div>
           <div><a href="https://data.newrank.cn/pick/wechat/page" target="_blank" rel="noopener noreferrer">账号回采</a></div>
         </div>
@@ -281,51 +280,51 @@ export default {
      }
   },
   directives: {},
-  beforeRouteLeave(to, from, next) {
-    debugger;
-    let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
-    this.scrollTop = scrollTop ? scrollTop : 0;
-    // console.log(this.scrollTop);
-    if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
-      debugger;
-      if (this.$vnode && this.$vnode.data.keepAlive) {
-        if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
-          if (this.$vnode.componentOptions) {
-            var key =
-              this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
-            var cache = this.$vnode.parent.componentInstance.cache;
-            var keys = this.$vnode.parent.componentInstance.keys;
-            if (cache[key]) {
-              if (keys.length) {
-                var index = keys.indexOf(key);
-                if (index > -1) {
-                  keys.splice(index, 1);
-                }
-              }
-              delete cache[key];
-            }
-          }
-        }
-      }
-      this.$destroy();
-    }
-    next();
-  },
+  // beforeRouteLeave(to, from, next) {
+  //   debugger;
+  //   let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
+  //   this.scrollTop = scrollTop ? scrollTop : 0;
+  //   // console.log(this.scrollTop);
+  //   if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
+  //     debugger;
+  //     if (this.$vnode && this.$vnode.data.keepAlive) {
+  //       if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
+  //         if (this.$vnode.componentOptions) {
+  //           var key =
+  //             this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
+  //           var cache = this.$vnode.parent.componentInstance.cache;
+  //           var keys = this.$vnode.parent.componentInstance.keys;
+  //           if (cache[key]) {
+  //             if (keys.length) {
+  //               var index = keys.indexOf(key);
+  //               if (index > -1) {
+  //                 keys.splice(index, 1);
+  //               }
+  //             }
+  //             delete cache[key];
+  //           }
+  //         }
+  //       }
+  //     }
+  //     this.$destroy();
+  //   }
+  //   next();
+  // },
   // 进入该页面时，用之前保存的滚动位置赋值
-  beforeRouteEnter(to, from, next) {
-    // debugger
-    next(vm => {
-      document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
-    });
-    //判断回调页是否与当前前进路由相等，如果相等，删除路径
-    let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
-    let lastRoute = localStorage.getItem('lastRoute');
-    // console.log('fromRoute'+fromRoute)
-    // console.log('lastRoute'+lastRoute)
-    if (fromRoute == lastRoute) {
-      localStorage.removeItem('lastRoute');
-    }
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   // debugger
+  //   next(vm => {
+  //     document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
+  //   });
+  //   //判断回调页是否与当前前进路由相等，如果相等，删除路径
+  //   let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
+  //   let lastRoute = localStorage.getItem('lastRoute');
+  //   // console.log('fromRoute'+fromRoute)
+  //   // console.log('lastRoute'+lastRoute)
+  //   if (fromRoute == lastRoute) {
+  //     localStorage.removeItem('lastRoute');
+  //   }
+  // },
   activated() {
     // debugger
   },
@@ -335,7 +334,7 @@ export default {
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
     // console.log(this.$refs.showPage_two.$el.offsetHeight);
-    window.addEventListener('scroll', this.scrollToTop, true);
+    // window.addEventListener('scroll', this.scrollToTop, true);
     // 获取配置信息
     this.$axios
       .get('/config')

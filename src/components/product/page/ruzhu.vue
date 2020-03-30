@@ -7,9 +7,9 @@
     </div>
     <div class="people_detail">
       <el-row>
-        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-            <li>基本信息:</li>
+             <li>视频号信息:</li>
             <li><span>姓名:</span>
               <el-input v-model="name" placeholder="请输入内容" clearable ></el-input></li>
             <li>
@@ -60,31 +60,31 @@
             </li>
           </ul>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-            <li>视频号信息:</li>
+            <li style="height: 24px;">   </li>
             <li>
-              <span>粉丝量:(单位/万)</span>
+              <span>粉丝量:</span>
               <el-input v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
-              <span>视频量:(单位/万)</span>
+              <span>视频量:</span>
               <el-input v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
-              <span>点赞量:(单位/万)</span>
+              <span>点赞量:</span>
               <el-input v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
-              <span>曝光量:(单位/万)</span>
+              <span>曝光量:</span>
               <el-input v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
-              <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+              <el-checkbox style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                 <div style="margin: 15px 0;"></div>
-                <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-                  <el-checkbox v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
+                <el-checkbox-group  v-model="checkedCities" @change="handleCheckedCitiesChange">
+                  <el-checkbox  style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
                 </el-checkbox-group>
             </li>
             <li>
@@ -99,7 +99,7 @@
           </ul>
         </el-col>
       </el-row>
-      <video_supply></video_supply>
+      <video_supply  ref="refChild"></video_supply>
       <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
     </div>
 		<login ref="loginRef"></login>
@@ -142,8 +142,8 @@ export default {
                 value: '2',
                 label: '企业号'
               }],
-			value:'默认',
-			num:0,
+			value:'请选择',
+			num:'',
 			wxVideoaccountRealmIdList:[],
 			wxVideoaccountRealmIdListNow:'',
 			dili:{
@@ -167,43 +167,44 @@ export default {
   },
   computed: {},
   components: {
-    video_supply,login
+    login,
+    video_supply
   },
   beforeCreate() {},
   created() {},
   //离开前判断前进和后退时间来判断是否保存滚动值
-  beforeRouteLeave(to, from, next) {
-    this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset;
-    if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
-      if (this.$vnode && this.$vnode.data.keepAlive) {
-        if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
-          if (this.$vnode.componentOptions) {
-            var key =
-              this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
-            var cache = this.$vnode.parent.componentInstance.cache;
-            var keys = this.$vnode.parent.componentInstance.keys;
-            if (cache[key]) {
-              if (keys.length) {
-                var index = keys.indexOf(key);
-                if (index > -1) {
-                  keys.splice(index, 1);
-                }
-              }
-              delete cache[key];
-            }
-          }
-        }
-      }
-      this.$destroy();
-    }
-    next();
-  },
+  // beforeRouteLeave(to, from, next) {
+  //   this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset;
+  //   if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
+  //     if (this.$vnode && this.$vnode.data.keepAlive) {
+  //       if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
+  //         if (this.$vnode.componentOptions) {
+  //           var key =
+  //             this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
+  //           var cache = this.$vnode.parent.componentInstance.cache;
+  //           var keys = this.$vnode.parent.componentInstance.keys;
+  //           if (cache[key]) {
+  //             if (keys.length) {
+  //               var index = keys.indexOf(key);
+  //               if (index > -1) {
+  //                 keys.splice(index, 1);
+  //               }
+  //             }
+  //             delete cache[key];
+  //           }
+  //         }
+  //       }
+  //     }
+  //     this.$destroy();
+  //   }
+  //   next();
+  // },
   //进入该页面时，用之前保存的滚动位置赋值
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
-    });
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   next(vm => {
+  //     document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
+  //   });
+  // },
   mounted() {
     // console.log(area)
     this.options = area;
@@ -211,6 +212,32 @@ export default {
      this.accountRealmIdList()
   },
   methods: {
+    supplyVideo(name,pv,imageUrlNow,likeCount,brief,video){
+        this.$axios
+          .post(
+            '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
+            qs.stringify({
+              name: name,
+              pv: pv,
+              cover: imageUrlNow,
+              likeCount: likeCount,
+              brief: brief,
+              video: video
+            })
+          )
+          .then(res => {
+      		if(res.data.code == 20){
+      			this.centerDialogVisible = true;
+      			this.$refs.loginRefs.getData();
+      		}else 	if(res.data.code == 0){
+      			this.$router.push({path:'/productPage/productPage_user'});
+      		}else{
+            this.$message.error(res.data.codeMsg);
+          }
+          })
+          .catch();
+    },
+
     handleExceed(files, fileList) {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
@@ -223,7 +250,7 @@ export default {
 			  	name:name1.label,
 			  	id:name1.value
 			  },
-        
+
 			  city:{
 			  	name:name2.label,
 			  	id:name2.value
@@ -236,6 +263,7 @@ export default {
 		  console.log(this.dili)
 	  },
 		onSubmit(){
+
 			this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
 				name:this.name,
 				phone:this.phone,
@@ -258,11 +286,26 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
+          // console.dir( this.$refs.loginRefs.getData())
+          // console.log(this.centerDialogVisible)
 					this.centerDialogVisible = true;
 					this.$refs.loginRef.getData();
-				}
+				}else if(res.data.code == 0){
+          // path:'/productPage/productPage_user'
+          		// this.$router.push({path:'/productPage/productPage_user'});
+              // console.dir(this.$refs.refChild.tableData)
+              var tableData=this.$refs.refChild.tableData
+              for(var i in tableData){
+                this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
+              }
+
+
+        }else{
+          this.$message(res.data.codeMsg);
+        }
 			})
 			.catch()
+
 		},
 		typeFn(_value){
 			this.num = _value
@@ -420,9 +463,11 @@ ul>li{
 
   .submit_div{
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     line-height: 130px;
     margin-bottom: 70px;
+    padding-left: 40px;
+    text-align: left;
   }
   .el-input {
       width: 50%;
