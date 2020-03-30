@@ -38,7 +38,7 @@
       }
     },
    mounted(){
-      if(this.$store.state.refresh.loginRefresh().userLogo){
+      if(this.$store.state.refresh.loginRefresh()){
       this.useravator=this.$store.state.refresh.loginRefresh().userLogo
       this.userName=this.$store.state.refresh.loginRefresh().userName
       this.loginIf=false

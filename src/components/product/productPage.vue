@@ -23,7 +23,7 @@
 									<span>全场景AI数据平台</span>
 									<p>全方位洞察抖音生态， 发掘热门视频、音乐，爆款商品及优质账号</p>
 									<p>有效助力账号运营变现，品牌策略投放</p>
-									<router-link :to="{name : ''}" class="tanchuangcolor">
+									<router-link :to="{path : '/index'}" class="tanchuangcolor">
 										<span >查看介绍 ></span>
 									</router-link>
 								</div>
