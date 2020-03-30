@@ -68,7 +68,7 @@
                   <circle data-name="\u692D\u5706 1759" cx="1" cy="1" r="1" transform="translate(419 27)" fill="#fff"></circle>
                 </g>
               </svg> -->
-              <img src="../../assets/img/feicheng.png" alt="" style="height: 80px;object-fit: cover;">
+              <img src="../../assets/img/feicheng.png" alt="" style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;">
             </div>
           </el-col>
         </router-link>
@@ -280,51 +280,51 @@ export default {
      }
   },
   directives: {},
-  // beforeRouteLeave(to, from, next) {
-  //   debugger;
-  //   let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
-  //   this.scrollTop = scrollTop ? scrollTop : 0;
-  //   // console.log(this.scrollTop);
-  //   if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
-  //     debugger;
-  //     if (this.$vnode && this.$vnode.data.keepAlive) {
-  //       if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
-  //         if (this.$vnode.componentOptions) {
-  //           var key =
-  //             this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
-  //           var cache = this.$vnode.parent.componentInstance.cache;
-  //           var keys = this.$vnode.parent.componentInstance.keys;
-  //           if (cache[key]) {
-  //             if (keys.length) {
-  //               var index = keys.indexOf(key);
-  //               if (index > -1) {
-  //                 keys.splice(index, 1);
-  //               }
-  //             }
-  //             delete cache[key];
-  //           }
-  //         }
-  //       }
-  //     }
-  //     this.$destroy();
-  //   }
-  //   next();
-  // },
+  beforeRouteLeave(to, from, next) {
+    debugger;
+    let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
+    this.scrollTop = scrollTop ? scrollTop : 0;
+    // console.log(this.scrollTop);
+    if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
+      debugger;
+      if (this.$vnode && this.$vnode.data.keepAlive) {
+        if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
+          if (this.$vnode.componentOptions) {
+            var key =
+              this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
+            var cache = this.$vnode.parent.componentInstance.cache;
+            var keys = this.$vnode.parent.componentInstance.keys;
+            if (cache[key]) {
+              if (keys.length) {
+                var index = keys.indexOf(key);
+                if (index > -1) {
+                  keys.splice(index, 1);
+                }
+              }
+              delete cache[key];
+            }
+          }
+        }
+      }
+      this.$destroy();
+    }
+    next();
+  },
   // 进入该页面时，用之前保存的滚动位置赋值
-  // beforeRouteEnter(to, from, next) {
-  //   // debugger
-  //   next(vm => {
-  //     document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
-  //   });
-  //   //判断回调页是否与当前前进路由相等，如果相等，删除路径
-  //   let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
-  //   let lastRoute = localStorage.getItem('lastRoute');
-  //   // console.log('fromRoute'+fromRoute)
-  //   // console.log('lastRoute'+lastRoute)
-  //   if (fromRoute == lastRoute) {
-  //     localStorage.removeItem('lastRoute');
-  //   }
-  // },
+  beforeRouteEnter(to, from, next) {
+    // debugger
+    next(vm => {
+      document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
+    });
+    //判断回调页是否与当前前进路由相等，如果相等，删除路径
+    let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
+    let lastRoute = localStorage.getItem('lastRoute');
+    // console.log('fromRoute'+fromRoute)
+    // console.log('lastRoute'+lastRoute)
+    if (fromRoute == lastRoute) {
+      localStorage.removeItem('lastRoute');
+    }
+  },
   activated() {
     // debugger
   },
@@ -334,7 +334,7 @@ export default {
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
     // console.log(this.$refs.showPage_two.$el.offsetHeight);
-    // window.addEventListener('scroll', this.scrollToTop, true);
+    window.addEventListener('scroll', this.scrollToTop, true);
     // 获取配置信息
     this.$axios
       .get('/config')
