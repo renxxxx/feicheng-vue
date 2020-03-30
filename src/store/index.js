@@ -11,21 +11,22 @@ const state={
 	refresh:{
 		loginRefresh:function(){
 			let login;
-			if(localStorage.getItem('refresh')){
-				login = JSON.parse(localStorage.getItem('refresh'))
-			}else{
+			// if(localStorage.getItem('refresh')){
+			// 	login = JSON.parse(localStorage.getItem('refresh'))
+			// }else{
 				Vue.prototype.$jquery.ajax({
 					url:'/user/login-refresh',
 					type:'get',
 					async:false,
 					success:function(res){
+            console.log(res)
 						if(res.code == 0){
 							login=res.data
-							localStorage.setItem('refresh',JSON.stringify(login))
+							// localStorage.setItem('refresh',JSON.stringify(login))
 						}
 					}
 				})
-			}
+			// }
 			return login;
 		}
 	}

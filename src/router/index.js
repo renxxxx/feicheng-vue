@@ -77,7 +77,7 @@ const router = new Router({
 					path: 'productPage_ruzhu',
 					name: 'productPage_ruzhu',
 					component: productPage_ruzhu,
-					meta: {auth:true},
+					meta: {auth:true,unkeepLastRoute:true},
 				}
 			]
 		},
