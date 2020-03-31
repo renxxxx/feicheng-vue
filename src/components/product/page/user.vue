@@ -30,7 +30,7 @@
 							<p v-else>
 								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().audits==1'>等待审核</span>
 								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().audits==11'>已认证</span>
-								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().audits==12'>认证失败</span>
+								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().audits==12'>认证失败</span>
 							</p>
 						</div>
 						<div class="_1aHAtMPw _1xvNCILN"></div>
@@ -188,6 +188,20 @@ export default {
 
 	},
 	methods: {
+    askIfEnter(){
+    	this.$confirm(this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              type: 'warning'
+           }).then(() => {
+    			 this.$router.push({path:'/productPage/productPage_ruzhu'});
+            }).catch(() => {
+    //        this.$message({
+    //          type: 'info',
+    //          message: '已取消删除'
+    //        });
+            });
+    },
 		detailClickFn(_data){
 			console.log(_data)
 			if(_data.link==0){
