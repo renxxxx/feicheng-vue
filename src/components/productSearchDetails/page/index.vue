@@ -214,7 +214,7 @@
 			
 			getData(){
 				this.load = true;
-				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccount:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
+				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccountRealmId:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
 				.then(res =>{
 					if(res.data.code == 20){
 						this.centerDialogVisible = true;						this.$refs.loginRef.getData();

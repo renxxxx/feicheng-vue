@@ -92,6 +92,7 @@
 							</template>
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' index="/productPage/productPage_ruzhu">
+
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>

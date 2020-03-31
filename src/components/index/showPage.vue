@@ -79,6 +79,7 @@
             <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
 
 
+
             <span v-if='this.$store.state.refresh.loginRefresh().loginIf==1'>
 
             	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12'>体验版</span>
@@ -94,6 +95,7 @@
             <router-link v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
             <!--<router-link v-if='this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
             <!--v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount&&this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'-->
+
             <el-button   v-if="this.$store.state.refresh.loginRefresh()? false:true" @click="loginFn" >登录 / 注册</el-button>
             <div v-else class="userToGo">
               <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>

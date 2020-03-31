@@ -302,7 +302,9 @@ export default {
 		    height: 56px;
 		    line-height: 5px!important;
 	}
-	
+	.nav_data>i{
+		line-height: 0;
+	}
 	.nav_data>img {
 		height: 24px;
 		width: 24px;
