@@ -35,7 +35,7 @@
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" clearable @change="handleChange"></el-cascader>
+              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
@@ -161,25 +161,28 @@ export default {
       num: '',
       wxVideoaccountRealmIdList: [],
       wxVideoaccountRealmIdListNow: '',
-      dili: {
+		dili:[],
+		// dili:['13','1302','130204'],
+      diliNow: {
         shenfen: {
-          name: '',
-          id: ''
+          name: "河北省",
+          id: "13"
         },
         city: {
-          name: '',
-          id: ''
+          name: "唐山市",
+          id: "1302"
         },
         qu: {
-          name: '',
-          id: ''
+          name: "古冶区",
+          id: "130204"
         }
       },
       imageUrlNow: '',
       dialogImageUrlNow: [],
       dialogImageUrlNowlist: [],
       loginRefresh: this.$store.state.refresh.loginRefresh(),
-      getUserInfo: this.$store.state.getUserInfo.info()
+      getUserInfo: this.$store.state.getUserInfo.info(),
+		// diliNow:{}
     };
   },
   computed: {
@@ -265,21 +268,21 @@ export default {
       this.dialogImageUrlNow = this.getUserInfo.screenshot;
       this.imageUrlNow = this.getUserInfo.logo;
       this.imageUrl = this.getUserInfo.logo;
-
-      this.dili = {
-        shenfen: {
-          name: this.getUserInfo.area1Name,
-          id: this.getUserInfo.area1Id
-        },
-        city: {
-          name: this.getUserInfo.area2Name,
-          id: this.getUserInfo.area2Id
-        },
-        qu: {
-          name: this.getUserInfo.area3Name,
-          id: this.getUserInfo.area3Id
-        }
-      };
+		this.dili = [this.getUserInfo.area1Id,this.getUserInfo.area2Id,this.getUserInfo.area3Id];
+      // this.dili = {
+      //   shenfen: {
+      //     name: this.getUserInfo.area1Name,
+      //     id: this.getUserInfo.area1Id
+      //   },
+      //   city: {
+      //     name: this.getUserInfo.area2Name,
+      //     id: this.getUserInfo.area2Id
+      //   },
+      //   qu: {
+      //     name: this.getUserInfo.area3Name,
+      //     id: this.getUserInfo.area3Id
+      //   }
+      // };
 
       var didi = {};
       didi = {
@@ -326,10 +329,12 @@ export default {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
     handleChange(_value) {
+		 // console.log(_value)
       let name1 = area.find(n => n.value == _value[0]);
       let name2 = name1.children.find(n => n.value == _value[1]);
       let name3 = name2.children.find(n => n.value == _value[2]);
-      this.dili = {
+		this.dili = [name1.value,name2.value,name3.value]
+      this.diliNow = {
         shenfen: {
           name: name1.label,
           id: name1.value
@@ -343,7 +348,7 @@ export default {
           id: name3.value
         }
       };
-      console.log(this.dili);
+      console.log(this.diliNow);
     },
     onSubmit() {
       this.$axios
@@ -361,12 +366,12 @@ export default {
             pv: this.pv,
             brief: this.brief,
             type: this.num,
-            area1Id: this.dili.shenfen.id,
-            area2Id: this.dili.city.id,
-            area3Id: this.dili.qu.id,
-            area1Name: this.dili.shenfen.name,
-            area2Name: this.dili.city.name,
-            area3Name: this.dili.qu.name,
+            area1Id: this.diliNow.shenfen.id,
+            area2Id: this.diliNow.city.id,
+            area3Id: this.diliNow.qu.id,
+            area1Name: this.diliNow.shenfen.name,
+            area2Name: this.diliNow.city.name,
+            area3Name: this.diliNow.qu.name,
             wxVideoaccountRealmIdList: this.wxVideoaccountRealmIdListNow
           })
         )
