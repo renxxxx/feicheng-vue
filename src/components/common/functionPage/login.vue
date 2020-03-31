@@ -85,10 +85,10 @@ export default {
               .then(res => {
                 // console.log(res)
                 if(res.data.code==0){
-                     this.$store.state.refresh.loginRefresh()
-                     this.centerDialogVisible = false;
-							clearInterval(this.timer);
-							this.$router.push({path:'/index'});
+                  this.$store.state.refresh.loginRefresh()
+                  this.centerDialogVisible = false;
+						clearInterval(this.timer);
+						this.$router.push({path:'/index'});
                 }
               })
               .catch(err => {});

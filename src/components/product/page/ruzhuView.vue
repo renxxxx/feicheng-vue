@@ -5,29 +5,29 @@
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10"><span class="maintop">博主入驻:</span></el-col>
       </el-row>
     </div>
-    <div class="people_detail">
+    <div class="people_detail" >
       <el-row>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
              <li>视频号信息:</li>
             <li><span>姓名:</span>
-              <el-input v-model="name" placeholder="请输入内容" clearable ></el-input></li>
+              <el-input disabled v-model="name" placeholder="请输入内容" clearable ></el-input></li>
             <li>
               <span>手机:</span>
-              <el-input type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>微信号:</span>
-              <el-input v-model="wx" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled v-model="wx" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>简介:</span>
-              <el-input  type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled  type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
 
               <span>账号类型:</span>
-             <el-select v-model="value" @change="typeFn(value)"  placeholder="请选择">
+             <el-select disabled v-model="value" @change="typeFn(value)"  placeholder="请选择">
                 <el-option
                   v-for="item in type"
                   :key="item.value"
@@ -40,12 +40,12 @@
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
+              <el-cascader disabled :options="options" v-model="selectedOptions" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
               <div class="avatorUp">
-                <el-upload
+                <el-upload disabled
                 :file-list='dialogImageUrl1'
                 accept='image/*'
                   class="avatar-uploader"
@@ -66,32 +66,32 @@
             <li style="height: 24px;">   </li>
             <li>
               <span>粉丝量:</span>
-              <el-input  type='number' v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled type='number' v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>视频量:</span>
-              <el-input  type='number' v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled type='number' v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>点赞量:</span>
-              <el-input type='number' v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+              <el-input disabled type='number' v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>曝光量:</span>
-              <el-input  type='number' v-model="pv" placeholder="请输入内容"></el-input>
+              <el-input disabled type='number' v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
-              <el-checkbox style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+              <el-checkbox disabled style="color: #f2f2f2;"  :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                 <div style="margin: 15px 0;"></div>
-                <el-checkbox-group  v-model="checkedCities" @change="handleCheckedCitiesChange">
-                  <el-checkbox  style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
+                <el-checkbox-group disabled  v-model="checkedCities" @change="handleCheckedCitiesChange">
+                  <el-checkbox disabled  style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
                 </el-checkbox-group>
             </li>
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload  accept='image/*' :file-list='dialogImageUrl2' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+                <el-upload disabled accept='image/*' :file-list='dialogImageUrl2' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                   <i class="el-icon-plus"></i>
                 </el-upload>
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
@@ -100,8 +100,8 @@
           </ul>
         </el-col>
       </el-row>
-      <video_supply  ref="refChild"></video_supply>
-      <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
+      <video_supply_view  ref="refChild" disabled=""></video_supply_view>
+      <!-- <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row> -->
     </div>
 		<login ref="loginRef"></login>
   </div>
@@ -112,12 +112,11 @@ import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 import area from '../../../assets/area.json';
 import login from '../../common/functionPage/login.vue'
-import video_supply from './page_in/video_supply.vue';
+import video_supply_view from './page_in/video_supply_view.vue';
 export default {
   name: 'ruzhu',
   data() {
     return {
-      selectedOptions:[],
       dialogImageUrl1:[],
       dialogImageUrl2:[],
       name:'',
@@ -168,8 +167,7 @@ export default {
 			dialogImageUrlNow:[],
 			dialogImageUrlNowlist:[],
 			loginRefresh :this.$store.state.refresh.loginRefresh(),
-      getUserInfo :this.$store.state.getUserInfo.info(),
-
+      getUserInfo :this.$store.state.getUserInfo.info()
     };
   },
   computed: {
@@ -184,7 +182,7 @@ export default {
   },
   components: {
     login,
-    video_supply
+    video_supply_view
   },
   beforeCreate() {},
   created() {},
@@ -222,11 +220,11 @@ export default {
   //   });
   // },
   mounted() {
-    // console.log(this.getVideoList)
+    // console.log(area)
     this.options = area;
     console.log(this.options);
      this.accountRealmIdList()
-     if(this.loginRefresh&&this.getUserInfo.loginIf!=0){
+     if(this.loginRefresh&&this.getUserInfo){
        if(this.getUserInfo.type==1){
           this.value='个人号'
        }else if(this.getUserInfo.type==2){
@@ -236,7 +234,11 @@ export default {
        }
        for(var i in this.getUserInfo.wxVideoaccountRealmList){
           this.getUserInfo.wxVideoaccountRealmList[i].logo=''
+         // console.log(11111, this.wxVideoaccountRealmIdList)
        }
+       // console.log(238238+this.dialogImageUrl2)
+
+
        this.checkedCities=this.getUserInfo.wxVideoaccountRealmList
 
 
@@ -258,25 +260,19 @@ export default {
 
        this.dili={
        	shenfen:{
-       		name:this.getUserInfo.area1Name,
-       		id:this.getUserInfo.area1Id
+       		name:this.loginRefresh.wxVideoaccount.area1Name,
+       		id:this.loginRefresh.wxVideoaccount.area1Id
        	},
        	city:{
-       		name:this.getUserInfo.area2Name,
-       		id:this.getUserInfo.area2Id
+       		name:this.loginRefresh.wxVideoaccount.area2Name,
+       		id:this.loginRefresh.wxVideoaccount.area2Id
        	},
        	qu:{
-       		name:this.getUserInfo.area3Name,
-       		id:this.getUserInfo.area3Id
+       		name:this.loginRefresh.wxVideoaccount.area3Name,
+       		id:this.loginRefresh.wxVideoaccount.area3Id
        	}
-       };
-
-       var didi={}
-       didi={"city":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"qu":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"shenfen":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id}}
-       
-        // this.ruleForm.regionServers = [data.region, data.server]
+       }
       }
-
   },
   methods: {
     supplyVideo(name,pv,imageUrlNow,likeCount,brief,video){
@@ -321,6 +317,7 @@ export default {
 			  	name:name1.label,
 			  	id:name1.value
 			  },
+
 			  city:{
 			  	name:name2.label,
 			  	id:name2.value

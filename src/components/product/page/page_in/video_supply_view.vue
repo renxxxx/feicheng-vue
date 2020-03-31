@@ -3,11 +3,11 @@
     <el-row>
       <div>
         <!-- <span>视频列表</span> -->
-        <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
+        <!-- <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button> -->
         <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
       </div>
       <div>
-        <el-table stripe :data="tableData" style="width: 100%">
+        <el-table stripe :data="tableData" disabled style="width: 100%">
           <el-table-column type="expand">
             <template slot-scope="props">
               <el-form label-position="left" inline class="demo-table-expand">
@@ -44,11 +44,11 @@
             </template>
           </el-table-column>
           <el-table-column label="描述" prop="brief"></el-table-column>
-          <el-table-column fixed="right" label="操作" width="120">
+         <!-- <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
             </template>
-          </el-table-column>
+          </el-table-column> -->
         </el-table>
       </div>
     </el-row>

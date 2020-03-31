@@ -80,19 +80,18 @@
 
 
 
-            <span v-if='loginRefresh.loginIf==1'>
-
-            	<span class="lf48" v-if='loginRefresh&&loginRefresh.types==0&&loginRefresh.audits!=12'>体验版</span>
-            	<span class="lf48" v-if='loginRefresh&&loginRefresh.types==1&&loginRefresh.audits!=12'>个人号</span>
-            	<span class="lf48" v-if='loginRefresh&&loginRefresh.types==2&&loginRefresh.audits!=12'>达人号</span>
-            	<span class="lf48" v-if='loginRefresh&&loginRefresh.types==3&&loginRefresh.audits!=12'>企业号</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&loginRefresh.types==0&&loginRefresh.audits==12'>体验版(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&loginRefresh.types==1&&loginRefresh.audits==12'>个人号(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&loginRefresh.types==2&&loginRefresh.audits==12'>达人号(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&loginRefresh.types==3&&loginRefresh.audits==12'>企业号(认证失败)</span>
+           <span v-if='getUserInfo'>
+            	<span class="lf48" v-if='loginRefresh&&getUserInfo.types===0&&getUserInfo.audits!=12'>体验版</span>
+            	<span class="lf48" v-if='loginRefresh&&getUserInfo.types==1&&getUserInfo.audits!=12'>个人号</span>
+            	<span class="lf48" v-if='loginRefresh&&getUserInfo.types==2&&getUserInfo.audits!=12'>达人号</span>
+            	<span class="lf48" v-if='loginRefresh&&getUserInfo.types==3&&getUserInfo.audits!=12'>企业号</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&getUserInfo.types===0&&getUserInfo.audits==12'>体验版(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&getUserInfo.types==1&&getUserInfo.audits==12'>个人号(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&getUserInfo.types==2&&getUserInfo.audits==12'>达人号(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='loginRefresh&&getUserInfo.types==3&&getUserInfo.audits==12'>企业号(认证失败)</span>
             </span>
 
-            <router-link v-if='!loginRefresh||loginRefresh.loginIf==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+            <router-link v-if='!loginRefresh||getUserInfo.loginIf===0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
             <!--<router-link v-if='loginRefresh||loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
             <!--v-if='loginRefresh.wxVideoaccount&&loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0||loginRefresh.wxVideoaccount.audit==12'-->
 
@@ -285,7 +284,8 @@ export default {
       userName:'',
       useravator:'',
 	  showData:false,
-	  loginRefresh :this.$store.state.refresh.loginRefresh()
+	  loginRefresh :this.$store.state.refresh.loginRefresh(),
+    getUserInfo :this.$store.state.getUserInfo.info()
       // centerDialogVisible: false
     };
   },
@@ -347,7 +347,7 @@ export default {
   },
 
   mounted() {
-    console.dir(this.loginRefresh)
+    // console.dir(this.getUserInfo.types , this.getUserInfo.audits)
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
@@ -420,7 +420,7 @@ export default {
   methods: {
   	  	//询问是否入驻
 askIfEnter(){
-	this.$confirm(this.loginRefresh.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
