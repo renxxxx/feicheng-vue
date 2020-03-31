@@ -218,18 +218,19 @@ export default {
        }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==3){
           this.value='企业号'
        }
-       this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name,
-       this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone,
-       this.wx=this.$store.state.refresh.loginRefresh().wxVideoaccount.wx,
-       this.brief=this.$store.state.refresh.loginRefresh().wxVideoaccount.brief,
-       this.fansCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.fansCount,
-       this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount,
-       this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount,
-       this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv,
+       this.num=this.$store.state.refresh.loginRefresh().wxVideoaccount.type;
+       this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name;
+       this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone;
+       this.wx=this.$store.state.refresh.loginRefresh().wxVideoaccount.wx;
+       this.brief=this.$store.state.refresh.loginRefresh().wxVideoaccount.brief;
+       this.fansCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.fansCount;
+       this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount;
+       this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount;
+       this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv;
 
 
-       this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot,
-       this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo,
+       this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot;
+       this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo;
        this.dili={
        	shenfen:{
        		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Name,
@@ -353,6 +354,7 @@ export default {
 		},
 		typeFn(_value){
 			this.num = _value
+      
 			// console.log(this.num)
 		},
     // 获取领域列表
