@@ -55,7 +55,12 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-									<span slot="reference" style="cursor: pointer;">体验版 </span>
+                  <span v-if='!this.$store.state.refresh.loginRefresh()' slot="reference" style="cursor: pointer;">体验版 </span>
+									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0' slot="reference" style="cursor: pointer;">体验版 </span>
+									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1' slot="reference" style="cursor: pointer;">个人号 </span>
+									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2' slot="reference" style="cursor: pointer;">达人号 </span>
+									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3' slot="reference" style="cursor: pointer;">企业号 </span>
+
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
@@ -76,23 +81,37 @@
 		</el-row>
 		<el-row class="height" :gutter='17'>
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
-				<div class="leftNav">
+				<div class="leftNav" >
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
 
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
-								<img src="../../assets/img/shouyeLogo.svg" alt="">
-								<svg width="1em" height="1em" viewBox="0 0 19.71 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
+								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item index="/productPage/productPage_ruzhu" v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'>
+						<el-menu-item  v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
 							</template>
 						</el-menu-item>
+						<el-menu-item v-if='this.$store.state.refresh.loginRefresh().loginIf==1' >
+							<template slot="title">
+								<img alt="">
+
+								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">体验版</span>
+								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">个人号</span>
+								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">达人号</span>
+								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">企业号</span>
+								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">体验版(认证失败)</span>
+								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">个人号(认证失败)</span>
+								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">达人号(认证失败)</span>
+								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">企业号(认证失败)</span>
+							</template>
+						</el-menu-item>
+
 						<el-submenu index="3">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.58 -60.259)"><circle cx="2.794" cy="2.794" r="2.794" transform="translate(26.645 70.823)" fill="currentColor"></circle><path d="M39.556 68.71a7.6 7.6 0 0 1-4.366-1.369v6.194a5.806 5.806 0 1 1-5.8-5.724 5.891 5.891 0 0 1 .936.075v3.281a2.63 2.63 0 0 0-.917-.167A2.555 2.555 0 1 0 32 73.559V61.259h3.238a4.312 4.312 0 0 0 4.342 4.282v3.169z" fill="#e8edee"></path></g></svg>
@@ -355,6 +374,21 @@ export default {
     login,
   },
   methods:{
+  	//询问是否入驻
+askIfEnter(){
+	this.$confirm(this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+       }).then(() => {
+			 this.$router.push({path:'/productPage/productPage_ruzhu'});
+        }).catch(() => {
+//        this.$message({
+//          type: 'info',
+//          message: '已取消删除'
+//        });
+        });
+},
 	// initData(){
 	// 	let showData = true;
 	// 	localStorage.setItem('showData',showData)
@@ -396,6 +430,9 @@ export default {
 </script>
 
 <style>
+el-menu-item {
+	color: #fff !important;
+}
 .topNav{
 	width: 100%;
 	height: 55px;
@@ -591,6 +628,9 @@ export default {
 	height: 56px;
 	line-height: 5px!important;
 }
+.nav_data>i{
+		line-height: 0;
+	}
 .nav_data>img{
 	height: 24px;width: 24px;border-radius: 50%;margin-right: 7px;
 	position: relative;
@@ -684,6 +724,10 @@ export default {
     line-height: 50px;
     padding: 0 45px;
 	min-width: 100%;
+	color: #FFFFFF !important;
+}
+.el-submenu:hover,.el-submenu .el-menu-item:hover,.el-submenu__title:hover{
+	color: #ff7800 !important;
 }
 .leftNav i{
 	color: #e8edee;

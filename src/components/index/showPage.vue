@@ -74,12 +74,26 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">找飞橙</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找飞橙</span></router-link>
             <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">素材创意</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
 
-            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">飞橙商学院</span></router-link>
-            <router-link v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
 
+            <span v-if='this.$store.state.refresh.loginRefresh().loginIf==1'>
+
+            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12'>体验版</span>
+            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12'>个人号</span>
+            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12'>达人号</span>
+            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12'>企业号</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12'>体验版(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12'>个人号(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12'>达人号(认证失败)</span>
+            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12'>企业号(认证失败)</span>
+            </span>
+
+            <router-link v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+            <!--<router-link v-if='this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
+            <!--v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount&&this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'-->
             <el-button   v-if="this.$store.state.refresh.loginRefresh()? false:true" @click="loginFn" >登录 / 注册</el-button>
             <div v-else class="userToGo">
               <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
@@ -330,6 +344,7 @@ export default {
   },
 
   mounted() {
+    console.dir(this.$store.state.refresh.loginRefresh())
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
@@ -400,6 +415,21 @@ export default {
             // self.fetchData();
       },
   methods: {
+  	  	//询问是否入驻
+askIfEnter(){
+	this.$confirm(this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+       }).then(() => {
+			 this.$router.push({path:'/productPage/productPage_ruzhu'});
+        }).catch(() => {
+//        this.$message({
+//          type: 'info',
+//          message: '已取消删除'
+//        });
+        });
+},
 // fetchData(){
 //            console.log('路由发送变化doing...');
 //      },
@@ -507,7 +537,7 @@ export default {
   }
   .userToGo>span:nth-child(1){
     float: left;
-        margin-top: 19px;
+        margin-top: 20px;
 
         width: 24px;
         height: 24px;

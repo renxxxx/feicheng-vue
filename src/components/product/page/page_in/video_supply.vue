@@ -98,11 +98,11 @@
           </li>
           <li>
             <span>点赞量:</span>
-            <el-input placeholder="请输入内容" v-model="likeCount" clearable></el-input>
+            <el-input type='number' placeholder="请输入内容" v-model="likeCount" clearable></el-input>
           </li>
           <li>
             <span>曝光量:</span>
-            <el-input placeholder="请输入内容" v-model="pv" clearable></el-input>
+            <el-input type='number' placeholder="请输入内容" v-model="pv" clearable></el-input>
           </li>
           <li>
             <span>视频描述:</span>

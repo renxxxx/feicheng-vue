@@ -87,8 +87,8 @@ export default {
                 if(res.data.code==0){
                     this.$store.state.refresh.loginRefresh()
                     this.centerDialogVisible = false;
-						debugger
-						clearInterval(this.timer);
+						// debugger
+						window.clearInterval(this.timer);
 										if(this.$router.currentRoute.fullPath == '/index'){
 											// this.$router.go(0);
 											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
