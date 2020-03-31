@@ -43,7 +43,7 @@
 
 
 								<span @click='askIfEnter()' >{{
-									!this.$store.state.wxVideoaccount?""
+									(!this.$store.state.wxVideoaccount|| !this.$store.state.wxVideoaccount.audit)?""
 									:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
 									:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 									:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
