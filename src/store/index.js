@@ -8,6 +8,8 @@ Vue.use(Vuex)
 const state = {
   //登陆弹窗
   centerDialogVisible: false,
+	//视频播放弹窗
+	showVideoDialog: false,
   refresh: {
     loginRefresh: function() {
       let login;
@@ -20,6 +22,7 @@ const state = {
         type: 'get',
         async: false,
         success: function(res) {
+          // console.log(res)
           console.log(res)
           login = res.data
           if (res.code == 0) {
@@ -97,6 +100,8 @@ const state = {
 const getters = {
   //登陆弹窗
   centerDialogVisible: state => state.centerDialogVisible,
+	//视频播放弹窗
+	showVideoDialog: state => state.showVideoDialog,
 }
 const actions = {}
 const mutations = {}

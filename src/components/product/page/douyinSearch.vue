@@ -306,7 +306,7 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.codeMsg)
-				   alert(res.data.codeMsg)
+					this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
 				   if(res.data.data.itemList.length !=0){
 				   	for(let i in res.data.data.itemList){

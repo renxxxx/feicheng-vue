@@ -75,7 +75,7 @@
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
             <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找飞橙</span></router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">素材创意</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
             <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
 
 

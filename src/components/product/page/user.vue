@@ -2,7 +2,7 @@
 	<div class="user">
 		<div class="first">
 			<el-row class="user_name" :gutter='2' style="margin-bottom: 2px;">
-				<el-col :xs="6" :sm="12" :md="9" :lg="7" :xl="6">
+				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
 					<div class="user_quanxian">
 						<div class="user_quanxian_banben">
 							<div class="user_quanxian_banben_mianfei">
@@ -37,7 +37,7 @@
 						<div class="_1aHAtMPw"></div>
 					</div>
 				</el-col>
-				<el-col :xs="18" :sm="12" :md="15" :lg="17" :xl="18">
+				<el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
 					<el-carousel height="228px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
 							<img :src="item" alt="" style="height: 100%;width: 100%;">
@@ -94,6 +94,43 @@
 					</div>
 				</el-col>
 			</el-row>
+			<el-row style="margin-top: 1px;height: 158px;" >
+				<div class="user_type_one" @mouseenter="mouseFn('one')" @mouseleave="leaveFn('one')">
+					<router-link :to="{path:'/productPage/productPage_videoSearch'}">
+						<div class="_IskksKxv" v-if="oneValue.data"><div class="_3EmITLRt"></div></div>
+						<h3>{{oneValue.title}}</h3>
+						<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+					</router-link>
+				</div>
+				<div class="user_type_two" @mouseenter="mouseFn('two')" @mouseleave="leaveFn('two')">
+					<router-link :to="{path:'/productPage/productPage_douyinSearch'}">
+					<div class="_IskksKxv" v-if="twoValue.data"><div class="_3EmITLRt"></div></div>
+					<h3>{{twoValue.title}}</h3>
+					<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p>
+					</router-link>
+				</div>
+				<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
+					<router-link :to="{path:''}">
+					<div class="_IskksKxv" v-if="threeValue.data"><div class="_3EmITLRt"></div></div>
+					<h3>{{threeValue.title}}</h3>
+					<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p>
+					</router-link>
+				</div>
+				<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
+					<router-link :to="{path:'/productPage/productPage_user'}">
+					<div class="_IskksKxv" v-if="fourValue.data"><div class="_3EmITLRt"></div></div>
+					<h3>{{fourValue.title}}</h3>
+					<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p>
+					</router-link>
+				</div>
+				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
+					<router-link :to="{path:'/productPage/productPage_ruzhu'}">
+					<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
+					<h3>{{fiveValue.title}}</h3>
+					<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p>
+					</router-link>
+				</div>
+			</el-row>
 		</div>
 		<login ref="loginRef"></login>
 	</div>
@@ -108,6 +145,11 @@ export default {
   name: "gene",
   data() {
     return {
+		oneValue:{title:'素材创意',center:'看集赞最多的视频作品',data:false},
+		twoValue:{title:'找视频号',center:'找涨粉最快的视频达人',data:false},
+		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
+		fourValue:{title:'商学院',center:'',data:false},
+		fiveValue:{title:'博主入驻',center:'',data:false},
 		list:[require('../../../assets/img/1.png'),require('../../../assets/img/2.jpg'),require('../../../assets/img/3.jpg'),
 		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg')],
 		typeList:[],
@@ -190,6 +232,64 @@ export default {
 
 	},
 	methods: {
+		mouseFn(_value){
+			switch(_value){
+				case 'one':
+				this.oneValue.title = '3.4亿素材'
+				this.oneValue.center = '素材创意'
+				this.oneValue.data = true
+				break;
+				case 'two':
+				this.twoValue.title = '8090.3w达人'
+				this.twoValue.center = '找视频号'
+				this.twoValue.data = true
+				break;
+				case 'three':
+				this.threeValue.title = '48.8w个位置'
+				this.threeValue.center = '探店打卡'
+				this.threeValue.data = true
+				break;
+				case 'four':
+				this.fourValue.title = '商学院'
+				this.fourValue.center = ''
+				this.fourValue.data = true
+				break;
+				case 'five':
+				this.fiveValue.title = '博主入驻'
+				this.fiveValue.center = ''
+				this.fiveValue.data = true
+				break;
+			}
+		},
+		leaveFn(_value){
+			switch(_value){
+				case 'one':
+				this.oneValue.title = '素材创意'
+				this.oneValue.center = '素材创意'
+				this.oneValue.data = false
+				break;
+				case 'two':
+				this.twoValue.title = '找视频号'
+				this.twoValue.center = '找涨粉最快的视频达人'
+				this.twoValue.data = false
+				break;
+				case 'three':
+				this.threeValue.title = '探店打卡'
+				this.threeValue.center = '探寻网红打卡地'
+				this.threeValue.data = false
+				break;
+				case 'four':
+				this.fourValue.title = '商学院'
+				this.fourValue.center = ''
+				this.fourValue.data = false
+				break;
+				case 'five':
+				this.fiveValue.title = '博主入驻'
+				this.fiveValue.center = ''
+				this.fiveValue.data = false
+				break;
+			}
+		},
     askIfEnter(){
     	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
               confirmButtonText: '确定',
@@ -208,8 +308,8 @@ export default {
 			console.log(_data)
 			if(_data.link==0){
 				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
-				window.open('/#/articleDetails?data='+_data.articleId, '_blank');
-				//window.open('https://fc.woshicgo.com/#/articleDetails?data='+JSON.stringify({id:_data.articleId}), '_blank');
+				// window.open('/#/articleDetails?data='+_data.articleId, '_blank');
+				window.open('https://fc.woshicgo.com/#/articleDetails?data='+_data.articleId, '_blank');
 			}else if (_data.link==1){
 				window.open(_data.link1Url, '_blank');
 			}
@@ -218,7 +318,7 @@ export default {
 			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({articleClassificationUpperId:0}))
 			.then(res=>{
 				if(res.data.codeMsg)
-				   alert(res.data.codeMsg)
+				   this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
 				   for(let i in res.data.data.itemList){
 				   	this.typeList.push(res.data.data.itemList[i])
@@ -245,7 +345,7 @@ export default {
 				ps:5}))
 			.then(res=>{
 				if(res.data.codeMsg)
-				   alert(res.data.codeMsg)
+				   this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
 				   for(let i in res.data.data.itemList){
 				   	this.articleOne.push(res.data.data.itemList[i])
@@ -271,7 +371,7 @@ export default {
 				ps:5}))
 			.then(res=>{
 				if(res.data.codeMsg)
-				   alert(res.data.codeMsg)
+				   this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
 				   for(let i in res.data.data.itemList){
 				   	this.articleTwo.push(res.data.data.itemList[i])
@@ -545,5 +645,79 @@ export default {
 	display:block;
 	font-size: 12px;
 	color: #787a7a;
+}
+.user_type_one,.user_type_two,.user_type_three,.user_type_four,.user_type_five{
+	height: 100%;
+	width: 19.89%;
+	background: rgb(58, 58, 62);
+	margin-right: 1px;
+	display: inline-block;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	/* color: rgb(255, 255, 255); */
+}
+.user_type_one h3,.user_type_two h3,.user_type_three h3,.user_type_four h3,.user_type_five h3{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 48px;
+	font-weight: 400;
+	font-size: 34px;
+	text-align: center;
+}
+.user_type_one p,.user_type_two p,.user_type_three p,.user_type_four p,.user_type_five p{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 35px;
+	text-align: center;
+	color: rgb(120, 122, 122);
+}
+.color{
+	color: #fff!important;
+}
+.user_type_one:hover{
+	background-color: rgb(24, 144, 255);
+	cursor: pointer;
+	color: #fff!important;
+}
+.user_type_two:hover{
+	background-color: rgb(254, 44, 85);
+	cursor: pointer;
+	color: #fff!important;
+}
+.user_type_three:hover{
+	background-color: #52c41a;
+	cursor: pointer;
+	color: #fff!important;
+}
+.user_type_four:hover{
+	background-color: #ff7800;
+	cursor: pointer;
+	color: #fff!important;
+}
+.user_type_five:hover{
+	background-color: rgb(250, 173, 20);
+	cursor: pointer;
+	color: #fff!important;
+}
+._IskksKxv {
+    position: absolute;
+    width: 157px;
+    height: 157px;
+    background: hsla(0,0%,100%,.1);
+    border-radius: 50%;
+    left: -14%;
+    top: -18%;
+}
+._3EmITLRt {
+    width: 131px;
+    height: 131px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: .25;
+    margin-top: -20px;
+    margin-left: -16px;
 }
 </style>
