@@ -22,11 +22,12 @@ export default {
 
 	},
 	created(){
-		console.log(this.$route.query.urlName)
-		this.$router.replace({path:this.$route.query.urlName})
 	},
 	mounted(){
 	
+	},
+	activated(){
+				this.$router.replace({path:this.$route.query.path,query:this.$route.query.query})
 	},
 	methods: {
 		

@@ -205,44 +205,52 @@ export default {
   //     document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
   //   });
   // },
+  activated(){
+    let thisVue = this
+      if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+          this.$store.state.centerDialogVisible = true;
+          this.$refs.loginRef.getData();
+     }
+  },
   mounted() {
     // console.log(area)
     this.options = area;
     console.log(this.options);
      this.accountRealmIdList()
-     if(this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().wxVideoaccount!==null){
-       if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==1){
+     let login = this.$store.state.refresh.loginRefresh();
+     if(login&&login.wxVideoaccount!==null){
+       if(login.wxVideoaccount.type==1){
           this.value='个人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==2){
+       }else if(login.wxVideoaccount.type==2){
           this.value='达人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==3){
+       }else if(login.wxVideoaccount.type==3){
           this.value='企业号'
        }
-       this.num=this.$store.state.refresh.loginRefresh().wxVideoaccount.type;
-       this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name;
-       this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone;
-       this.wx=this.$store.state.refresh.loginRefresh().wxVideoaccount.wx;
-       this.brief=this.$store.state.refresh.loginRefresh().wxVideoaccount.brief;
-       this.fansCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.fansCount;
-       this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount;
-       this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount;
-       this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv;
+       this.num=login.wxVideoaccount.type;
+       this.name=login.wxVideoaccount.name;
+       this.phone=login.wxVideoaccount.phone;
+       this.wx=login.wxVideoaccount.wx;
+       this.brief=login.wxVideoaccount.brief;
+       this.fansCount=login.wxVideoaccount.fansCount;
+       this.videoCount=login.wxVideoaccount.videoCount;
+       this.likeCount=login.wxVideoaccount.likeCount;
+       this.pv=login.wxVideoaccount.pv;
 
 
-       this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot;
-       this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo;
+       this.dialogImageUrlNow= login.wxVideoaccount.screenshot;
+       this.imageUrlNow= login.wxVideoaccount.logo;
        this.dili={
        	shenfen:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Id
+       		name:login.wxVideoaccount.area1Name,
+       		id:login.wxVideoaccount.area1Id
        	},
        	city:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Id
+       		name:login.wxVideoaccount.area2Name,
+       		id:login.wxVideoaccount.area2Id
        	},
        	qu:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Id
+       		name:login.wxVideoaccount.area3Name,
+       		id:login.wxVideoaccount.area3Id
        	}
        }
       }
@@ -325,8 +333,10 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					// this.$refs.loginRef.getData();
+            if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+                this.$store.state.centerDialogVisible = true;
+                this.$refs.loginRef.getData();
+            }
 				}else if(res.data.code == 0){
 					 this.$message.success('入驻申请已提交，请耐心等待审核')
           // path:'/productPage/productPage_user'
@@ -342,9 +352,6 @@ export default {
               	 this.$message.success('入驻申请已提交，请耐心等待审核')
                 this.$router.push({path:'/productPage/productPage_user'});
               }
-
-
-
         }else{
           this.$message.error(res.data.codeMsg);
         }

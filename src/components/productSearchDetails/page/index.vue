@@ -144,6 +144,13 @@
 		created() {
 
 		},
+		activated(){
+			let thisVue = this
+			if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+				this.$store.state.centerDialogVisible = true;
+				this.$refs.loginRef.getData();
+			}
+  		},
 		//离开前判断前进和后退时间来判断是否保存滚动值
 		beforeRouteLeave(to, from, next) {
 			this.scrollTop = document.getElementById('searchDetails').scrollTop || document.getElementById('searchDetails').pageYOffset

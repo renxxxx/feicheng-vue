@@ -10,62 +10,61 @@ const state = {
   centerDialogVisible: false,
   
   refresh: {
+    _logined:null,
+    _login:null,
     loginCheck(){
-      
-      let logined = 1;
+      if(state._logined == 1)
+        return state._logined;
       Vue.prototype.$jquery.ajax({
         url:'/user/login-check',
         type:'get',
         async:false,
         success:function(res){
-          
           if(res.code == 0){
-            logined=res.data.logined
+            state._logined=res.data.logined
           }
         }
       })
-      return logined;
+      return state._logined;
     },
     loginRefresh: function() {
-      
-      let login={};
+      if(state._login != null)
+        return state._login;
       Vue.prototype.$jquery.ajax({
         url: '/user/login-refresh',
         type: 'get',
         async: false,
         success: function(res) {
-          
           if (res.code == 0) {
-            login = res.data
-            login.audits = ''
-            login.types = ''
+            state._login = res.data
+            state._login.audits = ''
+            state._login.types = ''
             if (res.data.wxVideoaccount) {
               if (res.data.wxVideoaccount.audit == 0) {
-                login.audits = 0
+                state._login.audits = 0
               } else if (res.data.wxVideoaccount.audit == 1) {
-                login.audits = 1
+                state._login.audits = 1
               } else if (res.data.wxVideoaccount.audit == 11) {
-                login.audits = 11
+                state._login.audits = 11
               } else if (res.data.wxVideoaccount.audit == 12) {
-                login.audits = 12
+                state._login.audits = 12
               }
             }
             if (res.data.wxVideoaccount === null) {
-              login.types = 0
+              state._login.types = 0
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 0) {
-              login.types = 0
+              state._login.types = 0
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 1) {
-              login.types = 1
+              state._login.types = 1
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 2) {
-              login.types = 2
+              state._login.types = 2
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 3) {
-              login.types = 3
+              state._login.types = 3
             }
           }
         }
       })
-      login.loginIf = state.refresh.loginCheck();
-      return login;
+      return state._login;
     }
   }
 }

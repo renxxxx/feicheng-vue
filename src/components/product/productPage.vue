@@ -91,14 +91,14 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' index="/productPage/productPage_ruzhu">
+						<el-menu-item  v-if='!this.$store.state.refresh.loginCheck()' index="/productPage/productPage_ruzhu">
 
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.refresh.loginRefresh().loginIf==1' >
+						<el-menu-item v-if='this.$store.state.refresh.loginCheck()' >
 							<template slot="title">
 								<img alt="">
 
@@ -411,11 +411,11 @@ askIfEnter(){
 		this.tanShow = false
 	},
 	exitFn(){
-		this.$axios.post("user/logout")
+		this.$axios.post("/user/logout")
 		.then(res=>{
 			if(res.data.code == 0){
 				localStorage.clear();
-				this.$router.push('/')
+				this.$router.replace('/')
 				location.reload()
 			}
 		})

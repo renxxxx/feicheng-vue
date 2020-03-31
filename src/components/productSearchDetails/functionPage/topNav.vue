@@ -85,11 +85,11 @@ export default {
   },
   methods:{
 	exitFn(){
-		this.$axios.post("user/logout")
+		this.$axios.post("/user/logout")
 		.then(res=>{
 			if(res.data.code == 0){
 				localStorage.clear();
-				this.$router.push('/')
+				this.$router.replace('/')
 				this.$router.go(0);
 			}
 		})

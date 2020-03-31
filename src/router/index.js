@@ -66,7 +66,7 @@ const router = new Router({
 					path: 'productPage_user',
 					name: 'productPage_user',
 					component: productPage_user,
-					meta: {auth:true,unkeepLastRoute:true},
+					meta: {auth:true},
 				},
 				{
 					path: 'productPage_douyinSearch',
@@ -78,7 +78,7 @@ const router = new Router({
 					path: 'productPage_ruzhu',
 					name: 'productPage_ruzhu',
 					component: productPage_ruzhu,
-					meta: {auth:true,unkeepLastRoute:true},
+					meta: {auth:true},
 				},
 				{
 					path: 'productPage_videoSearch',
@@ -132,5 +132,7 @@ router.afterEach((to,from) => {
   if(!to.meta.unkeepLastRoute){
     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
   }
+
+	
 })
 export default router

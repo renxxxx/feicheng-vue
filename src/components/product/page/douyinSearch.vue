@@ -247,6 +247,14 @@ export default {
 	created(){
 		
 	},
+	activated(){
+		debugger
+    	let thisVue = this
+      if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+          this.$store.state.centerDialogVisible = true;
+          this.$refs.loginRef.getData();
+     }
+  },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
 	this.scrollTop =document.getElementById('productPage').scrollTop ||document.getElementById('productPage').pageYOffset
@@ -305,20 +313,12 @@ export default {
 				pn:this.page,ps:5,
 			}))
 			.then(res =>{
-				if(res.data.codeMsg)
-				   alert(res.codeMsg)
 				if(res.data.code == 0){
 				   if(res.data.data.itemList.length !=0){
 				   	for(let i in res.data.data.itemList){
 				   		this.userList.push(res.data.data.itemList[i])
 				   	}
 				   }
-				}else{
-				   //开始失败逻辑
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
 				}
 				this.load = false;
 			})

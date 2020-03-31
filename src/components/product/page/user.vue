@@ -21,7 +21,7 @@
 						<div class="user_message">
 							<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:require('../../../assets/img/touxiang.png')" alt="">
 							<h5>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</h5>
-							<p v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0'>
+							<p v-if='!this.$store.state.refresh.loginCheck()'>
 								你好，暂未
 								<router-link :to="{path:'/productPage/productPage_ruzhu'}">
 									<span>入驻博主</span>
@@ -122,6 +122,12 @@ export default {
 		loadThree:false,
     };
   },
+   watch: {
+    $route(to, from) {
+		debugger
+		
+    }
+  },
   components: {
 	  login
   },
@@ -131,10 +137,19 @@ export default {
   beforeCreate(){
 
   },
+  activated(){
+	  debugger
+    let thisVue = this
+      if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+          this.$store.state.centerDialogVisible = true;
+          this.$refs.loginRef.getData();
+     }
+  },
   created() {
 
   },
   beforeRouteLeave(to, from, next) {
+	  debugger
   	let scrollTop = this.scrollTop =document.getElementById('productPage').scrollTop;
   	this.scrollTop = scrollTop?scrollTop :0;
   	console.log(this.scrollTop)
@@ -181,9 +196,7 @@ export default {
 	mounted() {
 		this.getDataType()
 	},
-	activated(){
-
-	},
+	
 	deactivated(){
 
 	},
