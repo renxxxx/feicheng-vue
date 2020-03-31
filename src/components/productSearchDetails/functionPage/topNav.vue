@@ -3,7 +3,7 @@
 		<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
 			<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
 				<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
-				<img src="../../../assets/img/logo.png" style="width:50%" alt="">
+				<img src="../../../assets/img/logo.png" style="width: 69.8px;heigt:35px;margin-left: 34px;margin-top: 11px;" alt="">
 			</router-link>
 		</el-col>
 		<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
@@ -76,10 +76,10 @@ export default {
     }
   },
   mounted(){
-	
+
   },
   watch:{
-   
+
   },
   components: {
   },
@@ -105,17 +105,17 @@ export default {
 		line-height: 55px;
 		border-bottom: 1px solid #3a3a3e;
 	}
-	
+
 	.nav_title {
 		width: 100%;
 	}
-	
+
 	.tanAbout {
 		margin-left: 4px;
 		display: inline;
 		position: relative;
 	}
-	
+
 	.tanAbout>span:first-child {
 		padding: 0 16px;
 		background: #fe2c55;
@@ -132,7 +132,7 @@ export default {
 		line-height: 30px;
 		position: relative;
 	}
-	
+
 	.tanAbout>span>svg {
 		margin-top: 6px;
 		/* position: absolute;
@@ -141,7 +141,7 @@ export default {
 	right: 0;
 	margin: auto 0; */
 	}
-	
+
 	.tanchuang {
 		width: 484px;
 		background: #5a5a5a;
@@ -157,12 +157,12 @@ export default {
 		background-position: 100% 0;
 		background-repeat: no-repeat;
 	}
-	
+
 	.tanchuang>svg {
 		display: inline-block;
 		float: left;
 	}
-	
+
 	.tanchuang>span:nth-child(2) {
 		display: inline-block;
 		font-size: 32px;
@@ -172,7 +172,7 @@ export default {
 		margin-left: 4px;
 		margin-bottom: 22px;
 	}
-	
+
 	.tanchuangcolor>span {
 		margin-top: 16px;
 		height: 32px;
@@ -200,38 +200,38 @@ export default {
 		color: #e8edee;
 		border: 1px solid #6d6d6d;
 	}
-	
+
 	.tanchuangcolor>span:active,
 	.nav_user>input:active {
 		color: #d95e00;
 		background-color: transparent;
 		border-color: #d95e00
 	}
-	
+
 	.tanchuangcolor>span:hover,
 	.nav_user>input:hover {
 		color: #d95e00;
 		background-color: transparent;
 		border-color: #d95e00
 	}
-	
+
 	.tanchuangcolor>span:focus,
 	.nav_user>input:focus {
 		color: #d95e00;
 		background-color: transparent;
 		border-color: #d95e00
 	}
-	
+
 	.nav_user {
 		height: 56px;
 		/* position: absolute; */
 	}
-	
+
 	.nav_user_search {
 		position: relative;
 		float: right;
 	}
-	
+
 	.nav_user_search>input {
 		height: 24px;
 		width: 162px;
@@ -240,19 +240,19 @@ export default {
 		background: transparent;
 		padding-left: 30px;
 	}
-	
+
 	.nav_user_search>input:active {
 		transition: all .5s;
 		color: #d95e00;
 		border: 1px solid #ff9429;
 	}
-	
+
 	.nav_user_search>input:hover {
 		transition: all .5s;
 		color: #d95e00;
 		border: 1px solid #ff9429;
 	}
-	
+
 	.nav_user_search>input:focus {
 		transition: all .5s;
 		color: #d95e00;
@@ -265,13 +265,13 @@ export default {
 		margin-left: 12px;
 		position: relative;
 	}
-	
+
 	.nav_function>svg:hover {
 		cursor: pointer;
 		color: #ff7800;
 		transition: color .2s ease;
 	}
-	
+
 	.nav_function>svg:first-child {
 		position: absolute;
 		top: 0;
@@ -279,7 +279,7 @@ export default {
 		margin: auto 0;
 		left: 0;
 	}
-	
+
 	.nav_function>svg:last-child {
 		position: absolute;
 		top: 0;
@@ -287,7 +287,7 @@ export default {
 		margin: auto 0;
 		right: 0;
 	}
-	
+
 	.nav_user_search>svg {
 		position: absolute;
 		left: 10px;
@@ -295,7 +295,7 @@ export default {
 		bottom: 0px;
 		margin: auto 0px;
 	}
-	
+
 	.nav_data {
 		float: right;
 		    margin-right: 20px;
@@ -312,7 +312,7 @@ export default {
 		margin-right: 7px;
 		position: relative;
 	}
-	
+
 	.nav_data:before {
 		content: '';
 		/* height: 100%; */
@@ -323,11 +323,11 @@ export default {
 		background: #66666d;
 		margin: 0 16px;
 	}
-	
+
 	.nav_data>span:nth-child(2) {
 		margin-right: 4px;
 	}
-	
+
 	.nav_data>span:nth-child(3) {
 		font-size: 12px;
 		height: 22px;
@@ -338,7 +338,7 @@ export default {
 		border: 1px solid #66666d;
 		background: rgba(102, 102, 109, .1);
 	}
-	
+
 	.nav_data_xiala{
 			width: 100px;
 			margin: 0px auto;
@@ -352,7 +352,7 @@ export default {
 			-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 			box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 		}
-		
+
 		.nav_data_xiala>ul>li {
 			height: 42px;
 			line-height: 42px;
