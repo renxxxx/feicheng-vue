@@ -6,7 +6,7 @@
         <router-link :to="{ path: '/productPage/productPage_user' }">
           <el-col :span="6" style="padding: 0;">
             <div class="grid-content bg-purple fclogo">
-             <!-- <svg width="125.336" height="33.144">
+              <!-- <svg width="125.336" height="33.144">
                 <g data-name="\u7EC4 7218" transform="translate(-360 -16)">
                   <g data-name="\u7EC4 7209">
                     <path
@@ -67,40 +67,108 @@
                   ></path>
                   <circle data-name="\u692D\u5706 1759" cx="1" cy="1" r="1" transform="translate(419 27)" fill="#fff"></circle>
                 </g>
-              </svg> -->
-              <img src="../../assets/img/feicheng.png" alt="" style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;">
+              </svg>-->
+              <img
+                src="../../assets/img/feicheng.png"
+                alt
+                style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;"
+              />
             </div>
           </el-col>
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找飞橙</span></router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">素材创意</span></router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }">
+              <span class="lf48">找飞橙</span>
+            </router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }">
+              <span class="lf48">素材创意</span>
+            </router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }">
+              <span class="lf48">飞橙商学院</span>
+            </router-link>
 
-
-
-            <span v-if='this.$store.state.refresh.loginRefresh().loginIf==1'>
-
-            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12'>体验版</span>
-            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12'>个人号</span>
-            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12'>达人号</span>
-            	<span class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12'>企业号</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12'>体验版(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12'>个人号(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12'>达人号(认证失败)</span>
-            	<span  @click='askIfEnter()' class="lf48" v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12'>企业号(认证失败)</span>
+            <span v-if="this.$store.state.refresh.loginRefresh().loginIf==1">
+              <span
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12"
+              >体验版</span>
+              <span
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12"
+              >个人号</span>
+              <span
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12"
+              >达人号</span>
+              <span
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12"
+              >企业号</span>
+              <span
+                @click="askIfEnter()"
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12"
+              >体验版(认证失败)</span>
+              <span
+                @click="askIfEnter()"
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12"
+              >个人号(认证失败)</span>
+              <span
+                @click="askIfEnter()"
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12"
+              >达人号(认证失败)</span>
+              <span
+                @click="askIfEnter()"
+                class="lf48"
+                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12"
+              >企业号(认证失败)</span>
             </span>
 
-            <router-link v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+            <router-link
+              v-if="!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0"
+              :to="{ path: '/productPage/productPage_ruzhu' }"
+            >
+              <span class="lf48">申请成为博主</span>
+            </router-link>
             <!--<router-link v-if='this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
             <!--v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount&&this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'-->
 
-            <el-button   v-if="this.$store.state.refresh.loginRefresh()? false:true" @click="loginFn" >登录 / 注册</el-button>
+            <el-button
+              v-if="this.$store.state.refresh.loginRefresh()? false:true"
+              @click="loginFn"
+            >登录 / 注册</el-button>
             <div v-else class="userToGo">
-              <span><img style="border-radius: 50%;" :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt=""></span>
+              <span>
+                <img
+                  style="border-radius: 50%;"
+                  :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''"
+                  alt
+                />
+              </span>
               <span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
-              <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+              <router-link :to="{path: '/productPage/productPage_user'}">
+                <span class="togo">
+                  去使用
+                  <i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right">
+                    <svg
+                      viewBox="64 64 896 896"
+                      focusable="false"
+                      class
+                      data-icon="right"
+                      width="1em"
+                      height="1em"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                      />
+                    </svg>
+                  </i>
+                </span>
               </router-link>
             </div>
           </div>
@@ -116,8 +184,7 @@
               <h1>飞橙全场景AI数据平台</h1>
               <p>
                 全方位洞察飞橙生态， 发掘热门视频、音乐，爆款商品及优质账号
-                <br />
-                有效助力账号运营变现，品牌策略投放
+                <br />有效助力账号运营变现，品牌策略投放
               </p>
               <div class="homeIntro">
                 <div></div>
@@ -141,11 +208,13 @@
                   <span>
                     <span class="ant-breadcrumb-link">CPS</span>
                     <span class="ant-breadcrumb-separator">/</span>
-                  </span> -->
+                  </span>-->
                 </div>
               </div>
               <div v-if="!this.$store.state.refresh.loginRefresh()" @click="loginFn">立即使用</div>
-              <div v-if="this.$store.state.refresh.loginRefresh()" class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
+              <div v-if="this.$store.state.refresh.loginRefresh()" class="userTo">
+                <router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -165,7 +234,12 @@
                                   <g id="\u7EC4_6049" data-name="\u7EC4 6049">
                                     <g id="\u7EC4_6048" data-name="\u7EC4 6048">
                                       <g id="\u7EC4_6047" data-name="\u7EC4 6047">
-                                        <path id="\u8DEF\u5F84_12855" data-name="\u8DEF\u5F84 12855" fill="#66666d" d="M27.263.737V27.263H.737V.737H27.263M28,0H0V28H28V0Z"></path>
+                                        <path
+                                          id="\u8DEF\u5F84_12855"
+                                          data-name="\u8DEF\u5F84 12855"
+                                          fill="#66666d"
+                                          d="M27.263.737V27.263H.737V.737H27.263M28,0H0V28H28V0Z"
+                                        />
                                       </g>
                                     </g>
                                   </g>
@@ -186,7 +260,7 @@
                       stroke-width="0.5px"
                       d="M11.566,20.9a.515.515,0,0,1-.4-.169.543.543,0,0,1,0-.789L18.7,12.449,11.17,4.958a.543.543,0,0,1,0-.789.549.549,0,0,1,.792,0l7.925,7.885a.543.543,0,0,1,0,.789l-7.925,7.885A.515.515,0,0,1,11.566,20.9Z"
                       transform="translate(-5.973 0.119)"
-                    ></path>
+                    />
                     <path
                       id="\u8DEF\u5F84_12857"
                       data-name="\u8DEF\u5F84 12857"
@@ -195,7 +269,7 @@
                       stroke-width="0.5px"
                       d="M11.566,20.9a.515.515,0,0,1-.4-.169.543.543,0,0,1,0-.789L18.7,12.449,11.17,4.958a.543.543,0,0,1,0-.789.549.549,0,0,1,.792,0l7.925,7.885a.543.543,0,0,1,0,.789l-7.925,7.885A.515.515,0,0,1,11.566,20.9Z"
                       transform="translate(1.554 0.119)"
-                    ></path>
+                    />
                   </g>
                 </g>
               </svg>
@@ -229,15 +303,29 @@
       <div class="footer_1">
         <div class="footer_1_1">
           <div>关于我们</div>
-          <div><a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a></div>
-          <div><a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a></div>
+          <div>
+            <a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a>
+          </div>
+          <div>
+            <a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a>
+          </div>
         </div>
         <div class="footer_1_2">
           <div>热门工具</div>
           <div>
-            <a href="https://data.newrank.cn/mins/wechat" target="_blank" rel="noopener noreferrer">分钟级监测</a>
+            <a
+              href="https://data.newrank.cn/mins/wechat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >分钟级监测</a>
           </div>
-          <div><a href="https://data.newrank.cn/pick/wechat/page" target="_blank" rel="noopener noreferrer">账号回采</a></div>
+          <div>
+            <a
+              href="https://data.newrank.cn/pick/wechat/page"
+              target="_blank"
+              rel="noopener noreferrer"
+            >账号回采</a>
+          </div>
         </div>
         <div class="footer_1_3">
           <div class="_GudV7S8W">联系客服</div>
@@ -248,7 +336,7 @@
           <div>飞橙服务号</div>
           <div>
             <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
-            <img :src="codeSrc" alt="" />
+            <img :src="codeSrc" alt />
           </div>
         </div>
       </div>
@@ -263,51 +351,61 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-import showPage_one from './functionPage/showPage_one.vue';
-import showPage_two from './functionPage/showPage_two.vue';
-import showPage_three from './functionPage/showPage_three.vue';
-import showPage_four from './functionPage/showPage_four.vue';
-import showPage_five from './functionPage/showPage_five.vue';
-import showPage_six from './functionPage/showPage_six.vue';
-import showPage_seven from './functionPage/showPage_seven.vue';
-import showPage_eight from './functionPage/showPage_eight.vue';
-import showPage_nine from './functionPage/showPage_nine.vue';
+import { mapActions, mapGetters } from "vuex";
+import showPage_one from "./functionPage/showPage_one.vue";
+import showPage_two from "./functionPage/showPage_two.vue";
+import showPage_three from "./functionPage/showPage_three.vue";
+import showPage_four from "./functionPage/showPage_four.vue";
+import showPage_five from "./functionPage/showPage_five.vue";
+import showPage_six from "./functionPage/showPage_six.vue";
+import showPage_seven from "./functionPage/showPage_seven.vue";
+import showPage_eight from "./functionPage/showPage_eight.vue";
+import showPage_nine from "./functionPage/showPage_nine.vue";
 
-import login from '../common/functionPage/login.vue';
+import login from "../common/functionPage/login.vue";
 export default {
-  name: 'account',
+  name: "account",
   data() {
     return {
-      codeSrc: '',
+      codeSrc: "",
       servant: [],
-      loginIf:true,
-      userName:'',
-      useravator:'',
-	  showData:false,
+      loginIf: true,
+      userName: "",
+      useravator: "",
+      showData: false
       // centerDialogVisible: false
     };
   },
-  watch:{
-     $route(to,from){
-         console.log(to);
-         console.log(from)
-
-     }
+  watch: {
+    $route(to, from) {
+      console.log(to);
+      console.log(from);
+    }
   },
   directives: {},
   beforeRouteLeave(to, from, next) {
     debugger;
-    let scrollTop = (this.scrollTop = document.getElementById('showPage').scrollTop);
+    let scrollTop = (this.scrollTop = document.getElementById(
+      "showPage"
+    ).scrollTop);
     this.scrollTop = scrollTop ? scrollTop : 0;
     // console.log(this.scrollTop);
     if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
       debugger;
       if (this.$vnode && this.$vnode.data.keepAlive) {
-        if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
+        if (
+          this.$vnode.parent &&
+          this.$vnode.parent.componentInstance &&
+          this.$vnode.parent.componentInstance.cache
+        ) {
           if (this.$vnode.componentOptions) {
             var key =
-              this.$vnode.key == null ? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '') : this.$vnode.key;
+              this.$vnode.key == null
+                ? this.$vnode.componentOptions.Ctor.cid +
+                  (this.$vnode.componentOptions.tag
+                    ? `::${this.$vnode.componentOptions.tag}`
+                    : "")
+                : this.$vnode.key;
             var cache = this.$vnode.parent.componentInstance.cache;
             var keys = this.$vnode.parent.componentInstance.keys;
             if (cache[key]) {
@@ -330,31 +428,37 @@ export default {
   beforeRouteEnter(to, from, next) {
     // debugger
     next(vm => {
-      document.getElementById('showPage').scrollTop = document.getElementById('showPage').pageYOffset = vm.scrollTop;
+      document.getElementById("showPage").scrollTop = document.getElementById(
+        "showPage"
+      ).pageYOffset = vm.scrollTop;
     });
     //判断回调页是否与当前前进路由相等，如果相等，删除路径
-    let fromRoute = JSON.stringify({ path: from.path, name: from.name, query: from.query });
-    let lastRoute = localStorage.getItem('lastRoute');
+    let fromRoute = JSON.stringify({
+      path: from.path,
+      name: from.name,
+      query: from.query
+    });
+    let lastRoute = localStorage.getItem("lastRoute");
     // console.log('fromRoute'+fromRoute)
     // console.log('lastRoute'+lastRoute)
     if (fromRoute == lastRoute) {
-      localStorage.removeItem('lastRoute');
+      localStorage.removeItem("lastRoute");
     }
   },
   activated() {
-    // debugger
+     debugger
   },
-
   mounted() {
-    console.dir(this.$store.state.refresh.loginRefresh())
+    debugger
+    console.dir(this.$store.state.refresh.loginRefresh());
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
     // console.log(this.$refs.showPage_two.$el.offsetHeight);
-    window.addEventListener('scroll', this.scrollToTop, true);
+    window.addEventListener("scroll", this.scrollToTop, true);
     // 获取配置信息
     this.$axios
-      .get('/config')
+      .get("/config")
       .then(res => {
         this.codeSrc = res.data.data.servantWxQrcode;
         this.servant = res.data.data;
@@ -362,7 +466,7 @@ export default {
       .catch(err => {});
     // 登陆刷新
     this.$axios
-      .get('/user/login-refresh')
+      .get("/user/login-refresh")
       .then(res => {})
       .catch(err => {});
     // debugger;
@@ -371,19 +475,17 @@ export default {
     // thisVue.$router.replace({ path : '/hospital/hospital_index',query:{time:new Date().getTime()}});
     //  }})
     // 跳转回跳页面
-    let lastRoute = localStorage.getItem('lastRoute');
+    let lastRoute = localStorage.getItem("lastRoute");
     if (lastRoute) {
       this.$router.push(JSON.parse(lastRoute));
       return;
     }
-    if(this.$store.state.refresh.loginRefresh()){
-      this.useravator=this.$store.state.refresh.loginRefresh().userLogo
-      this.userName=this.$store.state.refresh.loginRefresh().userName
-      this.loginIf=false
-
+    if (this.$store.state.refresh.loginRefresh()) {
+      this.useravator = this.$store.state.refresh.loginRefresh().userLogo;
+      this.userName = this.$store.state.refresh.loginRefresh().userName;
+      this.loginIf = false;
     }
-	this.showData = localStorage.getItem('showData')
-
+    this.showData = localStorage.getItem("showData");
   },
   components: {
     showPage_one,
@@ -412,45 +514,54 @@ export default {
   // watch:{
   //       '$route':'fetchData'
   //   },
-     created() {
-            var self = this;
-            // self.fetchData();
-      },
+  created() {
+    var self = this;
+    // self.fetchData();
+  },
   methods: {
-  	  	//询问是否入驻
-askIfEnter(){
-	this.$confirm(this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-       }).then(() => {
-			 this.$router.push({path:'/productPage/productPage_ruzhu'});
-        }).catch(() => {
-//        this.$message({
-//          type: 'info',
-//          message: '已取消删除'
-//        });
+
+
+    //询问是否入驻
+    askIfEnter() {
+      this.$confirm(
+        this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message +
+          "，是否重新认证?",
+        "提示",
+        {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }
+      )
+        .then(() => {
+          this.$router.push({ path: "/productPage/productPage_ruzhu" });
+        })
+        .catch(() => {
+          //        this.$message({
+          //          type: 'info',
+          //          message: '已取消删除'
+          //        });
         });
-},
-// fetchData(){
-//            console.log('路由发送变化doing...');
-//      },
-	initData(){
-		this.showData = true;
-		localStorage.setItem('showData',this.showData)
-		// console.log('路由发送变化doing...');
-		// Object.assign(this.$data, this.$options.data());
-	},
+    },
+    // fetchData(){
+    //            console.log('路由发送变化doing...');
+    //      },
+    initData() {
+      this.showData = true;
+      localStorage.setItem("showData", this.showData);
+      // console.log('路由发送变化doing...');
+      // Object.assign(this.$data, this.$options.data());
+    },
     loginFn() {
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData();
     },
     scrollToTop() {
-      var scrollTop = document.getElementById('showPage').scrollTop;
+      var scrollTop = document.getElementById("showPage").scrollTop;
       // var height1 = this.$refs.showPage1.offsetTop;
       // var height2 = this.$refs.showPage2.offsetTop;
       // console.dir(this.$refs.showPage_two.$el.offsetHeight)
-      var height2=0
+      var height2 = 0;
       var height3 = height2 + this.$refs.showPage_one.$el.offsetHeight;
       var height4 = height3 + this.$refs.showPage_two.$el.offsetHeight;
       var height5 = height4 + this.$refs.showPage_three.$el.offsetHeight;
@@ -459,66 +570,122 @@ askIfEnter(){
       var height8 = height7 + this.$refs.showPage_six.$el.offsetHeight;
       var height9 = height8 + this.$refs.showPage_eight.$el.offsetHeight;
       var height10 = height9 + this.$refs.showPage_nine.$el.offsetHeight;
-      console.log(scrollTop, height2,height3,height4);
-      if (scrollTop >= height3/2) {
-
-        document.getElementById('one_1').setAttribute('class','oneBox_mid_line oneBox_mid_line_one_1')
-        document.getElementById('one_2').setAttribute('class','oneBox_mid_line oneBox_mid_line_two_1')
-        document.getElementById('one_3').setAttribute('class','oneBox_mid_line oneBox_mid_line_three_1')
-        document.getElementById('one_4').setAttribute('class','oneBox_mid_line oneBox_mid_line_four_1')
-        document.getElementById('one_5').setAttribute('class','oneBox_mid_line oneBox_mid_line_five_1')
-
+      console.log(scrollTop, height2, height3, height4);
+      if (scrollTop >= height3 / 2) {
+        document
+          .getElementById("one_1")
+          .setAttribute("class", "oneBox_mid_line oneBox_mid_line_one_1");
+        document
+          .getElementById("one_2")
+          .setAttribute("class", "oneBox_mid_line oneBox_mid_line_two_1");
+        document
+          .getElementById("one_3")
+          .setAttribute("class", "oneBox_mid_line oneBox_mid_line_three_1");
+        document
+          .getElementById("one_4")
+          .setAttribute("class", "oneBox_mid_line oneBox_mid_line_four_1");
+        document
+          .getElementById("one_5")
+          .setAttribute("class", "oneBox_mid_line oneBox_mid_line_five_1");
       }
-      if(scrollTop>=height3+400){
-        console.log(document.getElementById('two_1'))
-          document.getElementById('two_1').setAttribute('class','box_indexLf transitionlF_2')
-          setTimeout(function(){
-          document.getElementById('two_2').setAttribute('class','box_indexRt transitionlFTwo_2')
-            },200)
+      if (scrollTop >= height3 + 400) {
+        console.log(document.getElementById("two_1"));
+        document
+          .getElementById("two_1")
+          .setAttribute("class", "box_indexLf transitionlF_2");
+        setTimeout(function() {
+          document
+            .getElementById("two_2")
+            .setAttribute("class", "box_indexRt transitionlFTwo_2");
+        }, 200);
       }
-      if(scrollTop>=height4+400){
-        document.getElementById('three_1').setAttribute('class',' mainmid_one transitionlF_3')
-       setTimeout(function(){
-         document.getElementById('three_2').setAttribute('class',' mainmid_two transitionlFTwo_3')
-       },200)
+      if (scrollTop >= height4 + 400) {
+        document
+          .getElementById("three_1")
+          .setAttribute("class", " mainmid_one transitionlF_3");
+        setTimeout(function() {
+          document
+            .getElementById("three_2")
+            .setAttribute("class", " mainmid_two transitionlFTwo_3");
+        }, 200);
       }
-      if(scrollTop>=height5+800){
-        document.getElementById('four_1').setAttribute('class',' mainbottom_top mainbottom_top_transition_4')
-       setTimeout(function(){
-         document.getElementById('four_2').setAttribute('class',' mainbottom_mid mainbottom_mid_transition_4')
-       },200)
-       setTimeout(function(){
-         document.getElementById('four_3').setAttribute('class',' mainbottom_bottom mainbottom_bottom_transition_4')
-       },400)
+      if (scrollTop >= height5 + 800) {
+        document
+          .getElementById("four_1")
+          .setAttribute("class", " mainbottom_top mainbottom_top_transition_4");
+        setTimeout(function() {
+          document
+            .getElementById("four_2")
+            .setAttribute(
+              "class",
+              " mainbottom_mid mainbottom_mid_transition_4"
+            );
+        }, 200);
+        setTimeout(function() {
+          document
+            .getElementById("four_3")
+            .setAttribute(
+              "class",
+              " mainbottom_bottom mainbottom_bottom_transition_4"
+            );
+        }, 400);
       }
 
-      if(scrollTop>=height6+800){
-        document.getElementById('five_1').setAttribute('class',' mainmid_one_top mainmid_one_top_transition_5')
-       setTimeout(function(){
-         document.getElementById('five_2').setAttribute('class',' mainmid_one_mid mainmid_one_mid_transition_5')
-       },200)
+      if (scrollTop >= height6 + 800) {
+        document
+          .getElementById("five_1")
+          .setAttribute(
+            "class",
+            " mainmid_one_top mainmid_one_top_transition_5"
+          );
+        setTimeout(function() {
+          document
+            .getElementById("five_2")
+            .setAttribute(
+              "class",
+              " mainmid_one_mid mainmid_one_mid_transition_5"
+            );
+        }, 200);
       }
 
-      if(scrollTop>=height7+600){
-        document.getElementById('six_1').setAttribute('class',' mainbottom mainbottom_transition_6')
+      if (scrollTop >= height7 + 600) {
+        document
+          .getElementById("six_1")
+          .setAttribute("class", " mainbottom mainbottom_transition_6");
       }
 
-      if(scrollTop>=height8+400){
-        document.getElementById('seven_1').setAttribute('class',' maindiv_two_top maindiv_two_top_transition_7')
-        }
-         if(scrollTop>=height8+600){
-           document.getElementById('seven_2').setAttribute('class',' maindiv_two_bottom maindiv_two_bottom_transition_7')
-         }
-         if(scrollTop>=height8+800){
-           document.getElementById('seven_3').setAttribute('class',' maindiv_three maindiv_three_transition_7')
-         }
+      if (scrollTop >= height8 + 400) {
+        document
+          .getElementById("seven_1")
+          .setAttribute(
+            "class",
+            " maindiv_two_top maindiv_two_top_transition_7"
+          );
+      }
+      if (scrollTop >= height8 + 600) {
+        document
+          .getElementById("seven_2")
+          .setAttribute(
+            "class",
+            " maindiv_two_bottom maindiv_two_bottom_transition_7"
+          );
+      }
+      if (scrollTop >= height8 + 800) {
+        document
+          .getElementById("seven_3")
+          .setAttribute("class", " maindiv_three maindiv_three_transition_7");
+      }
 
-         if(scrollTop>=height9+600){
-           document.getElementById('eight_1').setAttribute('class',' main_bottom main_bottom_transition_8')
-         }
- if(scrollTop>=height10+700){
-           document.getElementById('nine_1').setAttribute('class',' main main_transition_9')
-         }
+      if (scrollTop >= height9 + 600) {
+        document
+          .getElementById("eight_1")
+          .setAttribute("class", " main_bottom main_bottom_transition_8");
+      }
+      if (scrollTop >= height10 + 700) {
+        document
+          .getElementById("nine_1")
+          .setAttribute("class", " main main_transition_9");
+      }
       //  setTimeout(function(){
 
       //  },200)
@@ -533,37 +700,36 @@ askIfEnter(){
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .userToGo{
-    margin-left: 48px;
-    display: inline-block;
-  }
-  .userToGo>span:nth-child(1){
-    float: left;
-        margin-top: 20px;
+.userToGo {
+  margin-left: 48px;
+  display: inline-block;
+}
+.userToGo > span:nth-child(1) {
+  float: left;
+  margin-top: 20px;
 
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        font-size: 18px;
-            background: transparent;
-            display: inline-block;
-  }
-   .userToGo>span:nth-child(1) img{
-        display: block;
-        width: 24px;
-        height: 24px;
-        -o-object-fit: cover;
-        object-fit: cover;
-
-  }
-  .userToGo>span:nth-child(2){
-        margin: 0 8px;
-        display: inline-block;
-  }
-  .userToGo .togo{
-   color: #faad14 !important;
-   display: inline-block;
-   }
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 18px;
+  background: transparent;
+  display: inline-block;
+}
+.userToGo > span:nth-child(1) img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.userToGo > span:nth-child(2) {
+  margin: 0 8px;
+  display: inline-block;
+}
+.userToGo .togo {
+  color: #faad14 !important;
+  display: inline-block;
+}
 /* .el-dialog__wrapper {
 	transition-duration: 0.3s;
 }
@@ -604,10 +770,10 @@ askIfEnter(){
 }
  */
 
-
 html {
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   font-size: 16px;
   /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
@@ -617,8 +783,9 @@ html {
 #showPage {
   overflow-y: scroll;
   height: 100%;
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 #showPage::-webkit-scrollbar {
   width: 8px;
@@ -684,7 +851,7 @@ el-row,
   height: 64px;
   line-height: 64px;
 }
-.tabbarRight .lf48{
+.tabbarRight .lf48 {
   margin-left: 48px;
 }
 .tabbarRight span:hover {
@@ -754,8 +921,9 @@ el-row,
   margin-left: -10px;
   position: relative;
   color: #fff;
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 .homeBackIndex > div p {
   font-size: 18px;
@@ -773,10 +941,19 @@ el-row,
   line-height: 40px;
   color: #fff !important;
   padding-left: 5px;
-  background: -webkit-gradient(linear, left top, right top, from(hsla(0, 0%, 100%, 0.3)), to(hsla(0, 0%, 100%, 0)));
-  background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(hsla(0, 0%, 100%, 0.3)),
+    to(hsla(0, 0%, 100%, 0))
+  );
+  background: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0.3),
+    hsla(0, 0%, 100%, 0)
+  );
   opacity: 0.3;
-
 }
 .homeBackIndex > div .homeIntro div:nth-child(2) {
   position: absolute;
@@ -797,22 +974,23 @@ el-row,
   cursor: pointer;
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
+}
+.homeBackIndex > div > .userTo {
+  background: #ff7800 !important;
+}
 
+.homeIntro_div {
+  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
 }
-.homeBackIndex > div > .userTo{
-             background: #ff7800 !important;
-       }
-
-.homeIntro_div{
-     font-family: DINPro Medium,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !important;
+.homeIntro .homeIntro_div > span {
+  color: #ffffff;
+  font-family: inherit;
 }
-.homeIntro .homeIntro_div>span{
-color: #ffffff;
-font-family: inherit;
-}
-.homeIntro .homeIntro_div>span span:nth-child(2){
-      margin: 0 8px;
-      color: #cdcfcf;
+.homeIntro .homeIntro_div > span span:nth-child(2) {
+  margin: 0 8px;
+  color: #cdcfcf;
 }
 .downArrayIcon {
   height: 25px;

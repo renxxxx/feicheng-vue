@@ -333,7 +333,9 @@
 						<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
 					</div>
 				</div> -->
-				<router-view class="appView2" />
+				<keep-alive>
+					<router-view class="appView2" />
+				</keep-alive>
 			</el-col>
 		</el-row>
 		<login ref="loginRef"></login>

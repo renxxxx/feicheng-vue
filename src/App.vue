@@ -1,9 +1,8 @@
 <template>
   <div id="app" ref='appRef'>
-    <!-- <keep-alive> -->
+    <keep-alive> 
     <router-view />
-
-    <!-- </keep-alive> -->
+</keep-alive> 
   </div>
 </template>
 

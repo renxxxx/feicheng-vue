@@ -8,23 +8,35 @@ Vue.use(Vuex)
 const state = {
   //登陆弹窗
   centerDialogVisible: false,
+  
   refresh: {
+    loginCheck(){
+      
+      let logined = 1;
+      Vue.prototype.$jquery.ajax({
+        url:'/user/login-check',
+        type:'get',
+        async:false,
+        success:function(res){
+          
+          if(res.code == 0){
+            logined=res.data.logined
+          }
+        }
+      })
+      return logined;
+    },
     loginRefresh: function() {
-      let login;
-      let loginIf;
-      // if(localStorage.getItem('refresh')){
-      // 	login = JSON.parse(localStorage.getItem('refresh'))
-      // }else{
+      
+      let login={};
       Vue.prototype.$jquery.ajax({
         url: '/user/login-refresh',
         type: 'get',
         async: false,
         success: function(res) {
-          console.log(res)
-
+          
           if (res.code == 0) {
             login = res.data
-            login.loginIf = 1
             login.audits = ''
             login.types = ''
             if (res.data.wxVideoaccount) {
@@ -39,34 +51,20 @@ const state = {
               }
             }
             if (res.data.wxVideoaccount === null) {
-              login.loginIf = 0
               login.types = 0
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 0) {
-              login.loginIf = 1
               login.types = 0
-
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 1) {
-              login.loginIf = 1
               login.types = 1
-
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 2) {
-              login.loginIf = 1
               login.types = 2
-
             } else if (res.data.wxVideoaccount && res.data.wxVideoaccount.type == 3) {
-              login.loginIf = 1
               login.types = 3
-
             }
-            // localStorage.setItem('refresh',JSON.stringify(login))
-          } else if (res.code == 20) {
-            login=false
-            login.loginIf = 0
           }
         }
       })
-      // }
-      console.log(login)
+      login.loginIf = state.refresh.loginCheck();
       return login;
     }
   }
