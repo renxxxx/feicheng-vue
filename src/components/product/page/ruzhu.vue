@@ -162,7 +162,8 @@ export default {
 			},
 			imageUrlNow:'',
 			dialogImageUrlNow:[],
-			dialogImageUrlNowlist:[]
+			dialogImageUrlNowlist:[],
+			loginRefresh :this.$store.state.refresh.loginRefresh()
     };
   },
   computed: {},
@@ -210,39 +211,39 @@ export default {
     this.options = area;
     console.log(this.options);
      this.accountRealmIdList()
-     if(this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().wxVideoaccount!==null){
-       if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==1){
+     if(this.loginRefresh&&this.loginRefresh.wxVideoaccount!==null){
+       if(this.loginRefresh.wxVideoaccount.type==1){
           this.value='个人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==2){
+       }else if(this.loginRefresh.wxVideoaccount.type==2){
           this.value='达人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==3){
+       }else if(this.loginRefresh.wxVideoaccount.type==3){
           this.value='企业号'
        }
-       this.num=this.$store.state.refresh.loginRefresh().wxVideoaccount.type;
-       this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name;
-       this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone;
-       this.wx=this.$store.state.refresh.loginRefresh().wxVideoaccount.wx;
-       this.brief=this.$store.state.refresh.loginRefresh().wxVideoaccount.brief;
-       this.fansCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.fansCount;
-       this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount;
-       this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount;
-       this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv;
+       this.num=this.loginRefresh.wxVideoaccount.type;
+       this.name=this.loginRefresh.wxVideoaccount.name;
+       this.phone=this.loginRefresh.wxVideoaccount.phone;
+       this.wx=this.loginRefresh.wxVideoaccount.wx;
+       this.brief=this.loginRefresh.wxVideoaccount.brief;
+       this.fansCount=this.loginRefresh.wxVideoaccount.fansCount;
+       this.videoCount=this.loginRefresh.wxVideoaccount.videoCount;
+       this.likeCount=this.loginRefresh.wxVideoaccount.likeCount;
+       this.pv=this.loginRefresh.wxVideoaccount.pv;
 
 
-       this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot;
-       this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo;
+       this.dialogImageUrlNow= this.loginRefresh.wxVideoaccount.screenshot;
+       this.imageUrlNow= this.loginRefresh.wxVideoaccount.logo;
        this.dili={
        	shenfen:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Id
+       		name:this.loginRefresh.wxVideoaccount.area1Name,
+       		id:this.loginRefresh.wxVideoaccount.area1Id
        	},
        	city:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Id
+       		name:this.loginRefresh.wxVideoaccount.area2Name,
+       		id:this.loginRefresh.wxVideoaccount.area2Id
        	},
        	qu:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Id
+       		name:this.loginRefresh.wxVideoaccount.area3Name,
+       		id:this.loginRefresh.wxVideoaccount.area3Id
        	}
        }
       }

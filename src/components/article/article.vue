@@ -11,8 +11,8 @@
 					<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 						<div class="nav_user">
 							<div class="nav_data">
-								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
-								<h5>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</h5>
+								<img :src="loginRefresh? loginRefresh.userLogo:''" alt="">
+								<h5>{{loginRefresh? loginRefresh.userNickname:''}}</h5>
 								<el-popover placement="top-start" trigger="hover">
 									<div class="nav_data_xiala">
 										<ul>
@@ -57,9 +57,8 @@
 			</el-col>
 		</el-row>
 		<el-row :gutter='17' class="nav" style="background:#FFFFFF;margin-top: 57px;">
-		<object class="center" type="text/html" v-if:url :data="url">
-			
-		</object> 
+			 <iframe ref="iframe" align="center" width="100%" height="170" class="center">
+			 </iframe>
 		</el-row>
 		<login ref="loginRef"></login>
 	</div>
@@ -75,9 +74,9 @@ export default {
 	data () {
 		return {
 			data:{
-				url:null
+				loginRefresh :this.$store.state.refresh.loginRefresh()
 			}
-		}
+		};
 	},
 	computed:{
 		centerDialogVisible: {
@@ -140,8 +139,7 @@ export default {
 	mounted(){
 		this.data = JSON.parse(this.$route.query.data)
 		// this.$refs.urlPageRef.innerHTML = this.data.content
-		// console.log(this.data);
-		if(!this.$store.state.refresh.loginRefresh()){
+		if(!this.loginRefresh){
 			if(!this.centerDialogVisible){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
@@ -160,15 +158,17 @@ export default {
 			})
 		},
 		getData(){
-			let _this = this
-			console.log(this.$route.query.data)
+			// var _this = this
+			// console.log(this.$route.query.data)
 			this.$axios.get('/user/article/article?'+qs.stringify({
 				articleId:this.$route.query.data
 			}))
 			.then(res=>{
 				// console.dir(res)
 				debugger;
-				_this.url = res.data.data.contentUrl
+				// this.url = res.data.data.contentUrl;
+				this.$refs.iframe.src =res.data.data.contentUrl; 
+				// console.log(this.url)
 			})
 		}
 	},

@@ -140,7 +140,7 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<router-link target='_blank' :to="{path:'/searchDetails',query:{data:JSON.stringify(user)}}">
+				<router-link target='_blank' :to="{path:'/searchDetails',query:{id:JSON.stringify(user.wxVideoaccountId)}}">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<img :src="user.logo" alt="">
@@ -306,7 +306,7 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.codeMsg)
-				   alert(res.codeMsg)
+				   alert(res.data.codeMsg)
 				if(res.data.code == 0){
 				   if(res.data.data.itemList.length !=0){
 				   	for(let i in res.data.data.itemList){
