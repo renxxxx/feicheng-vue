@@ -183,7 +183,7 @@
 			<!-- </div> -->
 			
 		</div>
-		<login ref="loginRef"></login>
+		<login ref="loginRef" ></login>
 	</div>
 </template>
 
