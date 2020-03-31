@@ -3,7 +3,6 @@
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
 				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
-					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
 					<img src="../../assets/img/logo.png" style="height:100%" alt="">
 				</router-link>
 			</el-col>
@@ -57,9 +56,11 @@
 				</div>
 			</el-col>
 		</el-row>
-		<object class="center" type="text/html" data="https://fc.woshicgo.com/oss/20200326112841929497312816578163.html">
+		<el-row :gutter='17' class="nav" style="background:#FFFFFF;margin-top: 57px;">
+		<object class="center" type="text/html" v-if:url :data="url">
 			
 		</object> 
+		</el-row>
 		<login ref="loginRef"></login>
 	</div>
 </template>
@@ -73,7 +74,9 @@ export default {
 	name: 'article',
 	data () {
 		return {
-			data:{}
+			data:{
+				url:null
+			}
 		}
 	},
 	computed:{
@@ -139,9 +142,12 @@ export default {
 		// this.$refs.urlPageRef.innerHTML = this.data.content
 		// console.log(this.data);
 		if(!this.$store.state.refresh.loginRefresh()){
-			this.centerDialogVisible = true;
-			this.$refs.loginRef.getData();
+			if(!this.centerDialogVisible){
+				this.centerDialogVisible = true;
+				this.$refs.loginRef.getData();
+			}
 		}
+		this.getData()
 	},
 	methods: {
 		exitFn(){
@@ -151,6 +157,18 @@ export default {
 					localStorage.clear();
 					this.$router.push('/')
 				}
+			})
+		},
+		getData(){
+			let _this = this
+			console.log(this.$route.query.data)
+			this.$axios.get('/user/article/article?'+qs.stringify({
+				articleId:this.$route.query.data
+			}))
+			.then(res=>{
+				// console.dir(res)
+				debugger;
+				_this.url = res.data.data.contentUrl
 			})
 		}
 	},

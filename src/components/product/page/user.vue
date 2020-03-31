@@ -190,11 +190,12 @@ export default {
 	methods: {
 		detailClickFn(_data){
 			console.log(_data)
-			if(!_data.link){
+			if(_data.link==0){
 				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
-				window.open('https://fc.woshicgo.com/#/articleDetails?data='+JSON.stringify(_data), '_blank');
-			}else{
-				window.open(_data.content, '_blank');
+				window.open('/#/articleDetails?data='+_data.articleId, '_blank');
+				//window.open('https://fc.woshicgo.com/#/articleDetails?data='+JSON.stringify({id:_data.articleId}), '_blank');
+			}else if (_data.link==1){
+				window.open(_data.link1Url, '_blank');
 			}
 		},
 		getDataType(){
