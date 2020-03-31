@@ -3,7 +3,7 @@
     <!-- 顶部导航 -->
     <el-header class="navBar">
       <el-row class="indexNav">
-        <router-link :to="{ path: '/productPage/productPage_user' }">
+        <router-link :to="{path: '/tihuan', query: {path: '/',query:{} }}">
           <el-col :span="6" style="padding: 0;">
             <div class="grid-content bg-purple fclogo">
               <!-- <svg width="125.336" height="33.144">

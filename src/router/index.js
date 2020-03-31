@@ -135,9 +135,9 @@ const router = new Router({
 router.afterEach((to,from) => {
   debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
-  if(to.name == from.name){
-	  router.push({path:'/tihuan',query:{urlName:to.path}})
-  }
+//   if(to.name == from.name){
+// 	  router.push({path:'/tihuan',query:{urlName:to.path}})
+//   }
   // 缓存最后一次路径
   if(!to.meta.unkeepLastRoute){
     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
