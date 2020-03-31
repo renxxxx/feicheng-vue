@@ -255,7 +255,7 @@
 								</div>
 							</div>
 							<div class="_14YV3H8t">
-								<div>抖音扫码关注账号</div>
+								<div>扫码关注账号</div>
 							</div>
 						</div>
 					</div>
@@ -415,7 +415,7 @@
 			this.data = JSON.parse(this.$route.query.data);
 			this.getData()
 			// console.dir(this.data)
-			if(!this.$store.state.refresh.loginRefresh()){
+			if(!this.$store.state.login){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
 			}

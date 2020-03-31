@@ -207,7 +207,7 @@ export default {
   // },
   activated(){
     let thisVue = this
-      if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+      if(this.$route.meta.auth && !this.$store.state.login){
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
@@ -217,7 +217,7 @@ export default {
     this.options = area;
     console.log(this.options);
      this.accountRealmIdList()
-     let login = this.$store.state.refresh.loginRefresh();
+     let login = this.$store.state.login;
      if(login&&login.wxVideoaccount!==null){
        if(login.wxVideoaccount.type==1){
           this.value='个人号'
@@ -333,7 +333,7 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-            if(this.$route.meta.auth && !this.$store.state.refresh.loginCheck()){
+            if(this.$route.meta.auth && !this.$store.state.login){
                 this.$store.state.centerDialogVisible = true;
                 this.$refs.loginRef.getData();
             }

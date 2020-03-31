@@ -11,12 +11,12 @@
 					<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 						<div class="nav_user">
 							<div class="nav_data">
-								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
-								<h5>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</h5>
+								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
+								<h5>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</h5>
 								<el-popover placement="top-start" trigger="hover">
 									<div class="nav_data_xiala">
 										<ul>
-											<li>DOU管家</li>
+											<li>视频管家</li>
 											<li>我的收藏</li>
 											<li>购买续费</li>
 											<li>我的权限</li>
@@ -141,7 +141,7 @@ export default {
 		this.data = JSON.parse(this.$route.query.data)
 		// this.$refs.urlPageRef.innerHTML = this.data.content
 		// console.log(this.data);
-		if(!this.$store.state.refresh.loginRefresh()){
+		if(!this.$store.state.login){
 			if(!this.centerDialogVisible){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
@@ -156,6 +156,7 @@ export default {
 				if(res.data.code == 0){
 					localStorage.clear();
 					this.$router.replace('/')
+					location.reload()
 				}
 			})
 		},

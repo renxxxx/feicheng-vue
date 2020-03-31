@@ -11,6 +11,20 @@ export default {
   name: 'App',
   watch:{
   },
+  created(){
+    debugger
+    let thisVue = this
+        this.$jquery.ajax({
+			  url:'/user/login-refresh',
+			  type:'get',
+			  async:false,
+			  success:function(res){
+			    if(res.code == 0){
+					  thisVue.$store.state.login=res.data
+			    }
+			  }
+			})
+  }
 }
 </script>
 

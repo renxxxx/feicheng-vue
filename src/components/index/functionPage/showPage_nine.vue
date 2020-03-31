@@ -9,7 +9,7 @@
           」 ，满足专业人士的诉求<svg width="118.555" height="28" viewBox="0 0 118.555 28" style="margin-left:16px"><g id="\u7EC4_7018" data-name="\u7EC4 7018" transform="translate(-896 -6428)"><path id="\u8054\u5408_9" data-name="\u8054\u5408 9" fill="#ff7800" opacity="0.69" d="M3198.106-4602v-.015h-6.555l6.555-4.753V-4628a2,2,0,0,1,2-2h108a2,2,0,0,1,2,2v24a2,2,0,0,1-2,2Z" transform="translate(-2295.552 11058)"></path><text id="\u652F\u6301\u591A\u4EBA\u534F\u540C" fill="#fff" font-size="16px" font-weight="700" font-family="MicrosoftYaHei-Bold, Microsoft YaHei" transform="translate(958.555 6448)"><tspan x="-48" y="0">支持多人协同</tspan></text></g></svg>
         </div>
 
-        <div class="main_bottom" v-if="this.$store.state.refresh.loginCheck()" @click="loginFn">立即使用</div>
+        <div class="main_bottom" v-if="this.$store.state.login" @click="loginFn">立即使用</div>
         <div v-else class="main_bottom userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
       </div>
     </div>
@@ -37,8 +37,8 @@
       }
     },
    mounted(){
-      this.useravator=this.$store.state.refresh.loginRefresh().userLogo
-      this.userName=this.$store.state.refresh.loginRefresh().userName
+      this.useravator=this.$store.state.login.userLogo
+      this.userName=this.$store.state.login.userName
     
     },
     methods:{

@@ -11,12 +11,12 @@
 				<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 					<div class="nav_user">
 						<div class="nav_data">
-							<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
-							<span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
+							<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
+							<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
 							<el-popover placement="top-start" trigger="hover">
 								<div class="nav_data_xiala">
 									<ul>
-										<li>DOU管家</li>
+										<li>视频管家</li>
 										<li>我的收藏</li>
 										<li>购买续费</li>
 										<li>我的权限</li>
@@ -90,7 +90,7 @@ export default {
 			if(res.data.code == 0){
 				localStorage.clear();
 				this.$router.replace('/')
-				this.$router.go(0);
+				location.reload()
 			}
 		})
 	}

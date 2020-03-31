@@ -84,10 +84,14 @@ export default {
               .then(res => {
                 // console.log(res)
                 if(res.data.code==0){
-                    this.$store.state.refresh.loginRefresh()
-                    this.centerDialogVisible = false;
-						        clearInterval(this.timer);
-										this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                    this.$axios
+                        .get('/user/login-refresh')
+                        .then(res => {
+                           this.$store.state.login=res.data.data
+                            this.centerDialogVisible = false;
+                            clearInterval(this.timer);
+                            this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                        })
                 }else{
                 }
               })

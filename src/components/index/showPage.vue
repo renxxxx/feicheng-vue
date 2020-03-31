@@ -88,67 +88,67 @@
               <span class="lf48">飞橙商学院</span>
             </router-link>
 
-            <span v-if="this.$store.state.refresh.loginCheck()">
+            <span v-if="this.$store.state.login">
               <span
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits!=12"
               >体验版</span>
               <span
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits!=12"
               >个人号</span>
               <span
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits!=12"
               >达人号</span>
               <span
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits!=12"
               >企业号</span>
               <span
                 @click="askIfEnter()"
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits==12"
               >体验版(认证失败)</span>
               <span
                 @click="askIfEnter()"
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits==12"
               >个人号(认证失败)</span>
               <span
                 @click="askIfEnter()"
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits==12"
               >达人号(认证失败)</span>
               <span
                 @click="askIfEnter()"
                 class="lf48"
-                v-if="this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12"
+                v-if="this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits==12"
               >企业号(认证失败)</span>
             </span>
 
             <router-link
-              v-if="!this.$store.state.refresh.loginCheck()"
+              v-if="!this.$store.state.login"
               :to="{ path: '/productPage/productPage_ruzhu' }"
             >
               <span class="lf48">申请成为博主</span>
             </router-link>
-            <!--<router-link v-if='this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
-            <!--v-if='this.$store.state.refresh.loginRefresh().wxVideoaccount&&this.$store.state.refresh.loginRefresh().wxVideoaccount==null||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==0||this.$store.state.refresh.loginRefresh().wxVideoaccount.audit==12'-->
+            <!--<router-link v-if='this.$store.state.login||this.$store.state.login.wxVideoaccount==null||this.$store.state.login.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
+            <!--v-if='this.$store.state.login.wxVideoaccount&&this.$store.state.login.wxVideoaccount==null||this.$store.state.login.wxVideoaccount.audit==0||this.$store.state.login.wxVideoaccount.audit==12'-->
 
             <el-button
-              v-if="!this.$store.state.refresh.loginCheck()"
+              v-if="!this.$store.state.login"
               @click="loginFn"
             >登录 / 注册</el-button>
             <div v-else class="userToGo">
               <span>
                 <img
                   style="border-radius: 50%;"
-                  :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''"
+                  :src="this.$store.state.login? this.$store.state.login.userLogo:''"
                   alt
                 />
               </span>
-              <span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
+              <span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
               <router-link :to="{path: '/productPage/productPage_user'}">
                 <span class="togo">
                   去使用
@@ -211,8 +211,8 @@
                   </span>-->
                 </div>
               </div>
-              <div v-if="!this.$store.state.refresh.loginCheck()" @click="loginFn">立即使用</div>
-              <div v-if="this.$store.state.refresh.loginCheck()" class="userTo">
+              <div v-if="!this.$store.state.login" @click="loginFn">立即使用</div>
+              <div v-if="this.$store.state.login" class="userTo">
                 <router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link>
               </div>
             </div>
@@ -448,7 +448,7 @@ export default {
   },
   mounted() {
     debugger
-    console.dir(this.$store.state.refresh.loginRefresh());
+    console.dir(this.$store.state.login);
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
@@ -475,8 +475,8 @@ export default {
       return;
     }
 
-      this.useravator = this.$store.state.refresh.loginRefresh().userLogo;
-      this.userName = this.$store.state.refresh.loginRefresh().userName;
+      this.useravator = this.$store.state.login.userLogo;
+      this.userName = this.$store.state.login.userName;
    
     this.showData = localStorage.getItem("showData");
   },
@@ -512,12 +512,10 @@ export default {
     // self.fetchData();
   },
   methods: {
-
-
     //询问是否入驻
     askIfEnter() {
       this.$confirm(
-        this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message +
+        this.$store.state.login.wxVideoaccount.audit12Message +
           "，是否重新认证?",
         "提示",
         {
