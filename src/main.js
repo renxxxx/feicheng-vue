@@ -14,7 +14,7 @@ import h5p from '../build/h5p.js'
 import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-//版本号   
+//版本号    
 Vue.prototype.$version = '2004010537-553985a'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
