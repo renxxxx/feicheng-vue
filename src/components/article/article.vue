@@ -57,9 +57,8 @@
 			</el-col>
 		</el-row>
 		<el-row :gutter='17' class="nav" style="background:#FFFFFF;margin-top: 57px;">
-		<object class="center" type="text/html" v-if:url :data="url">
-			
-		</object> 
+			 <iframe ref="iframe" align="center" width="100%" height="170" class="center">
+			 </iframe>
 		</el-row>
 		<login ref="loginRef"></login>
 	</div>
@@ -75,9 +74,8 @@ export default {
 	data () {
 		return {
 			data:{
-				url:null
 			}
-		}
+		};
 	},
 	computed:{
 		centerDialogVisible: {
@@ -138,7 +136,7 @@ export default {
 
   },
 	mounted(){
-		this.data = JSON.parse(this.$route.query.data)
+		//this.data = JSON.parse(this.$route.query.data)
 		// this.$refs.urlPageRef.innerHTML = this.data.content
 		// console.log(this.data);
 		if(!this.$store.state.login){
@@ -161,15 +159,17 @@ export default {
 			})
 		},
 		getData(){
-			let _this = this
-			console.log(this.$route.query.data)
+			// var _this = this
+			// console.log(this.$route.query.data)
 			this.$axios.get('/user/article/article?'+qs.stringify({
 				articleId:this.$route.query.data
 			}))
 			.then(res=>{
 				// console.dir(res)
 				debugger;
-				_this.url = res.data.data.contentUrl
+				// this.url = res.data.data.contentUrl;
+				this.$refs.iframe.src =res.data.data.contentUrl; 
+				// console.log(this.url)
 			})
 		}
 	},

@@ -56,10 +56,10 @@
 										</ul>
 									</div>
                   <span v-if='!this.$store.state.login' slot="reference" style="cursor: pointer;">体验版 </span>
-									<span v-if='this.$store.state.login&&this.$store.state.login.types==0' slot="reference" style="cursor: pointer;">体验版 </span>
-									<span v-if='this.$store.state.login&&this.$store.state.login.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
-									<span v-if='this.$store.state.login&&this.$store.state.login.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
-									<span v-if='this.$store.state.login&&this.$store.state.login.types==3' slot="reference" style="cursor: pointer;">企业号 </span>
+									<span v-if='getUserInfo.types==0' slot="reference" style="cursor: pointer;">体验版 </span>
+									<span v-if='getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
+									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
+									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span>
 
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
@@ -91,8 +91,7 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
-
+						<el-menu-item  v-if='getUserInfo.types == 0 ||getUserInfo.types==null' index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
@@ -101,15 +100,14 @@
 						<el-menu-item v-if='this.$store.state.login' >
 							<template slot="title">
 								<img alt="">
-
-								<span v-if='this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits!=12' style="margin-left: 14px;">体验版</span>
-								<span v-if='this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits!=12' style="margin-left: 14px;">个人号</span>
-								<span v-if='this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits!=12' style="margin-left: 14px;">达人号</span>
-								<span v-if='this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits!=12' style="margin-left: 14px;">企业号</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits==12' style="margin-left: 14px;">体验版(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits==12' style="margin-left: 14px;">个人号(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits==12' style="margin-left: 14px;">达人号(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits==12' style="margin-left: 14px;">企业号(认证失败)</span>
+								<span v-if='getUserInfo.types===0&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版</router-link></span>
+								<span v-if='getUserInfo.types==1&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号</router-link></span>
+								<span v-if='getUserInfo.types==2&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号</router-link></span>
+								<span v-if='getUserInfo.types==3&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号</router-link></span>
+								<span @click='askIfEnter()' v-if='getUserInfo.types===0&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='getUserInfo.types==1&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='getUserInfo.types==2&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='getUserInfo.types==3&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号(认证失败)</router-link></span>
 							</template>
 						</el-menu-item>
 
@@ -131,7 +129,7 @@
 								<span>{{leftNavList[1].name}}</span>
 								<svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[1].onechild" :key="zhi">
+							<el-menu-item v-for="(child,zhi) in leftNavList[1].onechild" :key="zhi" :index="{path:child.url}">
 								 <img :src="child.url" alt="">
 								 <span>{{child.name}}</span>
 								 <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
@@ -278,39 +276,8 @@ export default {
 					// {name:'种草视频',data:'true',url:''},
 					// {name:'抖音·小店达人榜',data:'true',url:''},
 		]},
-		// {
-		// 	name:'品牌营销',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'营销创意视频',data:'true',url:''},
-		// 			{name:'品牌声量',data:'true',url:''},
-		// 			{name:'带货品牌',data:'true',url:''},
-		// 			{name:'抖音·品牌热DOU榜',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'DOU 管家',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'运营报表导出',data:'true',url:''},
-		// 			{name:'视频实时看板',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'收藏 / 工具',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'我的收藏',data:'true',url:''},
-		// 			{name:'分钟级监测视频',data:'true',url:''},
-		// 			{name:'账号回采数据',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'权限管理',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'购买续费',data:'true',url:''},
-		// 			{name:'我的权限',data:'true',url:''},
-		// 			{name:'推广新抖',data:'true',url:''},
-		// ]},
-		]
+		],
+    getUserInfo :this.$store.state.getUserInfo.info()
     }
   },
   beforeRouteLeave(to, from, next) {
@@ -377,7 +344,7 @@ export default {
   methods:{
   	//询问是否入驻
 askIfEnter(){
-	this.$confirm(this.$store.state.login.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'

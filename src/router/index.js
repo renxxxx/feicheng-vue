@@ -14,6 +14,7 @@ import productPage from '@/components/product/productPage.vue'
 import productPage_user from '@/components/product/page/user.vue'
 import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
 import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
+import productPage_ruzhuView from '@/components/product/page/ruzhuView.vue'
 import productPage_videoSearch from '@/components/product/page/videoSearch.vue'
 
 //产品详情页面
@@ -29,7 +30,7 @@ const router = new Router({
 		// unkeepLastRoute为true是不需要缓存路由值
 		//auth为true是需要登陆状态,否则为false
 		{
-		
+
 		  path: '/',
 		  name: 'showPage',
 		  component: showPage,
@@ -74,7 +75,7 @@ const router = new Router({
 					component: productPage_douyinSearch,
 					meta: {auth:true},
 				},
-				{	
+				{
 					path: 'productPage_ruzhu',
 					name: 'productPage_ruzhu',
 					component: productPage_ruzhu,
@@ -85,7 +86,13 @@ const router = new Router({
 					name: 'productPage_videoSearch',
 					component: productPage_videoSearch,
 					meta: {auth:true},
+				},{
+					path: 'productPage_ruzhuView',
+					name: 'productPage_ruzhuView',
+					component: productPage_ruzhuView,
+					meta: {auth:true},
 				}
+
 			]
 		},
 		{
@@ -120,7 +127,7 @@ const router = new Router({
 		// 			component: searchDetails_index,
 		// 			meta: {auth:true,unkeepLastRoute:true},
 		// 		},
-		
+
 		// 	]
 		},
 	]
@@ -128,6 +135,9 @@ const router = new Router({
 router.afterEach((to,from) => {
   debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
+  if(to.name == from.name){
+	  router.push({path:'/tihuan',query:{urlName:to.path}})
+  }
   // 缓存最后一次路径
   if(!to.meta.unkeepLastRoute){
     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))

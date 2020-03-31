@@ -3,11 +3,11 @@
     <el-row>
       <div>
         <!-- <span>视频列表</span> -->
-        <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
+        <!-- <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button> -->
         <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
       </div>
       <div>
-        <el-table stripe :data="tableData" style="width: 100%">
+        <el-table stripe :data="tableData" disabled style="width: 100%">
           <el-table-column type="expand">
             <template slot-scope="props">
               <el-form label-position="left" inline class="demo-table-expand">
@@ -44,11 +44,11 @@
             </template>
           </el-table-column>
           <el-table-column label="描述" prop="brief"></el-table-column>
-          <el-table-column fixed="right" label="操作" width="120">
+         <!-- <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
               <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
             </template>
-          </el-table-column>
+          </el-table-column> -->
         </el-table>
       </div>
     </el-row>
@@ -155,7 +155,7 @@ export default {
      if(this.getVideoList&&this.getVideoList.itemList!=null&&this.getVideoList.itemList!=undefined&&this.getVideoList.itemList.length!=0){
 
        for(var  i  in itemList){
-         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount, pv: itemList[i].pv, brief: itemList[i].brief ,videoId:itemList[i].wxVideoaccountVideoId})
+         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount, pv: itemList[i].pv, brief: itemList[i].brief })
        }
      }
   },
@@ -199,7 +199,7 @@ export default {
     // 提交视频
     onSubmit() {
      this.centerDialogVisible = false;
-     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief,videoId:'' });
+     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
      this.name=''
      this.pv=''
      this.imageUrl=''

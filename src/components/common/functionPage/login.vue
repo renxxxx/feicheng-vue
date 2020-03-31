@@ -52,9 +52,11 @@ export default {
   },
 
 	activated(){
+		debugger;
+		console.log('activated')
 	},
 	deactivated(){
-
+		console.log('deactivated')
 	},
   mounted() {
     // this.getData();

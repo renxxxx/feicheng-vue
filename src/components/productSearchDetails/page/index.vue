@@ -11,7 +11,7 @@
 					<span @click="searchFn">搜索</span>
 				</div>
 			</el-row>
-			<el-row style="line-height: 47px;" class="search_type">
+			<!-- <el-row style="line-height: 47px;" class="search_type">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
 					<span class="search_type_span">发布时间:</span>
 				</el-col>
@@ -22,30 +22,29 @@
 						</li>
 					</ul>
 				</el-col>
-			</el-row>
+			</el-row> -->
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
 				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-					<span class="searchList_Title">视频音号</span>
+					<span class="searchList_Title">视频列表</span>
 				</el-col>
 				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 					<div class="searchList_canshu">
 						<ul>
-							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
+							<!-- <li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
 								<span>粉丝数</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<li @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''">
+							</li> -->
+							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
 								<span>获赞数</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
-							<li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
+							<!-- <li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
 								<span>视频量</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<li @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''">
-								<svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+							</li> -->
+							<li @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''">
 								<span>曝光量</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 							</li>
@@ -55,17 +54,14 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<router-link target='_blank' :to="{path:'/searchDetails',query:{name:JSON.stringify(user)}}">
+				<a :href="user.video" target="_blank">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
-							<img :src="user.logo" alt="">
+							<!-- <img :src="user.cover" alt="" v-if="user.cover"> -->
+							<video :src="user.video" :poster="user.cover"></video>
 							<div class="searchList_lie_xinxi_jianjie">
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
-								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
-								<!-- <span>{{user.name}}</span> -->
 								<p>
-									微信号{{user.wx}}
-									<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
 									<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
 								</p>
 								<p class="line-2">{{user.brief}}</p>
@@ -75,22 +71,23 @@
 					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 						<div class="searchList_shuju">
 							<ul>
-								<li :class="clickData.one? 'xuanzhongColor':''">
+								<!-- <li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.fansCount}}</span>
-								</li>
-								<li :class="clickData.two? 'xuanzhongColor':''">
+								</li> -->
+								<li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.likeCount}}</span>
 								</li>
-								<li :class="clickData.three? 'xuanzhongColor':''">
+							<!-- 	<li :class="clickData.three? 'xuanzhongColor':''">
 									<span>{{user.videoCount}}</span>
-								</li>
-								<li :class="clickData.four? 'xuanzhongColor':''">
+								</li> -->
+								<li :class="clickData.two? 'xuanzhongColor':''">
 									<span>{{user.pv}}</span>
 								</li>
 							</ul>
 						</div>
 					</el-col>
-				</router-link>
+				<!-- </router-link> -->
+				</a>
 			</el-row>
 			<!-- </div> -->
 			
@@ -129,7 +126,11 @@
 					{name:'近30天',typeData:false},
 					{name:'自定义',typeData:false},
 				],
-				data:{}
+				data:{},
+				sort:'',
+				order:'',
+				one:0,
+				two:0,
 			}
 		},
 		computed: {
@@ -188,7 +189,7 @@
 
 		},
 		mounted() {
-			this.data = JSON.parse(this.$route.query.data)
+			//this.data = JSON.parse(this.$route.query.data)
 			// console.dir(this.data)
 			this.nextPage();
 		},
@@ -222,7 +223,13 @@
 			
 			getData(){
 				this.load = true;
-				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({wxVideoaccountRealmId:this.data.wxVideoaccountId,Lkw:this.kw,pn:this.page,ps:3}))
+				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({
+					wxVideoaccountId:this.$route.query.id,
+					kw:this.kw,
+					pn:this.page,
+					sort:this.sort,
+					order:this.order,
+					ps:5}))
 				.then(res =>{
 					if(res.data.code == 20){
 						if(!this.centerDialogVisible){
@@ -245,7 +252,38 @@
 				this.page = 1;
 				this.userList = []
 				this.getData()
-			}
+			},
+			clickFn(_value){
+				this.clickData={one:false,two:false,three:false,four:false};
+				switch(_value){
+					case 'one':
+					if(this.one%2){
+						this.order = 'desc';
+					}else{
+						this.order = 'asc';
+					}
+					this.userList = [];
+					this.page = 0;
+					this.sort = "likeCount"
+					this.one++;
+					this.nextPage()
+					this.clickData.one = true;
+					break;
+					case 'two':
+					if(this.two%2){
+						this.order = 'desc';
+					}else{
+						this.order = 'asc';
+					}
+					this.userList = [];
+					this.page = 0;
+					this.sort = "pv"
+					this.two++;
+					this.nextPage()
+					this.clickData.two = true;
+					break;
+				}
+			},
 		},
 	}
 </script>
@@ -476,7 +514,7 @@
 	cursor: pointer;
 	/* margin-right: 3%; */
 }
-.searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
+.searchList_canshu ul li:first-child{
 	cursor: auto;
 	width: 23%;
 	max-width: 140px;
@@ -530,6 +568,16 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+}
+.searchList_lie_xinxi>video{
+	background-color: #000000;
+	width: 72px;
+	height: 112px;
 	display: inline-block;
 	position: absolute;
 	top: 0;

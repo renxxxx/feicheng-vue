@@ -78,97 +78,28 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }">
-              <span class="lf48">找飞橙</span>
-            </router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }">
-              <span class="lf48">素材创意</span>
-            </router-link>
-            <router-link :to="{ path: '/productPage/productPage_user' }">
-              <span class="lf48">飞橙商学院</span>
-            </router-link>
+            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找飞橙</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
 
-            <span v-if="this.$store.state.login">
-              <span
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits!=12"
-              >体验版</span>
-              <span
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits!=12"
-              >个人号</span>
-              <span
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits!=12"
-              >达人号</span>
-              <span
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits!=12"
-              >企业号</span>
-              <span
-                @click="askIfEnter()"
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==0&&this.$store.state.login.audits==12"
-              >体验版(认证失败)</span>
-              <span
-                @click="askIfEnter()"
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==1&&this.$store.state.login.audits==12"
-              >个人号(认证失败)</span>
-              <span
-                @click="askIfEnter()"
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==2&&this.$store.state.login.audits==12"
-              >达人号(认证失败)</span>
-              <span
-                @click="askIfEnter()"
-                class="lf48"
-                v-if="this.$store.state.login&&this.$store.state.login.types==3&&this.$store.state.login.audits==12"
-              >企业号(认证失败)</span>
-            </span>
 
-            <router-link
-              v-if="!this.$store.state.login"
-              :to="{ path: '/productPage/productPage_ruzhu' }"
-            >
-              <span class="lf48">申请成为博主</span>
-            </router-link>
-            <!--<router-link v-if='this.$store.state.login||this.$store.state.login.wxVideoaccount==null||this.$store.state.login.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
-            <!--v-if='this.$store.state.login.wxVideoaccount&&this.$store.state.login.wxVideoaccount==null||this.$store.state.login.wxVideoaccount.audit==0||this.$store.state.login.wxVideoaccount.audit==12'-->
 
-            <el-button
-              v-if="!this.$store.state.login"
-              @click="loginFn"
-            >登录 / 注册</el-button>
-            <div v-else class="userToGo">
-              <span>
-                <img
-                  style="border-radius: 50%;"
-                  :src="this.$store.state.login? this.$store.state.login.userLogo:''"
-                  alt
-                />
+            	<span @click='askIfEnter()' class="lf48" >
+                {{!getUserInfo.wxVideoaccountId?"体验版":"" }}
+                {{getUserInfo.type==0?"体验版":getUserInfo.type==1?"个人号":getUserInfo.type==2?"达人号":getUserInfo.type==3?"企业号":"未知" }}
+                {{getUserInfo.audit==0?"初始":getUserInfo.audit==1?"审核中":getUserInfo.audit==11?"已认证":getUserInfo.audit==3?"认证失败":"未知" }}
               </span>
+            
+
+            <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+            <!--<router-link v-if='loginRefresh||loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
+            <!--v-if='loginRefresh.wxVideoaccount&&loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0||loginRefresh.wxVideoaccount.audit==12'-->
+
+            <el-button   v-if="this.$store.state.login? false:true" @click="loginFn" >登录 / 注册</el-button>
+            <div v-else class="userToGo">
+              <span><img style="border-radius: 50%;" :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt=""></span>
               <span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
-              <router-link :to="{path: '/productPage/productPage_user'}">
-                <span class="togo">
-                  去使用
-                  <i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right">
-                    <svg
-                      viewBox="64 64 896 896"
-                      focusable="false"
-                      class
-                      data-icon="right"
-                      width="1em"
-                      height="1em"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
-                      />
-                    </svg>
-                  </i>
-                </span>
+              <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
               </router-link>
             </div>
           </div>
@@ -212,9 +143,7 @@
                 </div>
               </div>
               <div v-if="!this.$store.state.login" @click="loginFn">立即使用</div>
-              <div v-if="this.$store.state.login" class="userTo">
-                <router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link>
-              </div>
+              <div v-if="this.$store.state.login" class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
             </div>
           </div>
         </div>
@@ -369,9 +298,10 @@ export default {
     return {
       codeSrc: "",
       servant: [],
-      userName: "",
-      useravator: "",
-      showData: false
+      userName:'',
+      useravator:'',
+	  showData:false,
+    getUserInfo :this.$store.state.getUserInfo.info()
       // centerDialogVisible: false
     };
   },
@@ -447,8 +377,7 @@ export default {
      debugger
   },
   mounted() {
-    debugger
-    console.dir(this.$store.state.login);
+    // console.dir(this.getUserInfo.types , this.getUserInfo.audits)
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
@@ -475,8 +404,9 @@ export default {
       return;
     }
 
-      this.useravator = this.$store.state.login.userLogo;
-      this.userName = this.$store.state.login.userName;
+
+
+
    
     this.showData = localStorage.getItem("showData");
   },
@@ -512,26 +442,20 @@ export default {
     // self.fetchData();
   },
   methods: {
-    //询问是否入驻
-    askIfEnter() {
-      this.$confirm(
-        this.$store.state.login.wxVideoaccount.audit12Message +
-          "，是否重新认证?",
-        "提示",
-        {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        }
-      )
-        .then(() => {
-          this.$router.push({ path: "/productPage/productPage_ruzhu" });
-        })
-        .catch(() => {
-          //        this.$message({
-          //          type: 'info',
-          //          message: '已取消删除'
-          //        });
+  	  	//询问是否入驻
+askIfEnter(){
+
+	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+       }).then(() => {
+			 this.$router.push({path:'/productPage/productPage_ruzhu'});
+        }).catch(() => {
+//        this.$message({
+//          type: 'info',
+//          message: '已取消删除'
+//        });
         });
     },
     // fetchData(){

@@ -25,16 +25,16 @@
 				</div>
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
-				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
+				<!-- <el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1"> -->
 					<span class="search_type_span">领域类型:</span>
-				</el-col>
-				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
+				<!-- </el-col> -->
+				<!-- <el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23"> -->
 					<ul>
 						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(item,inx)">
 							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
 						</li>
 					</ul>
-				</el-col>
+				<!-- </el-col> -->
 			</el-row>
 			<!-- <el-row style="line-height: 47px" class="search_type">
 				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
@@ -140,7 +140,7 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<router-link target='_blank' :to="{path:'/searchDetails',query:{data:JSON.stringify(user)}}">
+				<router-link target='_blank' :to="{path:'/searchDetails',query:{id:user.wxVideoaccountId}}">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<img :src="user.logo" alt="">
@@ -150,8 +150,8 @@
 								<!-- <span>{{user.name}}</span> -->
 								<p>
 									微信号{{user.wx}}
-									<svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg>
-									<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
+									<!-- <svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg> -->
+									<span style="color: #FFFFFF;">{{user.area1Name}} | {{user.area2Name}} | {{user.area3Name}}</span>
 								</p>
 								<p class="line-2">{{user.brief}}</p>
 							</div>
@@ -610,14 +610,18 @@ export default {
 	border-radius: 100%; */
 }
 .search_type_span{
-	display: inline-block;
+	display: inline;
 	width: 100%;
 	/* text-align: center; */
 	color: #787a7a;
 	font-size: 14px;
 	flex-shrink: 0;
 }
-.search_type ul,.search_renzheng ul,.search_zhishu ul{
+.search_type ul{
+	display: inline;
+	padding: 0px;
+}
+.search_renzheng ul,.search_zhishu ul{
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -864,7 +868,7 @@ export default {
 	margin-top: 3px;
 }
 .searchList_lie_xinxi_jianjie>span:nth-child(4){
-	margin-left: 20px;
+	/* margin-left: 20px; */
 }
 .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;

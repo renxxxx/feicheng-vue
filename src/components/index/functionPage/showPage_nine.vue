@@ -37,8 +37,7 @@
       }
     },
    mounted(){
-      this.useravator=this.$store.state.login.userLogo
-      this.userName=this.$store.state.login.userName
+      
     
     },
     methods:{
