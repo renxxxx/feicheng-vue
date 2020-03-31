@@ -67,8 +67,8 @@
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
 											:"未知" }}
-											{{(!this.$store.state.wxVideoaccount || !this.$store.state.wxVideoaccount.audit) ?""
-											:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
+											{{(!this.$store.state.wxVideoaccount ) ?""
+											:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
@@ -120,8 +120,8 @@
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
 											:"未知" }}
-											{{(!this.$store.state.wxVideoaccount || !this.$store.state.wxVideoaccount.audit)?""
-											:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
+											{{(!this.$store.state.wxVideoaccount )?""
+											:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
