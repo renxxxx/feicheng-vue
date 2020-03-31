@@ -227,8 +227,10 @@ export default {
           )
           .then(res => {
       		if(res.data.code == 20){
-      			this.centerDialogVisible = true;
-      			this.$refs.loginRefs.getData();
+      			if(!this.centerDialogVisible){
+      				this.centerDialogVisible = true;
+      				this.$refs.loginRef.getData();
+      			}
       		}else 	if(res.data.code == 0){
       			this.$router.push({path:'/productPage/productPage_user'});
       		}else{
@@ -286,14 +288,9 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-          // console.dir( this.$refs.loginRefs.getData())
-          // console.log(this.centerDialogVisible)
 					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
+					// this.$refs.loginRef.getData();
 				}else if(res.data.code == 0){
-          // path:'/productPage/productPage_user'
-          		// this.$router.push({path:'/productPage/productPage_user'});
-              // console.dir(this.$refs.refChild.tableData)
               if(this.$refs.refChild.tableData&&this.$refs.refChild.tableData.length>0){
                 var tableData=this.$refs.refChild.tableData
                 for(var i in tableData){
@@ -322,8 +319,10 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
 					if(res.data.code == 20){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
+						if(!this.centerDialogVisible){
+							this.centerDialogVisible = true;
+							this.$refs.loginRef.getData();
+						}
 					}else{
 						console.log(res.data.data.itemList)
 						var itemList=res.data.data.itemList
