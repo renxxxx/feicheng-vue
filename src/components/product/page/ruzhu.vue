@@ -9,9 +9,11 @@
       <el-row>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-             <li>视频号信息:</li>
-            <li><span>姓名:</span>
-              <el-input v-model="name" placeholder="请输入内容" clearable ></el-input></li>
+            <li>视频号信息:</li>
+            <li>
+              <span>姓名:</span>
+              <el-input v-model="name" placeholder="请输入内容" clearable></el-input>
+            </li>
             <li>
               <span>手机:</span>
               <el-input type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
@@ -22,76 +24,79 @@
             </li>
             <li>
               <span>简介:</span>
-              <el-input  type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
+              <el-input type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
-
               <span>账号类型:</span>
-             <el-select v-model="value" @change="typeFn(value)"  placeholder="请选择">
-                <el-option
-                  v-for="item in type"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-						>
-                </el-option>
+              <el-select v-model="value" @change="typeFn(value)" placeholder="请选择">
+                <el-option v-for="item in type" :key="item.value" :label="item.label" :value="item.value"></el-option>
               </el-select>
             </li>
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
+              <el-cascader :options="options" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
               <div class="avatorUp">
                 <el-upload
-                :file-list='dialogImageUrl1'
-                accept='image/*'
+                  :file-list="dialogImageUrl1"
+                  accept="image/*"
                   class="avatar-uploader"
                   action="/upload-file"
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"
-                  :before-upload="beforeAvatarUpload">
-                  <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                  :before-upload="beforeAvatarUpload"
+                >
+                  <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
-
               </div>
             </li>
           </ul>
         </el-col>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-            <li style="height: 24px;">   </li>
+            <li style="height: 24px;"></li>
             <li>
               <span>粉丝量:</span>
-              <el-input  type='number' v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+              <el-input type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>视频量:</span>
-              <el-input  type='number' v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+              <el-input type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>点赞量:</span>
-              <el-input type='number' v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+              <el-input type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>曝光量:</span>
-              <el-input  type='number' v-model="pv" placeholder="请输入内容"></el-input>
+              <el-input type="number" v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
               <el-checkbox style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
-                <div style="margin: 15px 0;"></div>
-                <el-checkbox-group  v-model="checkedCities" @change="handleCheckedCitiesChange">
-                  <el-checkbox  style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{city.name}}</el-checkbox>
-                </el-checkbox-group>
+              <div style="margin: 15px 0;"></div>
+              <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{ city.name }}</el-checkbox>
+              </el-checkbox-group>
             </li>
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload  accept='image/*' :file-list='dialogImageUrl2' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+                <el-upload
+                  accept="image/*"
+                  :file-list="dialogImageUrl2"
+                  :limit="1"
+                  action="/upload-file"
+                  list-type="picture-card"
+                  :on-success="uploadCover"
+                  :on-exceed="handleExceed"
+                  :on-preview="handlePictureCardPreview"
+                  :on-remove="handleRemove"
+                >
                   <i class="el-icon-plus"></i>
                 </el-upload>
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
@@ -100,10 +105,12 @@
           </ul>
         </el-col>
       </el-row>
-      <video_supply  ref="refChild"></video_supply>
-      <el-row><div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div></el-row>
+      <video_supply ref="refChild"></video_supply>
+      <el-row>
+        <div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div>
+      </el-row>
     </div>
-		<login ref="loginRef"></login>
+    <login ref="loginRef"></login>
   </div>
 </template>
 <script>
@@ -111,65 +118,68 @@ import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 import area from '../../../assets/area.json';
-import login from '../../common/functionPage/login.vue'
+import login from '../../common/functionPage/login.vue';
 import video_supply from './page_in/video_supply.vue';
 export default {
   name: 'ruzhu',
   data() {
     return {
-      selectedOptions:[],
-      dialogImageUrl1:[],
-      dialogImageUrl2:[],
-      name:'',
-      phone:'',
-      wx:'',
-      brief:'',
-      fansCount:'',
-      videoCount:'',
-      likeCount:'',
-      pv:'',
+      selectedOptions: [],
+      dialogImageUrl1: [],
+      dialogImageUrl2: [],
+      name: '',
+      phone: '',
+      wx: '',
+      brief: '',
+      fansCount: '',
+      videoCount: '',
+      likeCount: '',
+      pv: '',
       imageUrl: '',
       dialogImageUrl: '',
       dialogVisible: false,
       options: [],
-       checkAll: false,
-       checkedCities: [],
-       cities: [],
-       isIndeterminate: false,
-       type: [ {
-                value: '0',
-                label: '个人号'
-              }, {
-                value: '1',
-                label: '达人号'
-              }, {
-                value: '2',
-                label: '企业号'
-              }],
-			value:'请选择',
-			num:'',
-			wxVideoaccountRealmIdList:[],
-			wxVideoaccountRealmIdListNow:'',
-			dili:{
-				shenfen:{
-					name:'',
-					id:''
-				},
-				city:{
-					name:'',
-					id:''
-				},
-				qu:{
-					name:'',
-					id:''
-				}
-			},
-			imageUrlNow:'',
-			dialogImageUrlNow:[],
-			dialogImageUrlNowlist:[],
-			loginRefresh :this.$store.state.refresh.loginRefresh(),
-      getUserInfo :this.$store.state.getUserInfo.info(),
-
+      checkAll: false,
+      checkedCities: [],
+      cities: [],
+      isIndeterminate: false,
+      type: [
+        {
+          value: '0',
+          label: '个人号'
+        },
+        {
+          value: '1',
+          label: '达人号'
+        },
+        {
+          value: '2',
+          label: '企业号'
+        }
+      ],
+      value: '请选择',
+      num: '',
+      wxVideoaccountRealmIdList: [],
+      wxVideoaccountRealmIdListNow: '',
+      dili: {
+        shenfen: {
+          name: '',
+          id: ''
+        },
+        city: {
+          name: '',
+          id: ''
+        },
+        qu: {
+          name: '',
+          id: ''
+        }
+      },
+      imageUrlNow: '',
+      dialogImageUrlNow: [],
+      dialogImageUrlNowlist: [],
+      loginRefresh: this.$store.state.refresh.loginRefresh(),
+      getUserInfo: this.$store.state.getUserInfo.info()
     };
   },
   computed: {
@@ -225,199 +235,203 @@ export default {
     // console.log(this.getVideoList)
     this.options = area;
     console.log(this.options);
-     this.accountRealmIdList()
-     if(this.loginRefresh&&this.getUserInfo.loginIf!=0){
-       if(this.getUserInfo.type==1){
-          this.value='个人号'
-       }else if(this.getUserInfo.type==2){
-          this.value='达人号'
-       }else if(this.getUserInfo.type==3){
-          this.value='企业号'
-       }
-       for(var i in this.getUserInfo.wxVideoaccountRealmList){
-          this.getUserInfo.wxVideoaccountRealmList[i].logo=''
-       }
-       this.checkedCities=this.getUserInfo.wxVideoaccountRealmList
-
-
-        var dialogImageUrl2=[],dialogImageUrl1=[]
-       dialogImageUrl2.push({name: '截图', url: this.getUserInfo.screenshot})
-        this.dialogImageUrl2=dialogImageUrl2
-       this.num=this.getUserInfo.type;
-       this.name=this.getUserInfo.name;
-       this.phone=this.getUserInfo.phone;
-       this.wx=this.getUserInfo.wx;
-       this.brief=this.getUserInfo.brief;
-       this.fansCount=this.getUserInfo.fansCount;
-       this.videoCount=this.getUserInfo.videoCount;
-       this.likeCount=this.getUserInfo.likeCount;
-       this.pv=this.getUserInfo.pv;
-       this.dialogImageUrlNow= this.getUserInfo.screenshot;
-       this.imageUrlNow= this.getUserInfo.logo;
-       this.imageUrl= this.getUserInfo.logo;
-
-       this.dili={
-       	shenfen:{
-       		name:this.getUserInfo.area1Name,
-       		id:this.getUserInfo.area1Id
-       	},
-       	city:{
-       		name:this.getUserInfo.area2Name,
-       		id:this.getUserInfo.area2Id
-       	},
-       	qu:{
-       		name:this.getUserInfo.area3Name,
-       		id:this.getUserInfo.area3Id
-       	}
-       };
-
-       var didi={}
-       didi={"city":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"qu":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"shenfen":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id}}
-       
-        // this.ruleForm.regionServers = [data.region, data.server]
+    this.accountRealmIdList();
+    if (this.loginRefresh && this.getUserInfo.loginIf != 0) {
+      if (this.getUserInfo.type == 1) {
+        this.value = '个人号';
+      } else if (this.getUserInfo.type == 2) {
+        this.value = '达人号';
+      } else if (this.getUserInfo.type == 3) {
+        this.value = '企业号';
       }
+      for (var i in this.getUserInfo.wxVideoaccountRealmList) {
+        this.getUserInfo.wxVideoaccountRealmList[i].logo = '';
+      }
+      this.checkedCities = this.getUserInfo.wxVideoaccountRealmList;
+       console.log()
+      var dialogImageUrl2 = [],
+        dialogImageUrl1 = [];
+      dialogImageUrl2.push({ name: '截图', url: this.getUserInfo.screenshot });
+      this.dialogImageUrl2 = dialogImageUrl2;
+      this.num = this.getUserInfo.type;
+      this.name = this.getUserInfo.name;
+      this.phone = this.getUserInfo.phone;
+      this.wx = this.getUserInfo.wx;
+      this.brief = this.getUserInfo.brief;
+      this.fansCount = this.getUserInfo.fansCount;
+      this.videoCount = this.getUserInfo.videoCount;
+      this.likeCount = this.getUserInfo.likeCount;
+      this.pv = this.getUserInfo.pv;
+      this.dialogImageUrlNow = this.getUserInfo.screenshot;
+      this.imageUrlNow = this.getUserInfo.logo;
+      this.imageUrl = this.getUserInfo.logo;
 
+      this.dili = {
+        shenfen: {
+          name: this.getUserInfo.area1Name,
+          id: this.getUserInfo.area1Id
+        },
+        city: {
+          name: this.getUserInfo.area2Name,
+          id: this.getUserInfo.area2Id
+        },
+        qu: {
+          name: this.getUserInfo.area3Name,
+          id: this.getUserInfo.area3Id
+        }
+      };
+
+      var didi = {};
+      didi = {
+        city: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id },
+        qu: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id },
+        shenfen: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id }
+      };
+
+      // this.ruleForm.regionServers = [data.region, data.server]
+    }
   },
   methods: {
-    supplyVideo(name,pv,imageUrlNow,likeCount,brief,video){
-        this.$axios
-          .post(
-            '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
-            qs.stringify({
-              name: name,
-              pv: pv,
-              cover: imageUrlNow,
-              likeCount: likeCount,
-              brief: brief,
-              video: video
-            })
-          )
-          .then(res => {
-      		if(res.data.code == 20){
-            console.log(this.centerDialogVisible)
-      			if(!this.centerDialogVisible){
-      				this.centerDialogVisible = true;
-      				this.$refs.loginRef.getData();
-      			}
-      		}else 	if(res.data.code == 0){
-//    			 this.$message.success('入驻申请已提交，请耐心等待审核')
-//    			this.$router.push({path:'/productPage/productPage_user'});
-      		}else{
+    supplyVideo(name, pv, imageUrlNow , likeCount, brief, video,videoId) {
+      this.$axios
+        .post(
+          '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
+          qs.stringify({
+            name: name,
+            pv: pv,
+            cover: imageUrlNow,
+            likeCount: likeCount,
+            brief: brief,
+            wxVideoaccountVideoId:videoId
+          })
+        )
+        .then(res => {
+          if (res.data.code == 20) {
+            console.log(this.centerDialogVisible);
+            if (!this.centerDialogVisible) {
+              this.centerDialogVisible = true;
+              this.$refs.loginRef.getData();
+            }
+          } else if (res.data.code == 0) {
+            //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
+            //    			this.$router.push({path:'/productPage/productPage_user'});
+          } else {
             this.$message.error(res.data.codeMsg);
           }
-          })
-          .catch();
+        })
+        .catch();
     },
 
     handleExceed(files, fileList) {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
-	  handleChange(_value){
-		  let name1 = area.find(n=>n.value == _value[0])
-		  let name2 = name1.children.find(n=>n.value == _value[1])
-		  let name3 = name2.children.find(n=>n.value == _value[2])
-		  this.dili = {
-			  shenfen:{
-			  	name:name1.label,
-			  	id:name1.value
-			  },
-			  city:{
-			  	name:name2.label,
-			  	id:name2.value
-			  },
-			  qu:{
-			  	name:name3.label,
-			  	id:name3.value
-			  }
-		  }
-		  console.log(this.dili)
-	  },
-		onSubmit(){
-			this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
-				name:this.name,
-				phone:this.phone,
-				logo:this.imageUrlNow,
-				screenshot:this.dialogImageUrlNow,
-				wx:this.wx,
-				fansCount:this.fansCount,
-				likeCount:this.likeCount,
-				videoCount:this.videoCount,
-				pv:this.pv,
-				brief:this.brief,
-				type:this.num,
-				area1Id:this.dili.shenfen.id,
-				area2Id:this.dili.city.id,
-				area3Id:this.dili.qu.id,
-				area1Name:this.dili.shenfen.name,
-				area2Name:this.dili.city.name,
-				area3Name:this.dili.qu.name,
-				wxVideoaccountRealmIdList:this.wxVideoaccountRealmIdListNow
-			}))
-			.then(res =>{
-				if(res.data.code == 20){
-          console.log(this.centerDialogVisible)
-          if(!this.centerDialogVisible){
-          	this.centerDialogVisible = true;
-          	this.$refs.loginRef.getData();
-          }
-					// this.centerDialogVisible = true;
-					// this.$refs.loginRef.getData();
-				}else if(res.data.code == 0){
-					 this.$message.success('入驻申请已提交，请耐心等待审核')
-          // path:'/productPage/productPage_user'
-          		// this.$router.push({path:'/productPage/productPage_user'});
-              // console.dir(this.$refs.refChild.tableData)
-              if(this.$refs.refChild.tableData&&this.$refs.refChild.tableData.length>0){
-                var tableData=this.$refs.refChild.tableData
-                for(var i in tableData){
-                  this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
-                }
-                this.$router.push({path:'/productPage/productPage_user'});
-              }else{
-              	 this.$message.success('入驻申请已提交，请耐心等待审核')
-                this.$router.push({path:'/productPage/productPage_user'});
-              }
-
-
-
-        }else{
-          this.$message.error(res.data.codeMsg);
+    handleChange(_value) {
+      let name1 = area.find(n => n.value == _value[0]);
+      let name2 = name1.children.find(n => n.value == _value[1]);
+      let name3 = name2.children.find(n => n.value == _value[2]);
+      this.dili = {
+        shenfen: {
+          name: name1.label,
+          id: name1.value
+        },
+        city: {
+          name: name2.label,
+          id: name2.value
+        },
+        qu: {
+          name: name3.label,
+          id: name3.value
         }
-			})
-			.catch()
-
-		},
-		typeFn(_value){
-			this.num = _value
-       donsole.log(this.num)
-			// console.log(this.num)
-		},
+      };
+      console.log(this.dili);
+    },
+    onSubmit() {
+      this.$axios
+        .post(
+          '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
+          qs.stringify({
+            name: this.name,
+            phone: this.phone,
+            logo: this.imageUrlNow,
+            screenshot: this.dialogImageUrlNow,
+            wx: this.wx,
+            fansCount: this.fansCount,
+            likeCount: this.likeCount,
+            videoCount: this.videoCount,
+            pv: this.pv,
+            brief: this.brief,
+            type: this.num,
+            area1Id: this.dili.shenfen.id,
+            area2Id: this.dili.city.id,
+            area3Id: this.dili.qu.id,
+            area1Name: this.dili.shenfen.name,
+            area2Name: this.dili.city.name,
+            area3Name: this.dili.qu.name,
+            wxVideoaccountRealmIdList: this.wxVideoaccountRealmIdListNow
+          })
+        )
+        .then(res => {
+          if (res.data.code == 20) {
+            console.log(this.centerDialogVisible);
+            if (!this.centerDialogVisible) {
+              this.centerDialogVisible = true;
+              this.$refs.loginRef.getData();
+            }
+            // this.centerDialogVisible = true;
+            // this.$refs.loginRef.getData();
+          } else if (res.data.code == 0) {
+            this.$message.success('入驻申请已提交，请耐心等待审核');
+            // path:'/productPage/productPage_user'
+            // this.$router.push({path:'/productPage/productPage_user'});
+            // console.dir(this.$refs.refChild.tableData)
+            if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
+              var tableData = this.$refs.refChild.tableData;
+              console.log(tableData)
+              for (var i in tableData) {
+                this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
+              }
+              this.$router.push({ path: '/productPage/productPage_user' });
+            } else {
+              this.$message.success('入驻申请已提交，请耐心等待审核');
+              this.$router.push({ path: '/productPage/productPage_user' });
+            }
+          } else {
+            this.$message.error(res.data.codeMsg);
+          }
+        })
+        .catch();
+    },
+    typeFn(_value) {
+      this.num = _value;
+      donsole.log(this.num);
+      // console.log(this.num)
+    },
     // 获取领域列表
-    accountRealmIdList(){
+    accountRealmIdList() {
       this.$axios
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
-					if(res.data.code == 20){
-            console.log(this.centerDialogVisible)
-						if(!this.centerDialogVisible){
-							this.centerDialogVisible = true;
-							this.$refs.loginRef.getData();
-						}
-					}else{
-						var itemList=res.data.data.itemList
-						var cityOptions=[]
-						for(var i in itemList){
-							cityOptions.push(itemList[i])
-						}
-						this.cities=cityOptions
-					}
+          if (res.data.code == 20) {
+            console.log(this.centerDialogVisible);
+            if (!this.centerDialogVisible) {
+              this.centerDialogVisible = true;
+              this.$refs.loginRef.getData();
+            }
+          } else {
+            var itemList = res.data.data.itemList;
+            var cityOptions = [];
+            for (var i in itemList) {
+              cityOptions.push(itemList[i]);
+            }
+            this.cities = cityOptions;
+          }
         })
         .catch(err => {});
     },
 
     handleAvatarSuccess(res, file) {
-		 this.imageUrlNow = res.data.url
-		 // console.log(this.imageUrlNow)
+      this.imageUrlNow = res.data.url;
+      // console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -436,40 +450,39 @@ export default {
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
-		 console.log(this.dialogImageUrl)
+      console.log(this.dialogImageUrl);
       this.dialogVisible = true;
     },
 
-	 uploadCover(response, file, fileList){
-		 // dialogImageUrlNow
-     this.dialogImageUrlNowlist=[]
-		 this.dialogImageUrlNowlist.push(response.data.url);
-		 this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(",");
-		 console.log(this.dialogImageUrlNow)
-	 },
+    uploadCover(response, file, fileList) {
+      // dialogImageUrlNow
+      this.dialogImageUrlNowlist = [];
+      this.dialogImageUrlNowlist.push(response.data.url);
+      this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(',');
+      console.log(this.dialogImageUrlNow);
+    },
     // 选择领域
-      handleCheckAllChange(val) {
-            this.checkedCities = val ? this.cities : [];
+    handleCheckAllChange(val) {
+      this.checkedCities = val ? this.cities : [];
 
-            this.isIndeterminate = false;
-				this.wxVideoaccountRealmIdList = [];
-				for(let i in this.checkedCities){
-					this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
-				}
-				this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
-          },
-          handleCheckedCitiesChange(value) {
-				 this.wxVideoaccountRealmIdList = []
-				 for(let i in this.checkedCities){
-				 	this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
-				 }
-          console.log(this.checkedCities)
-				 this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
-            let checkedCount = value.length;
-            this.checkAll = checkedCount === this.cities.length;
-            this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
-          },
-
+      this.isIndeterminate = false;
+      this.wxVideoaccountRealmIdList = [];
+      for (let i in this.checkedCities) {
+        this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
+      }
+      this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
+    },
+    handleCheckedCitiesChange(value) {
+      this.wxVideoaccountRealmIdList = [];
+      for (let i in this.checkedCities) {
+        this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
+      }
+      console.log(this.checkedCities);
+      this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
+      let checkedCount = value.length;
+      this.checkAll = checkedCount === this.cities.length;
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+    }
   }
 };
 </script>
@@ -491,78 +504,77 @@ export default {
   /* font-weight: bolder; */
 }
 
-
 /* 头像上传 */
 /* .avatorUp {
   width: 100px;
   height: 100px;
   background: #fff;
 } */
-.avatar{
+.avatar {
   object-fit: contain;
   background: #e5e5e5;
 }
 .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    background: #fff !important;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 148px;
-    height: 148px;
-    line-height: 148px;
-    text-align: center;
-   border: 1px dashed #d9d9d9;
-   border-radius: 6px;
-     background: #fff !important;
-  }
-  .avatar {
-    width: 148px;
-    height: 148px;
-    display: block;
-  }
-
-ul>li{
-  font-size: 16px;
-   color: #8c939d;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: #fff !important;
 }
-  ul>li>span{
-    font-size: 14px;
-    line-height: 60px;
-    color: #fff;
-    /* margin-bottom: 50px; */
-    display: inline-block;
-  }
-  ul>li>div{
-    display: block;
-  }
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 148px;
+  height: 148px;
+  line-height: 148px;
+  text-align: center;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  background: #fff !important;
+}
+.avatar {
+  width: 148px;
+  height: 148px;
+  display: block;
+}
 
-  .submit_div{
-    width: 100%;
-    /* text-align: center; */
-    line-height: 130px;
-    margin-bottom: 70px;
-    padding-left: 40px;
-    text-align: left;
-  }
-  .el-input {
-      width: 50%;
-  }
-  .el-textarea{
-      width: 50%;
-  }
-  .el-select{
-	  width: 50%;
-  }
-  .el-cascader{
-	  width: 50%;
-  }
+ul > li {
+  font-size: 16px;
+  color: #8c939d;
+}
+ul > li > span {
+  font-size: 14px;
+  line-height: 60px;
+  color: #fff;
+  /* margin-bottom: 50px; */
+  display: inline-block;
+}
+ul > li > div {
+  display: block;
+}
+
+.submit_div {
+  width: 100%;
+  /* text-align: center; */
+  line-height: 130px;
+  margin-bottom: 70px;
+  padding-left: 40px;
+  text-align: left;
+}
+.el-input {
+  width: 50%;
+}
+.el-textarea {
+  width: 50%;
+}
+.el-select {
+  width: 50%;
+}
+.el-cascader {
+  width: 50%;
+}
 </style>

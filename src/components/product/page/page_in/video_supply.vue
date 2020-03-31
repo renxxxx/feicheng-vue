@@ -155,7 +155,7 @@ export default {
      if(this.getVideoList&&this.getVideoList.itemList!=null&&this.getVideoList.itemList!=undefined&&this.getVideoList.itemList.length!=0){
 
        for(var  i  in itemList){
-         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount, pv: itemList[i].pv, brief: itemList[i].brief })
+         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount, pv: itemList[i].pv, brief: itemList[i].brief ,videoId:itemList[i].wxVideoaccountVideoId})
        }
      }
   },
@@ -199,7 +199,7 @@ export default {
     // 提交视频
     onSubmit() {
      this.centerDialogVisible = false;
-     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });
+     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief,videoId:'' });
      this.name=''
      this.pv=''
      this.imageUrl=''
