@@ -85,17 +85,10 @@ export default {
               .then(res => {
                 // console.log(res)
                 if(res.data.code==0){
-                    this.$store.state.refresh.loginRefresh()
-                    this.centerDialogVisible = false;
-						clearInterval(this.timer);
-										if(this.$router.currentRoute.fullPath == '/index'){
-											// this.$router.go(0);
-											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
-										}else{
-											debugger
-											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
-										}
-                }else{
+                     this.$store.state.refresh.loginRefresh()
+                     this.centerDialogVisible = false;
+							clearInterval(this.timer);
+							this.$router.push({path:'/index'});
                 }
               })
               .catch(err => {});

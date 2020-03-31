@@ -22,7 +22,7 @@ export default {
 
 	},
 	created(){
-		console.log(this.$route.query.urlName)
+		console.log(this.$route)
 		this.$router.replace({path:this.$route.query.urlName})
 	},
 	mounted(){
