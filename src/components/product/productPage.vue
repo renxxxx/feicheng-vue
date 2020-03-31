@@ -249,7 +249,7 @@ export default {
 			name:'素材创意',
 			icon:'',
 			data:true,
-			onechild:[{name:'视频搜索',data:'true',url:''},
+			onechild:[{name:'视频搜索',data:'true',url:'/productPage/productPage_videoSearch'},
 					// {name:'抖音·热门视频',data:'true',url:''},
 					// {name:'抖音·实时热点',data:'true',url:''},
 					// {name:'音乐BGM',data:'true',url:''},

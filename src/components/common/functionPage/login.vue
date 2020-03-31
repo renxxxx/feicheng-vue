@@ -65,8 +65,6 @@ export default {
     closeLogin(){
           clearInterval(this.timer);
           this.centerDialogVisible = false;
-		  // debugger
-					// console.log(this.centerDialogVisible)
     },
     getData(){
       this.$axios
@@ -87,20 +85,15 @@ export default {
                 if(res.data.code==0){
                     this.$store.state.refresh.loginRefresh()
                     this.centerDialogVisible = false;
-						// debugger
-						window.clearInterval(this.timer);
+						clearInterval(this.timer);
 										if(this.$router.currentRoute.fullPath == '/index'){
 											// this.$router.go(0);
 											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
 										}else{
 											debugger
 											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});
-											// let showData = true;
-											// localStorage.setItem('showData',showData)
 										}
-					// console.log(this.$router)
                 }else{
-                   // this.$message.error(res.data.codeMsg);
                 }
               })
               .catch(err => {});

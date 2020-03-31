@@ -14,6 +14,7 @@ import productPage from '@/components/product/productPage.vue'
 import productPage_user from '@/components/product/page/user.vue'
 import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
 import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
+import productPage_videoSearch from '@/components/product/page/videoSearch.vue'
 
 //产品详情页面
 import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
@@ -78,6 +79,12 @@ const router = new Router({
 					name: 'productPage_ruzhu',
 					component: productPage_ruzhu,
 					meta: {auth:true,unkeepLastRoute:true},
+				},
+				{
+					path: 'productPage_videoSearch',
+					name: 'productPage_videoSearch',
+					component: productPage_videoSearch,
+					meta: {auth:true},
 				}
 			]
 		},

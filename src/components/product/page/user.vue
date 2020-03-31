@@ -51,7 +51,7 @@
 						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
 							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;padding: 5px;overflow-x:hidden ;">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
-									<span >[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.brief}}</span>
+									<span >[{{item.articleClassification1Name}}]&nbsp;&nbsp; {{item.name}}</span>
 								<!-- </router-link> -->
 							</div>
 						</div>
@@ -81,8 +81,11 @@
 								<div class="ant-timeline-item-tail"></div>
 								<div class="ant-timeline-item-head ant-timeline-item-head-gray"></div>
 									<div class="uer_zhixun_lishiList_hezhi_neirong">
+										<div class="uer_zhixun_lishiList_hezhi_neirong_list">
 										<span>{{item.name}}</span>
 										<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
+											
+										</div>
 									</div>
 								<!-- </router-link> -->
 							</div>
@@ -211,12 +214,18 @@ export default {
 		getDataType(){
 			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({articleClassificationUpperId:0}))
 			.then(res=>{
-				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
-				}else{
-					for(let i in res.data.data.itemList){
-						this.typeList.push(res.data.data.itemList[i])
+				if(res.data.codeMsg)
+				   alert(res.data.codeMsg)
+				if(res.data.code == 0){
+				   for(let i in res.data.data.itemList){
+				   	this.typeList.push(res.data.data.itemList[i])
+				   }
+				} 
+				else{
+				   //开始失败逻辑
+					if(!this.centerDialogVisible){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
 					}
 				}
 				this.nextPageOne();
@@ -232,13 +241,20 @@ export default {
 				pn:this.pageOne,
 				ps:5}))
 			.then(res=>{
-				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
-				}else{
-					for(let i in res.data.data.itemList){
-						this.articleOne.push(res.data.data.itemList[i])
+				if(res.data.codeMsg)
+				   alert(res.codeMsg)
+				if(res.data.code == 0){
+				   for(let i in res.data.data.itemList){
+				   	this.articleOne.push(res.data.data.itemList[i])
+				   }
+				} 
+				else{
+				   //开始失败逻辑
+					if(!this.centerDialogVisible){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
 					}
+					
 				}
 				this.loadOne = false
 			})
@@ -251,15 +267,21 @@ export default {
 				pn:this.pageTwo,
 				ps:5}))
 			.then(res=>{
-				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
-				}else{
-					for(let i in res.data.data.itemList){
-						this.articleTwo.push(res.data.data.itemList[i])
+				if(res.data.codeMsg)
+				   alert(res.data.codeMsg)
+				if(res.data.code == 0){
+				   for(let i in res.data.data.itemList){
+				   	this.articleTwo.push(res.data.data.itemList[i])
+				   }
+				} 
+				else{
+				   //开始失败逻辑
+					if(!this.centerDialogVisible){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
 					}
-					this.loadTwo = false
 				}
+				this.loadTwo = false
 			})
 			.catch()
 		},
@@ -271,8 +293,10 @@ export default {
 				ps:5}))
 			.then(res=>{
 				if(res.data.code == 20){
-					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
+					if(!this.centerDialogVisible){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
+					}
 				}else{
 					for(let i in res.data.data.itemList){
 						this.articleThree.push(res.data.data.itemList[i])
@@ -393,12 +417,13 @@ export default {
 	display: block;
 }
 
-.uer_zhixun_gongneng_hezi span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi:hover{
+.uer_zhixun_gongneng_hezi span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi_neirong_list:hover{
 	background: hsla(0,0%,100%,.08);
 	color: #fff;
 	cursor: pointer;
 	transition: all .3s,height 0s;
 }
+.uer_zhixun_lishiList_hezhi_neirong_list{padding: 5px 5px;}
 .uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
 .uer_scroll::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
@@ -501,6 +526,7 @@ export default {
 	margin: 0 0 0 18px;
 	word-break: break-word;
 	padding: 5px;
+	padding-left: 0px;
 }
 .uer_zhixun_lishiList_hezhi_neirong span:first-child{
 	font-size: 14px;

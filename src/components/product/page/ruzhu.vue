@@ -263,8 +263,10 @@ export default {
           )
           .then(res => {
       		if(res.data.code == 20){
-      			this.centerDialogVisible = true;
-      			this.$refs.loginRefs.getData();
+      			if(!this.centerDialogVisible){
+      				this.centerDialogVisible = true;
+      				this.$refs.loginRef.getData();
+      			}
       		}else 	if(res.data.code == 0){
 //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
 //    			this.$router.push({path:'/productPage/productPage_user'});
@@ -323,10 +325,8 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-          // console.dir( this.$refs.loginRefs.getData())
-          // console.log(this.centerDialogVisible)
 					this.centerDialogVisible = true;
-					this.$refs.loginRef.getData();
+					// this.$refs.loginRef.getData();
 				}else if(res.data.code == 0){
 					 this.$message.success('入驻申请已提交，请耐心等待审核')
           // path:'/productPage/productPage_user'
@@ -363,8 +363,10 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
 					if(res.data.code == 20){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
+						if(!this.centerDialogVisible){
+							this.centerDialogVisible = true;
+							this.$refs.loginRef.getData();
+						}
 					}else{
 						console.log(res.data.data.itemList)
 						var itemList=res.data.data.itemList
