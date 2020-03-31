@@ -41,8 +41,8 @@
 
 
 							<div class="nav_data" >
-								<img :src="this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userLogo:''" alt="">
-								<span>{{this.$store.state.refresh.loginRefresh()? this.$store.state.refresh.loginRefresh().userNickname:''}}</span>
+								<img :src="loginRefresh? loginRefresh.userLogo:''" alt="">
+								<span>{{loginRefresh? loginRefresh.userNickname:''}}</span>
 								<el-popover
 								    placement="top-start"
 								    trigger="hover">
@@ -55,11 +55,11 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-                  <span v-if='!this.$store.state.refresh.loginRefresh()' slot="reference" style="cursor: pointer;">体验版 </span>
-									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0' slot="reference" style="cursor: pointer;">体验版 </span>
-									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1' slot="reference" style="cursor: pointer;">个人号 </span>
-									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2' slot="reference" style="cursor: pointer;">达人号 </span>
-									<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3' slot="reference" style="cursor: pointer;">企业号 </span>
+                  <span v-if='!loginRefresh' slot="reference" style="cursor: pointer;">体验版 </span>
+									<span v-if='loginRefresh&&getUserInfo.types==0' slot="reference" style="cursor: pointer;">体验版 </span>
+									<span v-if='loginRefresh&&getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
+									<span  v-if='loginRefresh&&getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
+									<span v-if='loginRefresh&&getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span>
 
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
@@ -91,25 +91,24 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.refresh.loginRefresh()||this.$store.state.refresh.loginRefresh().loginIf==0' index="/productPage/productPage_ruzhu">
+						<el-menu-item  v-if='!loginRefresh||loginRefresh.loginIf==0||getUserInfo.loginIf==0' index="/productPage/productPage_ruzhu">
 
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.refresh.loginRefresh().loginIf==1' >
+						<el-menu-item v-if='loginRefresh&&getUserInfo.loginIf!=0' >
 							<template slot="title">
 								<img alt="">
-
-								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">体验版</span>
-								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">个人号</span>
-								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">达人号</span>
-								<span v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits!=12' style="margin-left: 14px;">企业号</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==0&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">体验版(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==1&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">个人号(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==2&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">达人号(认证失败)</span>
-								<span @click='askIfEnter()' v-if='this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().types==3&&this.$store.state.refresh.loginRefresh().audits==12' style="margin-left: 14px;">企业号(认证失败)</span>
+								<span v-if='loginRefresh&&getUserInfo.types===0&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版</router-link></span>
+								<span v-if='loginRefresh&&getUserInfo.types==1&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号</router-link></span>
+								<span v-if='loginRefresh&&getUserInfo.types==2&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号</router-link></span>
+								<span v-if='loginRefresh&&getUserInfo.types==3&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号</router-link></span>
+								<span @click='askIfEnter()' v-if='loginRefresh&&getUserInfo.types===0&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='loginRefresh&&getUserInfo.types==1&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='loginRefresh&&getUserInfo.types==2&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='loginRefresh&&getUserInfo.types==3&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号(认证失败)</router-link></span>
 							</template>
 						</el-menu-item>
 
@@ -278,39 +277,9 @@ export default {
 					// {name:'种草视频',data:'true',url:''},
 					// {name:'抖音·小店达人榜',data:'true',url:''},
 		]},
-		// {
-		// 	name:'品牌营销',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'营销创意视频',data:'true',url:''},
-		// 			{name:'品牌声量',data:'true',url:''},
-		// 			{name:'带货品牌',data:'true',url:''},
-		// 			{name:'抖音·品牌热DOU榜',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'DOU 管家',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'运营报表导出',data:'true',url:''},
-		// 			{name:'视频实时看板',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'收藏 / 工具',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'我的收藏',data:'true',url:''},
-		// 			{name:'分钟级监测视频',data:'true',url:''},
-		// 			{name:'账号回采数据',data:'true',url:''},
-		// ]},
-		// {
-		// 	name:'权限管理',
-		// 	icon:'',
-		// 	data:true,
-		// 	onechild:[{name:'购买续费',data:'true',url:''},
-		// 			{name:'我的权限',data:'true',url:''},
-		// 			{name:'推广新抖',data:'true',url:''},
-		// ]},
-		]
+		],
+		loginRefresh :this.$store.state.refresh.loginRefresh(),
+    getUserInfo :this.$store.state.getUserInfo.info()
     }
   },
   beforeRouteLeave(to, from, next) {
@@ -362,8 +331,8 @@ export default {
     }
   },
   mounted(){
-	  // console.log(this.$store.state.refresh.loginRefresh())
-	  if(!this.$store.state.refresh.loginRefresh()){
+	  console.log(this.getUserInfo)
+	  if(!this.loginRefresh){
 		  this.centerDialogVisible = true;
 		  this.$refs.loginRef.getData();
 	  }
@@ -377,7 +346,7 @@ export default {
   methods:{
   	//询问是否入驻
 askIfEnter(){
-	this.$confirm(this.$store.state.refresh.loginRefresh().wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'

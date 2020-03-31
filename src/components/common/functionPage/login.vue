@@ -52,9 +52,11 @@ export default {
   },
 
 	activated(){
+		debugger;
+		console.log('activated')
 	},
 	deactivated(){
-
+		console.log('deactivated')
 	},
   mounted() {
     // this.getData();
@@ -85,7 +87,7 @@ export default {
                 if(res.data.code==0){
                     this.$store.state.refresh.loginRefresh()
                     this.centerDialogVisible = false;
-						clearInterval(this.timer);
+                      clearInterval(this.timer);
 										if(this.$router.currentRoute.fullPath == '/index'){
 											// this.$router.go(0);
 											this.$router.push({path:'/tihuan',query:{urlName:'/index'}});

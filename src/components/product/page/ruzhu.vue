@@ -40,12 +40,13 @@
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" clearable @change="handleChange"></el-cascader>
+              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
               <div class="avatorUp">
                 <el-upload
+                :file-list='dialogImageUrl1'
                 accept='image/*'
                   class="avatar-uploader"
                   action="/upload-file"
@@ -90,7 +91,7 @@
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload  accept='image/*' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+                <el-upload  accept='image/*' :file-list='dialogImageUrl2' :limit="1" action="/upload-file" list-type="picture-card" :on-success="uploadCover"   :on-exceed="handleExceed" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                   <i class="el-icon-plus"></i>
                 </el-upload>
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
@@ -116,6 +117,9 @@ export default {
   name: 'ruzhu',
   data() {
     return {
+      selectedOptions:[],
+      dialogImageUrl1:[],
+      dialogImageUrl2:[],
       name:'',
       phone:'',
       wx:'',
@@ -162,10 +166,22 @@ export default {
 			},
 			imageUrlNow:'',
 			dialogImageUrlNow:[],
-			dialogImageUrlNowlist:[]
+			dialogImageUrlNowlist:[],
+			loginRefresh :this.$store.state.refresh.loginRefresh(),
+      getUserInfo :this.$store.state.getUserInfo.info(),
+
     };
   },
-  computed: {},
+  computed: {
+    centerDialogVisible: {
+      get: function() {
+        return this.$store.state.centerDialogVisible;
+      },
+      set: function(newValue) {
+        this.$store.state.centerDialogVisible = newValue;
+      }
+    }
+  },
   components: {
     login,
     video_supply
@@ -206,45 +222,61 @@ export default {
   //   });
   // },
   mounted() {
-    // console.log(area)
+    // console.log(this.getVideoList)
     this.options = area;
     console.log(this.options);
      this.accountRealmIdList()
-     if(this.$store.state.refresh.loginRefresh()&&this.$store.state.refresh.loginRefresh().wxVideoaccount!==null){
-       if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==1){
+     if(this.loginRefresh&&this.getUserInfo.loginIf!=0){
+       if(this.getUserInfo.type==1){
           this.value='个人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==2){
+       }else if(this.getUserInfo.type==2){
           this.value='达人号'
-       }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==3){
+       }else if(this.getUserInfo.type==3){
           this.value='企业号'
        }
-       this.wxVideoaccountRealmIdListNow=this.$store.state.refresh.loginRefresh().wxVideoaccount.wxVideoaccountId
-       this.num=this.$store.state.refresh.loginRefresh().wxVideoaccount.type;
-       this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name;
-       this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone;
-       this.wx=this.$store.state.refresh.loginRefresh().wxVideoaccount.wx;
-       this.brief=this.$store.state.refresh.loginRefresh().wxVideoaccount.brief;
-       this.fansCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.fansCount;
-       this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount;
-       this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount;
-       this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv;
-       this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot;
-       this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo;
+       for(var i in this.getUserInfo.wxVideoaccountRealmList){
+          this.getUserInfo.wxVideoaccountRealmList[i].logo=''
+       }
+       this.checkedCities=this.getUserInfo.wxVideoaccountRealmList
+
+
+        var dialogImageUrl2=[],dialogImageUrl1=[]
+       dialogImageUrl2.push({name: '截图', url: this.getUserInfo.screenshot})
+        this.dialogImageUrl2=dialogImageUrl2
+       this.num=this.getUserInfo.type;
+       this.name=this.getUserInfo.name;
+       this.phone=this.getUserInfo.phone;
+       this.wx=this.getUserInfo.wx;
+       this.brief=this.getUserInfo.brief;
+       this.fansCount=this.getUserInfo.fansCount;
+       this.videoCount=this.getUserInfo.videoCount;
+       this.likeCount=this.getUserInfo.likeCount;
+       this.pv=this.getUserInfo.pv;
+       this.dialogImageUrlNow= this.getUserInfo.screenshot;
+       this.imageUrlNow= this.getUserInfo.logo;
+       this.imageUrl= this.getUserInfo.logo;
+
        this.dili={
        	shenfen:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area1Id
+       		name:this.getUserInfo.area1Name,
+       		id:this.getUserInfo.area1Id
        	},
        	city:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area2Id
+       		name:this.getUserInfo.area2Name,
+       		id:this.getUserInfo.area2Id
        	},
        	qu:{
-       		name:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Name,
-       		id:this.$store.state.refresh.loginRefresh().wxVideoaccount.area3Id
+       		name:this.getUserInfo.area3Name,
+       		id:this.getUserInfo.area3Id
        	}
-       }
+       };
+
+       var didi={}
+       didi={"city":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"qu":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id},"shenfen":{'name':this.getUserInfo.area1Name,'id':this.getUserInfo.area1Id}}
+       
+        // this.ruleForm.regionServers = [data.region, data.server]
       }
+
   },
   methods: {
     supplyVideo(name,pv,imageUrlNow,likeCount,brief,video){
@@ -262,6 +294,7 @@ export default {
           )
           .then(res => {
       		if(res.data.code == 20){
+            console.log(this.centerDialogVisible)
       			if(!this.centerDialogVisible){
       				this.centerDialogVisible = true;
       				this.$refs.loginRef.getData();
@@ -288,7 +321,6 @@ export default {
 			  	name:name1.label,
 			  	id:name1.value
 			  },
-
 			  city:{
 			  	name:name2.label,
 			  	id:name2.value
@@ -301,7 +333,6 @@ export default {
 		  console.log(this.dili)
 	  },
 		onSubmit(){
-
 			this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
 				name:this.name,
 				phone:this.phone,
@@ -324,7 +355,12 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-					this.centerDialogVisible = true;
+          console.log(this.centerDialogVisible)
+          if(!this.centerDialogVisible){
+          	this.centerDialogVisible = true;
+          	this.$refs.loginRef.getData();
+          }
+					// this.centerDialogVisible = true;
 					// this.$refs.loginRef.getData();
 				}else if(res.data.code == 0){
 					 this.$message.success('入驻申请已提交，请耐心等待审核')
@@ -362,18 +398,17 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
 					if(res.data.code == 20){
+            console.log(this.centerDialogVisible)
 						if(!this.centerDialogVisible){
 							this.centerDialogVisible = true;
 							this.$refs.loginRef.getData();
 						}
 					}else{
-						console.log(res.data.data.itemList)
 						var itemList=res.data.data.itemList
 						var cityOptions=[]
 						for(var i in itemList){
 							cityOptions.push(itemList[i])
 						}
-						console.log(cityOptions)
 						this.cities=cityOptions
 					}
         })
@@ -407,14 +442,15 @@ export default {
 
 	 uploadCover(response, file, fileList){
 		 // dialogImageUrlNow
+     this.dialogImageUrlNowlist=[]
 		 this.dialogImageUrlNowlist.push(response.data.url);
 		 this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(",");
 		 console.log(this.dialogImageUrlNow)
 	 },
     // 选择领域
-          handleCheckAllChange(val) {
-				 console.log(val)
+      handleCheckAllChange(val) {
             this.checkedCities = val ? this.cities : [];
+
             this.isIndeterminate = false;
 				this.wxVideoaccountRealmIdList = [];
 				for(let i in this.checkedCities){
@@ -427,12 +463,13 @@ export default {
 				 for(let i in this.checkedCities){
 				 	this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
 				 }
+          console.log(this.checkedCities)
 				 this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
-				 console.log(this.wxVideoaccountRealmIdList)
             let checkedCount = value.length;
             this.checkAll = checkedCount === this.cities.length;
             this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
           },
+
   }
 };
 </script>

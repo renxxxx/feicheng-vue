@@ -136,6 +136,8 @@ router.afterEach((to,from) => {
   debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
   // 缓存最后一次路径
+  // console.log(to)
+  // console.log(from)
   if(!to.meta.unkeepLastRoute){
     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
   }

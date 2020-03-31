@@ -423,7 +423,9 @@
 				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
 			},
 			getData(){
-				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({wxVideoaccountId:this.data.wxVideoaccountId}))
+				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({
+					wxVideoaccountId:this.$route.query.id
+				}))
 				.then(res=>{
 					this.message = res.data.data
 				})
