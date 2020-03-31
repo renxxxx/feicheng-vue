@@ -65,19 +65,19 @@
             <li style="height: 24px;">   </li>
             <li>
               <span>粉丝量:</span>
-              <el-input v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+              <el-input  type='number' v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>视频量:</span>
-              <el-input v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+              <el-input  type='number' v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>点赞量:</span>
-              <el-input v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+              <el-input type='number' v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>曝光量:</span>
-              <el-input v-model="pv" placeholder="请输入内容"></el-input>
+              <el-input  type='number' v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
@@ -232,7 +232,8 @@ export default {
       				this.$refs.loginRef.getData();
       			}
       		}else 	if(res.data.code == 0){
-      			this.$router.push({path:'/productPage/productPage_user'});
+//    			 this.$message.success('入驻申请已提交，请耐心等待审核')
+//    			this.$router.push({path:'/productPage/productPage_user'});
       		}else{
             this.$message.error(res.data.codeMsg);
           }
@@ -291,12 +292,18 @@ export default {
 					this.centerDialogVisible = true;
 					// this.$refs.loginRef.getData();
 				}else if(res.data.code == 0){
+					 this.$message.success('入驻申请已提交，请耐心等待审核')
+          // path:'/productPage/productPage_user'
+          		// this.$router.push({path:'/productPage/productPage_user'});
+              // console.dir(this.$refs.refChild.tableData)
               if(this.$refs.refChild.tableData&&this.$refs.refChild.tableData.length>0){
                 var tableData=this.$refs.refChild.tableData
                 for(var i in tableData){
                   this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
                 }
+                this.$router.push({path:'/productPage/productPage_user'});
               }else{
+              	 this.$message.success('入驻申请已提交，请耐心等待审核')
                 this.$router.push({path:'/productPage/productPage_user'});
               }
 
