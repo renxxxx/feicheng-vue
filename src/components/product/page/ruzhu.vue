@@ -302,6 +302,7 @@ export default {
             cover: imageUrlNow,
             likeCount: likeCount,
             brief: brief,
+            video: video,
             wxVideoaccountVideoId:videoId
           })
         )
@@ -384,10 +385,13 @@ export default {
             // path:'/productPage/productPage_user'
             // this.$router.push({path:'/productPage/productPage_user'});
             // console.dir(this.$refs.refChild.tableData)
+            console.log(this.$refs.refChild.tableData,this.$refs.refChild.tableData.length)
             if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
               var tableData = this.$refs.refChild.tableData;
-              console.log(tableData)
+
               for (var i in tableData) {
+                console.log(tableData[i].video)
+                debugger
                 this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
               }
               this.$router.push({ path: '/productPage/productPage_user' });
