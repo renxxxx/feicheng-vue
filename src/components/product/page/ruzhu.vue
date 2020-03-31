@@ -218,6 +218,7 @@ export default {
        }else if(this.$store.state.refresh.loginRefresh().wxVideoaccount.type==3){
           this.value='企业号'
        }
+       this.wxVideoaccountRealmIdListNow=this.$store.state.refresh.loginRefresh().wxVideoaccount.wxVideoaccountId
        this.num=this.$store.state.refresh.loginRefresh().wxVideoaccount.type;
        this.name=this.$store.state.refresh.loginRefresh().wxVideoaccount.name;
        this.phone=this.$store.state.refresh.loginRefresh().wxVideoaccount.phone;
@@ -227,8 +228,6 @@ export default {
        this.videoCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.videoCount;
        this.likeCount=this.$store.state.refresh.loginRefresh().wxVideoaccount.likeCount;
        this.pv=this.$store.state.refresh.loginRefresh().wxVideoaccount.pv;
-
-
        this.dialogImageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.screenshot;
        this.imageUrlNow= this.$store.state.refresh.loginRefresh().wxVideoaccount.logo;
        this.dili={
@@ -354,7 +353,7 @@ export default {
 		},
 		typeFn(_value){
 			this.num = _value
-      
+       donsole.log(this.num)
 			// console.log(this.num)
 		},
     // 获取领域列表
