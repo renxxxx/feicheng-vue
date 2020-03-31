@@ -292,6 +292,7 @@
 		border: 1px solid #6d6d6d;
 		width: 400px;
 		color: #e8edee;
+		border-radius: 5px 0 0 5px;
 	}
 
 	.search_box_input>svg {

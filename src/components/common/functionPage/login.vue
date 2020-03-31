@@ -84,15 +84,24 @@ export default {
             this.$axios
               .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
-                // console.log(res)
                 if(res.data.code==0){
+                   this.$axios
+                        .get('/user/my/wx-videoaccount')
+                        .then(res => {
+                           if(res.data.code ==0)
+                              this.$store.state.wxVideoaccount=res.data.data
+                        })
+
+      
                     this.$axios
                         .get('/user/login-refresh')
                         .then(res => {
-                           this.$store.state.login=res.data.data
+                          if(res.data.code ==0){
+                            this.$store.state.login=res.data.data
                             this.centerDialogVisible = false;
                             clearInterval(this.timer);
                             this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                            }
                         })
                 }else{
                 }

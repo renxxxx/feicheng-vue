@@ -9,26 +9,12 @@ const state = {
   //登陆弹窗
   centerDialogVisible: false,
   login:null,
+  wxVideoaccount:null,
 	//视频播放弹窗
-	showVideoDialog: false,
-  getUserInfo:{
-    info:function(){
-      let userInfo;
-      Vue.prototype.$jquery.ajax({
-        url: '/user/my/wx-videoaccount',
-        type: 'get',
-        async: false,
-        success: function(res) {
-            if(res.code==0){
-              userInfo = res.data
-            }else if(res.code == 20){
-              state.centerDialogVisible=true;
-            }
-        },
-       })
-       return userInfo;
-    }
-  },
+  showVideoDialog: false,
+  
+
+ 
   getVideoList:{
     list:function(){
       let videoList;

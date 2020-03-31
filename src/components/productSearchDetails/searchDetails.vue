@@ -296,7 +296,7 @@
 												</div>
 												<div role="tab" @click="xiaclickFn(125)" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
 													<router-link :to="{path:'/productPage'}" class="_1zlCAgAE">
-														视频列表
+														作品列表
 													</router-link>
 												</div>
 												<div role="tab" @click="xiaclickFn(250)" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
@@ -412,7 +412,7 @@
 
 		},
 		mounted() {
-			this.data = JSON.parse(this.$route.query.data);
+			//this.data = JSON.parse(this.$route.query.data);
 			this.getData()
 			// console.dir(this.data)
 			if(!this.$store.state.login){
@@ -592,6 +592,7 @@
 		border: 1px solid #6d6d6d;
 		background: transparent;
 		padding-left: 30px;
+		border-radius: 5px;
 	}
 
 	.nav_user_search>input:active {

@@ -55,12 +55,24 @@
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
-                  <span v-if='!this.$store.state.login' slot="reference" style="cursor: pointer;">体验版 </span>
+                 					 <!-- <span v-if='!this.$store.state.login' slot="reference" style="cursor: pointer;">体验版 </span>
 									<span v-if='getUserInfo.types==0' slot="reference" style="cursor: pointer;">体验版 </span>
 									<span v-if='getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
-									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span>
+									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
 
+										<span slot="reference" style="cursor: pointer;" >
+											{{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+											:this.$store.state.wxVideoaccount.type==1?"个人号"
+											:this.$store.state.wxVideoaccount.type==2?"达人号"
+											:this.$store.state.wxVideoaccount.type==3?"企业号"
+											:"未知" }}
+											{{(!this.$store.state.wxVideoaccount || !this.$store.state.wxVideoaccount.audit) ?""
+											:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
+											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+											:"未知" }}
+										</span>
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
@@ -91,7 +103,7 @@
 								<span>商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='getUserInfo.types == 0 ||getUserInfo.types==null' index="/productPage/productPage_ruzhu">
+						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
 								<span style="margin-left: 14px;">博主入驻</span>
@@ -100,14 +112,31 @@
 						<el-menu-item v-if='this.$store.state.login' >
 							<template slot="title">
 								<img alt="">
-								<span v-if='getUserInfo.types===0&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版</router-link></span>
+
+								<span style="margin-left: 14px;">
+									<router-link :to="{path:'/productPage/productPage_ruzhuView'}">
+										 {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+											:this.$store.state.wxVideoaccount.type==1?"个人号"
+											:this.$store.state.wxVideoaccount.type==2?"达人号"
+											:this.$store.state.wxVideoaccount.type==3?"企业号"
+											:"未知" }}
+											{{(!this.$store.state.wxVideoaccount || !this.$store.state.wxVideoaccount.audit)?""
+											:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
+											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+											:"未知" }}
+									</router-link>
+								</span>
+
+
+								<!-- <span v-if='getUserInfo.types===0&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版</router-link></span>
 								<span v-if='getUserInfo.types==1&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号</router-link></span>
 								<span v-if='getUserInfo.types==2&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号</router-link></span>
 								<span v-if='getUserInfo.types==3&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号</router-link></span>
 								<span @click='askIfEnter()' v-if='getUserInfo.types===0&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版(认证失败)</router-link></span>
 								<span @click='askIfEnter()' v-if='getUserInfo.types==1&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号(认证失败)</router-link></span>
 								<span @click='askIfEnter()' v-if='getUserInfo.types==2&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号(认证失败)</router-link></span>
-								<span @click='askIfEnter()' v-if='getUserInfo.types==3&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号(认证失败)</router-link></span>
+								<span @click='askIfEnter()' v-if='getUserInfo.types==3&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号(认证失败)</router-link></span> -->
 							</template>
 						</el-menu-item>
 
@@ -212,7 +241,7 @@
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21" class="height">
 			<keep-alive>
-				<router-view class="appView"/>
+				<router-view style="padding-left:10px;" class="appView"/>
 			</keep-alive>
 		</el-col>
 		</el-row>
@@ -277,7 +306,6 @@ export default {
 					// {name:'抖音·小店达人榜',data:'true',url:''},
 		]},
 		],
-    getUserInfo :this.$store.state.getUserInfo.info()
     }
   },
   beforeRouteLeave(to, from, next) {
@@ -344,18 +372,21 @@ export default {
   methods:{
   	//询问是否入驻
 askIfEnter(){
-	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-       }).then(() => {
-			 this.$router.push({path:'/productPage/productPage_ruzhu'});
-        }).catch(() => {
-//        this.$message({
-//          type: 'info',
-//          message: '已取消删除'
-//        });
-        });
+	if(this.$store.state.wxVideoaccount){
+    if(this.$store.state.wxVideoaccount.audit==12){
+        this.$confirm(this.$store.state.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+              this.$router.push({path:'/productPage/productPage_ruzhu'});
+           })
+    }else{
+      this.$router.push({path:'/productPage/productPage_ruzhu'});
+    }
+  }else{
+    this.$router.push({path:'/productPage/productPage_ruzhu'});
+  }
 },
 	// initData(){
 	// 	let showData = true;
@@ -541,6 +572,7 @@ el-menu-item {
 	border: 1px solid #6d6d6d;
 	background: transparent;
 	padding-left: 30px;
+	border-radius: 5px;
 }
 .nav_user_search>input:active{
 	transition: all .5s;

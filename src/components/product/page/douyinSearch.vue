@@ -151,7 +151,7 @@
 								<p>
 									微信号{{user.wx}}
 									<!-- <svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg> -->
-									<span style="color: #FFFFFF;">{{user.area1Name}} | {{user.area2Name}} | {{user.area3Name}}</span>
+									<span style="color: #cdcfcf;">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
 								</p>
 								<p class="line-2">{{user.brief}}</p>
 							</div>
@@ -560,6 +560,7 @@ export default {
 	border: 1px solid #6d6d6d;
 	width: 400px;
 	color: #e8edee;
+	border-radius: 5px 0 0 5px;
 }
 .search_box_input>svg{
 	position: absolute;

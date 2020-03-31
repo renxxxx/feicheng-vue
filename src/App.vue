@@ -23,7 +23,19 @@ export default {
 					  thisVue.$store.state.login=res.data
 			    }
 			  }
-			})
+      })
+      
+ this.$jquery.ajax({
+			  url:'/user/my/wx-videoaccount',
+			  type:'get',
+			  async:false,
+			  success:function(res){
+			    if(res.code == 0){
+					  thisVue.$store.state.wxVideoaccount=res.data
+			    }
+			  }
+      })
+      
   }
 }
 </script>

@@ -11,7 +11,7 @@
           <ul>
             <li>视频号信息:</li>
             <li>
-              <span>姓名:</span>
+              <span>视频号名:</span>
               <el-input v-model="name" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
@@ -180,7 +180,6 @@ export default {
       imageUrlNow: '',
       dialogImageUrlNow: [],
       dialogImageUrlNowlist: [],
-      getUserInfo: this.$store.state.getUserInfo.info(),
 		// diliNow:{}
     };
   },
@@ -245,35 +244,35 @@ export default {
     this.options = area;
     console.log(this.options);
     this.accountRealmIdList();
-      if (this.getUserInfo.type == 1) {
+      if (this.$store.state.wxVideoaccount.type == 1) {
         this.value = '个人号';
-      } else if (this.getUserInfo.type == 2) {
+      } else if (this.$store.state.wxVideoaccount.type == 2) {
         this.value = '达人号';
-      } else if (this.getUserInfo.type == 3) {
+      } else if (this.$store.state.wxVideoaccount.type == 3) {
         this.value = '企业号';
       }
-      for (var i in this.getUserInfo.wxVideoaccountRealmList) {
-        this.getUserInfo.wxVideoaccountRealmList[i].logo = '';
+      for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
+        this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
       }
-      this.checkedCities = this.getUserInfo.wxVideoaccountRealmList;
+      this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
        console.log()
       var dialogImageUrl2 = [],
         dialogImageUrl1 = [];
-      dialogImageUrl2.push({ name: '截图', url: this.getUserInfo.screenshot });
+      dialogImageUrl2.push({ name: '截图', url: this.$store.state.wxVideoaccount.screenshot });
       this.dialogImageUrl2 = dialogImageUrl2;
-      this.num = this.getUserInfo.type;
-      this.name = this.getUserInfo.name;
-      this.phone = this.getUserInfo.phone;
-      this.wx = this.getUserInfo.wx;
-      this.brief = this.getUserInfo.brief;
-      this.fansCount = this.getUserInfo.fansCount;
-      this.videoCount = this.getUserInfo.videoCount;
-      this.likeCount = this.getUserInfo.likeCount;
-      this.pv = this.getUserInfo.pv;
-      this.dialogImageUrlNow = this.getUserInfo.screenshot;
-      this.imageUrlNow = this.getUserInfo.logo;
-      this.imageUrl = this.getUserInfo.logo;
-		this.dili = [this.getUserInfo.area1Id,this.getUserInfo.area2Id,this.getUserInfo.area3Id];
+      this.num = this.$store.state.wxVideoaccount.type;
+      this.name = this.$store.state.wxVideoaccount.name;
+      this.phone = this.$store.state.wxVideoaccount.phone;
+      this.wx = this.$store.state.wxVideoaccount.wx;
+      this.brief = this.$store.state.wxVideoaccount.brief;
+      this.fansCount = this.$store.state.wxVideoaccount.fansCount;
+      this.videoCount = this.$store.state.wxVideoaccount.videoCount;
+      this.likeCount = this.$store.state.wxVideoaccount.likeCount;
+      this.pv = this.$store.state.wxVideoaccount.pv;
+      this.dialogImageUrlNow = this.$store.state.wxVideoaccount.screenshot;
+      this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
+      this.imageUrl = this.$store.state.wxVideoaccount.logo;
+		this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
       // this.dili = {
       //   shenfen: {
       //     name: this.getUserInfo.area1Name,
@@ -291,9 +290,9 @@ export default {
 
       var didi = {};
       didi = {
-        city: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id },
-        qu: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id },
-        shenfen: { name: this.getUserInfo.area1Name, id: this.getUserInfo.area1Id }
+        city: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+        qu: { name:this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+        shenfen: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id }
       };
 
       // this.ruleForm.regionServers = [data.region, data.server]
@@ -391,6 +390,14 @@ export default {
             // this.centerDialogVisible = true;
             // this.$refs.loginRef.getData();
           } else if (res.data.code == 0) {
+                this.$axios
+                        .get('/user/my/wx-videoaccount')
+                        .then(res => {
+                            if(res.data.code ==0)
+                              this.$store.state.wxVideoaccount=res.data.data
+                        })
+                  
+
             this.$message.success('入驻申请已提交，请耐心等待审核');
             // path:'/productPage/productPage_user'
             // this.$router.push({path:'/productPage/productPage_user'});
@@ -507,7 +514,7 @@ export default {
   min-width: 500px;
   width: 100%;
   height: auto;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 .maintop {
   height: 60px;

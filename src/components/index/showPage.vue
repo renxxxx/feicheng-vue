@@ -84,12 +84,19 @@
 
 
 
-            	<span @click='askIfEnter()' class="lf48" >
-                {{!getUserInfo.wxVideoaccountId?"体验版":"" }}
-                {{getUserInfo.type==0?"体验版":getUserInfo.type==1?"个人号":getUserInfo.type==2?"达人号":getUserInfo.type==3?"企业号":"未知" }}
-                {{getUserInfo.audit==0?"初始":getUserInfo.audit==1?"审核中":getUserInfo.audit==11?"已认证":getUserInfo.audit==3?"认证失败":"未知" }}
+            	<span v-if='this.$store.state.login' @click='askIfEnter()' class="lf48" >
+                {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+                  :this.$store.state.wxVideoaccount.type==1?"个人号"
+                  :this.$store.state.wxVideoaccount.type==2?"达人号"
+                  :this.$store.state.wxVideoaccount.type==3?"企业号"
+                  :"未知" }}
+                {{(!this.$store.state.wxVideoaccount || !this.$store.state.wxVideoaccount.audit)?""
+                  :this.$store.state.wxVideoaccount.audit==1?"(审核中)"
+                  :this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+                  :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+                  :"未知" }}
               </span>
-            
+           
 
             <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
             <!--<router-link v-if='loginRefresh||loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
@@ -301,7 +308,6 @@ export default {
       userName:'',
       useravator:'',
 	  showData:false,
-    getUserInfo :this.$store.state.getUserInfo.info()
       // centerDialogVisible: false
     };
   },
@@ -377,7 +383,6 @@ export default {
      debugger
   },
   mounted() {
-    // console.dir(this.getUserInfo.types , this.getUserInfo.audits)
     // console.log(this.$refs.showPage1.offsetTop);
     // console.log(this.$refs.showPage2.offsetTop);
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
@@ -444,23 +449,22 @@ export default {
   methods: {
   	  	//询问是否入驻
 askIfEnter(){
-
-	this.$confirm(this.getUserInfo.audit12Message+'，是否重新认证?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-       }).then(() => {
-			 this.$router.push({path:'/productPage/productPage_ruzhu'});
-        }).catch(() => {
-//        this.$message({
-//          type: 'info',
-//          message: '已取消删除'
-//        });
-        });
+  if(this.$store.state.wxVideoaccount){
+    if(this.$store.state.wxVideoaccount.audit==12){
+        this.$confirm(this.$store.state.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+              this.$router.push({path:'/productPage/productPage_ruzhu'});
+           })
+    }else{
+      this.$router.push({path:'/productPage/productPage_ruzhu'});
+    }
+  }else{
+    this.$router.push({path:'/productPage/productPage_ruzhu'});
+  }
     },
-    // fetchData(){
-    //            console.log('路由发送变化doing...');
-    //      },
     initData() {
       this.showData = true;
       localStorage.setItem("showData", this.showData);

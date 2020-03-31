@@ -347,6 +347,7 @@ export default {
 		border: 1px solid #6d6d6d;
 		background: transparent;
 		padding-left: 30px;
+		border-radius: 5px;
 	}
 
 	.nav_user_search>input:active {

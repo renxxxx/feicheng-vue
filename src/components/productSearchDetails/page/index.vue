@@ -27,7 +27,7 @@
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
 				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-					<span class="searchList_Title">视频列表</span>
+					<span class="searchList_Title">作品列表</span>
 				</el-col>
 				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 					<div class="searchList_canshu">
@@ -319,6 +319,7 @@
 	border: 1px solid #6d6d6d;
 	width: 400px;
 	color: #e8edee;
+	border-radius: 5px 0 0 5px;
 }
 .search_box_input>svg{
 	position: absolute;
