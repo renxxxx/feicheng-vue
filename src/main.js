@@ -18,7 +18,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueLazyload from 'vue-lazyload'
 //版本号
 
-Vue.prototype.$version = '2004011021-5720e3a'
+Vue.prototype.$version = '2004011038-6c81816'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios
