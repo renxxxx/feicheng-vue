@@ -16,7 +16,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import VueLazyload from 'vue-lazyload'
-//版本号    
+//版本号     
 Vue.prototype.$version = '2004010544-de7eb48'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
