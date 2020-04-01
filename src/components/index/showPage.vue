@@ -85,7 +85,8 @@
 
 
             	<span v-if='this.$store.state.login' @click='askIfEnter()' class="lf48" >
-                {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+                {{ (!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null)?"申请成为博主"
+                  :this.$store.state.wxVideoaccount.type==0?"申请成为博主"
                   :this.$store.state.wxVideoaccount.type==1?"个人号"
                   :this.$store.state.wxVideoaccount.type==2?"达人号"
                   :this.$store.state.wxVideoaccount.type==3?"企业号"

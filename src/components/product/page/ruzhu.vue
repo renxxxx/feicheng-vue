@@ -244,7 +244,9 @@ export default {
     this.options = area;
     console.log(this.options);
     this.accountRealmIdList();
-      if (this.$store.state.wxVideoaccount.type == 1) {
+      if (this.$store.state.wxVideoaccount.type == 0) {
+        this.value = '体验版';
+      } else if (this.$store.state.wxVideoaccount.type == 1) {
         this.value = '个人号';
       } else if (this.$store.state.wxVideoaccount.type == 2) {
         this.value = '达人号';

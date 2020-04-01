@@ -13,7 +13,8 @@
 								<span v-if='getUserInfo.types==2'>达人号</span>
 								<span v-if='getUserInfo.types==3'>企业号</span> -->
 
-								<span > {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+								<span > {{ (!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.type==null)?"体验版"
+                  :this.$store.state.wxVideoaccount.type==0?"体验版"
                   :this.$store.state.wxVideoaccount.type==1?"个人号"
                   :this.$store.state.wxVideoaccount.type==2?"达人号"
                   :this.$store.state.wxVideoaccount.type==3?"企业号"
