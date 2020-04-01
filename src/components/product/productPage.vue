@@ -46,7 +46,7 @@
 								<el-popover
 								    placement="top-start"
 								    trigger="hover">
-									<div class="nav_data_xiala">
+									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
 											<li>DOU管家</li>
 											<li>我的收藏</li>
@@ -61,8 +61,10 @@
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
 									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
 
-										<span slot="reference" style="cursor: pointer;" >
-											{{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+
+										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
@@ -72,6 +74,10 @@
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
+										</span>
+
+										<span v-if="!this.$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
+											{{ "登录" }}
 										</span>
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
@@ -122,7 +128,8 @@
 
 								<span style="margin-left: 14px;">
 									<router-link :to="{path:'/productPage/productPage_ruzhuView'}">
-										 {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
