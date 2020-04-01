@@ -243,7 +243,7 @@ export default {
     // console.log(this.getVideoList)
     this.options = area;
     console.log(this.options);
-    this.accountRealmIdList();
+      this.accountRealmIdList();
       if (this.$store.state.wxVideoaccount.type == 0) {
         this.value = '体验版';
       } else if (this.$store.state.wxVideoaccount.type == 1) {
@@ -260,7 +260,10 @@ export default {
        console.log()
       var dialogImageUrl2 = [],
         dialogImageUrl1 = [];
-      dialogImageUrl2.push({ name: '截图', url: this.$store.state.wxVideoaccount.screenshot });
+        if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
+             dialogImageUrl2.push({ name: '截图', url: this.$store.state.wxVideoaccount.screenshot });
+        }
+   
       this.dialogImageUrl2 = dialogImageUrl2;
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
@@ -272,9 +275,13 @@ export default {
       this.likeCount = this.$store.state.wxVideoaccount.likeCount;
       this.pv = this.$store.state.wxVideoaccount.pv;
       this.dialogImageUrlNow = this.$store.state.wxVideoaccount.screenshot;
-      this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
-      this.imageUrl = this.$store.state.wxVideoaccount.logo;
-		this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
+
+      if(this.$store.state.wxVideoaccount.logo!=null&&this.$store.state.wxVideoaccount.logo!=undefined&&this.$store.state.wxVideoaccount.logo!=''){
+         this.imageUrl = this.$store.state.wxVideoaccount.logo;
+         this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
+      }
+
+      this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
       // this.dili = {
       //   shenfen: {
       //     name: this.getUserInfo.area1Name,
@@ -298,7 +305,7 @@ export default {
       };
 
       // this.ruleForm.regionServers = [data.region, data.server]
-    
+
   },
   methods: {
     supplyVideo(name, pv, imageUrlNow , likeCount, brief, video,videoId) {
@@ -398,7 +405,7 @@ export default {
                             if(res.data.code ==0)
                               this.$store.state.wxVideoaccount=res.data.data
                         })
-                  
+
 
             this.$message.success('入驻申请已提交，请耐心等待审核');
             // path:'/productPage/productPage_user'
