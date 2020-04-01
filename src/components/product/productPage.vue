@@ -63,7 +63,7 @@
 
 
 										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
-											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
@@ -128,7 +128,7 @@
 
 								<span style="margin-left: 14px;">
 									<router-link :to="{path:'/productPage/productPage_ruzhuView'}">
-										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
