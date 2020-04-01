@@ -36,7 +36,7 @@
               <div>播放数</div>
             </div>
             <div class="lf_four">
-              <img src="../../../assets/img/down15.png" alt="">
+              <img src='../../../assets/img/down15.png' alt="">
               <div>冷成狗...</div>
               <div>14.5w</div>
               <div>577</div>

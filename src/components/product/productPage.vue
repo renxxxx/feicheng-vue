@@ -46,7 +46,7 @@
 								<el-popover
 								    placement="top-start"
 								    trigger="hover">
-									<div class="nav_data_xiala">
+									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
 											<li>DOU管家</li>
 											<li>我的收藏</li>
@@ -61,8 +61,10 @@
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
 									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
 
-										<span slot="reference" style="cursor: pointer;" >
-											{{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+
+										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
@@ -73,11 +75,22 @@
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
 										</span>
+
+										<span v-if="!this.$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
+											{{ "登录" }}
+										</span>
 								</el-popover>
 								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
 							</div>
 							<div class="nav_function">
-								<svg width="16" height="16" viewBox="0 0 16 16" class="_pniUROVW"><path fill="#25f4ee" d="M6.992 3.829c.011-1.276 0-2.553.011-3.829h2.609a3.251 3.251 0 0 0 .057.666h-1.92v10.369a2.477 2.477 0 0 1-.316 1.265 2.141 2.141 0 0 1-1.651 1.048 2.212 2.212 0 0 1-1.254-.26 2.151 2.151 0 0 1-.734-.655 2.153 2.153 0 0 0 2.18-.079 2.217 2.217 0 0 0 1.028-1.852c-.011-2.225-.011-4.45-.011-6.675zm4.3-.734a3.78 3.78 0 0 0 1.186.5 3.373 3.373 0 0 0 .757.079v.587a3.719 3.719 0 0 1-1.943-1.163zm0 0"></path><path fill="#25f4ee" d="M2.294 6.348a4.726 4.726 0 0 1 3.163-.666v.621a5.7 5.7 0 0 0-.87.1 4.955 4.955 0 0 0-1.943.87 4.707 4.707 0 0 0-1.423 1.8 4.833 4.833 0 0 0-.463 2.146 4.886 4.886 0 0 0 .61 2.315 3.7 3.7 0 0 0 .655.9 4.634 4.634 0 0 1-1.355-1.491 4.89 4.89 0 0 1-.666-2.609 4.967 4.967 0 0 1 .712-2.383 4.773 4.773 0 0 1 1.58-1.603zm0 0"></path><path d="M7.749.666H9.68a3.957 3.957 0 0 0 .373 1.062 3.252 3.252 0 0 0 1.152 1.288.264.264 0 0 1 .079.079 3.707 3.707 0 0 0 1.954 1.163c.011.678 0 1.367 0 2.044a6.117 6.117 0 0 1-3.592-1.141c0 1.626 0 3.253.011 4.88 0 .215.011.429 0 .655a5.338 5.338 0 0 1-.7 2.259 4.914 4.914 0 0 1-1.355 1.536 4.354 4.354 0 0 1-2.474.847 5.359 5.359 0 0 1-1.344-.113 4.836 4.836 0 0 1-1.728-.757l-.034-.034a4.019 4.019 0 0 1-.655-.9 4.939 4.939 0 0 1 1.276-6.257 4.954 4.954 0 0 1 1.943-.87 5.543 5.543 0 0 1 .87-.1c.011.26 0 .52.011.768v1.321a1.869 1.869 0 0 0-1.028-.034 2.545 2.545 0 0 0-1.107.542 2.024 2.024 0 0 0-.474.6 2.227 2.227 0 0 0-.226 1.265 2.13 2.13 0 0 0 .5 1.141 2.794 2.794 0 0 0 .655.553 2.151 2.151 0 0 0 .734.655 2.309 2.309 0 0 0 1.254.26 2.113 2.113 0 0 0 1.649-1.051 2.478 2.478 0 0 0 .316-1.265c.023-3.479.011-6.935.011-10.391zm0 0" fill="#fff"></path><path fill="#fe2c55" d="M9.685.666c.226.011.452 0 .689 0a3.715 3.715 0 0 0 .678 2.135c.056.079.113.147.169.215a3.171 3.171 0 0 1-1.152-1.288A4.258 4.258 0 0 1 9.685.666zm3.558 3.592a3.374 3.374 0 0 0 .757.079v2.632a6.173 6.173 0 0 1-3.626-1.175v5.218a4.558 4.558 0 0 1-.113 1.175 4.851 4.851 0 0 1-1.92 2.925 4.7 4.7 0 0 1-1.717.768 4.745 4.745 0 0 1-4.552-1.412 4.646 4.646 0 0 0 1.728.757 5.358 5.358 0 0 0 1.344.113 4.354 4.354 0 0 0 2.474-.847 5.057 5.057 0 0 0 1.355-1.536 5.338 5.338 0 0 0 .7-2.259 6.371 6.371 0 0 0 0-.655c-.011-1.627-.011-3.253-.011-4.88a6.118 6.118 0 0 0 3.592 1.141c-.015-.677-.004-1.366-.015-2.044zm0 0"></path><path fill="#fe2c55" d="M5.468 6.287a5.662 5.662 0 0 1 .757.045v2.7a2.064 2.064 0 0 0-1.141-.045 2.205 2.205 0 0 0-1.276 3.434 2.375 2.375 0 0 1-.655-.553 2.13 2.13 0 0 1-.5-1.141 2.227 2.227 0 0 1 .226-1.265 2.022 2.022 0 0 1 .474-.6A2.746 2.746 0 0 1 4.46 8.32a1.87 1.87 0 0 1 1.028.034V7.032c-.02-.222-.009-.481-.02-.745zm0 0"></path><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M11.5 13.5h4M13.5 11.5v4"></path></g></svg>
+								<svg width="16" height="15.999" viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19.8166114,21.3469641 C15.692689,29.409743 12.7456525,33.8758218 10.9755017,34.7452004 C7.78807296,36.3106502 4.0543826,31.0369112 2.08380027,8.4468145 C1.1606144,-2.10599411 7.92069603,-0.799178514 19.6148465,20.6031977 C19.6633199,20.5222502 19.7825029,20.5882483 20,20.9906401 C20.2174971,20.5882483 20.3366801,20.5222502 20.3851535,20.6031977 C32.079304,-0.799178514 38.8393856,-2.10599411 37.9161997,8.4468145 C35.9456174,31.0369112 32.211927,36.3106502 29.0244983,34.7452004 C27.2543475,33.8758218 24.307311,29.409743 20.1833886,21.3469641 C20.1279256,21.3787616 20.0655448,21.3685714 20,21.2906336 C19.9344552,21.3685714 19.8720744,21.3787616 19.8166114,21.3469641 Z" id="合并形状" stroke="#F49732" stroke-width="2" fill-rule="nonzero"></path>
+    </g>
+</svg>
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
@@ -115,7 +128,8 @@
 
 								<span style="margin-left: 14px;">
 									<router-link :to="{path:'/productPage/productPage_ruzhuView'}">
-										 {{ (!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type)?"体验版"
+										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
@@ -142,7 +156,15 @@
 
 						<el-submenu index="3">
 							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.58 -60.259)"><circle cx="2.794" cy="2.794" r="2.794" transform="translate(26.645 70.823)" fill="currentColor"></circle><path d="M39.556 68.71a7.6 7.6 0 0 1-4.366-1.369v6.194a5.806 5.806 0 1 1-5.8-5.724 5.891 5.891 0 0 1 .936.075v3.281a2.63 2.63 0 0 0-.917-.167A2.555 2.555 0 1 0 32 73.559V61.259h3.238a4.312 4.312 0 0 0 4.342 4.282v3.169z" fill="#e8edee"></path></g></svg>
+								<!-- <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.58 -60.259)"><circle cx="2.794" cy="2.794" r="2.794" transform="translate(26.645 70.823)" fill="currentColor"></circle><path d="M39.556 68.71a7.6 7.6 0 0 1-4.366-1.369v6.194a5.806 5.806 0 1 1-5.8-5.724 5.891 5.891 0 0 1 .936.075v3.281a2.63 2.63 0 0 0-.917-.167A2.555 2.555 0 1 0 32 73.559V61.259h3.238a4.312 4.312 0 0 0 4.342 4.282v3.169z" fill="#e8edee"></path></g></svg> -->
+								<svg  width="1em" height="1em"  viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19.8166114,21.3469641 C15.692689,29.409743 12.7456525,33.8758218 10.9755017,34.7452004 C7.78807296,36.3106502 4.0543826,31.0369112 2.08380027,8.4468145 C1.1606144,-2.10599411 7.92069603,-0.799178514 19.6148465,20.6031977 C19.6633199,20.5222502 19.7825029,20.5882483 20,20.9906401 C20.2174971,20.5882483 20.3366801,20.5222502 20.3851535,20.6031977 C32.079304,-0.799178514 38.8393856,-2.10599411 37.9161997,8.4468145 C35.9456174,31.0369112 32.211927,36.3106502 29.0244983,34.7452004 C27.2543475,33.8758218 24.307311,29.409743 20.1833886,21.3469641 C20.1279256,21.3787616 20.0655448,21.3685714 20,21.2906336 C19.9344552,21.3685714 19.8720744,21.3787616 19.8166114,21.3469641 Z" id="合并形状" stroke="#F49732" stroke-width="2" fill-rule="nonzero"></path>
+    </g>
+</svg>
 								<span>{{leftNavList[0].name}}</span>
 								<svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</template>
