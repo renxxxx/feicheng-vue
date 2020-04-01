@@ -1,7 +1,7 @@
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
- 
+
 import './assets/rest.css'
 import Vue from 'vue'
 import App from './App'
@@ -16,7 +16,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import VueLazyload from 'vue-lazyload'
-//版本号     
+//版本号
 Vue.prototype.$version = '2004010909-4f1e1f1'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
@@ -29,12 +29,12 @@ Vue.prototype.moment = moment;
 
 
 
- 
+
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   attempt: 1
 })
- 
+
 new Vue({
   el: '#app',
   router,
