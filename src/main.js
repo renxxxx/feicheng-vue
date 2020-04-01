@@ -14,6 +14,8 @@ import h5p from '../build/h5p.js'
 import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
+import VueLazyload from 'vue-lazyload'
 //版本号    
 Vue.prototype.$version = '2004010544-de7eb48'
 Vue.config.productionTip = false
@@ -27,6 +29,11 @@ Vue.prototype.moment = moment;
 
 
 
+ 
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  attempt: 1
+})
  
 new Vue({
   el: '#app',

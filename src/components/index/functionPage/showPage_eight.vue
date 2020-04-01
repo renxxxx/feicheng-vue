@@ -18,7 +18,7 @@
                          <!-- v-for="item in 1" :key="item" -->
                         <!-- <h3 class="small">{{ item }}</h3> -->
                         <div class="boxItem boxOne" v-for="(items,inx_be) in item.rows" :key="inx_be">
-                            <img :src="items.cover" alt="">
+                            <img v-lazy="items.cover" alt="">
                             <div class="boxItem_div">
                               <strong>{{items.title}}</strong>
                               <span>{{items.name}}</span>

@@ -2,27 +2,39 @@ import Vue from 'vue'
 import Store from '../store'
 import Router from 'vue-router'
 
-//展示页面
-import showPage from '@/components/index/showPage.vue'
-//404错误页面
-import page404 from '@/components/404Page.vue'
-//替换路由
-import tihuan from '@/components/common/tihuan.vue'
+const showPage = ()=>import("@/components/index/showPage.vue")
+const page404 = ()=>import( '@/components/404Page.vue')
+const tihuan = ()=>import( '@/components/common/tihuan.vue')
+const productPage = ()=>import( '@/components/product/productPage.vue')
+const productPage_user = ()=>import( '@/components/product/page/user.vue')
+const productPage_douyinSearch = ()=>import( '@/components/product/page/douyinSearch.vue')
+const productPage_ruzhu = ()=>import( '@/components/product/page/ruzhu.vue')
+const productPage_ruzhuView = ()=>import( '@/components/product/page/ruzhuView.vue')
+const productPage_videoSearch = ()=>import( '@/components/product/page/videoSearch.vue')
+const searchDetails = ()=>import( '@/components/productSearchDetails/searchDetails.vue')
+const searchDetails_index = ()=>import( '@/components/productSearchDetails/page/index.vue')
+const articleDetails = ()=>import( '@/components/article/article.vue')
+// //展示页面
+// import showPage from '@/components/index/showPage.vue'
+// //404错误页面
+// import page404 from '@/components/404Page.vue'
+// //替换路由
+// import tihuan from '@/components/common/tihuan.vue'
 
-//产品页面
-import productPage from '@/components/product/productPage.vue'
-import productPage_user from '@/components/product/page/user.vue'
-import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
-import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
-import productPage_ruzhuView from '@/components/product/page/ruzhuView.vue'
-import productPage_videoSearch from '@/components/product/page/videoSearch.vue'
+// //产品页面
+// import productPage from '@/components/product/productPage.vue'
+// import productPage_user from '@/components/product/page/user.vue'
+// import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
+// import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
+// import productPage_ruzhuView from '@/components/product/page/ruzhuView.vue'
+// import productPage_videoSearch from '@/components/product/page/videoSearch.vue'
 
-//产品详情页面
-import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
-import searchDetails_index from '@/components/productSearchDetails/page/index.vue'
+// //产品详情页面
+// import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
+// import searchDetails_index from '@/components/productSearchDetails/page/index.vue'
 
-//文章详情页面
-import articleDetails from '@/components/article/article.vue'
+// //文章详情页面
+// import articleDetails from '@/components/article/article.vue'
 Vue.use(Router)
 
 const router = new Router({
