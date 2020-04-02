@@ -474,6 +474,7 @@ askIfEnter(){
       // Object.assign(this.$data, this.$options.data());
     },
     loginFn() {
+			debugger;
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData();
     },
