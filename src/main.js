@@ -19,6 +19,7 @@ import VueLazyload from 'vue-lazyload'
 //版本号
 
 Vue.prototype.$version = '2004011038-6c81816'
+Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios

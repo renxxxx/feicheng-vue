@@ -118,13 +118,13 @@
 						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<img alt="">
-								<span style="margin-left: 14px;">博主入驻</span>
+								<span style="font-weight: 500;margin-left: 16px;">博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhuView">
+						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
-								<span style="margin-left: 14px;">
-									<router-link :to="{path:'/productPage/productPage_ruzhu'}">
+								<span style="font-weight: 500;margin-left: 16px;">
+									<!-- <router-link :to="{path:'/productPage/productPage_ruzhu'}"> -->
 										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
@@ -136,7 +136,7 @@
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
-									</router-link>
+									<!-- </router-link> -->
 								</span>
 							</template>
 						</el-menu-item>

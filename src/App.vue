@@ -56,5 +56,8 @@ img[lazy="error"]{
   padding: 0;
   margin: 0;
 }
-
+::selection {
+    color: #fff;
+    background: #ff7800;
+}
 </style>
