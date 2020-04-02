@@ -71,7 +71,7 @@
               <img
                 src="../../assets/img/feicheng.png"
                 alt
-                style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;"
+                style="height: 40px;object-fit: cover;margin-top: 12px;object-fit: contain;"
               />
             </div>
           </el-col>
