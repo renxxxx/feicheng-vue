@@ -37,7 +37,7 @@
 								<span class="ant-avatar ant-avatar-circle ant-avatar-image" style="width: 24px; height: 24px; line-height: 24px; font-size: 18px;">
 									<img :src="item.wxVideoaccountLogo">
 								</span>
-								<span>{{item.brief}}</span>
+								<span>{{item.wxVideoaccountName}}</span>
 							</div>
 						</div>
 					</a>

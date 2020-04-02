@@ -78,28 +78,30 @@
         </router-link>
         <el-col :span="18">
           <div class="grid-content bg-purple-light tabbarRight">
-            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找飞橙</span></router-link>
-            <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
+			  
+			  <span v-if='this.$store.state.login' @click='askIfEnter()' class="lf48" >
+			      {{ (!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null)?""
+			        :this.$store.state.wxVideoaccount.type==0?"体验版"
+			        :this.$store.state.wxVideoaccount.type==1?"个人号"
+			        :this.$store.state.wxVideoaccount.type==2?"达人号"
+			        :this.$store.state.wxVideoaccount.type==3?"企业号"
+			        :"未知" }}
+			      {{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null)?""
+			        :this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+			        :this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+			        :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+			        :"未知" }}
+			    </span>
+			             
+			  
+			  <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+			  
+            <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
             <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
+            <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
 
 
 
-            	<span v-if='this.$store.state.login' @click='askIfEnter()' class="lf48" >
-                {{ (!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null)?""
-                  :this.$store.state.wxVideoaccount.type==0?"体验版"
-                  :this.$store.state.wxVideoaccount.type==1?"个人号"
-                  :this.$store.state.wxVideoaccount.type==2?"达人号"
-                  :this.$store.state.wxVideoaccount.type==3?"企业号"
-                  :"未知" }}
-                {{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null)?""
-                  :this.$store.state.wxVideoaccount.audit==0?"(审核中)"
-                  :this.$store.state.wxVideoaccount.audit==11?"(已认证)"
-                  :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
-                  :"未知" }}
-              </span>
-           
-
-            <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
             <!--<router-link v-if='loginRefresh||loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
             <!--v-if='loginRefresh.wxVideoaccount&&loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0||loginRefresh.wxVideoaccount.audit==12'-->
 
@@ -238,7 +240,7 @@
     <!-- <el-footer> -->
     <div class="footer">
       <div class="footer_1">
-        <div class="footer_1_1">
+       <!-- <div class="footer_1_1">
           <div>关于我们</div>
           <div>
             <a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a>
@@ -246,8 +248,8 @@
           <div>
             <a href="https://data.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜有数</a>
           </div>
-        </div>
-        <div class="footer_1_2">
+        </div> -->
+        <!-- <div class="footer_1_2">
           <div>热门工具</div>
           <div>
             <a
@@ -263,7 +265,7 @@
               rel="noopener noreferrer"
             >账号回采</a>
           </div>
-        </div>
+        </div> -->
         <div class="footer_1_3">
           <div class="_GudV7S8W">联系客服</div>
           <div class="_3gZSHcLe">邮箱：{{ servant.servantEmail }}</div>

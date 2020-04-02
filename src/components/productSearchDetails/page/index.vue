@@ -54,11 +54,11 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
+				<video :src="user.video" :poster="user.cover"></video>
 				<a :href="user.video" target="_blank">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<!-- <img :src="user.cover" alt="" v-if="user.cover"> -->
-							<video :src="user.video" :poster="user.cover"></video>
 							<div class="searchList_lie_xinxi_jianjie">
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
 								<p>
@@ -561,6 +561,7 @@
 	font-size: 14px;
 	border-bottom:1px solid #404040;
 	position: relative;
+	height: 112px;
 }
 .searchList_lie:hover{
 	background: #3c3c3e;
@@ -583,14 +584,15 @@
 	bottom: 0;
 	margin: auto 0px;
 }
-.searchList_lie_xinxi>video{
+.searchList_lie video{
 	background-color: #000000;
 	width: 72px;
-	height: 112px;
+	height: 100%;
 	display: inline-block;
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	left: 0;
 	margin: auto 0px;
 }
 .searchList_lie_xinxi_jianjie{

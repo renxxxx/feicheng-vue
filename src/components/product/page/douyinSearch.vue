@@ -148,10 +148,10 @@
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
 								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 								<!-- <span>{{user.name}}</span> -->
-								<p>
+								<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
 									微信号{{user.wx}}
-									<!-- <svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg> -->
-									<span style="color: #cdcfcf;">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
+									<span class="_3wruq4Mm"></span>
+									<span class="diquColor">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
 								</p>
 								<p class="line-2">{{user.brief}}</p>
 							</div>
@@ -787,7 +787,7 @@ export default {
 	cursor: pointer;
 	/* margin-right: 3%; */
 }
-.searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
+.searchList_canshu ul li:first-child{
 	cursor: pointer;
 	width: 23%;
 	max-width: 140px;
@@ -818,7 +818,6 @@ export default {
 	width: 100%;
 }
 .searchList_lie{
-	padding: 20px 8px 24px 8px;
 	border-radius: 6px;
 	color: #e8edee;
 	font-size: 14px;
@@ -844,14 +843,19 @@ export default {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	margin: auto 0px;
+	margin: auto 5px;
+	margin-left: 5px;
+	border: 2px solid #fff;
 }
 .searchList_lie_xinxi_jianjie{
+	padding: 20px 8px 8px 8px;
 	display: inline-block;
 	margin-left: 75px;
 }
 .searchList_lie_xinxi_jianjie>h3{
 	display: inline-block;
+	color: #e8edee;
+	font-size: 16px;
 }
 .searchList_lie_xinxi_jianjie>h3:hover{
 	text-decoration: none;
@@ -887,6 +891,23 @@ export default {
 }
 .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;
+}
+.diquColor{
+	color:#cdcfcf;
+	display: inline-block;
+}
+.diquColor::before{
+	position: absolute;
+	color: #707070;
+}
+._3wruq4Mm {
+	margin: 0 8px;
+   width: 1px;
+   height: 12px;
+	line-height: 12px;
+   background-color: #707070;
+	display: inline-block;
+	
 }
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
