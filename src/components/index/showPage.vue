@@ -151,7 +151,7 @@
                     </span>-->
                   </div>
                 </div>
-                <div v-if="!this.$store.state.login" @click="loginFn">立即使用</div>
+                <div v-if="!this.$store.state.login"  @click="loginFn">立即使用</div>
                 <div v-if="this.$store.state.login" class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
               </div>
             </div>

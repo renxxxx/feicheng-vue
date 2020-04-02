@@ -152,12 +152,12 @@ export default {
 		//this.data = JSON.parse(this.$route.query.data)
 		// this.$refs.urlPageRef.innerHTML = this.data.content
 		// console.log(this.data);
-		if(!this.$store.state.login){
-			if(!this.centerDialogVisible){
-				this.centerDialogVisible = true;
-				this.$refs.loginRef.getData();
-			}
-		}
+		// if(!this.$store.state.login){
+		// 	if(!this.centerDialogVisible){
+		// 		this.centerDialogVisible = true;
+		// 		this.$refs.loginRef.getData();
+		// 	}
+		// }
 		this.getData()
 	},
 	methods: {
