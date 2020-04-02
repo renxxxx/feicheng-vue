@@ -284,7 +284,7 @@
       </div>
       <!-- </el-footer> -->
       <!--  登陆扫码框 -->
-      <login ref="loginRef"></login>
+      <login  ref="loginRef"></login>
     </div>
 </template>
 

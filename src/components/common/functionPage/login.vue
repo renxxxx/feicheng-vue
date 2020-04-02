@@ -50,18 +50,21 @@ export default {
       }
     }
   },
-
+created(){
+  debugger
+  console.log('created')
+},
 	activated(){
-		// debugger;
-		//console.log('activated')
+		 debugger;
+    console.log('activated')
 	},
 	deactivated(){
-		//console.log('deactivated')
+     debugger;
+    console.log('deactivated')
 	},
   mounted() {
-    // this.getData();
-
-     // //console.log(this.imgSrc)
+    debugger
+    console.log('mounted')
   },
   methods: {
     closeLogin(){
