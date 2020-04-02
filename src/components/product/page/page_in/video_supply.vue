@@ -171,16 +171,16 @@ export default {
     // 视频上传
     uploadVideo(response, file, fileList) {
       this.video = response.data.url;
-      console.log(this.video);
+      //console.log(this.video);
     },
     deleteRow(index, rows) {
       rows.splice(index, 1);
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePreview(file) {
-      console.log(file);
+      //console.log(file);
     },
     handleExceed(files, fileList) {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
@@ -190,7 +190,7 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // console.log( URL.createObjectURL(file.raw))
+      // //console.log( URL.createObjectURL(file.raw))
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -218,7 +218,7 @@ export default {
      // this.video=''
      this.videolist=[]
      this.fileList=[]
-     console.log(this.tableData)
+     //console.log(this.tableData)
     //   this.$axios
     //     .post(
     //       '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',

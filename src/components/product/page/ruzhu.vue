@@ -408,7 +408,7 @@ export default {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
     handleChange(_value) {
-		 // console.log(_value)
+		 // //console.log(_value)
       let name1 = area.find(n => n.value == _value[0]);
       let name2 = name1.children.find(n => n.value == _value[1]);
       let name3 = name2.children.find(n => n.value == _value[2]);
@@ -427,7 +427,6 @@ export default {
           id: name3.value
         }
       };
-
     },
     onSubmit() {
       this.$axios
@@ -456,7 +455,6 @@ export default {
         )
         .then(res => {
           if (res.data.code == 20) {
-
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -518,7 +516,7 @@ export default {
 
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // console.log(this.imageUrlNow)
+      // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     uploadCover(res, file) {
@@ -538,11 +536,11 @@ export default {
       return isLt2M; // isJPG && isLt2M;
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
-      console.log(this.dialogImageUrl);
+      //console.log(this.dialogImageUrl);
       this.dialogVisible = true;
     },
     lookBigPic() {
@@ -566,7 +564,7 @@ export default {
       for (let i in this.checkedCities) {
         this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
       }
-      console.log(this.checkedCities);
+      //console.log(this.checkedCities);
       this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
       let checkedCount = value.length;
       this.checkAll = checkedCount === this.cities.length;

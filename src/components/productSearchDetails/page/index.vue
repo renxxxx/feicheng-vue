@@ -196,7 +196,7 @@
 		},
 		methods: {
 			typeClickFn(_item,_inx){
-				// console.log(_item)
+				// //console.log(_item)
 				if(this.dataList[_inx].typeData){
 					this.dataList[_inx].typeData = false;
 					this.wxVideoaccountRealmId = '';
@@ -249,7 +249,7 @@
 				.catch()
 			},
 			searchFn(){
-				// console.log(this.kw)
+				// //console.log(this.kw)
 				this.searchColor = true;
 				this.page = 1;
 				this.userList = []

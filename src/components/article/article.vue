@@ -151,7 +151,7 @@ export default {
 	mounted(){
 		//this.data = JSON.parse(this.$route.query.data)
 		// this.$refs.urlPageRef.innerHTML = this.data.content
-		// console.log(this.data);
+		// //console.log(this.data);
 		// if(!this.$store.state.login){
 		// 	if(!this.centerDialogVisible){
 		// 		this.centerDialogVisible = true;
@@ -173,7 +173,7 @@ export default {
 		},
 		getData(){
 			// var _this = this
-			// console.log(this.$route.query.data)
+			// //console.log(this.$route.query.data)
 			this.$axios.get('/user/article/article?'+qs.stringify({
 				articleId:this.$route.query.data
 			}))
@@ -182,7 +182,7 @@ export default {
 				debugger;
 				// this.url = res.data.data.contentUrl;
 				this.$refs.iframe.src =res.data.data.contentUrl; 
-				// console.log(this.url)
+				// //console.log(this.url)
 			})
 		}
 	},

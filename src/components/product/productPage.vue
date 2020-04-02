@@ -302,7 +302,7 @@ export default {
     }
   },
   mounted(){
-	  // console.log(this.$store.state.login)
+	  // //console.log(this.$store.state.login)
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = true;
 		  this.$refs.loginRef.getData();
@@ -336,14 +336,14 @@ askIfEnter(){
 	// initData(){
 	// 	let showData = true;
 	// 	localStorage.setItem('showData',showData)
-	// 	// console.log('路由发送变化doing...');
+	// 	// //console.log('路由发送变化doing...');
 	// 	// Object.assign(this.$data, this.$options.data());
 	// },
     handleOpen(key, keyPath) {
-       console.log(key, keyPath);
+       //console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        //console.log(key, keyPath);
     },
 	changeActive(){
 		this.tanShow = false;
