@@ -785,7 +785,7 @@ el-row,
 
 .tabbarRight button {
   /* margin-left: 48px; */
-  background: #ff9429;
+  background: #ff7800;
   border: 0;
   color: #fff;
   width: 99px;
@@ -840,7 +840,6 @@ el-row,
   font-weight: 600;
   text-align: left;
   margin-bottom: 32px !important;
-  margin-left: -10px;
   position: relative;
   color: #fff;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
@@ -909,6 +908,7 @@ el-row,
 .homeIntro .homeIntro_div > span {
   color: #ffffff;
   font-family: inherit;
+  font-weight: 600;
 }
 .homeIntro .homeIntro_div > span span:nth-child(2) {
   margin: 0 8px;

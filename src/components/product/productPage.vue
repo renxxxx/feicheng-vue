@@ -121,12 +121,12 @@
 								<span style="margin-left: 20px;">博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhuView">
+						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
 								<span style="margin-left: 20px;">
 									<!-- <router-link :to="{path:'/productPage/productPage_ruzhu'}"> -->
-										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
-											:this.$store.state.wxVideoaccount.type==0?"体验版"
+										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
+											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"

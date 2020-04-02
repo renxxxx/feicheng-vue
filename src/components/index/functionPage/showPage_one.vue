@@ -386,9 +386,9 @@ export default {
   font-size: 14px;
   line-height: 18px;
   color: #595959;
-  opacity: 0.8;
-  color: #fff;
-  background: #ff7800;
+  /* opacity: 0.8; */
+  /* color: #fff;
+  background: #ff7800; */
   /* margin-top: -28px; */
 }
 .index_line {

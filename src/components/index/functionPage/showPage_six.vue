@@ -333,7 +333,7 @@
       opacity: .8;
       position: relative;
       margin-bottom: 30px;
-      width: 170px;
+      width: 176px;
       margin-left: 162px;
       margin-left: 288px;
 }

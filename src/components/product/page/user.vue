@@ -90,7 +90,7 @@
 									<p>{{item.brief}}</p>
 								<!-- </router-link> -->
 							</div>
-							<span>查看更多 ></span>
+							<!-- <span>查看更多 ></span> -->
 						</div>
 					</div>
 				</el-col>
@@ -110,7 +110,7 @@
 									</div>
 								<!-- </router-link> -->
 							</div>
-							<span>查看更多 ></span>
+							<!-- <span>查看更多 ></span> -->
 						</div>
 					</div>
 				</el-col>
