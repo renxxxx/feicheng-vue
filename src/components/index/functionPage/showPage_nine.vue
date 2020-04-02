@@ -13,12 +13,13 @@
         <div v-else class="main_bottom userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
       </div>
     </div>
+		<login ref="loginRefs"></login>
   </div>
 </template>
 
 <script>
 	import { mapActions, mapGetters } from 'vuex';
-  // import login from 'common/functionPage/login.vue'
+  import login from '../../common/functionPage/login.vue'
 	export default {
 	  name: 'accounts',
 	  data() {
@@ -40,14 +41,16 @@
       
     
     },
+	components:{login},
     methods:{
       loginFn(){
         this.centerDialogVisible = true;
-        this.$refs.loginRef.getData()
+		console.dir(this.$refs.loginRefs)
+        this.$refs.loginRefs.getData();
       }
 
     }
-	};
+};
 </script>
 
 <style scoped>
