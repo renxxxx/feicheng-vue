@@ -12,35 +12,35 @@
             <li>视频号信息:</li>
             <li>
               <span>视频号名:</span>
-              <el-input v-model="name" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' v-model="name" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>手机:</span>
-              <el-input type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>微信号:</span>
-              <el-input v-model="wx" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' v-model="wx" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>简介:</span>
-              <el-input type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
+              <el-input  :disabled='disabled' type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>账号类型:</span>
-              <el-select v-model="value" @change="typeFn(value)" placeholder="请选择">
+              <el-select :disabled='disabled' v-model="value" @change="typeFn(value)" placeholder="请选择">
                 <el-option v-for="item in type" :key="item.value" :label="item.label" :value="item.value"></el-option>
               </el-select>
             </li>
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
+              <el-cascader  :disabled='disabled' :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
               <span>头像:</span>
               <div class="avatorUp">
-                <el-upload
+                <el-upload  :disabled='disabled'
                   :file-list="dialogImageUrl1"
                   accept="image/*"
                   class="avatar-uploader"
@@ -61,32 +61,32 @@
             <li style="height: 24px;"></li>
             <li>
               <span>粉丝量:</span>
-              <el-input type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>视频量:</span>
-              <el-input type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>点赞量:</span>
-              <el-input type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled'  type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>曝光量:</span>
-              <el-input type="number" v-model="pv" placeholder="请输入内容"></el-input>
+              <el-input :disabled='disabled' type="number" v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
-              <el-checkbox style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+              <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
               <div style="margin: 15px 0;"></div>
-              <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+              <el-checkbox-group  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
                 <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{ city.name }}</el-checkbox>
               </el-checkbox-group>
             </li>
             <li>
               <span>视频号截图:</span>
               <div>
-                <el-upload
+                <el-upload :disabled='disabled'
                   accept="image/*"
                   :file-list="dialogImageUrl2"
                   :limit="1"
@@ -107,7 +107,7 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
       <el-row>
-        <div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div>
+        <div class="submit_div"><el-button :disabled='disabled' type="primary" @click="onSubmit">立即入驻</el-button></div>
       </el-row>
     </div>
     <login ref="loginRef"></login>
@@ -124,6 +124,7 @@ export default {
   name: 'ruzhu',
   data() {
     return {
+      disabled:false,
       selectedOptions: [],
       dialogImageUrl1: [],
       dialogImageUrl2: [],
@@ -297,12 +298,12 @@ export default {
       //   }
       // };
 
-      var didi = {};
-      didi = {
-        city: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
-        qu: { name:this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
-        shenfen: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id }
-      };
+      // var didi = {};
+      // didi = {
+      //   city: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+      //   qu: { name:this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+      //   shenfen: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id }
+      // };
 
       // this.ruleForm.regionServers = [data.region, data.server]
 
@@ -433,7 +434,7 @@ export default {
     },
     typeFn(_value) {
       this.num = _value;
-      donsole.log(this.num);
+      console.log(this.num);
       // console.log(this.num)
     },
     // 获取领域列表

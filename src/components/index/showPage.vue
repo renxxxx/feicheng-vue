@@ -238,7 +238,7 @@
     <!-- <el-footer> -->
     <div class="footer">
       <div class="footer_1">
-        <div class="footer_1_1">
+        <!-- <div class="footer_1_1">
           <div>关于我们</div>
           <div>
             <a href="https://www.newrank.cn/" target="_blank" rel="noopener noreferrer">新榜</a>
@@ -263,7 +263,7 @@
               rel="noopener noreferrer"
             >账号回采</a>
           </div>
-        </div>
+        </div> -->
         <div class="footer_1_3">
           <div class="_GudV7S8W">联系客服</div>
           <div class="_3gZSHcLe">邮箱：{{ servant.servantEmail }}</div>
