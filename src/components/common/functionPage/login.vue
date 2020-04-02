@@ -75,8 +75,9 @@ export default {
         .then(res => {
           // console.log(res)
               this.loginTicket=res.data.data.loginTicket
+							debugger
              this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
-             console.log(this.imgSrc,this.loginTicket)
+             console.log(this.imgSrc)
              this.timer = setInterval(this.get, 2000);
         })
         .catch(err => {});

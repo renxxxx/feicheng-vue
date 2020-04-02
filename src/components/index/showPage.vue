@@ -232,7 +232,7 @@
             <!-- 第八块 -->
             <showPage_eight ref="showPage_eight"></showPage_eight>
             <!-- 第九块 -->
-            <showPage_nine ref="showPage_nine"></showPage_nine>
+            <showPage_nine ref="showPage_nine" @loginFn="loginFn" ></showPage_nine>
           </div>
         </div>
       </el-main>
