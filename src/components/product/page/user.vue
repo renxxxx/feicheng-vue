@@ -59,7 +59,9 @@
 				<el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
 					<el-carousel height="228px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
-							<img :src="item" alt="" style="height: 100%;width: 100%;">
+							<router-link :to="{path:item.url}">
+								<img :src="item.src" alt="" style="height: 100%;width: 100%;">
+							</router-link>
 						</el-carousel-item>
 					</el-carousel>
 				</el-col>
@@ -117,8 +119,14 @@
 				<div class="user_type_one" @mouseenter="mouseFn('one')" @mouseleave="leaveFn('one')">
 					<router-link :to="{path:'/productPage/productPage_videoSearch'}">
 						<div class="_IskksKxv" v-if="oneValue.data"><div class="_3EmITLRt"></div></div>
-						<h3>{{oneValue.title}}</h3>
-						<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						<div class="leftType" v-if="!oneValue.data">
+							<h3>{{oneValue.title}}</h3>
+							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						</div>
+						<div class="rightType" v-if="oneValue.data">
+							<h3>{{oneValue.title}}</h3>
+							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						</div>
 					</router-link>
 				</div>
 				<div class="user_type_two" @mouseenter="mouseFn('two')" @mouseleave="leaveFn('two')">
@@ -169,8 +177,7 @@ export default {
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
 		fourValue:{title:'商学院',center:'',data:false},
 		fiveValue:{title:'博主入驻',center:'',data:false},
-		list:[require('../../../assets/img/1.png'),require('../../../assets/img/2.jpg'),require('../../../assets/img/3.jpg'),
-		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg')],
+		list:[{url:'/productPage/productPage_ruzhu',src:require('../../../assets/img/1.png')}],
 		typeList:[],
 		articleOne:[],
 		articleTwo:[],
@@ -699,14 +706,34 @@ export default {
 	overflow: hidden;
 	/* color: rgb(255, 255, 255); */
 }
-.user_type_one h3,.user_type_two h3,.user_type_three h3,.user_type_four h3,.user_type_five h3{
+.leftType{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	height: 80px;
+	width: 145px;
+	margin: auto;
+	text-align: left;
+}
+.leftType>h3{
+	font-weight: 400;
+	font-size: 34px;
+	text-aligin:left;
+}
+.leftType>p{
+	bottom: 35px;
+	color: rgb(120, 122, 122);
+	text-aligin:left;
+}
+/* .user_type_one h3,.user_type_two h3,.user_type_three h3,.user_type_four h3,.user_type_five h3{
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 48px;
 	font-weight: 400;
 	font-size: 34px;
-	text-align: center;
 }
 .user_type_one p,.user_type_two p,.user_type_three p,.user_type_four p,.user_type_five p{
 	position: absolute;
@@ -715,7 +742,7 @@ export default {
 	bottom: 35px;
 	text-align: center;
 	color: rgb(120, 122, 122);
-}
+} */
 .color{
 	color: #fff!important;
 }

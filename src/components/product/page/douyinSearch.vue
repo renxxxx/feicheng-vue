@@ -18,10 +18,10 @@
 					</div> -->
 					<div class="search_box_input">
 						<img src="../../../assets/img/search.png" alt="">
-						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
+						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
-					<span @click="searchFn">搜索</span>
+					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
 				</div>
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
@@ -148,10 +148,10 @@
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
 								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 								<!-- <span>{{user.name}}</span> -->
-								<p>
+								<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
 									微信号{{user.wx}}
-									<!-- <svg width="13" height="14" viewBox="0 0 13 14"><g data-name="2256" fill="#52c41a"><path data-name="10211" d="M1.194 13.899L.407 12.55a6.216 6.216 0 0 0 0-11.1L1.194.078a7.755 7.755 0 0 1 0 13.817z"></path><path data-name="10212" d="M.0010000000000000009 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10213" d="M11.380999999999998 7.003a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10214" d="M11.402999999999999.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10215" d="M11.402999999999999 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.8.8z"></path><path data-name="10216" d="M.0010000000000000009.801a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10217" d="M.0010000000000000009 13.2a.8.8 0 1 0 .8-.8.8.8 0 0 0-.801.8z"></path><path data-name="10218" d="M11.806 13.899a7.755 7.755 0 0 1 0-13.817l.782 1.372a6.216 6.216 0 0 0 0 11.1z"></path><path data-name="10219" d="M.801 6.202h11.4v1.6H.801z"></path></g></svg> -->
-									<span style="color: #cdcfcf;">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
+									<span class="_3wruq4Mm"></span>
+									<span class="diquColor">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
 								</p>
 								<p class="line-2">{{user.brief}}</p>
 							</div>
@@ -226,6 +226,7 @@ export default {
 			two:0,
 			three:0,
 			four:0,
+			searchColor:false,
 		}
 	},
 	computed:{
@@ -468,6 +469,7 @@ export default {
 			console.log(_inx)
 		},
 		searchFn(){
+			this.searchColor = true;
 			console.log(this.kw)
 			this.page = 1;
 			this.userList = []
@@ -576,17 +578,29 @@ export default {
 	color: #e8edee;
 }
 .search_box>span{
-	height: 34px;
+	height: 32px;
 	width: 64px;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: center;
 	float: left;
-	background-color: #ff7800;
+	/* background-color: #ff7800; */
+	color: #6b6d6d;
+	background-color: #3e3e3e;
+	border: 1px solid #6d6d6d;
+	border-left: 0px;
+	box-shadow: 0 2px 0 rgba(0,0,0,.045);
 	border-radius: 0px 4px 4px 0px;
+	cursor: pointer;
 }
-.search_box>span:focus, .search_box>span:hover{
+.searchColor{
+	 color: #fff!important;
+	 background-color: #ff7800!important;
+	 border-color: #ff9429!important;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
+}
+.search_box>span:focus{
 	cursor: pointer;
     color: #fff;
     background-color: #ff9429;
@@ -773,7 +787,7 @@ export default {
 	cursor: pointer;
 	/* margin-right: 3%; */
 }
-.searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
+.searchList_canshu ul li:first-child{
 	cursor: pointer;
 	width: 23%;
 	max-width: 140px;
@@ -804,7 +818,6 @@ export default {
 	width: 100%;
 }
 .searchList_lie{
-	padding: 20px 8px 24px 8px;
 	border-radius: 6px;
 	color: #e8edee;
 	font-size: 14px;
@@ -830,14 +843,19 @@ export default {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	margin: auto 0px;
+	margin: auto 5px;
+	margin-left: 5px;
+	border: 2px solid #fff;
 }
 .searchList_lie_xinxi_jianjie{
+	padding: 20px 8px 8px 8px;
 	display: inline-block;
 	margin-left: 75px;
 }
 .searchList_lie_xinxi_jianjie>h3{
 	display: inline-block;
+	color: #e8edee;
+	font-size: 16px;
 }
 .searchList_lie_xinxi_jianjie>h3:hover{
 	text-decoration: none;
@@ -873,6 +891,23 @@ export default {
 }
 .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;
+}
+.diquColor{
+	color:#cdcfcf;
+	display: inline-block;
+}
+.diquColor::before{
+	position: absolute;
+	color: #707070;
+}
+._3wruq4Mm {
+	margin: 0 8px;
+   width: 1px;
+   height: 12px;
+	line-height: 12px;
+   background-color: #707070;
+	display: inline-block;
+	
 }
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
