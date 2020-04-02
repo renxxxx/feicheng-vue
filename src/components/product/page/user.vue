@@ -57,7 +57,7 @@
 					</div>
 				</el-col>
 				<el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
-					<el-carousel height="254px">
+					<el-carousel height="300px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
 							<router-link :to="{path:item.url}">
 								<img :src="item.src" alt="" style="height: 100%;width: 100%;">
@@ -500,13 +500,13 @@ export default {
 	width: 100%;
 }
 .user_name{
-	height: 254px;
+	height: 300px;
 	margin-top: 24px;
 	width: 100%;
 }
 .user_quanxian{
 	width: 100%;
-	height: 254px;
+	height: 300px;
 	background: #3a3a3e;
 	position: relative;
 }

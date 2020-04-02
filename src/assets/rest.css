@@ -12,7 +12,7 @@ strong{
       font-weight: bolder;
 }
 /* 默认不要下划线 */
-a {text-decoration:none; color: rgba(255, 255, 255, 0.65);}
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
 a:link{text-decoration:none; }
 a:hover{text-decoration:none; }
 a:active{text-decoration:none; }
