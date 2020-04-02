@@ -1,12 +1,13 @@
 <template>
 	<div class="article">
 		<el-row :gutter='17' class="nav">
-			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-				<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
-					<img src="../../assets/img/logo.png" style="height:100%" alt="">
+			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3">
+				<router-link :to="{path:'/index'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
+					<div class="before"></div>
+					<img src="../../assets/img/logo.png"   alt="">
 				</router-link>
 			</el-col>
-			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
+			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21">
 				<div class="topNav">
 					<el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
 						<div class="nav_user">
@@ -25,7 +26,7 @@
 									</div>
 									<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
 										<span class="spanColor">
-											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
@@ -199,6 +200,25 @@ export default {
 	overflow-x:hidden;
 	min-width: 800px;
 	background-color: #f6fff042;
+}
+.logo>img{
+	width: 34%;
+	    position: absolute;
+	    left: 34px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+}
+
+.before{
+	width: 2px;
+	height: 38px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+	background-color: rgb(255, 120, 0);
 }
 .nav{
 	background-color: #2b2b2e;

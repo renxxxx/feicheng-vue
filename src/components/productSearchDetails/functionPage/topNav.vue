@@ -25,7 +25,7 @@
 								</div>
 								<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
 									<span class="spanColor">
-										{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?""
+										{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 										:this.$store.state.wxVideoaccount.type==0?"体验版"
 										:this.$store.state.wxVideoaccount.type==1?"个人号"
 										:this.$store.state.wxVideoaccount.type==2?"达人号"
