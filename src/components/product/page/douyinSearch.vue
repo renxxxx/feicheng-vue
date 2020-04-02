@@ -431,7 +431,7 @@ export default {
 			}
 		},
 		typeClickFn(_item,_inx){
-			// console.log(_item)
+			// //console.log(_item)
 			if(this.typeList[_inx].typeData){
 				
 				this.typeList[_inx].typeData = false;
@@ -445,7 +445,7 @@ export default {
 				for(let i in this.typeList){
 					this.typeList[i].typeData = false;
 				}
-				console.dir(this.typeList)
+				//console.dir(this.typeList)
 				this.typeList[_inx].typeData = true;
 				// this.wxVideoaccountRealmId.push(_item.wxVideoaccountRealmId)
 				this.wxVideoaccountRealmIdNow = _item.wxVideoaccountRealmId
@@ -466,11 +466,11 @@ export default {
 				this.numList[i].typeData = false;
 			}
 			this.numList[_inx].typeData = true
-			console.log(_inx)
+			//console.log(_inx)
 		},
 		searchFn(){
 			this.searchColor = true;
-			console.log(this.kw)
+			//console.log(this.kw)
 			this.page = 1;
 			this.userList = []
 			this.getData()

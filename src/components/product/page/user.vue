@@ -249,7 +249,7 @@ export default {
 	  debugger
   	let scrollTop = this.scrollTop =document.getElementById('productPage').scrollTop;
   	this.scrollTop = scrollTop?scrollTop :0;
-  	console.log(this.scrollTop)
+  	//console.log(this.scrollTop)
   	if(!to.query.time || !from.query.time || to.query.time < from.query.time){
   		 // debugger
   			if (this.$vnode && this.$vnode.data.keepAlive)
@@ -374,7 +374,7 @@ export default {
 		}
     },
 		detailClickFn(_data){
-			console.log(_data)
+			//console.log(_data)
 			if(_data.link==0){
 				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
 				// window.open('/#/articleDetails?data='+_data.articleId, '_blank');

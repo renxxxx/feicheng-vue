@@ -241,9 +241,9 @@ export default {
      }
   },
   mounted() {
-    // console.log(this.getVideoList)
+    // //console.log(this.getVideoList)
     this.options = area;
-    console.log(this.options);
+    //console.log(this.options);
       this.accountRealmIdList();
       if (this.$store.state.wxVideoaccount.type == 0) {
         this.value = '体验版';
@@ -267,7 +267,7 @@ export default {
         this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
       }
       this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
-       console.log()
+       //console.log()
       var dialogImageUrl2 = [],
         dialogImageUrl1 = [];
         if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
@@ -334,7 +334,7 @@ export default {
         )
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
+            //console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -353,7 +353,7 @@ export default {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
     handleChange(_value) {
-		 // console.log(_value)
+		 // //console.log(_value)
       let name1 = area.find(n => n.value == _value[0]);
       let name2 = name1.children.find(n => n.value == _value[1]);
       let name3 = name2.children.find(n => n.value == _value[2]);
@@ -372,7 +372,7 @@ export default {
           id: name3.value
         }
       };
-      console.log(this.diliNow);
+      //console.log(this.diliNow);
     },
     onSubmit() {
       this.$axios
@@ -401,7 +401,7 @@ export default {
         )
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
+            //console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -421,12 +421,12 @@ export default {
             // path:'/productPage/productPage_user'
             // this.$router.push({path:'/productPage/productPage_user'});
             // console.dir(this.$refs.refChild.tableData)
-            console.log(this.$refs.refChild.tableData,this.$refs.refChild.tableData.length)
+            //console.log(this.$refs.refChild.tableData,this.$refs.refChild.tableData.length)
             if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
               var tableData = this.$refs.refChild.tableData;
 
               for (var i in tableData) {
-                console.log(tableData[i].video)
+                //console.log(tableData[i].video)
                 debugger
                 this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
               }
@@ -443,8 +443,8 @@ export default {
     },
     typeFn(_value) {
       this.num = _value;
-      console.log(this.num);
-      // console.log(this.num)
+      //console.log(this.num);
+      // //console.log(this.num)
     },
     // 获取领域列表
     accountRealmIdList() {
@@ -452,7 +452,7 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
+            //console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -471,7 +471,7 @@ export default {
 
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // console.log(this.imageUrlNow)
+      // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -486,11 +486,11 @@ export default {
       return isLt2M; // isJPG && isLt2M;
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
-      console.log(this.dialogImageUrl);
+      //console.log(this.dialogImageUrl);
       this.dialogVisible = true;
     },
 
@@ -499,7 +499,7 @@ export default {
       this.dialogImageUrlNowlist = [];
       this.dialogImageUrlNowlist.push(response.data.url);
       this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(',');
-      console.log(this.dialogImageUrlNow);
+      //console.log(this.dialogImageUrlNow);
     },
     // 选择领域
     handleCheckAllChange(val) {
@@ -517,7 +517,7 @@ export default {
       for (let i in this.checkedCities) {
         this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
       }
-      console.log(this.checkedCities);
+      //console.log(this.checkedCities);
       this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
       let checkedCount = value.length;
       this.checkAll = checkedCount === this.cities.length;

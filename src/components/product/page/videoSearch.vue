@@ -163,7 +163,7 @@
 					.catch()
 			},
 			searchFn() {
-				console.log(this.kw)
+				//console.log(this.kw)
 				this.page = 1;
 				this.videoList = []
 				this.getData()

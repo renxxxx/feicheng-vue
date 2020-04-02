@@ -53,36 +53,36 @@ export default {
 
 	activated(){
 		// debugger;
-		console.log('activated')
+		//console.log('activated')
 	},
 	deactivated(){
-		console.log('deactivated')
+		//console.log('deactivated')
 	},
   mounted() {
     // this.getData();
 
-     // console.log(this.imgSrc)
+     // //console.log(this.imgSrc)
   },
   methods: {
     closeLogin(){
+      debugger
           clearInterval(this.timer);
           this.centerDialogVisible = false;
     },
     getData(){
-      // debugger
+       debugger
+       let thisVue =this
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {
-          // console.log(res)
-              this.loginTicket=res.data.data.loginTicket
-             this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
-             console.log(this.imgSrc,this.loginTicket)
-             this.timer = setInterval(this.get, 2000);
+              thisVue.loginTicket=res.data.data.loginTicket
+             thisVue.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
+             thisVue.timer = setInterval(this.get, 2000);
         })
         .catch(err => {});
     },
     get() {
-      console.log(this.loginTicket)
+      debugger
             this.$axios
               .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
@@ -109,7 +109,6 @@ export default {
                 }
               })
               .catch(err => {});
-            // console.log(this.value);
           }
   },
    beforeDestroy() {

@@ -325,7 +325,7 @@ export default {
       "showPage"
     ).scrollTop);
     this.scrollTop = scrollTop ? scrollTop : 0;
-    // console.log(this.scrollTop);
+    // //console.log(this.scrollTop);
     if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
       debugger;
       if (this.$vnode && this.$vnode.data.keepAlive) {
@@ -375,8 +375,8 @@ export default {
       query: from.query
     });
     let lastRoute = localStorage.getItem("lastRoute");
-    // console.log('fromRoute'+fromRoute)
-    // console.log('lastRoute'+lastRoute)
+    // //console.log('fromRoute'+fromRoute)
+    // //console.log('lastRoute'+lastRoute)
     if (fromRoute == lastRoute) {
       localStorage.removeItem("lastRoute");
     }
@@ -385,10 +385,10 @@ export default {
      debugger
   },
   mounted() {
-    // console.log(this.$refs.showPage1.offsetTop);
-    // console.log(this.$refs.showPage2.offsetTop);
-    // console.log(this.$refs.showPage_one.$el.offsetHeight);
-    // console.log(this.$refs.showPage_two.$el.offsetHeight);
+    // //console.log(this.$refs.showPage1.offsetTop);
+    // //console.log(this.$refs.showPage2.offsetTop);
+    // //console.log(this.$refs.showPage_one.$el.offsetHeight);
+    // //console.log(this.$refs.showPage_two.$el.offsetHeight);
     window.addEventListener("scroll", this.scrollToTop, true);
     // 获取配置信息
     this.$axios
@@ -470,7 +470,7 @@ askIfEnter(){
     initData() {
       this.showData = true;
       localStorage.setItem("showData", this.showData);
-      // console.log('路由发送变化doing...');
+      // //console.log('路由发送变化doing...');
       // Object.assign(this.$data, this.$options.data());
     },
     loginFn() {
@@ -492,7 +492,7 @@ askIfEnter(){
       var height8 = height7 + this.$refs.showPage_six.$el.offsetHeight;
       var height9 = height8 + this.$refs.showPage_eight.$el.offsetHeight;
       var height10 = height9 + this.$refs.showPage_nine.$el.offsetHeight;
-      console.log(scrollTop, height2, height3, height4);
+      //console.log(scrollTop, height2, height3, height4);
       if (scrollTop >= height3 / 2) {
         document
           .getElementById("one_1")
@@ -511,7 +511,7 @@ askIfEnter(){
           .setAttribute("class", "oneBox_mid_line oneBox_mid_line_five_1");
       }
       if (scrollTop >= height3 + 400) {
-        console.log(document.getElementById("two_1"));
+        //console.log(document.getElementById("two_1"));
         document
           .getElementById("two_1")
           .setAttribute("class", "box_indexLf transitionlF_2");
