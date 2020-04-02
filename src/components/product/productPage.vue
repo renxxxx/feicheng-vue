@@ -384,12 +384,12 @@ el-menu-item {
 	border-bottom: 1px solid #3a3a3e;
 }
 .logo>img{
-	width: 34%;
 	    position: absolute;
-	    left: 34px;
-	top: 0;
-	bottom: 0;
-	margin: auto 0px;
+	    left: 20px;
+	    top: 0;
+	    bottom: 0;
+	    margin: auto 0px;
+	    height: 30px;
 }
 
 .before{
