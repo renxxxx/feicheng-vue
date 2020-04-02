@@ -254,6 +254,15 @@ export default {
       } else if (this.$store.state.wxVideoaccount.type == 3) {
         this.value = '企业号';
       }
+       if(!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null||this.$store.state.wxVideoaccount.type==0){
+         this.disabled=false
+       }else if(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null||this.$store.state.wxVideoaccount.audit==12){
+         this.disabled=false
+       }else{
+         this.disabled=true
+       }
+                
+
       for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
         this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
       }

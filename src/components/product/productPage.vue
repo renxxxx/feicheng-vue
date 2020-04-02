@@ -127,7 +127,7 @@
 								<img alt="">
 
 								<span style="margin-left: 14px;">
-									<router-link :to="{path:'/productPage/productPage_ruzhuView'}">
+									<router-link :to="{path:'/productPage/productPage_ruzhu'}">
 										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 											:this.$store.state.wxVideoaccount.type==0?"体验版"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
