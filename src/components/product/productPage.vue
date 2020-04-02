@@ -58,22 +58,23 @@
 									<span v-if='getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
 									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
-
-
-										<span  v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
-											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
-											:this.$store.state.wxVideoaccount.type==0?"体验版"
-											:this.$store.state.wxVideoaccount.type==1?"个人号"
-											:this.$store.state.wxVideoaccount.type==2?"达人号"
-											:this.$store.state.wxVideoaccount.type==3?"企业号"
-											:"未知" }}
-											{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
-											:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
-											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
-											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
-											:"未知" }}
+										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+											<span class="spanColor">
+												{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
+												:this.$store.state.wxVideoaccount.type==0?"体验版"
+												:this.$store.state.wxVideoaccount.type==1?"个人号"
+												:this.$store.state.wxVideoaccount.type==2?"达人号"
+												:this.$store.state.wxVideoaccount.type==3?"企业号"
+												:"未知" }}
+												{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
+												:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+												:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+												:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+												:"未知" }}
+											</span>
+											<i class="el-icon-arrow-down"></i>
 										</span>
-
+											
 										<span v-if="!this.$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
 											{{ "登录" }}
 										</span>
@@ -83,13 +84,13 @@
 							</div>
 							<div class="nav_function">
 								<svg width="16" height="15.999"  viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
-    <title>画板 copy 4</title>
-    <desc>Created with Sketch.</desc>
-    <g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
-    </g>
-</svg>
+									<!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+									<title>画板 copy 4</title>
+									<desc>Created with Sketch.</desc>
+									<g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
+									</g>
+								</svg>
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
@@ -108,22 +109,21 @@
 				<div class="leftNav" >
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose" unique-opened = "true"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-						
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
-								<span style="font-weight: 500;font-size: 16px;">商学院</span>
+								<span style="font-weight: 500;font-size: 16px;margin-left: 3px;">商学院</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
-								<img alt="">
-								<span style="font-weight: 500;margin-left: 16px;">博主入驻</span>
+								<!-- <img alt=""> -->
+								<span style="margin-left: 20px;">博主入驻</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
-								<span style="font-weight: 500;margin-left: 16px;">
+								<span style="margin-left: 20px;">
 									<!-- <router-link :to="{path:'/productPage/productPage_ruzhu'}"> -->
 										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
@@ -145,13 +145,13 @@
 							<template slot="title">
 								<!-- <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.58 -60.259)"><circle cx="2.794" cy="2.794" r="2.794" transform="translate(26.645 70.823)" fill="currentColor"></circle><path d="M39.556 68.71a7.6 7.6 0 0 1-4.366-1.369v6.194a5.806 5.806 0 1 1-5.8-5.724 5.891 5.891 0 0 1 .936.075v3.281a2.63 2.63 0 0 0-.917-.167A2.555 2.555 0 1 0 32 73.559V61.259h3.238a4.312 4.312 0 0 0 4.342 4.282v3.169z" fill="#e8edee"></path></g></svg> -->
 							<svg width="1em" height="1em"   viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
-    <title>画板 copy 4</title>
-    <desc>Created with Sketch.</desc>
-    <g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
-    </g>
-</svg>
+									<!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+									<title>画板 copy 4</title>
+									<desc>Created with Sketch.</desc>
+									<g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
+									</g>
+								</svg>
 								<span>{{leftNavList[0].name}}</span>
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
