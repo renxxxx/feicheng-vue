@@ -16,16 +16,32 @@
 							<el-popover placement="top-start" trigger="hover">
 								<div class="nav_data_xiala">
 									<ul>
-										<li>视频管家</li>
+										<!-- <li>视频管家</li> -->
 										<li>我的收藏</li>
-										<li>购买续费</li>
-										<li>我的权限</li>
+										<!-- <li>购买续费</li> -->
+										<!-- <li>我的权限</li> -->
 										<li @click="exitFn">退出</li>
 									</ul>
 								</div>
-								<span slot="reference" style="cursor: pointer;">体验版</span>
+								<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+									<span class="spanColor">
+										{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
+										:this.$store.state.wxVideoaccount.type==0?"体验版"
+										:this.$store.state.wxVideoaccount.type==1?"个人号"
+										:this.$store.state.wxVideoaccount.type==2?"达人号"
+										:this.$store.state.wxVideoaccount.type==3?"企业号"
+										:"未知" }}
+										{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
+										:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+										:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+										:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+										:"未知" }}
+									</span>
+									<i class="el-icon-arrow-down"></i>
+								</span>
+
 							</el-popover>
-							<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
+							
 						</div>
 						<div class="nav_function">
 							<!-- <svg width="16" height="16" viewBox="0 0 16 16" class="_pniUROVW">
@@ -309,10 +325,11 @@ export default {
 		float: right;
 		    margin-right: 20px;
 		    height: 56px;
-		    line-height: 5px!important;
+		    line-height: 56px!important;
 	}
-	.nav_data>i{
-		line-height: 0;
+	.nav_data>span:nth-child(3)>i{
+		margin-left: 15px;
+		display: inline-block;
 	}
 	.nav_data>img {
 		height: 24px;
@@ -337,17 +354,16 @@ export default {
 		margin-right: 4px;
 	}
 
-	.nav_data>span:nth-child(3) {
+	.spanColor{
 		font-size: 12px;
 		height: 22px;
-		display: inline-block;
-		line-height: 20px;
+		line-height: 22px;
 		padding: 0 14px;
 		border-radius: 4px;
 		border: 1px solid #66666d;
-		background: rgba(102, 102, 109, .1);
+		background: rgba(102,102,109,.1);
+		display: inline-block;
 	}
-
 	.nav_data_xiala{
 			width: 100px;
 			margin: 0px auto;

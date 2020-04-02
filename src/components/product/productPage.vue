@@ -38,8 +38,6 @@
 					</el-col>
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9">
 						<div class="nav_user">
-
-
 							<div class="nav_data" >
 								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
 								<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
@@ -48,10 +46,10 @@
 								    trigger="hover">
 									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
-											<li>DOU管家</li>
+											<!-- <li>DOU管家</li> -->
 											<li>我的收藏</li>
-											<li>购买续费</li>
-											<li>我的权限</li>
+											<!-- <li>购买续费</li> -->
+											<!-- <li>我的权限</li> -->
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
@@ -60,37 +58,39 @@
 									<span v-if='getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
 									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
-
-
 										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
-											{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
-											:this.$store.state.wxVideoaccount.type==0?"体验版"
-											:this.$store.state.wxVideoaccount.type==1?"个人号"
-											:this.$store.state.wxVideoaccount.type==2?"达人号"
-											:this.$store.state.wxVideoaccount.type==3?"企业号"
-											:"未知" }}
-											{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
-											:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
-											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
-											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
-											:"未知" }}
+											<span class="spanColor">
+												{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
+												:this.$store.state.wxVideoaccount.type==0?"体验版"
+												:this.$store.state.wxVideoaccount.type==1?"个人号"
+												:this.$store.state.wxVideoaccount.type==2?"达人号"
+												:this.$store.state.wxVideoaccount.type==3?"企业号"
+												:"未知" }}
+												{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
+												:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+												:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+												:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+												:"未知" }}
+											</span>
+											<i class="el-icon-arrow-down"></i>
 										</span>
-
+											
 										<span v-if="!this.$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
 											{{ "登录" }}
 										</span>
+										
 								</el-popover>
-								<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
+								
 							</div>
 							<div class="nav_function">
 								<svg width="16" height="15.999"  viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
-    <title>画板 copy 4</title>
-    <desc>Created with Sketch.</desc>
-    <g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
-    </g>
-</svg>
+									<!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+									<title>画板 copy 4</title>
+									<desc>Created with Sketch.</desc>
+									<g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
+									</g>
+								</svg>
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
@@ -107,29 +107,26 @@
 		<el-row class="height" :gutter='17'>
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
 				<div class="leftNav" >
-					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
+					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose" unique-opened = "true"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
-								<span>商学院</span>
+								<span style="font-weight: 500;font-size: 16px;margin-left: 3px;">商学院</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
-								<img alt="">
-								<span style="margin-left: 14px;">博主入驻</span>
+								<!-- <img alt=""> -->
+								<span style="margin-left: 20px;">博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.login' >
+						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhu">
 							<template slot="title">
-								<img alt="">
-
-								<span style="margin-left: 14px;">
-									<router-link :to="{path:'/productPage/productPage_ruzhu'}">
-										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
-											:this.$store.state.wxVideoaccount.type==0?"体验版"
+								<span style="margin-left: 20px;">
+									<!-- <router-link :to="{path:'/productPage/productPage_ruzhu'}"> -->
+										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
+											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
 											:this.$store.state.wxVideoaccount.type==2?"达人号"
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
@@ -139,18 +136,8 @@
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
-									</router-link>
+									<!-- </router-link> -->
 								</span>
-
-
-								<!-- <span v-if='getUserInfo.types===0&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版</router-link></span>
-								<span v-if='getUserInfo.types==1&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号</router-link></span>
-								<span v-if='getUserInfo.types==2&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号</router-link></span>
-								<span v-if='getUserInfo.types==3&&getUserInfo.audits!=12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号</router-link></span>
-								<span @click='askIfEnter()' v-if='getUserInfo.types===0&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">体验版(认证失败)</router-link></span>
-								<span @click='askIfEnter()' v-if='getUserInfo.types==1&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">个人号(认证失败)</router-link></span>
-								<span @click='askIfEnter()' v-if='getUserInfo.types==2&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">达人号(认证失败)</router-link></span>
-								<span @click='askIfEnter()' v-if='getUserInfo.types==3&&getUserInfo.audits==12' style="margin-left: 14px;"><router-link :to="{path:'/productPage/productPage_ruzhuView'}">企业号(认证失败)</router-link></span> -->
 							</template>
 						</el-menu-item>
 
@@ -158,106 +145,58 @@
 							<template slot="title">
 								<!-- <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.58 -60.259)"><circle cx="2.794" cy="2.794" r="2.794" transform="translate(26.645 70.823)" fill="currentColor"></circle><path d="M39.556 68.71a7.6 7.6 0 0 1-4.366-1.369v6.194a5.806 5.806 0 1 1-5.8-5.724 5.891 5.891 0 0 1 .936.075v3.281a2.63 2.63 0 0 0-.917-.167A2.555 2.555 0 1 0 32 73.559V61.259h3.238a4.312 4.312 0 0 0 4.342 4.282v3.169z" fill="#e8edee"></path></g></svg> -->
 							<svg width="1em" height="1em"   viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
-    <title>画板 copy 4</title>
-    <desc>Created with Sketch.</desc>
-    <g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
-    </g>
-</svg>
+									<!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+									<title>画板 copy 4</title>
+									<desc>Created with Sketch.</desc>
+									<g id="画板-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
+									</g>
+								</svg>
 								<span>{{leftNavList[0].name}}</span>
-								<svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[0].onechild" :key="zhi" :index="{path:child.url}">
+							<el-menu-item v-for="(child,zhione) in leftNavList[0].onechild" :key="zhione" :index="child.url">
 								<img :src="child.url" alt="">
 								<span>{{child.name}}</span>
-								<svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="4">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
 								<span>{{leftNavList[1].name}}</span>
-								<svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								<!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[1].onechild" :key="zhi" :index="{path:child.url}">
+							<el-menu-item v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="child.url">
 								 <img :src="child.url" alt="">
 								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								 <!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="5">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
 								<span>{{leftNavList[2].name}}</span>
-								<svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								<!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[2].onechild" :key="zhi">
+							<el-menu-item v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="child.url">
 								 <img :src="child.url" alt="">
 								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								 <!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="6">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M16.3 4.641a2.121 2.121 0 0 0-2.1-2.143H5.8a2.121 2.121 0 0 0-2.1 2.143L3 15.355a2.121 2.121 0 0 0 2.1 2.143h9.8a2.121 2.121 0 0 0 2.1-2.143l-.7-10.714z" fill="#6b6d6d"></path><path d="M13.826 5.948a3.825 3.825 0 0 1-7.651 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.2" stroke-miterlimit="10" fill="none"></path></svg>
 								<span>{{leftNavList[3].name}}</span>
-								<svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								<!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[3].onechild" :key="zhi">
+							<el-menu-item v-for="(child,zhifour) in leftNavList[3].onechild" :key="zhifour" :index="child.url">
 								 <img :src="child.url" alt="">
 								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+								 <!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
-						<!-- <el-submenu index="7">
-							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" class=""><g id="\u54C1\u724C\u9009\u4E2D" transform="translate(-136.855 -178.541)"><path id="\u8DEF\u5F84_12954" data-name="\u8DEF\u5F84 12954" d="M150.757,182.193a1.481,1.481,0,0,1-.117-.233c-1.2-2.357-1.758-2.157-3.665-2.157H142.93c-1.9,0-2.462-.166-3.665,2.157a1.48,1.48,0,0,0-.117.233c-1.056,2.092-1.671,3.187,0,5.411l3.194,3.716c1.173,1.361,1.847,2.19,2.609,2.157.761,0,1.435-.8,2.609-2.157l3.194-3.718C152.428,185.377,151.812,184.282,150.757,182.193Z" transform="translate(-0.098 -0.098)" fill="#6b6d6d"></path><path id="\u8DEF\u5F84_12955" data-name="\u8DEF\u5F84 12955" d="M148.85,187.228l-.465.541a13.867,13.867,0,0,1-1.241,1.284,1.763,1.763,0,0,1-2.6,0,14.08,14.08,0,0,1-1.241-1.284l-.467-.541a.694.694,0,0,1,.031-.947.566.566,0,0,1,.869.035l.464.541a12.047,12.047,0,0,0,1.118,1.184.937.937,0,0,0,.528.3c.154,0,.31-.1.527-.3.31-.271.651-.676,1.118-1.184l.465-.541a.591.591,0,0,1,.868-.035A.7.7,0,0,1,148.85,187.228Z" transform="translate(-0.986 -1.328)"></path><g id="\u7EC4_6861" data-name="\u7EC4 6861" transform="translate(137.613 179.299)"><g id="\u7EC4_6860" data-name="\u7EC4 6860"><g id="\u77E9\u5F62_5799" data-name="\u77E9\u5F62 5799" transform="translate(0.242 0.242)" fill="none" stroke="#f2f2f2" stroke-miterlimit="10" stroke-width="1" opacity="0"><rect width="14" height="14" stroke="none"></rect><rect x="-0.5" y="-0.5" width="15" height="15" fill="none"></rect></g></g></g></g></svg>
-								<span>{{leftNavList[4].name}}</span>
-								<svg v-if="leftNavList[4].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[4].onechild" :key="zhi">
-								 <img :src="child.url" alt="">
-								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[4].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</el-menu-item>
-						</el-submenu>
-						<el-submenu index="8">
-							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -151.303)"><ellipse cx="4.803" cy="4.897" rx="4.803" ry="4.897" transform="translate(26.579 156.833)" fill="currentColor"></ellipse><g fill="#e8edee"><path d="M36.554 154.882a2.7 2.7 0 0 0-1.682-.579h-6.628a.866.866 0 0 0-.822.681l-2.988 11.84a1.173 1.173 0 0 0 .753 1.435 1.054 1.054 0 0 0 .277.044h5.707l1.985-.4c5.566-2.437 6.794-10.343 3.398-13.021zM31.8 164.924h-3.588a.313.313 0 0 1-.3-.326.35.35 0 0 1 .011-.079l1.575-6.455a.477.477 0 0 1 .454-.381h3.615c2.208 1.448 1.76 5.793-1.768 7.241z"></path><path d="M24.832 155.661h3.494c.482 0 .873.525.873 1.172 0 .647-.391 1.171-.873 1.171h-3.494c-.482 0-.873-.524-.873-1.171s.391-1.172.873-1.172z"></path><path d="M21.524 159.664h6.149a1.277 1.277 0 0 1 1.085 1.4 1.277 1.277 0 0 1-1.085 1.406h-6.149a1.277 1.277 0 0 1-1.085-1.406 1.277 1.277 0 0 1 1.085-1.4z"></path><path d="M22.181 164.135h4.775a1.068 1.068 0 0 1 .918 1.171 1.068 1.068 0 0 1-.918 1.171h-4.775a1.068 1.068 0 0 1-.918-1.171 1.068 1.068 0 0 1 .918-1.171z"></path></g></g></svg>
-								<span>{{leftNavList[5].name}}</span>
-								<svg v-if="leftNavList[5].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[5].onechild" :key="zhi">
-								 <img :src="child.url" alt="">
-								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[5].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</el-menu-item>
-						</el-submenu>
-						<el-submenu index="9">
-							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M14.213 18.5a1.969 1.969 0 0 1-.861-.231l-3.348-1.733-3.38 1.733a1.7 1.7 0 0 1-1.928-.148 1.967 1.967 0 0 1-.718-1.882l.7-3.681-2.617-2.541a2.062 2.062 0 0 1-.494-1.948v-.016a1.836 1.836 0 0 1 1.5-1.321l3.634-.693 1.66-3.466A1.873 1.873 0 0 1 10.003 1.5a1.757 1.757 0 0 1 1 .314 1.667 1.667 0 0 1 .654.808l1.626 3.417 3.666.66A1.808 1.808 0 0 1 18.4 8.02a1.931 1.931 0 0 1-.462 1.964l-.016.016-2.6 2.575.654 3.7a1.935 1.935 0 0 1-.717 1.865 1.7 1.7 0 0 1-1.046.36z" fill="#e8edee"></path><path d="M6.985 11a4.066 4.066 0 0 0 6.03 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.4" stroke-miterlimit="10" fill="none"></path></svg>
-								<span>{{leftNavList[6].name}}</span>
-								<svg v-if="leftNavList[6].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[6].onechild" :key="zhi">
-								 <img :src="child.url" alt="">
-								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[6].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</el-menu-item>
-						</el-submenu>
-						<el-submenu index="10">
-							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -204.781)"><ellipse fill="#e8edee" cx="4.549" cy="4.476" rx="4.549" ry="4.476" transform="translate(24.89 205.781)"></ellipse><path fill="#e8edee" d="M38.439 220.573c0 2.957-4.029 3.208-9 3.208s-9-.251-9-3.208 4.03-5.354 9-5.354 9 2.397 9 5.354z"></path><g fill="currentColor"><circle cx="1.605" cy="1.605" r="1.605" transform="translate(27.834 217.249)"></circle><rect width="0.93" height="2.827" rx="0.465" transform="translate(28.974 220)"></rect></g></g></svg>
-								<span>{{leftNavList[7].name}}</span>
-								<svg v-if="leftNavList[7].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</template>
-							<el-menu-item v-for="(child,zhi) in leftNavList[7].onechild" :key="zhi">
-								 <img :src="child.url" alt="">
-								 <span>{{child.name}}</span>
-								 <svg v-if="leftNavList[7].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-							</el-menu-item>
-						</el-submenu> -->
 					</el-menu>
 				</div>
 			</el-col>
@@ -268,7 +207,7 @@
 		</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
-
+		
   </div>
 </template>
 
@@ -288,24 +227,13 @@ export default {
 			icon:'',
 			data:false,
 			onechild:[{name:'视频号搜索',data:'',url:'/productPage/productPage_douyinSearch'},
-					// {name:'MCN机构',data:'',url:''},
-					// {name:'地域找号',data:'',url:''},
-					// {name:'指数排行榜',data:'',url:''},
-					// {name:'单项指标排行',data:'',url:''},
-					// {name:'抖音·明星爱DOU榜',data:'',url:''},
 		]},
 		{
 			name:'素材创意',
 			icon:'',
 			data:true,
 			onechild:[{name:'视频搜索',data:'true',url:'/productPage/productPage_videoSearch'},
-					// {name:'抖音·热门视频',data:'true',url:''},
-					// {name:'抖音·实时热点',data:'true',url:''},
-					// {name:'音乐BGM',data:'true',url:''},
-					// {name:'抖音·DOU听音乐榜',data:'true',url:''},
-					// {name:'话题挑战赛',data:'true',url:''},
-					// {name:'魔法道具',data:'true',url:''},
-					// {name:'神评论',data:'true',url:''},
+				
 		]},
 		{
 			name:'探店打卡',
@@ -321,11 +249,6 @@ export default {
 			data:true,
 			onechild:[
 					{name:'博主列表',data:'true',url:''},
-					// {name:'热门商品排行',data:'true',url:''},
-					// {name:'KOL带货风向',data:'true',url:''},
-					// {name:'带货视频',data:'true',url:''},
-					// {name:'种草视频',data:'true',url:''},
-					// {name:'抖音·小店达人榜',data:'true',url:''},
 		]},
 		],
     }
@@ -648,10 +571,10 @@ el-menu-item {
 	float: right;
 	margin-right: 20px;
 	height: 56px;
-	line-height: 5px!important;
+	line-height: 56px!important;
 }
 .nav_data>i{
-		line-height: 0;
+		/* line-height: 0; */
 	}
 .nav_data>img{
 	height: 24px;width: 24px;border-radius: 50%;margin-right: 7px;
@@ -670,15 +593,19 @@ el-menu-item {
 .nav_data>span:nth-child(2){
 	margin-right: 4px;
 }
-.nav_data>span:nth-child(3){
+.spanColor{
 	font-size: 12px;
 	height: 22px;
-	display: inline-block;
-	line-height: 20px;
+	line-height: 22px;
 	padding: 0 14px;
 	border-radius: 4px;
 	border: 1px solid #66666d;
 	background: rgba(102,102,109,.1);
+	display: inline-block;
+}
+.nav_data>span:nth-child(3)>i{
+	margin-left: 15px;
+	display: inline-block;
 }
 .nav_data_xiala{
 		width: 100px;
@@ -711,6 +638,10 @@ el-menu-item {
 .nav_data_xiala>ul>li:hover{
 	transition: all .3s;
 	background-color: hsla(0,0%,100%,.1);
+}
+.nav_data_xiala>ul>li:hover{
+	transition: all .3s;
+	color: #f5222d;
 }
 #productPage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -748,6 +679,15 @@ el-menu-item {
 	min-width: 100%;
 	color: #FFFFFF !important;
 }
+.el-submenu__title{
+	font-weight: 500;
+	font-size: 16px;
+}
+/* .el-menu-item * {
+    font-weight: 500;
+    font-size: 16px;
+} */
+
 .el-submenu:hover,.el-submenu .el-menu-item:hover,.el-submenu__title:hover{
 	color: #ff7800 !important;
 }

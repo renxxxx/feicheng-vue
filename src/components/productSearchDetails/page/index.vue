@@ -5,10 +5,10 @@
 				<div class="search_box">
 					<div class="search_box_input">
 						<img src="../../../assets/img/search.png" alt="">
-						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
+						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
-					<span @click="searchFn">搜索</span>
+					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
 				</div>
 			</el-row>
 			<!-- <el-row style="line-height: 47px;" class="search_type">
@@ -54,11 +54,11 @@
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
+				<video :src="user.video" :poster="user.cover"></video>
 				<a :href="user.video" target="_blank">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
 							<!-- <img :src="user.cover" alt="" v-if="user.cover"> -->
-							<video :src="user.video" :poster="user.cover"></video>
 							<div class="searchList_lie_xinxi_jianjie">
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
 								<p>
@@ -131,6 +131,7 @@
 				order:'',
 				one:0,
 				two:0,
+				searchColor:false,
 			}
 		},
 		computed: {
@@ -248,7 +249,8 @@
 				.catch()
 			},
 			searchFn(){
-				console.log(this.kw)
+				// console.log(this.kw)
+				this.searchColor = true;
 				this.page = 1;
 				this.userList = []
 				this.getData()
@@ -335,17 +337,23 @@
 	color: #e8edee;
 }
 .search_box>span{
-	height: 34px;
+	height: 32px;
 	width: 64px;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: center;
 	float: left;
-	background-color: #ff7800;
+	/* background-color: #ff7800; */
+	color: #6b6d6d;
+	background-color: #3e3e3e;
+	border: 1px solid #6d6d6d;
+	border-left: 0px;
+	box-shadow: 0 2px 0 rgba(0,0,0,.045);
 	border-radius: 0px 4px 4px 0px;
+	cursor: pointer;
 }
-.search_box>span:focus, .search_box>span:hover{
+.search_box>span:focus{
     color: #fff;
     background-color: #ff9429;
     border-color: #ff9429;
@@ -553,6 +561,7 @@
 	font-size: 14px;
 	border-bottom:1px solid #404040;
 	position: relative;
+	height: 112px;
 }
 .searchList_lie:hover{
 	background: #3c3c3e;
@@ -575,14 +584,15 @@
 	bottom: 0;
 	margin: auto 0px;
 }
-.searchList_lie_xinxi>video{
+.searchList_lie video{
 	background-color: #000000;
 	width: 72px;
-	height: 112px;
+	height: 100%;
 	display: inline-block;
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	left: 0;
 	margin: auto 0px;
 }
 .searchList_lie_xinxi_jianjie{
@@ -641,6 +651,12 @@
 }
 .searchList_shuju{
 	/* height: 100px; */
+}
+.searchColor{
+	 color: #fff!important;
+	 background-color: #ff7800!important;
+	 border-color: #ff9429!important;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .searchList_canshu ul,.searchList_shuju ul{
 	padding: 0;

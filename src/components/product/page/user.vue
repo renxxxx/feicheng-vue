@@ -57,9 +57,11 @@
 					</div>
 				</el-col>
 				<el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
-					<el-carousel height="228px">
+					<el-carousel height="254px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
-							<img :src="item" alt="" style="height: 100%;width: 100%;">
+							<router-link :to="{path:item.url}">
+								<img :src="item.src" alt="" style="height: 100%;width: 100%;">
+							</router-link>
 						</el-carousel-item>
 					</el-carousel>
 				</el-col>
@@ -88,7 +90,7 @@
 									<p>{{item.brief}}</p>
 								<!-- </router-link> -->
 							</div>
-							<span>查看更多 ></span>
+							<!-- <span>查看更多 ></span> -->
 						</div>
 					</div>
 				</el-col>
@@ -108,7 +110,7 @@
 									</div>
 								<!-- </router-link> -->
 							</div>
-							<span>查看更多 ></span>
+							<!-- <span>查看更多 ></span> -->
 						</div>
 					</div>
 				</el-col>
@@ -117,36 +119,62 @@
 				<div class="user_type_one" @mouseenter="mouseFn('one')" @mouseleave="leaveFn('one')">
 					<router-link :to="{path:'/productPage/productPage_videoSearch'}">
 						<div class="_IskksKxv" v-if="oneValue.data"><div class="_3EmITLRt"></div></div>
-						<h3>{{oneValue.title}}</h3>
-						<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						<!-- <div class="leftType" v-if="!oneValue.data">
+							<h3>{{oneValue.title}}</h3>
+							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						</div>
+						<div class="rightType" v-if="oneValue.data">
+							<h3>{{oneValue.title}}</h3>
+							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						</div> -->
+						<div class="type_center" :class="[oneValue.data? 'color':'']">
+							{{oneValue.title}}
+							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+						</div>
 					</router-link>
 				</div>
 				<div class="user_type_two" @mouseenter="mouseFn('two')" @mouseleave="leaveFn('two')">
 					<router-link :to="{path:'/productPage/productPage_douyinSearch'}">
 					<div class="_IskksKxv" v-if="twoValue.data"><div class="_3EmITLRt"></div></div>
-					<h3>{{twoValue.title}}</h3>
-					<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p>
+					<div class="type_center" :class="[twoValue.data? 'color':'']">
+						{{twoValue.title}}
+						<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p>
+					</div>
+					<!-- <h3>{{twoValue.title}}</h3>
+					<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p> -->
 					</router-link>
 				</div>
 				<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
 					<router-link :to="{path:''}">
 						<div class="_IskksKxv" v-if="threeValue.data"><div class="_3EmITLRt"></div></div>
-						<h3>{{threeValue.title}}</h3>
-						<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p>
+						<div class="type_center" :class="[threeValue.data? 'color':'']">
+							{{threeValue.title}}
+							<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p>
+						</div>
+						<!-- <h3>{{threeValue.title}}</h3>
+						<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p> -->
 					</router-link>
 				</div>
 				<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
 					<router-link :to="{path:'/productPage/productPage_user'}">
 						<div class="_IskksKxv" v-if="fourValue.data"><div class="_3EmITLRt"></div></div>
-						<h3>{{fourValue.title}}</h3>
-						<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p>
+						<div class="type_center" :class="[fourValue.data? 'color':'']">
+							{{fourValue.title}}
+							<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p>
+						</div>
+						<!-- <h3>{{fourValue.title}}</h3>
+						<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p> -->
 					</router-link>
 				</div>
 				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
 					<router-link :to="{path:'/productPage/productPage_ruzhu'}">
 						<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
-						<h3>{{fiveValue.title}}</h3>
-						<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p>
+						<div class="type_center" :class="[fiveValue.data? 'color':'']">
+							{{fiveValue.title}}
+							<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p>
+						</div>
+						<!-- <h3>{{fiveValue.title}}</h3>
+						<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p> -->
 					</router-link>
 				</div>
 			</el-row>
@@ -169,8 +197,7 @@ export default {
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
 		fourValue:{title:'商学院',center:'',data:false},
 		fiveValue:{title:'博主入驻',center:'',data:false},
-		list:[require('../../../assets/img/1.png'),require('../../../assets/img/2.jpg'),require('../../../assets/img/3.jpg'),
-		require('../../../assets/img/4.jpg'),require('../../../assets/img/5.jpg')],
+		list:[{url:'/productPage/productPage_ruzhu',src:require('../../../assets/img/1.png')}],
 		typeList:[],
 		articleOne:[],
 		articleTwo:[],
@@ -473,13 +500,13 @@ export default {
 	width: 100%;
 }
 .user_name{
-	height: 228px;
+	height: 254px;
 	margin-top: 24px;
 	width: 100%;
 }
 .user_quanxian{
 	width: 100%;
-	height: 228px;
+	height: 254px;
 	background: #3a3a3e;
 	position: relative;
 }
@@ -690,32 +717,69 @@ export default {
 }
 .user_type_one,.user_type_two,.user_type_three,.user_type_four,.user_type_five{
 	height: 100%;
-	width: 19.89%;
+	width: 19.897%;
 	background: rgb(58, 58, 62);
 	margin-right: 1px;
-	display: inline-block;
+	/* display: inline-block; */
 	float: left;
 	position: relative;
 	overflow: hidden;
+	text-align: center;
 	/* color: rgb(255, 255, 255); */
 }
-.user_type_one h3,.user_type_two h3,.user_type_three h3,.user_type_four h3,.user_type_five h3{
+.type_center{
+	width: auto;
+	font-weight: 400;
+	font-size: 34px;
+	display: inline-block;
+	margin-top: 40px;
+}
+.type_center>p{
+	width: auto;
+	color: rgb(120, 122, 122);
+	font-size: 12px;
+	text-align: left;
+}
+/* .leftType{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	height: 80px;
+	width: 145px;
+	margin: auto;
+	text-align: left;
+}
+.leftType>h3{
+	font-weight: 400;
+	font-size: 34px;
+	text-aligin:left;
+}
+.leftType>p{
+	bottom: 35px;
+	color: rgb(120, 122, 122);
+	text-aligin:left;
+}
+.rightType{
+	
+} */
+/* .user_type_one h3,.user_type_two h3,.user_type_three h3,.user_type_four h3,.user_type_five h3{
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 48px;
 	font-weight: 400;
 	font-size: 34px;
-	text-align: center;
 }
 .user_type_one p,.user_type_two p,.user_type_three p,.user_type_four p,.user_type_five p{
 	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: 35px;
-	text-align: center;
+	text-align: left;
 	color: rgb(120, 122, 122);
-}
+} */
 .color{
 	color: #fff!important;
 }

@@ -220,7 +220,7 @@
 }
 /* TODO 圖片 */
 .mainbottom_lf_two{
-      background: url(https://xd1.newrank.cn/_next/static/media/left.abd95cc4.svg) 0 0 no-repeat;
+      background: url(/_next/static/media/left.abd95cc4.svg) 0 0 no-repeat;
       padding: 40px 0 24px 32px;
           position: relative;
 }
@@ -333,7 +333,7 @@
       opacity: .8;
       position: relative;
       margin-bottom: 30px;
-      width: 170px;
+      width: 176px;
       margin-left: 162px;
       margin-left: 288px;
 }
@@ -375,7 +375,7 @@
       z-index: -1;
 }
 .mainbottom_rt_bottom{
-      background: url(https://xd1.newrank.cn/_next/static/media/right.783e2dd4.svg) 0 0 no-repeat;
+      background: url(/_next/static/media/right.783e2dd4.svg) 0 0 no-repeat;
       padding-bottom: 24px;
       position: relative;
 }

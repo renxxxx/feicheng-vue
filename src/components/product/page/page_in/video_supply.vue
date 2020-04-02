@@ -113,6 +113,7 @@ export default {
       styleObject:{
         display:'block',
       },
+      showIf:'',
       disabled:'',
       name: '',
       likeCount: '',
