@@ -65,6 +65,7 @@ created(){
   mounted() {
     debugger
     console.log('mounted')
+     
   },
   methods: {
     closeLogin(){
@@ -75,6 +76,13 @@ created(){
     getData(){
        debugger
        let thisVue =this
+       if(!this.cookieOn()){
+       this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
+          confirmButtonText: '确定',
+          
+        });
+    }
+    
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {

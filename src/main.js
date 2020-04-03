@@ -2,19 +2,20 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
    
-import './assets/rest.css'
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from './store'
 import jquery from 'jquery'
+import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 import moment from 'moment'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
+import './assets/rest.css'
 import VueLazyload from 'vue-lazyload'
 //版本号
 
@@ -27,9 +28,21 @@ Vue.prototype.$store = store
 Vue.prototype.$h5p = h5p
 Vue.prototype.qs = qs
 Vue.prototype.$jquery = jquery
+Vue.prototype.$Cookies = Cookies
 Vue.prototype.moment = moment;
 
 
+Vue.prototype.cookieOn=function() {
+  debugger
+  var result = false;
+  if (navigator.cookiesEnabled) 
+    return true;
+  Cookies.set('tc', 'yes', { path: "/"});
+  if (Cookies.get('tc') && Cookies.get('tc').indexof('yes') > -1) 
+    result = true;
+  Cookies.set('tc', '', { expires: -1 });
+  return result;
+}
 
 
 Vue.use(VueLazyload, {
