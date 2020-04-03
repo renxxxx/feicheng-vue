@@ -2,7 +2,10 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
    
-
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+import './assets/rest.css'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -13,16 +16,14 @@ import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 import moment from 'moment'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import './assets/rest.css'
+
 import VueLazyload from 'vue-lazyload'
 //版本号
  
 Vue.prototype.$version = '2004030946-65317ef'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
-Vue.use(ElementUI);
+
 Vue.prototype.$axios = axios
 Vue.prototype.$store = store
 Vue.prototype.$h5p = h5p
