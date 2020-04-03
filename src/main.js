@@ -38,7 +38,7 @@ Vue.prototype.cookieOn=function() {
   if (navigator.cookiesEnabled) 
     return true;
   Cookies.set('tc', 'yes', { path: "/"});
-  if (Cookies.get('tc') && Cookies.get('tc').indexof('yes') > -1) 
+  if (Cookies.get('tc') && Cookies.get('tc').indexOf('yes') > -1) 
     result = true;
   Cookies.set('tc', '', { expires: -1 });
   return result;
