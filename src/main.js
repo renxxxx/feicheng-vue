@@ -20,7 +20,7 @@ import moment from 'moment'
 import VueLazyload from 'vue-lazyload'
 //版本号
  
-Vue.prototype.$version = '2004031019-2662fa1'
+Vue.prototype.$version = '2004031042-c2f06fd'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 
