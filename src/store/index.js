@@ -8,6 +8,8 @@ Vue.use(Vuex)
 const state = {
   //登陆弹窗
   centerDialogVisible: false,
+  // 全局搜索弹出显示值
+	publicSearchShow:false,
   login:null,
   wxVideoaccount:null,
 	//视频播放弹窗
@@ -38,6 +40,9 @@ const getters = {
   centerDialogVisible: state => state.centerDialogVisible,
 	//视频播放弹窗
 	showVideoDialog: state => state.showVideoDialog,
+	// 全局搜索弹出显示值
+	publicSearchShow: state => state.publicSearchShow,
+	
 }
 const actions = {}
 const mutations = {}

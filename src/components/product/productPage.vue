@@ -94,7 +94,7 @@
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
-								<input type="search" placeholder="搜索">
+								<input type="search" placeholder="搜索" @click="searchDiialogFn">
 								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
 							</div>
 						</div>
@@ -107,7 +107,7 @@
 		<el-row class="height" :gutter='17'>
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
 				<div class="leftNav" >
-					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose" unique-opened = "true"
+					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
 						<el-menu-item index="/productPage/productPage_user">
 							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
@@ -216,7 +216,7 @@
 		</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
-		
+		<searchDialog></searchDialog>
   </div>
 </template>
 
@@ -224,6 +224,7 @@
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
 import login from '../common/functionPage/login.vue'
+import searchDialog from './function/searchDialog.vue'
 export default {
   name: 'productPage',
   data(){
@@ -249,7 +250,7 @@ export default {
 			icon:'',
 			data:true,
 			onechild:[
-				{name:'打卡地点搜索',data:'true',url:''},
+				{name:'打卡地点搜索',data:'true',url:'/productPage/productPage_addressSearch'},
 					// {name:'热门城市',data:'true',url:''},
 		]},
 		{
@@ -257,7 +258,7 @@ export default {
 			icon:'',
 			data:true,
 			onechild:[
-					{name:'博主列表',data:'true',url:''},
+					{name:'博主列表',data:'true',url:'/productPage/productPage_collection'},
 		]},
 		],
     }
@@ -321,9 +322,13 @@ export default {
 
   },
   components: {
-    login,
+    login,searchDialog
   },
   methods:{
+	  searchDiialogFn(){
+	  this.$store.state.publicSearchShow = true
+		  
+	  },
   	//询问是否入驻
 askIfEnter(){
 	if(this.$store.state.wxVideoaccount){
