@@ -19,7 +19,7 @@ import './assets/rest.css'
 import VueLazyload from 'vue-lazyload'
 //版本号
 
-Vue.prototype.$version = '2004021814-5a5f443'
+Vue.prototype.$version = '2004030938-0099156'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
