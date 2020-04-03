@@ -113,10 +113,10 @@
 				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 					<div class="searchList_canshu">
 						<ul>
-							<!-- <li>
-								<span>是否开通橱窗</span>
-								<svg width="14" height="14" viewBox="0 0 14 14" class="_3fklY6Jp ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
-							</li> -->
+							<li>
+								<span>领域</span>
+								<!-- <svg width="14" height="14" viewBox="0 0 14 14" class="_3fklY6Jp ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg> -->
+							</li>
 							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
 								<span>粉丝数</span>
 								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
@@ -145,24 +145,65 @@
 						<div class="searchList_lie_xinxi">
 							<img :src="user.logo" alt="">
 							<div class="searchList_lie_xinxi_jianjie">
-								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+								<h3>{{user.name}}</h3>
 								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 								<!-- <span>{{user.name}}</span> -->
 								<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
-									微信号{{user.wx}}
+									视频号:{{user.wx}}
 									<span class="_3wruq4Mm"></span>
 									<span class="diquColor">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
 								</p>
-								<p class="line-2">{{user.brief}}</p>
+								<p class="line-2">简介：{{user.brief}}</p>
 							</div>
 						</div>
 					</el-col>
 					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
 						<div class="searchList_shuju">
 							<ul>
-								<!-- <li>
-									<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="minus" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
-								</li> -->
+								<li>
+									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+								</li>
+								<li :class="clickData.one? 'xuanzhongColor':''">
+									<span>{{user.fansCount}}</span>
+								</li>
+								<li :class="clickData.two? 'xuanzhongColor':''">
+									<span>{{user.likeCount}}</span>
+								</li>
+								<li :class="clickData.three? 'xuanzhongColor':''">
+									<span>{{user.videoCount}}</span>
+								</li>
+								<li :class="clickData.four? 'xuanzhongColor':''">
+									<span>{{user.pv}}</span>
+								</li>
+							</ul>
+						</div>
+					</el-col>
+				</router-link>
+			</el-row>
+			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
+				<router-link target='_blank' :to="{path:'/searchDetails',query:{id:user.wxVideoaccountId}}">
+					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
+						<div class="searchList_lie_xinxi">
+							<img :src="user.logo" alt="">
+							<div class="searchList_lie_xinxi_jianjie">
+								<h3>{{user.name}}</h3>
+								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
+								<!-- <span>{{user.name}}</span> -->
+								<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
+									视频号:{{user.wx}}
+									<span class="_3wruq4Mm"></span>
+									<span class="diquColor">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
+								</p>
+								<p class="line-2">简介：{{user.brief}}</p>
+							</div>
+						</div>
+					</el-col>
+					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
+						<div class="searchList_shuju">
+							<ul>
+								<li>
+									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+								</li>
 								<li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.fansCount}}</span>
 								</li>
@@ -792,6 +833,7 @@ export default {
 	width: 23%;
 	max-width: 140px;
 	min-width: 110px;
+	float: left;
 }
 .searchList_canshu ul li:last-child,.searchList_shuju ul li:last-child{
 	width: 18%;
@@ -808,6 +850,15 @@ export default {
 	color: #e8edee;
 	font-size: 14px;
 	margin: auto 0px;
+}
+.searchList_shuju ul li:first-child{
+	cursor: pointer;
+	width: 23%;
+	max-width: 140px;
+	min-width: 110px;
+	text-align: center;
+	    display: inline-block;
+	/* float: left; */
 }
 .xuanzhongColor{
 	color: #ff7800!important;
@@ -875,6 +926,7 @@ export default {
 	border: 1px solid rgba(205,207,207,.3);
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
+	float: left;
 	
 }
 .searchList_lie_xinxi_jianjie>p:last-child{

@@ -53,18 +53,19 @@
 				</el-col>
 			</el-row>
 			<!-- <div @click="clickNewFn"> -->
-			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<video :src="user.video" :poster="user.cover"></video>
+			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index" style="height: 157px;">
 				<a :href="user.video" target="_blank">
 					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 						<div class="searchList_lie_xinxi">
+							<video :src="user.video" :poster="user.cover"></video>
 							<!-- <img :src="user.cover" alt="" v-if="user.cover"> -->
 							<div class="searchList_lie_xinxi_jianjie">
 								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
-								<p>
+								<!-- <p>
 									<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
 								</p>
-								<p class="line-2">{{user.brief}}</p>
+								<p class="line-2">{{user.brief}}</p> -->
+								<p>{{moment(user.createTime).format('YYYY-MM-DD')}}</p>
 							</div>
 						</div>
 					</el-col>
@@ -573,6 +574,7 @@
 	width: 100%;
 	position: relative;
 	min-width: 205px;
+	height: 100%;
 }
 .searchList_lie_xinxi>img{
 	width: 60px;
@@ -585,22 +587,27 @@
 	margin: auto 0px;
 }
 .searchList_lie video{
-	background-color: #000000;
+	/* background-color: #000000; */
 	width: 72px;
-	height: 100%;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
+	height: 112px;
+	float: left;
+	/* position: relative; */
+	/* top: 0; */
+	/* bottom: 0; */
+	/* left: 0; */
 	margin: auto 0px;
+	object-fit: cover;
+	border-radius: 4px;
 }
 .searchList_lie_xinxi_jianjie{
-	display: inline-block;
-	margin-left: 75px;
+	width: auto;
+	float: left;
+	margin-left: 14px;
+	height: 100%;
 }
 .searchList_lie_xinxi_jianjie>h3{
 	display: inline-block;
+	color: #e8edee;
 }
 .searchList_lie_xinxi_jianjie>h3:hover{
 	text-decoration: none;
@@ -622,11 +629,16 @@
 	white-space: nowrap;
 	
 }
-.searchList_lie_xinxi_jianjie>p:last-child{
+.searchList_lie_xinxi_jianjie>p{
+	width: auto;
+	color: #8b8b8b;
+	margin-top: 70px;
+}
+/* .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
 	height: 42px;
 	color: #787a7a;
-}
+} */
 .searchList_lie_xinxi_jianjie>svg{
 	position: absolute;
 	margin-top: 3px;
@@ -634,9 +646,9 @@
 .searchList_lie_xinxi_jianjie>span:nth-child(4){
 	margin-left: 20px;
 }
-.searchList_lie_xinxi_jianjie>p:nth-child(5){
+/* .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;
-}
+} */
 .searchList_Title{
 	color: #cdcfcf;
 	font-weight: 500;
@@ -707,92 +719,5 @@
 	position: relative;
 	width: 100%;
 }
-.searchList_lie{
-	padding: 20px 8px 24px 8px;
-	border-radius: 6px;
-	color: #e8edee;
-	font-size: 14px;
-	border-bottom:1px solid #404040;
-	position: relative;
-}
-.searchList_lie:hover{
-	background: #3c3c3e;
-	transition: all .3s,height 0s;
-	cursor: pointer;
-}
 
-.searchList_lie_xinxi{
-	width: 100%;
-	position: relative;
-	min-width: 205px;
-}
-.searchList_lie_xinxi>img{
-	width: 60px;
-	height: 60px;
-	border-radius: 50px;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 0px;
-}
-.searchList_lie_xinxi_jianjie{
-	display: inline-block;
-	margin-left: 75px;
-}
-.searchList_lie_xinxi_jianjie>h3{
-	display: inline-block;
-}
-.searchList_lie_xinxi_jianjie>h3:hover{
-	text-decoration: none;
-	background-color: transparent;
-	outline: none;
-	transition: color .3s;
-	cursor: pointer;
-	color: #ff8b1d;
-}
-.biaoqianClass{
-	margin-left: 8px;
-	padding: 2px 8px 1px;
-	line-height: 16px;
-	font-size: 12px;
-	color: #cdcfcf;
-	border-radius: 11px;
-	border: 1px solid rgba(205,207,207,.3);
-	background-color: rgba(232,237,238,.1);
-	white-space: nowrap;
-	
-}
-.searchList_lie_xinxi_jianjie>p:last-child{
-	width: 90%;
-	height: 42px;
-	color: #787a7a;
-}
-.searchList_lie_xinxi_jianjie>svg{
-	position: absolute;
-	margin-top: 3px;
-}
-.searchList_lie_xinxi_jianjie>span:nth-child(4){
-	margin-left: 20px;
-}
-.searchList_lie_xinxi_jianjie>p:nth-child(5){
-	padding: 6px 0;
-}
-.search_box_input>input[type=search]:focus,.search_box_input>input[type=search]:hover,.search_box_input>input[type=search]:link,search_box_input>input[type=search]:visited{
-	outline: none;
-	border: 1px solid #ff9429;
-	padding-right: 5px;
-}
-.search_box_input>input[type=search]::-webkit-search-cancel-button{
-	-webkit-appearance: none; 
-	/* position: relative; 
-	height: 10px;
-	width: 10px;
-	line-height: 10px;
-	text-align: center;
-	background : url("../../../assets/img/detele.png") no-repeat center;
-	background-size: 7px 7px;
-	border:1px solid #999999;
-	border-radius: 100%; */
-}
 </style>

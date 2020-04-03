@@ -1,11 +1,7 @@
 <template>
   <div class="video">
     <el-row>
-      <div>
-        <!-- <span>作品列表</span> -->
-        <el-button style="margin: 10px 0;" v-if='showIf' type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
-        <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
-      </div>
+      
       <div>
         <el-table stripe :data="tableData" style="width: 100%;">
 
@@ -29,6 +25,11 @@
             </template>
           </el-table-column>
         </el-table>
+      </div>
+      <div>
+        <!-- <span>作品列表</span> -->
+        <el-button style="margin: 10px 0;" v-if='showIf' type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
+        <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
       </div>
     </el-row>
 

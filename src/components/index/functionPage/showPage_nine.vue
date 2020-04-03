@@ -64,7 +64,7 @@
 <style scoped>
   .main{
           height: 387px;
-          background: url(/_next/static/media/freeBack.5daebada.svg) 0 0 no-repeat;
+          background: url(../../../assets/img/freeBack.svg) 0 0 no-repeat;
           background-size: 100% 100%;
           -webkit-transform: translateY(400px);
           transform: translateY(400px);

@@ -538,7 +538,7 @@ export default {
 	   box-shadow:none;
 	    word-break: break-all;
 		top: 30px!important;
-		left: auto!important;
+		/* left: auto!important; */
 		right: 0px;
 		    /* left: 285px!important; */
 	}
