@@ -382,7 +382,7 @@ askIfEnter(){
 }
 </script>
 
-<style>
+<style >
 el-menu-item {
 	color: #fff !important;
 }
