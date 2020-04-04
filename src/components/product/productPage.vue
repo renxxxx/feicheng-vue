@@ -94,7 +94,7 @@
 								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
-								<input type="search" placeholder="搜索" @click="searchDiialogFn">
+								<input type="search" placeholder="搜索" @click="searchDiialogFn" readonly>
 								<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
 							</div>
 						</div>
@@ -206,6 +206,7 @@
 								 <!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
+						<el-menu-item index="7"></el-menu-item>
 					</el-menu>
 				</div>
 			</el-col>
@@ -214,6 +215,7 @@
 				<keep-alive>
 					<router-view style="margin-bottom: 56px; width: 100%;"/>
 				</keep-alive>
+					<!-- <div style="height: 100px;"></div> -->
 			</div>
 			
 		</el-col>
@@ -400,8 +402,8 @@ el-menu-item {
 	width: 100%;
 	height: 100%;
 	margin-bottom: 30px;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	/* overflow-x: scroll; */
+	/* overflow-y: scroll; */
 	/* margin-left: -15px; */
 }
 .appView::-webkit-scrollbar{width:4px;border-radius: 50px;}
@@ -687,20 +689,26 @@ el-menu-item {
   overflow-x: hidden;
   min-width: 800px;
 }
-#productPage::-webkit-scrollbar{width:4px;border-radius: 50px;}
-#productPage::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
-#productPage::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
-#productPage::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
-#productPage::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
+/* #productPage::-webkit-scrollbar{width:4px;border-radius: 50px;} */
+/* #productPage::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */
+/* #productPage::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;} */
+/* #productPage::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;} */
+/* #productPage::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;} */
 .height{
 	height: 100%;
-	/* overflow-y: scroll; */
+	overflow-y: scroll;
 }
 .leftNav{
-	height: 100%;
+	/* height: 100%; */
 	/* min-width: 144px; */
 	/* overflow-y: scroll; */
 }
+.leftNav::-webkit-scrollbar{width:8px;border-radius: 50px;}
+.leftNav::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
+.leftNav::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
+.leftNav::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
+.leftNav::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
+
 .height::-webkit-scrollbar{width:8px;border-radius: 50px;}
 .height::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
 .height::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}

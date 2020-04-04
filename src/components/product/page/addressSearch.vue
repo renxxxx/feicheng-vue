@@ -366,7 +366,7 @@ export default {
 <style scoped>
 .douyinSearch{
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	overflow-y: scroll;
 }
 .douyinSearch::-webkit-scrollbar{width:4px;border-radius: 50px;}

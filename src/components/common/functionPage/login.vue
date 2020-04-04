@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog class="popScan" title="欢迎登陆" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
+    <el-dialog class="popScan" title="欢迎登录" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />

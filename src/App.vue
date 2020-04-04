@@ -63,7 +63,6 @@ img[lazy="error"]{
 	/* width: 100%; */
 	padding: 0;
 	margin: 0;
-	min-width: 850px;
 	overflow-x: scroll;
 	overflow-y:hidden;
 	min-width: 850px;

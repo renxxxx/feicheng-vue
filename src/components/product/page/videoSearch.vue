@@ -128,7 +128,11 @@
 
 		},
 		mounted() {
-			this.kw = this.$route.query.value
+			if(this.$route.query.value){
+				this.page = 0;
+				this.kw = this.$route.query.value;
+				this.videoList = []
+			}
 			this.nextPage();
 		},
 		methods: {
@@ -148,10 +152,9 @@
 							this.$message(res.data.codeMsg);
 						if (res.data.code == 0) {
 							if (res.data.data.itemList.length != 0) {
-								for(let i=0;i<99;i++){
 								for (let i in res.data.data.itemList) {
 									this.videoList.push(res.data.data.itemList[i])
-								}}
+								}
 							}
 						} else {
 							//开始失败逻辑
@@ -181,7 +184,7 @@
 <style scoped>
 	.douyinSearch {
 		width: 100%;
-		height: 100%;
+		/* height: 100%; */
 		overflow-y: scroll;
 	}
 

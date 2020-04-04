@@ -256,7 +256,13 @@ export default {
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
-	 this.kw = this.$route.query.value
+	 if(this.$route.query.value){
+		this.page = 0;
+		this.kw = this.$route.query.value;
+		this.userList = []
+	 }
+	 this.nextPage();
+	 this.getDataType();
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
@@ -298,9 +304,13 @@ export default {
 
   },
 	mounted(){
-		this.getDataType();
+		if(this.$route.query.value){
+				this.page = 0;
+				this.kw = this.$route.query.value;
+				this.userList = []
+		}
 		this.nextPage();
-		this.kw = this.$route.query.value
+		this.getDataType();
 		console.log(this.$route.query.value)
 	},
 	methods: {
@@ -492,7 +502,7 @@ export default {
 <style scoped>
 .douyinSearch{
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	overflow-y: scroll;
 	overflow: hidden;
 }

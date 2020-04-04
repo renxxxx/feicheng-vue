@@ -496,7 +496,7 @@ export default {
 
 <style scoped>
 .user{
-	height: 100%;
+	/* height: 100%; */
 	min-width: 1020px;
 }
 .first{
@@ -600,11 +600,11 @@ export default {
 	transition: all .3s,height 0s;
 }
 .uer_zhixun_lishiList_hezhi_neirong_list{padding: 5px 5px;}
-.uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;}
-.uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
-.uer_scroll::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
-.uer_scroll::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
-.uer_scroll::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
+/* .uer_scroll::-webkit-scrollbar{width:4px;border-radius: 50px;} */
+/* .uer_scroll::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */
+/* .uer_scroll::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;} */
+/* .uer_scroll::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;} */
+/* .uer_scroll::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;} */
 .uer_zhixun_tuisong,.uer_zhixun_lishi{
 	height: 142px;background: #3a3a3e;
 	/* width: 100%; */

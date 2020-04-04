@@ -342,6 +342,7 @@
 			</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
+		<searchDialog></searchDialog>
 	</div>
 </template>
 
@@ -351,6 +352,7 @@
 	import qs from 'qs';
 	import login from '../common/functionPage/login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
+	import searchDialog from '../product/function/searchDialog.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
@@ -371,7 +373,7 @@
 			}
 		},
 		components: {
-			login,topNav
+			login,topNav,searchDialog
 		},
 		beforeCreate() {
 
