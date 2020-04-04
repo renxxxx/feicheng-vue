@@ -128,6 +128,7 @@
 
 		},
 		mounted() {
+			this.kw = this.$route.query.value
 			this.nextPage();
 		},
 		methods: {
@@ -147,9 +148,10 @@
 							this.$message(res.data.codeMsg);
 						if (res.data.code == 0) {
 							if (res.data.data.itemList.length != 0) {
+								for(let i=0;i<99;i++){
 								for (let i in res.data.data.itemList) {
 									this.videoList.push(res.data.data.itemList[i])
-								}
+								}}
 							}
 						} else {
 							//开始失败逻辑

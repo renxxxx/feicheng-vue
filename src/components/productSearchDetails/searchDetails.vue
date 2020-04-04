@@ -418,7 +418,7 @@
 		mounted() {
 			//this.data = JSON.parse(this.$route.query.data);
 			this.getData()
-			// console.dir(this.data)
+			// console.dir(this.$route.query.data)
 			if(!this.$store.state.login){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
@@ -430,7 +430,7 @@
 			},
 			getData(){
 				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({
-					wxVideoaccountId:this.$route.query.id
+					wxVideoaccountId:this.$route.query.data
 				}))
 				.then(res=>{
 					this.message = res.data.data
@@ -448,7 +448,7 @@
 					this.$axios.get('/user/my-object/create-my-object?'+qs.stringify({
 						get:1,
 						link:2,
-						link2WxVideoaccountId:this.$route.query.id
+						link2WxVideoaccountId:this.$route.query.data
 					}))
 					.then(res=>{
 						
@@ -1476,6 +1476,7 @@
 		left: 392px;
 		right: 40px;
 		top:70px;
+		/* width: 100%; */
 		overflow-y: scroll;
 		bottom: 10px;
 	}

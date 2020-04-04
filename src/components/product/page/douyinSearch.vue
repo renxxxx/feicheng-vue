@@ -107,7 +107,7 @@
 		</div>
 		
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10"> 
-			<el-table :data="userList"  style="width: 99%"  height="250" >
+			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -181,86 +181,7 @@
 					</template>
 				</el-table-column>
 			 </el-table>
-			 
-			 
-			 
-			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
-				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-					<span class="searchList_Title">视频号</span>
-				</el-col>
-				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
-					<div class="searchList_canshu">
-						<ul>
-							<li>
-								<span>领域</span>
-								<!-- <svg width="14" height="14" viewBox="0 0 14 14" class="_3fklY6Jp ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg> -->
-							</li>
-							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
-								<span>粉丝数</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<li @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''">
-								<span>获赞数</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
-								<span>视频量</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<li @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''">
-								<!-- <svg width="14" height="14" viewBox="0 0 14 14" class="_3Uz8XuTJ ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg> -->
-								<span>曝光量</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-						</ul>
-					</div>
-				</el-col>
-			</el-row>
-			<!-- <div @click="clickNewFn"> -->
-			
-			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<router-link target='_blank' :to="{path:'/searchDetails',query:{id:user.wxVideoaccountId}}">
-					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-						<div class="searchList_lie_xinxi">
-							<img :src="user.logo" alt="">
-							<div class="searchList_lie_xinxi_jianjie">
-								<h3>{{user.name}}</h3>
-								<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
-								<!-- <span>{{user.name}}</span> -->
-								<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
-									视频号:{{user.wx}}
-									<span class="_3wruq4Mm"></span>
-									<span class="diquColor">&nbsp;{{user.area1Name}}·{{user.area2Name}}·{{user.area3Name}}</span>
-								</p>
-								<p class="line-2">简介：{{user.brief}}</p>
-							</div>
-						</div>
-					</el-col>
-					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
-						<div class="searchList_shuju">
-							<ul>
-								<li>
-									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList" :key="num">{{biaoqian.name}}</span>
-								</li>
-								<li :class="clickData.one? 'xuanzhongColor':''">
-									<span>{{user.fansCount}}</span>
-								</li>
-								<li :class="clickData.two? 'xuanzhongColor':''">
-									<span>{{user.likeCount}}</span>
-								</li>
-								<li :class="clickData.three? 'xuanzhongColor':''">
-									<span>{{user.videoCount}}</span>
-								</li>
-								<li :class="clickData.four? 'xuanzhongColor':''">
-									<span>{{user.pv}}</span>
-								</li>
-							</ul>
-						</div>
-					</el-col>
-				</router-link>
-			</el-row>
 			<!-- </div> -->
-			
 		</div>
 		<login ref="loginRef" ></login>
 	</div>
@@ -335,6 +256,7 @@ export default {
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
+	 this.kw = this.$route.query.value
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
@@ -378,6 +300,8 @@ export default {
 	mounted(){
 		this.getDataType();
 		this.nextPage();
+		this.kw = this.$route.query.value
+		console.log(this.$route.query.value)
 	},
 	methods: {
 		nextPage(){
@@ -557,6 +481,9 @@ export default {
 			this.page = 1;
 			this.userList = []
 			this.getData()
+		},
+		detailsFn(value){
+			window.open('/#/searchDetails/searchDetails_index?data='+value.wxVideoaccountId, '_blank');
 		}
 	},
 }
@@ -567,6 +494,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	overflow-y: scroll;
+	overflow: hidden;
 }
 .douyinSearch::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
@@ -574,6 +502,9 @@ export default {
 .douyinSearch::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
 .search{width: 100%;position: relative;}
+.search_type{
+	min-width: 660px;
+}
 .search_box{
 	width: 532px;
 	height: 32px;
@@ -971,7 +902,7 @@ export default {
 	color: #ff8b1d;
 }
 .biaoqianClass{
-	margin-left: 8px;
+	/* margin-left: 8px; */
 	padding: 2px 8px 1px;
 	line-height: 16px;
 	font-size: 12px;
@@ -981,7 +912,7 @@ export default {
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
 	float: left;
-	
+	margin: 3px;
 }
 .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
@@ -1043,7 +974,9 @@ export default {
 	background-color: #ff7800;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
-
+.el-table::before {
+    height: 0px;
+}
 
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{

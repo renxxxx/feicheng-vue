@@ -1,5 +1,5 @@
 <template>
-  <div id="app" ref='appRef'>
+  <div id="app" class="muti" ref='appRef'>
     <keep-alive> 
     <router-view />
 </keep-alive> 
@@ -56,14 +56,23 @@ img[lazy="error"]{
     object-fit:scale-down!important;
  }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	height: 100%;
-	width: 100%;
-  padding: 0;
-  margin: 0;
+	/* width: 100%; */
+	padding: 0;
+	margin: 0;
+	min-width: 850px;
+	overflow-x: scroll;
+	overflow-y:hidden;
+	min-width: 850px;
 }
+.muti::-webkit-scrollbar{width:4px;border-radius: 5px;}
+.muti::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 5px;}
+.muti::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 5px;}
+.muti::-webkit-scrollbar-thumb:hover {background-color:#66666d;border-radius: 5px;}
+.muti::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 5px;}
 ::selection {
     color: #fff;
     background: #ff7800;

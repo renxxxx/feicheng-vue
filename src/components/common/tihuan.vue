@@ -24,10 +24,12 @@ export default {
 	created(){
 	},
 	mounted(){
-	
+		console.dir(this.$route.query.value)
+		this.$router.replace({path:this.$route.query.path,query:{value:this.$route.query.value}})
 	},
 	activated(){
-				this.$router.replace({path:this.$route.query.path,query:this.$route.query.query})
+		console.dir(this.$route.query.value)
+		this.$router.replace({path:this.$route.query.path,query:{value:this.$route.query.value}})
 	},
 	methods: {
 		

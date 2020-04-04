@@ -1,7 +1,7 @@
 <template>
   <div id="productPage" ref="productPageRef">
 		<el-row :gutter='17' class="nav">
-			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3">
+			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" >
 				<router-link :to="{path:'/index'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
 					<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
 					<div class="before"></div>
@@ -10,7 +10,7 @@
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21">
 				<div class="topNav">
-					<el-col :xs="7" :sm="6" :md="12" :lg="13" :xl="15">
+					<el-col :xs="7" :sm="6" :md="12" :lg="13" :xl="15" style="padding:0px">
 						<div class="nav_title">
 							<svg width="12" height="10.56" class="_3laxbDuw"><g><path d="M4.44 4.23h7.2a.12.12 0 0 0 .12-.12v-.84a.12.12 0 0 0-.12-.12h-7.2a.12.12 0 0 0-.12.12v.84a.12.12 0 0 0 .12.12zm-.12 3.06a.12.12 0 0 0 .12.12h7.2a.12.12 0 0 0 .12-.12v-.84a.12.12 0 0 0-.12-.12h-7.2a.12.12 0 0 0-.12.12zM11.88 0H.12A.12.12 0 0 0 0 .12v.84a.12.12 0 0 0 .12.12h11.76A.12.12 0 0 0 12 .96V.12a.12.12 0 0 0-.12-.12zm0 9.48H.12A.12.12 0 0 0 0 9.6v.84a.12.12 0 0 0 .12.12h11.76a.12.12 0 0 0 .12-.12V9.6a.12.12 0 0 0-.12-.12zM.051 5.38l2.345 1.846a.133.133 0 0 0 .216-.1V3.433a.133.133 0 0 0-.216-.1L.051 5.179a.131.131 0 0 0 0 .204z" fill="#e8edee"></path><path d="M.051 5.383l2.345 1.846a.133.133 0 0 0 .216-.1V3.436a.133.133 0 0 0-.216-.1L.051 5.182a.131.131 0 0 0 0 .201z" fill="#ff7800"></path></g></svg>
 							<el-popover
@@ -36,7 +36,7 @@
 							  </el-popover>
 						</div>
 					</el-col>
-					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9">
+					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
 						<div class="nav_user">
 							<div class="nav_data" >
 								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
@@ -104,8 +104,8 @@
 
 			</el-col>
 		</el-row>
-		<el-row class="height" :gutter='17'>
-			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height">
+		<el-row class="height" :gutter='17' >
+			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" class="height" style="min-width: 143px;">
 				<div class="leftNav" >
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
@@ -210,9 +210,12 @@
 				</div>
 			</el-col>
 			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21" class="height">
-			<keep-alive>
-				<router-view style="padding-left:10px;" class="appView"/>
-			</keep-alive>
+			<div class="appView">
+				<keep-alive>
+					<router-view style="margin-bottom: 56px; width: 100%;"/>
+				</keep-alive>
+			</div>
+			
 		</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
@@ -391,11 +394,27 @@ askIfEnter(){
 el-menu-item {
 	color: #fff !important;
 }
+.appView{
+	/* padding-left:10px; */
+	min-width: 1020px;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 30px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	/* margin-left: -15px; */
+}
+.appView::-webkit-scrollbar{width:4px;border-radius: 50px;}
+.appView::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
+.appView::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
+.appView::-webkit-scrollbar-thumb:hover {background-color:#66666d;border-radius: 50px;} 
+.appView::-webkit-scrollbar-thumb:active {background-color:#66666d;border-radius: 50px;}
 .topNav{
 	width: 100%;
 	height: 55px;
 	line-height: 55px;
 	border-bottom: 1px solid #3a3a3e;
+	min-width: 1020px;
 }
 .logo>img{
 	    position: absolute;
@@ -664,15 +683,22 @@ el-menu-item {
   height: 100%;
   width: 100%;
   background-color: #2b2b2e;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   min-width: 800px;
 }
+#productPage::-webkit-scrollbar{width:4px;border-radius: 50px;}
+#productPage::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
+#productPage::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
+#productPage::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
+#productPage::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
 .height{
 	height: 100%;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 }
 .leftNav{
 	height: 100%;
+	/* min-width: 144px; */
 	/* overflow-y: scroll; */
 }
 .height::-webkit-scrollbar{width:8px;border-radius: 50px;}
@@ -692,10 +718,12 @@ el-menu-item {
     padding: 0 45px;
 	min-width: 100%;
 	color: #FFFFFF !important;
+	
 }
 .el-submenu__title{
 	font-weight: 500;
 	font-size: 16px;
+	
 }
 /* .el-menu-item * {
     font-weight: 500;
@@ -710,6 +738,7 @@ el-menu-item {
 }
 .leftNav li{
 	max-width: 196px;
+	min-width: 138px;
 }
 .leftNav li:hover{
 	color: #ff7800!important;

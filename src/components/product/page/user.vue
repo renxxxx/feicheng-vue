@@ -495,6 +495,10 @@ export default {
 </script>
 
 <style scoped>
+.user{
+	height: 100%;
+	min-width: 1020px;
+}
 .first{
 
 	width: 100%;
@@ -577,8 +581,8 @@ export default {
 .uer_zhixun_gongneng_hezi{
 	width: 100%;
 	height: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	/* overflow-y: scroll; */
+	/* overflow-x: hidden; */
 }
 .uer_zhixun_gongneng_hezi span,.uer_zhixun_lishi>span{
 	height: 30px;
@@ -613,7 +617,7 @@ export default {
 .uer_zhixun_tuisongList{
 	height: 100%;
 	width: 100%;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 	overflow-x:hidden
 }
 .uer_zhixun_tuisongList>span,.uer_zhixun_lishiList>span{
@@ -659,7 +663,7 @@ export default {
 	list-style: none;
 	height: 100%;
 	width: 100%;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 	overflow-x:hidden;
 }
 .ant-timeline-item-tail {

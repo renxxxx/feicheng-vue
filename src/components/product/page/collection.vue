@@ -20,9 +20,9 @@
 									<div @click="xiaclickFn(0)" role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 64px;">
 										<a class="_1zlCAgAE" href="#">视频号</a>
 									</div>
-									<div @click="xiaclickFn(103)" role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 64px;">
+									<!-- <div @click="xiaclickFn(103)" role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 64px;">
 										<a class="_1zlCAgAE" href="#">视频</a>
-									</div>
+									</div> -->
 									<!-- <div @click="xiaclickFn(200)" role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 64px;">
 										<a class="_1zlCAgAE" href="#">城市</a>
 									</div> -->

@@ -52,19 +52,19 @@ export default {
   },
 created(){
   debugger
-  console.log('created')
+  // console.log('created')
 },
 	activated(){
 		 debugger;
-    console.log('activated')
+    // console.log('activated')
 	},
 	deactivated(){
      debugger;
-    console.log('deactivated')
+    // console.log('deactivated')
 	},
   mounted() {
     debugger
-    console.log('mounted')
+    // console.log('mounted')
      
   },
   methods: {
