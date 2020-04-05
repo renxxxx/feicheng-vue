@@ -15,8 +15,24 @@ const state = {
 	//视频播放弹窗
   showVideoDialog: false,
   
-
- 
+// 获取配置信息
+ getConfig:{
+   config:function(){
+	   let configList;
+	   Vue.prototype.$jquery.ajax({
+		   url: '/config',
+		    type: 'get',
+		    async: false,
+		    success: function(res) {
+		        if(res.code==0){
+		          configList = res.data
+		         
+		        }
+		    },
+		   })
+			 return configList;
+		}
+   },
   getVideoList:{
     list:function(){
       let videoList;
