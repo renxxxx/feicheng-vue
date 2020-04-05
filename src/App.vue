@@ -63,15 +63,30 @@ img[lazy="error"]{
 	/* width: 100%; */
 	padding: 0;
 	margin: 0;
-	overflow-x: scroll;
+	/* overflow-x: scroll; */
 	overflow-y:hidden;
 	min-width: 850px;
 }
-.muti::-webkit-scrollbar{width:4px;border-radius: 5px;}
-.muti::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 5px;}
-.muti::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 5px;}
-.muti::-webkit-scrollbar-thumb:hover {background-color:#66666d;border-radius: 5px;}
-.muti::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 5px;}
+.muti::-webkit-scrollbar{
+	width:4px;
+	/* border-radius: 5px; */
+}
+.muti::-webkit-scrollbar-track{
+	background-color:#2b2b2e;
+	/* border-radius: 5px; */
+}
+.muti::-webkit-scrollbar-thumb{
+	background-color:#66666d;
+	/* border-radius: 5px; */
+}
+.muti::-webkit-scrollbar-thumb:hover {
+	background-color:#66666d;
+	/* border-radius: 5px; */
+}
+.muti::-webkit-scrollbar-thumb:active {
+	background-color:#2b2b2e;
+	/* border-radius: 5px; */
+}
 ::selection {
     color: #fff;
     background: #ff7800;

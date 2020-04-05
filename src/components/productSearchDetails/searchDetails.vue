@@ -446,17 +446,34 @@
 			},
 			shouchangFn(){
 				if(this.shouchangData){
-					this.shouchangData = false
-					this.$axios.get('/user/my-object/create-my-object?'+qs.stringify({
+					this.$axios.post('/user/my-user-object/create-user-object?',qs.stringify({
 						get:1,
 						link:2,
 						link2WxVideoaccountId:this.$route.query.data
 					}))
 					.then(res=>{
+						if(res.data.codeMsg)
+						   this.$message(res.data.codeMsg);
+						if(res.data.code == 0){
+						   this.shouchangData = false;
+						}
 						
 					})
 				}else{
-					this.shouchangData = true
+					this.$axios.post('/user/my-user-object/delete-user-object-list?',qs.stringify({
+						get:1,
+						link:2,
+						link2WxVideoaccountId:this.$route.query.data
+					}))
+					.then(res=>{
+						if(res.data.codeMsg)
+						   this.$message(res.data.codeMsg);
+						if(res.data.code == 0){
+						   this.shouchangData = true
+						}
+						
+					})
+					
 				}
 				
 			}

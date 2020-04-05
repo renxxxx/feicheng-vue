@@ -227,6 +227,7 @@ export default {
 			two:0,
 			three:0,
 			four:0,
+			type : 0,
 			searchColor:false,
 		}
 	},
@@ -391,59 +392,116 @@ export default {
 			this.clickData={one:false,two:false,three:false,four:false};
 			switch(_value){
 				case 'type':
-				this.clickData.type = true;
+				this.one = 0;
+				this.two=0;
+				this.three= 0;
+				this.four = 0;
+				if(this.type%2){
+					this.clickData.type = false;
+				}else{
+					this.clickData.type = true;
+				}
+				this.type++;
 				break;
 				case 'one':
-				if(this.one%2){
+				this.type = 0;
+				this.two=0;
+				this.three= 0;
+				this.four = 0;
+				if(this.one%3 == 0){
 					this.order = 'desc';
-				}else{
+					this.sort = "fansCount";
+					this.clickData.one = true;
+				}else if(this.one%3 == 1){
 					this.order = 'asc';
+					this.sort = "fansCount";
+					this.clickData.one = true;
+				}else{
+					this.order = '';
+					this.sort = '';
+					this.clickData.one = false;
 				}
 				this.userList = [];
 				this.page = 0;
-				this.sort = "fansCount"
 				this.one++;
+				debugger
 				this.nextPage()
-				this.clickData.one = true;
+				
 				break;
 				case 'two':
-				if(this.two%2){
+				this.type = 0;
+				this.one=0;
+				this.three= 0;
+				this.four = 0;
+				if(this.two%3 == 0){
 					this.order = 'desc';
-				}else{
+					this.sort = "likeCount";
+					this.clickData.two = true;
+				}else if(this.two%3 == 1){
 					this.order = 'asc';
+					this.sort = "likeCount";
+					this.clickData.two = true;
+				}else{
+					this.order = '';
+					this.sort = '';
+					this.clickData.two = false;
 				}
 				this.userList = [];
 				this.page = 0;
-				this.sort = "likeCount"
 				this.two++;
+				debugger
 				this.nextPage()
-				this.clickData.two = true;
+				
 				break;
 				case 'three':
-				if(this.three%2){
+				this.type = 0;
+				this.one=0;
+				this.two= 0;
+				this.four = 0;
+				if(this.three%3 == 0){
 					this.order = 'desc';
-				}else{
+					this.sort = "videoCount";
+					this.clickData.three = true;
+				}else if(this.three%3 == 1){
 					this.order = 'asc';
+					this.sort = "videoCount";
+					this.clickData.three = true;
+				}else{
+					this.order = '';
+					this.sort = '';
+					this.clickData.three = false;
 				}
 				this.userList = [];
 				this.page = 0;
-				this.sort = "videoCount"
 				this.three++;
+				debugger
 				this.nextPage()
-				this.clickData.three = true;
+				
 				break;
 				case 'four':
-				if(this.four%2){
+				this.type = 0;
+				this.one=0;
+				this.two= 0;
+				this.three = 0;
+				if(this.four%3 == 0){
 					this.order = 'desc';
-				}else{
+					this.sort = "pv";
+					this.clickData.four = true;
+				}else if(this.four%3 == 1){
 					this.order = 'asc';
+					this.sort = "pv";
+					this.clickData.four = true;
+				}else{
+					this.order = '';
+					this.sort = '';
+					this.clickData.four = false;
 				}
 				this.userList = [];
 				this.page = 0;
-				this.sort = "pv"
 				this.four++;
+				debugger
 				this.nextPage()
-				this.clickData.four = true;
+				
 				break;
 			}
 		},

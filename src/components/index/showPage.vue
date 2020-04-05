@@ -711,24 +711,24 @@ html {
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 #showPage::-webkit-scrollbar {
-  width: 8px;
-  border-radius: 50px;
+  width: 4px;
+  /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-track {
   background-color: #e0e0e0;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-thumb {
   background-color: #b3b3b3;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-thumb:hover {
-  background-color: #e0e0e0;
-  border-radius: 50px;
+  background-color:  #b3b3b3;
+  /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-thumb:active {
-  background-color: #e0e0e0;
-  border-radius: 50px;
+  background-color: #b3b3b3;
+  /* border-radius: 50px; */
 }
 el-row,
 .el-main {

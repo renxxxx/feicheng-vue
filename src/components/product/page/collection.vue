@@ -63,7 +63,7 @@ export default {
 	data () {
 		return {
 			componentsValue:{},
-			componentName:'videoAccount'
+			componentName:'videoAccount',
 		}
 	},
 	computed:{
