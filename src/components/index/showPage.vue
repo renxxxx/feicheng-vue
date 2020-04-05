@@ -91,6 +91,8 @@
 				    :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 				    :"未知" }}
 				</span>
+                      <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+
               <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
               <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
               <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
@@ -100,7 +102,6 @@
               
              
   
-              <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
               <!--<router-link v-if='loginRefresh||loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>-->
               <!--v-if='loginRefresh.wxVideoaccount&&loginRefresh.wxVideoaccount==null||loginRefresh.wxVideoaccount.audit==0||loginRefresh.wxVideoaccount.audit==12'-->
   

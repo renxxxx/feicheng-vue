@@ -48,7 +48,8 @@ Vue.prototype.cookieOn=function() {
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  attempt: 1
+  attempt: 1,
+  loading:'./assets/loading.png'
 })
 
 new Vue({
