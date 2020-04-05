@@ -474,7 +474,8 @@ askIfEnter(){
       // Object.assign(this.$data, this.$options.data());
     },
     loginFn() {
-			debugger;
+      debugger;
+      localStorage.setItem('lastRoute',JSON.stringify({path:'/productPage/productPage_user'}))
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData();
     },
