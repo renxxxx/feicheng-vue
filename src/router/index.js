@@ -51,7 +51,7 @@ Vue.use(Router)
 const router = new Router({
 	routes: [
 		// unkeepLastRoute为true是不需要缓存路由值
-		//auth为true是需要登陆状态,否则为false
+		//auth为true是需要登录状态,否则为false
 		{
 
 		  path: '/',
@@ -85,7 +85,7 @@ const router = new Router({
 			meta: {auth:true},
 			redirect:'/productPage/productPage_user',
 			children:[
-				// 登陆后的页面路径配置
+				// 登录后的页面路径配置
 				{
 					path: 'productPage_user',
 					name: 'productPage_user',
@@ -138,7 +138,7 @@ const router = new Router({
 			meta: {auth:true},
 			redirect:'/searchDetails/searchDetails_index',
 			children:[
-				// 登陆后的页面路径配置
+				// 登录后的页面路径配置
 				{
 					path: 'searchDetails_index',
 					name: 'searchDetails_index',
@@ -156,7 +156,7 @@ const router = new Router({
 			meta: {auth:true},
 			// redirect:'/articleDetails/searchDetails_index',
 		// 	children:[
-		// 		// 登陆后的页面路径配置
+		// 		// 登录后的页面路径配置
 		// 		{
 		// 			path: 'searchDetails_index',
 		// 			name: 'searchDetails_index',

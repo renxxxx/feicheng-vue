@@ -12,7 +12,7 @@
         </p>
         <p class="scanNow">点击页面右上角打开扫一扫</p>
         <div class="codelogin" role="separator">
-          <span class=""><span class="">微信扫码登陆</span></span>
+          <span class=""><span class="">微信扫码登录</span></span>
         </div>
         <div class="scanIntro">打开微信扫一扫，经飞橙服务验证后即可登录/注册</div>
       </div>
@@ -131,7 +131,7 @@ created(){
 </script>
 
 <style scoped>
-/* 扫码登陆 */
+/* 扫码登录 */
 .popIndex {
   text-align: center;
 }

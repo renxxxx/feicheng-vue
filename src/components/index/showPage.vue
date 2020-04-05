@@ -283,7 +283,7 @@
         </div>
       </div>
       <!-- </el-footer> -->
-      <!--  登陆扫码框 -->
+      <!--  登录扫码框 -->
       <login  ref="loginRef"></login>
     </div>
 </template>
@@ -398,7 +398,7 @@ export default {
         this.servant = res.data.data;
       })
       .catch(err => {});
-    // 登陆刷新
+    // 登录刷新
     this.$axios
       .get("/user/login-refresh")
       .then(res => {})
