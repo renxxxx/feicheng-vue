@@ -106,6 +106,7 @@
         </el-col>
       </el-row>
       <video_supply ref="refChild"></video_supply>
+      <el-checkbox class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
       <el-row>
         <div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div>
       </el-row>
@@ -124,6 +125,7 @@ export default {
   name: 'ruzhu',
   data() {
     return {
+      checked: true,
       selectedOptions: [],
       dialogImageUrl1: [],
       dialogImageUrl2: [],
@@ -140,7 +142,7 @@ export default {
       dialogVisible: false,
       options: [],
       checkAll: false,
-      checkedCities: [],
+      checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
       cities: [],
       isIndeterminate: false,
       type: [
@@ -180,6 +182,7 @@ export default {
       imageUrlNow: '',
       dialogImageUrlNow: [],
       dialogImageUrlNowlist: [],
+      getConfig:this.$store.state.getConfig.config(),
 		// diliNow:{}
     };
   },
@@ -263,7 +266,7 @@ export default {
         if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
              dialogImageUrl2.push({ name: '截图', url: this.$store.state.wxVideoaccount.screenshot });
         }
-   
+
       this.dialogImageUrl2 = dialogImageUrl2;
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
@@ -517,6 +520,9 @@ export default {
 };
 </script>
 <style scoped>
+  .userXy{
+    margin: 40px 10px 20px 40px;
+  }
 .ruzhu {
   background: #3a3a3e;
   height: auto;
@@ -590,7 +596,7 @@ ul > li > div {
 .submit_div {
   width: 100%;
   /* text-align: center; */
-  line-height: 130px;
+  line-height: 65px;
   margin-bottom: 70px;
   padding-left: 40px;
   text-align: left;

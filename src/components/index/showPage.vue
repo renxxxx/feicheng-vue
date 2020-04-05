@@ -266,19 +266,19 @@
         </div>
         <div class="footer_1_3">
           <div class="_GudV7S8W">联系客服</div>
-          <div class="_3gZSHcLe">邮箱：{{ servant.servantEmail }}</div>
-          <div class="_3gZSHcLe">电话：{{ servant.servantTel }}（工作日周一至周五9:30-18:00）</div>
+          <div class="_3gZSHcLe">邮箱：{{ getConfig.servantEmail }}</div>
+          <div class="_3gZSHcLe">电话：{{ getConfig.servantTel }}（工作日周一至周五9:30-18:00）</div>
         </div>
         <div class="footer_1_4">
           <div>飞橙服务号</div>
           <div>
             <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
-            <img :src="codeSrc" alt />
+            <img :src="getConfig.servantWxQrcode" alt />
           </div>
         </div>
       </div>
       <div class="footer_2">
-        <div class="_1bhE4WcF">{{ servant.icp }}</div>
+        <div class="_1bhE4WcF">{{ getConfig.icp }}</div>
       </div>
     </div>
     <!-- </el-footer> -->
@@ -308,7 +308,8 @@ export default {
       servant: [],
       userName:'',
       useravator:'',
-	  showData:false,
+      showData:false, 
+      getConfig:this.$store.state.getConfig.config(),
       // centerDialogVisible: false
     };
   },
@@ -389,14 +390,15 @@ export default {
     // console.log(this.$refs.showPage_one.$el.offsetHeight);
     // console.log(this.$refs.showPage_two.$el.offsetHeight);
     window.addEventListener("scroll", this.scrollToTop, true);
-    // 获取配置信息
-    this.$axios
-      .get("/config")
-      .then(res => {
-        this.codeSrc = res.data.data.servantWxQrcode;
-        this.servant = res.data.data;
-      })
-      .catch(err => {});
+    // // 获取配置信息
+    
+    // this.$axios
+    //   .get("/config")
+    //   .then(res => {
+    //     this.codeSrc = res.data.data.servantWxQrcode;
+    //     this.servant = res.data.data;
+    //   })
+    //   .catch(err => {});
     // 登陆刷新
     this.$axios
       .get("/user/login-refresh")
