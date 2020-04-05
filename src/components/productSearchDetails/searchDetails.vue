@@ -22,14 +22,17 @@
 							</div>
 							<div class="_3Mt2vQgI">
 								<div class="_1bv9Xtl-">
-									<span class="xd-ellipsis _3rF1A6fj" title="人民日报">{{message.name}}</span>
+									<span class="xd-ellipsis _3rF1A6fj" :title="message.name">{{message.name}}</span>
 									<span class="_8TRvoTKy">{{message.wx}}</span>
 								</div>
 								<div class="_1bv9Xtl-">
-									<svg width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
+									<svg v-if="shouchangData" @click="shouchangFn('false')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
 										<path fill="none" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
 									</svg>
-									<svg width="18" height="18" viewBox="0 0 18 18" class="_oHy0nPgB">
+									<svg v-if="!shouchangData" @click="shouchangFn('true')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho" style="color: #ff7800;">
+										<path fill="#ff7800" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
+									</svg>
+									<svg width="18" height="18" viewBox="0 0 18 18" class="_oHy0nPgB" style="display:none;">
 										<g transform="translate(-154.309 -154.639)">
 											<path fill="currentColor" d="M324.955,460.277a1.146,1.146,0,1,0,.812.335A1.158,1.158,0,0,0,324.955,460.277Zm-3.852,0a1.146,1.146,0,1,0,.812.335A1.159,1.159,0,0,0,321.1,460.277Zm7.7,0a1.146,1.146,0,1,0,.812.335A1.159,1.159,0,0,0,328.807,460.277Z"
 											 transform="translate(-161.486 -297.946)"></path>
@@ -183,8 +186,8 @@
 									</div> -->
 								</div>
 								<div class="_2FDGiJrn"></div>
-								<div class="_2xKK16yA _3CsMZ-r3">功能使用:</div>
-								<div class="_3AY-U6s2 _9_0nVGYy">
+								<div class="_2xKK16yA _3CsMZ-r3" style="display:none;">功能使用:</div>
+								<div class="_3AY-U6s2 _9_0nVGYy" style="display:none;">
 									<div class="_3csJM3dK"><i aria-label="图标: close" class="anticon anticon-close _2kyZIIaT"><svg viewBox="64 64 896 896"
 											 focusable="false" class="" data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 												<path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
@@ -199,7 +202,7 @@
 												</g>
 											</svg>商品橱窗</span></div>
 								</div>
-								<div class="_2znFx5lI">
+								<div class="_2znFx5lI" style="display:none;">
 									<div class="_2LqxHFsa"><i aria-label="图标: close" class="anticon anticon-close _2kyZIIaT"><svg viewBox="64 64 896 896"
 											 focusable="false" class="" data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 												<path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path>
@@ -223,7 +226,7 @@
 												</svg><span>直播</span></div>
 										</div>
 									</div>
-									<div class="_2LqxHFsa"><i aria-label="图标: check" class="anticon anticon-check _2kyZIIaT _1Y4072oJ"><svg
+									<div style="display:none;" class="_2LqxHFsa"><i aria-label="图标: check" class="anticon anticon-check _2kyZIIaT _1Y4072oJ"><svg
 											 viewBox="64 64 896 896" focusable="false" class="" data-icon="check" width="1em" height="1em" fill="currentColor"
 											 aria-hidden="true">
 												<path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"></path>
@@ -339,6 +342,7 @@
 			</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
+		<searchDialog></searchDialog>
 	</div>
 </template>
 
@@ -348,12 +352,14 @@
 	import qs from 'qs';
 	import login from '../common/functionPage/login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
+	import searchDialog from '../product/function/searchDialog.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
 			return {
 				data:{},
-				message:{}
+				message:{},
+				shouchangData:true
 			}
 		},
 		computed: {
@@ -367,7 +373,7 @@
 			}
 		},
 		components: {
-			login,topNav
+			login,topNav,searchDialog
 		},
 		beforeCreate() {
 
@@ -414,7 +420,7 @@
 		mounted() {
 			//this.data = JSON.parse(this.$route.query.data);
 			this.getData()
-			// console.dir(this.data)
+			// console.dir(this.$route.query.data)
 			if(!this.$store.state.login){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
@@ -426,15 +432,33 @@
 			},
 			getData(){
 				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({
-					wxVideoaccountId:this.$route.query.id
+					wxVideoaccountId:this.$route.query.data
 				}))
 				.then(res=>{
 					this.message = res.data.data
 				})
 				.catch()
+				
+				.catch()
 			},
 			gengxinFn(){
 				this.getData()
+			},
+			shouchangFn(){
+				if(this.shouchangData){
+					this.shouchangData = false
+					this.$axios.get('/user/my-object/create-my-object?'+qs.stringify({
+						get:1,
+						link:2,
+						link2WxVideoaccountId:this.$route.query.data
+					}))
+					.then(res=>{
+						
+					})
+				}else{
+					this.shouchangData = true
+				}
+				
 			}
 		},
 	}
@@ -839,6 +863,9 @@
 		display: flex;
 		align-items: center;
 	}
+	._1bv9Xtl->svg{
+		cursor: pointer;
+	}
 
 	._3rF1A6fj {
 		font-size: 20px;
@@ -859,10 +886,6 @@
 		margin-left: 8px;
 	}
 
-	._1bv9Xtl- {
-		display: flex;
-		align-items: center;
-	}
 
 	._39iY1Rho:first-child {
 		margin-right: 8px;
@@ -1455,6 +1478,7 @@
 		left: 392px;
 		right: 40px;
 		top:70px;
+		/* width: 100%; */
 		overflow-y: scroll;
 		bottom: 10px;
 	}

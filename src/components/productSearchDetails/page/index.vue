@@ -5,10 +5,10 @@
 				<div class="search_box">
 					<div class="search_box_input">
 						<img src="../../../assets/img/search.png" alt="">
-						<input type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
+						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
-					<span @click="searchFn">搜索</span>
+					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
 				</div>
 			</el-row>
 			<!-- <el-row style="line-height: 47px;" class="search_type">
@@ -25,73 +25,53 @@
 			</el-row> -->
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
-				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-					<span class="searchList_Title">作品列表</span>
-				</el-col>
-				<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
-					<div class="searchList_canshu">
-						<ul>
-							<!-- <li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
-								<span>粉丝数</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li> -->
-							<li @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''">
-								<span>获赞数</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-							<!-- <li @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''">
-								<span>视频量</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li> -->
-							<li @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''">
-								<span>曝光量</span>
-								<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-							</li>
-						</ul>
-					</div>
-				</el-col>
-			</el-row>
-			<!-- <div @click="clickNewFn"> -->
-			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
-				<a :href="user.video" target="_blank">
-					<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
-						<div class="searchList_lie_xinxi">
-							<!-- <img :src="user.cover" alt="" v-if="user.cover"> -->
-							<video :src="user.video" :poster="user.cover"></video>
-							<div class="searchList_lie_xinxi_jianjie">
-								<h3>{{user.name}}</h3><span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
-								<p>
-									<span>{{user.area1Name}}{{user.area2Name}}{{user.area3Name}}</span>
-								</p>
-								<p class="line-2">{{user.brief}}</p>
-							</div>
+			<el-table :data="userList"  style="width: 99%">
+				<el-table-column   prop="date" label="视频号" min-width="62%">
+					<template slot-scope="scope">
+				       <div class="searchList_lie_xinxi">
+				       	<video :src="scope.row.video" :poster="scope.row.cover"></video>
+				       	<div class="searchList_lie_xinxi_jianjie">
+				       		<h3>{{scope.row.name}}</h3>
+				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
+				       		<!-- <span>{{user.name}}</span> -->
+				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
+				       			视频号:{{scope.row.wx}}
+				       			<span class="_3wruq4Mm"></span>
+				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
+				       		</p>
+				       		<p class="line-2">简介：{{scope.row.brief}}</p>
+				       	</div>
+				       </div>
+				    </template>
+			   </el-table-column>
+				<el-table-column prop="name" min-width="7%">
+					<template slot="header" slot-scope="scope">
+						<div @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
+							<span style="color: #cdcfcf;" :class="clickData.three? 'xuanzhongColor':''">视频量</span>
+							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
-					</el-col>
-					<el-col :xs="11" :sm="11" :md="10" :lg="9" :xl="6">
-						<div class="searchList_shuju">
-							<ul>
-								<!-- <li :class="clickData.one? 'xuanzhongColor':''">
-									<span>{{user.fansCount}}</span>
-								</li> -->
-								<li :class="clickData.one? 'xuanzhongColor':''">
-									<span>{{user.likeCount}}</span>
-								</li>
-							<!-- 	<li :class="clickData.three? 'xuanzhongColor':''">
-									<span>{{user.videoCount}}</span>
-								</li> -->
-								<li :class="clickData.two? 'xuanzhongColor':''">
-									<span>{{user.pv}}</span>
-								</li>
-							</ul>
+					</template>
+					<template slot-scope="scope">
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>			   
+					</template>
+				</el-table-column>
+				<el-table-column prop="name" min-width="7%">
+					<template slot="header" slot-scope="scope">
+						<div @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
+							<span  style="color: #cdcfcf;" :class="clickData.four? 'xuanzhongColor':''">曝光量</span>
+							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
-					</el-col>
-				<!-- </router-link> -->
-				</a>
-			</el-row>
+					</template>
+					<template slot-scope="scope">
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			   
+					</template>
+				</el-table-column>
+			 </el-table>
 			<!-- </div> -->
-			
 		</div>
+		
+		
+		
 		<login ref="loginRef"></login>
 	</div>
 </template>
@@ -131,6 +111,7 @@
 				order:'',
 				one:0,
 				two:0,
+				searchColor:false,
 			}
 		},
 		computed: {
@@ -195,7 +176,7 @@
 		},
 		methods: {
 			typeClickFn(_item,_inx){
-				// console.log(_item)
+				// //console.log(_item)
 				if(this.dataList[_inx].typeData){
 					this.dataList[_inx].typeData = false;
 					this.wxVideoaccountRealmId = '';
@@ -224,7 +205,7 @@
 			getData(){
 				this.load = true;
 				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({
-					wxVideoaccountId:this.$route.query.id,
+					wxVideoaccountId:this.$route.query.data,
 					kw:this.kw,
 					pn:this.page,
 					sort:this.sort,
@@ -241,6 +222,7 @@
 							for(let i in res.data.data.itemList){
 								this.userList.push(res.data.data.itemList[i])
 							}
+							console.dir(this.userList)
 						}
 					}
 					this.load = false;
@@ -248,7 +230,8 @@
 				.catch()
 			},
 			searchFn(){
-				console.log(this.kw)
+				// //console.log(this.kw)
+				this.searchColor = true;
 				this.page = 1;
 				this.userList = []
 				this.getData()
@@ -335,17 +318,23 @@
 	color: #e8edee;
 }
 .search_box>span{
-	height: 34px;
+	height: 32px;
 	width: 64px;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: center;
 	float: left;
-	background-color: #ff7800;
+	/* background-color: #ff7800; */
+	color: #6b6d6d;
+	background-color: #3e3e3e;
+	border: 1px solid #6d6d6d;
+	border-left: 0px;
+	box-shadow: 0 2px 0 rgba(0,0,0,.045);
 	border-radius: 0px 4px 4px 0px;
+	cursor: pointer;
 }
-.search_box>span:focus, .search_box>span:hover{
+.search_box>span:focus{
     color: #fff;
     background-color: #ff9429;
     border-color: #ff9429;
@@ -553,6 +542,7 @@
 	font-size: 14px;
 	border-bottom:1px solid #404040;
 	position: relative;
+	height: 112px;
 }
 .searchList_lie:hover{
 	background: #3c3c3e;
@@ -564,6 +554,7 @@
 	width: 100%;
 	position: relative;
 	min-width: 205px;
+	height: 100%;
 }
 .searchList_lie_xinxi>img{
 	width: 60px;
@@ -575,22 +566,28 @@
 	bottom: 0;
 	margin: auto 0px;
 }
-.searchList_lie_xinxi>video{
-	background-color: #000000;
+.searchList_lie_xinxi video{
+	/* background-color: #000000; */
 	width: 72px;
 	height: 112px;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
+	float: left;
+	/* position: relative; */
+	/* top: 0; */
+	/* bottom: 0; */
+	/* left: 0; */
 	margin: auto 0px;
+	object-fit: cover;
+	border-radius: 4px;
 }
 .searchList_lie_xinxi_jianjie{
-	display: inline-block;
-	margin-left: 75px;
+	width: auto;
+	float: left;
+	margin-left: 14px;
+	height: 100%;
 }
 .searchList_lie_xinxi_jianjie>h3{
 	display: inline-block;
+	color: #e8edee;
 }
 .searchList_lie_xinxi_jianjie>h3:hover{
 	text-decoration: none;
@@ -612,11 +609,16 @@
 	white-space: nowrap;
 	
 }
-.searchList_lie_xinxi_jianjie>p:last-child{
+.searchList_lie_xinxi_jianjie>p{
+	width: auto;
+	color: #8b8b8b;
+	margin-top: 70px;
+}
+/* .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
 	height: 42px;
 	color: #787a7a;
-}
+} */
 .searchList_lie_xinxi_jianjie>svg{
 	position: absolute;
 	margin-top: 3px;
@@ -624,9 +626,9 @@
 .searchList_lie_xinxi_jianjie>span:nth-child(4){
 	margin-left: 20px;
 }
-.searchList_lie_xinxi_jianjie>p:nth-child(5){
+/* .searchList_lie_xinxi_jianjie>p:nth-child(5){
 	padding: 6px 0;
-}
+} */
 .searchList_Title{
 	color: #cdcfcf;
 	font-weight: 500;
@@ -641,6 +643,12 @@
 }
 .searchList_shuju{
 	/* height: 100px; */
+}
+.searchColor{
+	 color: #fff!important;
+	 background-color: #ff7800!important;
+	 border-color: #ff9429!important;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .searchList_canshu ul,.searchList_shuju ul{
 	padding: 0;
@@ -691,92 +699,40 @@
 	position: relative;
 	width: 100%;
 }
-.searchList_lie{
-	padding: 20px 8px 24px 8px;
-	border-radius: 6px;
-	color: #e8edee;
-	font-size: 14px;
-	border-bottom:1px solid #404040;
-	position: relative;
-}
-.searchList_lie:hover{
-	background: #3c3c3e;
-	transition: all .3s,height 0s;
-	cursor: pointer;
-}
-
-.searchList_lie_xinxi{
-	width: 100%;
-	position: relative;
-	min-width: 205px;
-}
-.searchList_lie_xinxi>img{
-	width: 60px;
-	height: 60px;
-	border-radius: 50px;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 0px;
-}
-.searchList_lie_xinxi_jianjie{
-	display: inline-block;
-	margin-left: 75px;
-}
-.searchList_lie_xinxi_jianjie>h3{
-	display: inline-block;
-}
-.searchList_lie_xinxi_jianjie>h3:hover{
-	text-decoration: none;
+>>>.el-table{
 	background-color: transparent;
-	outline: none;
-	transition: color .3s;
-	cursor: pointer;
-	color: #ff8b1d;
 }
-.biaoqianClass{
-	margin-left: 8px;
-	padding: 2px 8px 1px;
-	line-height: 16px;
-	font-size: 12px;
-	color: #cdcfcf;
-	border-radius: 11px;
-	border: 1px solid rgba(205,207,207,.3);
-	background-color: rgba(232,237,238,.1);
-	white-space: nowrap;
-	
+>>>.el-table th.is-leaf {
+    border:none;
 }
-.searchList_lie_xinxi_jianjie>p:last-child{
-	width: 90%;
-	height: 42px;
-	color: #787a7a;
+>>>.el-table tr{
+	background-color: transparent;
 }
-.searchList_lie_xinxi_jianjie>svg{
-	position: absolute;
-	margin-top: 3px;
+>>>.el-table__body tr.hover-row>td{
+    background-color: transparent;
 }
-.searchList_lie_xinxi_jianjie>span:nth-child(4){
-	margin-left: 20px;
+>>>.el-table td{
+	border:none;
 }
-.searchList_lie_xinxi_jianjie>p:nth-child(5){
-	padding: 6px 0;
+>>>.el-table__row:hover > td{
+	transition: background .3s ease;
+		cursor: pointer;
+	transition: all .5s;
+	background-color: hsla(0,0%,100%,.1)!important;
 }
-.search_box_input>input[type=search]:focus,.search_box_input>input[type=search]:hover,.search_box_input>input[type=search]:link,search_box_input>input[type=search]:visited{
-	outline: none;
-	border: 1px solid #ff9429;
-	padding-right: 5px;
+.typeCilckColor{
+	color: #fff!important;
+	background-color: #ff7800;
+	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
-.search_box_input>input[type=search]::-webkit-search-cancel-button{
-	-webkit-appearance: none; 
-	/* position: relative; 
-	height: 10px;
-	width: 10px;
-	line-height: 10px;
-	text-align: center;
-	background : url("../../../assets/img/detele.png") no-repeat center;
-	background-size: 7px 7px;
-	border:1px solid #999999;
-	border-radius: 100%; */
+.el-table::before {
+    height: 0px;
+}
+.el-table::before {
+    height: 0px;
+}
+>>>.el-table th {
+    background: rgb(58, 58, 62);
+        color: rgb(232, 237, 238);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog class="popScan" title="欢迎登陆" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
+    <el-dialog class="popScan" title="欢迎登录" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />
@@ -12,7 +12,7 @@
         </p>
         <p class="scanNow">点击页面右上角打开扫一扫</p>
         <div class="codelogin" role="separator">
-          <span class=""><span class="">微信扫码登陆</span></span>
+          <span class=""><span class="">微信扫码登录</span></span>
         </div>
         <div class="scanIntro">打开微信扫一扫，经飞橙服务验证后即可登录/注册</div>
       </div>
@@ -50,37 +50,52 @@ export default {
       }
     }
   },
-
+created(){
+  debugger
+  // console.log('created')
+},
 	activated(){
-		debugger;
-		console.log('activated')
+		 debugger;
+    // console.log('activated')
 	},
 	deactivated(){
-		console.log('deactivated')
+     debugger;
+    // console.log('deactivated')
 	},
   mounted() {
-    // this.getData();
-
-     // console.log(this.imgSrc)
+    debugger
+    // console.log('mounted')
+     
   },
   methods: {
     closeLogin(){
+      debugger
           clearInterval(this.timer);
           this.centerDialogVisible = false;
     },
     getData(){
-      debugger
+       debugger
+       let thisVue =this
+       if(!this.cookieOn()){
+       this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
+          confirmButtonText: '确定',
+          
+        });
+    }
+    
       this.$axios
         .get('/user/wx-offiaccount-loginqrcode')
         .then(res => {
-          // console.log(res)
-             this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
-             this.loginTicket=res.data.data.loginTicket
-             this.timer = setInterval(this.get, 2000);
+
+              thisVue.loginTicket=res.data.data.loginTicket
+             thisVue.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
+             thisVue.timer = setInterval(this.get, 2000);
+
         })
         .catch(err => {});
     },
     get() {
+      debugger
             this.$axios
               .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
@@ -107,7 +122,6 @@ export default {
                 }
               })
               .catch(err => {});
-            // console.log(this.value);
           }
   },
    beforeDestroy() {
@@ -117,7 +131,7 @@ export default {
 </script>
 
 <style scoped>
-/* 扫码登陆 */
+/* 扫码登录 */
 .popIndex {
   text-align: center;
 }

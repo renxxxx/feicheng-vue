@@ -1,19 +1,30 @@
 import Vue from 'vue'
 import Store from '../store'
 import Router from 'vue-router'
-
+//主页面
 const showPage = ()=>import("@/components/index/showPage.vue")
+//404错误页面
 const page404 = ()=>import( '@/components/404Page.vue')
+//替换路由
 const tihuan = ()=>import( '@/components/common/tihuan.vue')
+
+//产品页面
 const productPage = ()=>import( '@/components/product/productPage.vue')
 const productPage_user = ()=>import( '@/components/product/page/user.vue')
 const productPage_douyinSearch = ()=>import( '@/components/product/page/douyinSearch.vue')
 const productPage_ruzhu = ()=>import( '@/components/product/page/ruzhu.vue')
 const productPage_ruzhuView = ()=>import( '@/components/product/page/ruzhuView.vue')
 const productPage_videoSearch = ()=>import( '@/components/product/page/videoSearch.vue')
+const productPage_addressSearch = ()=>import( '@/components/product/page/addressSearch.vue')
+const productPage_collection = ()=>import( '@/components/product/page/collection.vue')
+
+//产品详情页面
 const searchDetails = ()=>import( '@/components/productSearchDetails/searchDetails.vue')
 const searchDetails_index = ()=>import( '@/components/productSearchDetails/page/index.vue')
+
+//文章详情页面
 const articleDetails = ()=>import( '@/components/article/article.vue')
+
 // //展示页面
 // import showPage from '@/components/index/showPage.vue'
 // //404错误页面
@@ -40,7 +51,7 @@ Vue.use(Router)
 const router = new Router({
 	routes: [
 		// unkeepLastRoute为true是不需要缓存路由值
-		//auth为true是需要登陆状态,否则为false
+		//auth为true是需要登录状态,否则为false
 		{
 
 		  path: '/',
@@ -74,7 +85,7 @@ const router = new Router({
 			meta: {auth:true},
 			redirect:'/productPage/productPage_user',
 			children:[
-				// 登陆后的页面路径配置
+				// 登录后的页面路径配置
 				{
 					path: 'productPage_user',
 					name: 'productPage_user',
@@ -98,13 +109,26 @@ const router = new Router({
 					name: 'productPage_videoSearch',
 					component: productPage_videoSearch,
 					meta: {auth:true},
-				},{
+				},
+				{
 					path: 'productPage_ruzhuView',
 					name: 'productPage_ruzhuView',
 					component: productPage_ruzhuView,
 					meta: {auth:true},
+				},
+				{
+					path: 'productPage_addressSearch',
+					name: 'productPage_addressSearch',
+					component: productPage_addressSearch,
+					meta: {auth:true},
+				},
+				{
+					path: 'productPage_collection',
+					name: 'productPage_collection',
+					component: productPage_collection,
+					meta: {auth:true},
 				}
-
+				
 			]
 		},
 		{
@@ -114,7 +138,7 @@ const router = new Router({
 			meta: {auth:true},
 			redirect:'/searchDetails/searchDetails_index',
 			children:[
-				// 登陆后的页面路径配置
+				// 登录后的页面路径配置
 				{
 					path: 'searchDetails_index',
 					name: 'searchDetails_index',
@@ -132,7 +156,7 @@ const router = new Router({
 			meta: {auth:true},
 			// redirect:'/articleDetails/searchDetails_index',
 		// 	children:[
-		// 		// 登陆后的页面路径配置
+		// 		// 登录后的页面路径配置
 		// 		{
 		// 			path: 'searchDetails_index',
 		// 			name: 'searchDetails_index',

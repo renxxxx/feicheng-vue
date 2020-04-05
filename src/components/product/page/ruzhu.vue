@@ -12,35 +12,35 @@
             <li>视频号信息:</li>
             <li>
               <span>视频号名:</span>
-              <el-input v-model="name" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' v-model="name" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>手机:</span>
-              <el-input type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>微信号:</span>
-              <el-input v-model="wx" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' v-model="wx" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>简介:</span>
-              <el-input type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
+              <el-input  :disabled='disabled' type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>账号类型:</span>
-              <el-select v-model="value" @change="typeFn(value)" placeholder="请选择">
+              <el-select :disabled='disabled' v-model="value" @change="typeFn(value)" placeholder="请选择">
                 <el-option v-for="item in type" :key="item.value" :label="item.label" :value="item.value"></el-option>
               </el-select>
             </li>
 
             <li>
               <span>城市:</span>
-              <el-cascader :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
+              <el-cascader  :disabled='disabled' :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
             </li>
             <li>
-              <span>头像:</span>
+              <span>头像:<span @click='lookBigPic()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
               <div class="avatorUp">
-                <el-upload
+                <el-upload  :disabled='disabled'
                   :file-list="dialogImageUrl1"
                   accept="image/*"
                   class="avatar-uploader"
@@ -48,10 +48,12 @@
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"
                   :before-upload="beforeAvatarUpload"
+                  :on-preview="handlePictureCardPreviewIcon"
                 >
                   <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
+                 <el-dialog :visible.sync="dialogVisibleIcon"><img width="100%" :src="imageUrl" alt="" /></el-dialog>
               </div>
             </li>
           </ul>
@@ -61,32 +63,45 @@
             <li style="height: 24px;"></li>
             <li>
               <span>粉丝量:</span>
-              <el-input type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>视频量:</span>
-              <el-input type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled' type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>点赞量:</span>
-              <el-input type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+              <el-input :disabled='disabled'  type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>曝光量:</span>
-              <el-input type="number" v-model="pv" placeholder="请输入内容"></el-input>
+              <el-input :disabled='disabled' type="number" v-model="pv" placeholder="请输入内容"></el-input>
             </li>
             <li>
               <span>选择领域(可多选):</span>
-              <el-checkbox style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+              <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
               <div style="margin: 15px 0;"></div>
-              <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+              <el-checkbox-group  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
                 <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{ city.name }}</el-checkbox>
               </el-checkbox-group>
+
             </li>
             <li>
-              <span>视频号截图:</span>
+              <span>视频号截图:<span @click='lookBigPicNow()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
               <div>
-                <el-upload
+                <el-upload  :disabled='disabled'
+                  :file-list="dialogImageUrl2"
+                  accept="image/*"
+                  class="avatar-uploader"
+                  action="/upload-file"
+                  :show-file-list="false"
+                  :on-success="uploadCover"
+                  :before-upload="beforeAvatarUpload"
+                >
+                  <img v-if="dialogImageUrl" :src="dialogImageUrl" class="avatar" />
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
+               <!-- <el-upload :disabled='disabled'
                   accept="image/*"
                   :file-list="dialogImageUrl2"
                   :limit="1"
@@ -98,7 +113,7 @@
                   :on-remove="handleRemove"
                 >
                   <i class="el-icon-plus"></i>
-                </el-upload>
+                </el-upload> -->
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
               </div>
             </li>
@@ -106,9 +121,12 @@
         </el-col>
       </el-row>
       <video_supply ref="refChild"></video_supply>
+
       <el-checkbox class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
-      <el-row>
-        <div class="submit_div"><el-button type="primary" @click="onSubmit">立即入驻</el-button></div>
+     
+
+      <el-row v-if='showIf'>
+        <div class="submit_div"><el-button  type="primary" @click="onSubmit">立即入驻</el-button></div>
       </el-row>
     </div>
     <login ref="loginRef"></login>
@@ -125,7 +143,11 @@ export default {
   name: 'ruzhu',
   data() {
     return {
+
       checked: true,
+
+      showIf:false,
+      disabled:false,
       selectedOptions: [],
       dialogImageUrl1: [],
       dialogImageUrl2: [],
@@ -140,6 +162,7 @@ export default {
       imageUrl: '',
       dialogImageUrl: '',
       dialogVisible: false,
+      dialogVisibleIcon:false,
       options: [],
       checkAll: false,
       checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
@@ -196,6 +219,7 @@ export default {
       }
     }
   },
+
   components: {
     login,
     video_supply
@@ -241,11 +265,55 @@ export default {
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
+
+     if (this.$store.state.wxVideoaccount.type == 0) {
+       this.value = '体验版';
+     } else if (this.$store.state.wxVideoaccount.type == 1) {
+       this.value = '个人号';
+     } else if (this.$store.state.wxVideoaccount.type == 2) {
+       this.value = '达人号';
+     } else if (this.$store.state.wxVideoaccount.type == 3) {
+       this.value = '企业号';
+     }
+      if(!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null||this.$store.state.wxVideoaccount.type==0){
+        this.disabled=false
+        this.showIf=true
+      }else if(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null||this.$store.state.wxVideoaccount.audit==12){
+        this.disabled=false
+        this.showIf=true
+      }else{
+        this.disabled=true
+        this.showIf=false
+      }
+
+     if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
+       for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
+         this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
+       }
+       this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
+     }
+     this.num = this.$store.state.wxVideoaccount.type;
+     this.name = this.$store.state.wxVideoaccount.name;
+     this.phone = this.$store.state.wxVideoaccount.phone;
+     this.wx = this.$store.state.wxVideoaccount.wx;
+     this.brief = this.$store.state.wxVideoaccount.brief;
+     this.fansCount = this.$store.state.wxVideoaccount.fansCount;
+     this.videoCount = this.$store.state.wxVideoaccount.videoCount;
+     this.likeCount = this.$store.state.wxVideoaccount.likeCount;
+     this.pv = this.$store.state.wxVideoaccount.pv;
+      if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
+     this.dialogImageUrl = this.$store.state.wxVideoaccount.screenshot;
+     this.dialogImageUrlNow = this.$store.state.wxVideoaccount.screenshot;
+     }
+     if(this.$store.state.wxVideoaccount.logo!=null&&this.$store.state.wxVideoaccount.logo!=undefined&&this.$store.state.wxVideoaccount.logo!=''){
+        this.imageUrl = this.$store.state.wxVideoaccount.logo;
+        this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
+     }
+     this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
   },
   mounted() {
-    // console.log(this.getVideoList)
+
     this.options = area;
-    console.log(this.options);
       this.accountRealmIdList();
       if (this.$store.state.wxVideoaccount.type == 0) {
         this.value = '体验版';
@@ -256,18 +324,25 @@ export default {
       } else if (this.$store.state.wxVideoaccount.type == 3) {
         this.value = '企业号';
       }
-      for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
-        this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
-      }
-      this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
-       console.log()
-      var dialogImageUrl2 = [],
-        dialogImageUrl1 = [];
-        if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
-             dialogImageUrl2.push({ name: '截图', url: this.$store.state.wxVideoaccount.screenshot });
-        }
+       if(!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null||this.$store.state.wxVideoaccount.type==0){
+         this.disabled=false
+       }else if(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null||this.$store.state.wxVideoaccount.audit==12){
+         this.disabled=false
+       }else{
+         this.disabled=true
+       }
 
-      this.dialogImageUrl2 = dialogImageUrl2;
+//       if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
+//         for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
+//           this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
+//         }
+// // <<<<<<< HEAD
+
+// //       this.dialogImageUrl2 = dialogImageUrl2;
+// // =======
+// //         this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
+//       }
+// // >>>>>>> 9924d97050574270432db6522c831ce86213b02f
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
       this.phone = this.$store.state.wxVideoaccount.phone;
@@ -277,13 +352,14 @@ export default {
       this.videoCount = this.$store.state.wxVideoaccount.videoCount;
       this.likeCount = this.$store.state.wxVideoaccount.likeCount;
       this.pv = this.$store.state.wxVideoaccount.pv;
+       if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
+      this.dialogImageUrl = this.$store.state.wxVideoaccount.screenshot;
       this.dialogImageUrlNow = this.$store.state.wxVideoaccount.screenshot;
-
+      }
       if(this.$store.state.wxVideoaccount.logo!=null&&this.$store.state.wxVideoaccount.logo!=undefined&&this.$store.state.wxVideoaccount.logo!=''){
          this.imageUrl = this.$store.state.wxVideoaccount.logo;
          this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
       }
-
       this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
       // this.dili = {
       //   shenfen: {
@@ -300,12 +376,12 @@ export default {
       //   }
       // };
 
-      var didi = {};
-      didi = {
-        city: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
-        qu: { name:this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
-        shenfen: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id }
-      };
+      // var didi = {};
+      // didi = {
+      //   city: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+      //   qu: { name:this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id },
+      //   shenfen: { name: this.$store.state.wxVideoaccount.area1Name, id: this.$store.state.wxVideoaccount.area1Id }
+      // };
 
       // this.ruleForm.regionServers = [data.region, data.server]
 
@@ -327,7 +403,6 @@ export default {
         )
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -346,7 +421,7 @@ export default {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
     handleChange(_value) {
-		 // console.log(_value)
+		 // //console.log(_value)
       let name1 = area.find(n => n.value == _value[0]);
       let name2 = name1.children.find(n => n.value == _value[1]);
       let name3 = name2.children.find(n => n.value == _value[2]);
@@ -365,10 +440,14 @@ export default {
           id: name3.value
         }
       };
-      console.log(this.diliNow);
     },
     onSubmit() {
-      this.$axios
+      this.$confirm('确认提交入驻?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$axios
         .post(
           '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
           qs.stringify({
@@ -394,7 +473,6 @@ export default {
         )
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -411,16 +489,10 @@ export default {
 
 
             this.$message.success('入驻申请已提交，请耐心等待审核');
-            // path:'/productPage/productPage_user'
-            // this.$router.push({path:'/productPage/productPage_user'});
-            // console.dir(this.$refs.refChild.tableData)
-            console.log(this.$refs.refChild.tableData,this.$refs.refChild.tableData.length)
             if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
               var tableData = this.$refs.refChild.tableData;
 
               for (var i in tableData) {
-                console.log(tableData[i].video)
-                debugger
                 this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
               }
               this.$router.push({ path: '/productPage/productPage_user' });
@@ -433,11 +505,14 @@ export default {
           }
         })
         .catch();
+        }).catch(() => {
+
+        });
+
+
     },
     typeFn(_value) {
       this.num = _value;
-      donsole.log(this.num);
-      // console.log(this.num)
     },
     // 获取领域列表
     accountRealmIdList() {
@@ -445,7 +520,6 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
           if (res.data.code == 20) {
-            console.log(this.centerDialogVisible);
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
               this.$refs.loginRef.getData();
@@ -457,6 +531,7 @@ export default {
               cityOptions.push(itemList[i]);
             }
             this.cities = cityOptions;
+            console.log(this.cities)
           }
         })
         .catch(err => {});
@@ -464,8 +539,13 @@ export default {
 
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // console.log(this.imageUrlNow)
+      // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
+    },
+    uploadCover(res, file) {
+      this.dialogImageUrlNow = res.data.url;
+      // console.log(this.imageUrlNow)
+      this.dialogImageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
@@ -479,25 +559,22 @@ export default {
       return isLt2M; // isJPG && isLt2M;
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
-      console.log(this.dialogImageUrl);
+      //console.log(this.dialogImageUrl);
       this.dialogVisible = true;
     },
-
-    uploadCover(response, file, fileList) {
-      // dialogImageUrlNow
-      this.dialogImageUrlNowlist = [];
-      this.dialogImageUrlNowlist.push(response.data.url);
-      this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(',');
-      console.log(this.dialogImageUrlNow);
+    lookBigPic() {
+      this.dialogVisibleIcon = true;
+    },
+    lookBigPicNow() {
+      this.dialogVisible = true;
     },
     // 选择领域
     handleCheckAllChange(val) {
       this.checkedCities = val ? this.cities : [];
-
       this.isIndeterminate = false;
       this.wxVideoaccountRealmIdList = [];
       for (let i in this.checkedCities) {
@@ -510,7 +587,7 @@ export default {
       for (let i in this.checkedCities) {
         this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
       }
-      console.log(this.checkedCities);
+      //console.log(this.checkedCities);
       this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
       let checkedCount = value.length;
       this.checkAll = checkedCount === this.cities.length;

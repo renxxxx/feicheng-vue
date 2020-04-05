@@ -3,19 +3,6 @@
 		<div class="search">
 			<el-row style="height: 60px;">
 				<div class="search_box">
-					<!-- <div class="search_box_xiala" @click="showXiaLaFn">
-						<div class="search_box_xialaButton">
-							<span slot="reference">{{searchData}}</span>	
-							<i class="el-icon-arrow-down" v-if="icon_down"></i>
-							<i class="el-icon-arrow-up" v-if="icon_up"></i>
-						</div>
-						<ul v-if="show_xiala">
-							<li @click="searchChoesFn('全部')">全部</li>
-							<li @click="searchChoesFn('名称')">名称</li>
-							<li @click="searchChoesFn('认证')">认证</li>
-							<li @click="searchChoesFn('简介')">简介</li>
-						</ul>
-					</div> -->
 					<div class="search_box_input">
 						<img src="../../../assets/img/search.png" alt="">
 						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
@@ -25,10 +12,7 @@
 				</div>
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
-				<!-- <el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1"> -->
 					<span class="search_type_span">领域类型:</span>
-				<!-- </el-col> -->
-				<!-- <el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23"> -->
 					<ul>
 						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(item,inx)">
 							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
@@ -106,83 +90,6 @@
 			</el-row> -->
 		</div>
 		
-		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10"> 
-			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
-				<el-table-column   prop="date" label="视频号" min-width="62%">
-					<template slot-scope="scope">
-				       <div class="searchList_lie_xinxi">
-				       	<img :src="scope.row.logo" alt="">
-				       	<div class="searchList_lie_xinxi_jianjie">
-				       		<h3>{{scope.row.name}}</h3>
-				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
-				       		<!-- <span>{{user.name}}</span> -->
-				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
-				       			视频号:{{scope.row.wx}}
-				       			<span class="_3wruq4Mm"></span>
-				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
-				       		</p>
-				       		<p class="line-2">简介：{{scope.row.brief}}</p>
-				       	</div>
-				       </div>
-				    </template>
-			   </el-table-column>
-			   <el-table-column prop="name" min-width="10%">
-					<template slot="header" slot-scope="scope">
-			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-			   				<span style="color: #cdcfcf;" :class="clickData.type? 'xuanzhongColor':''">领域</span>
-			   			</div>
-					</template>
-					<template slot-scope="scope">
-			   			<span class="biaoqianClass" v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList">{{biaoqian.name}}</span>
-					</template>
-			   </el-table-column>
-			   <el-table-column prop="name" min-width="7%">
-				   <template slot="header" slot-scope="scope">
-						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">粉丝数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
-					</template>
-					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>			   
-					</template>
-			   </el-table-column>
-				<el-table-column prop="name" min-width="7%">
-					<template slot="header" slot-scope="scope">
-						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-							<span style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''" >获赞数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
-					</template>
-					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>			   
-					</template>
-				</el-table-column>
-				<el-table-column prop="name" min-width="7%">
-					<template slot="header" slot-scope="scope">
-						<div @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-							<span style="color: #cdcfcf;" :class="clickData.three? 'xuanzhongColor':''">视频量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
-					</template>
-					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>			   
-					</template>
-				</el-table-column>
-				<el-table-column prop="name" min-width="7%">
-					<template slot="header" slot-scope="scope">
-						<div @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-							<span  style="color: #cdcfcf;" :class="clickData.four? 'xuanzhongColor':''">曝光量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
-					</template>
-					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			   
-					</template>
-				</el-table-column>
-			 </el-table>
-			<!-- </div> -->
-		</div>
 		<login ref="loginRef" ></login>
 	</div>
 </template>
@@ -203,7 +110,6 @@ export default {
 			num:0,
 			kw:'',
 			clickData:{
-				type:false,
 				 one:false,
 				 two:false,
 				 three:false,
@@ -256,13 +162,6 @@ export default {
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
-	 if(this.$route.query.value){
-		this.page = 0;
-		this.kw = this.$route.query.value;
-		this.userList = []
-	 }
-	 this.nextPage();
-	 this.getDataType();
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
@@ -304,14 +203,7 @@ export default {
 
   },
 	mounted(){
-		if(this.$route.query.value){
-				this.page = 0;
-				this.kw = this.$route.query.value;
-				this.userList = []
-		}
 		this.nextPage();
-		this.getDataType();
-		console.log(this.$route.query.value)
 	},
 	methods: {
 		nextPage(){
@@ -338,29 +230,7 @@ export default {
 				this.load = false;
 			})
 			.catch()
-		},
-		getDataType(){
-			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
-			.then(res =>{
-				if(res.data.code == 20){
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
-				}else{
-					if(res.data.data.itemList.length !=0){
-						for(let i in res.data.data.itemList){
-							this.typeList.push({
-								name:res.data.data.itemList[i].name,
-								typeData:false,
-								wxVideoaccountRealmId:res.data.data.itemList[i].wxVideoaccountRealmId
-							})
-						}
-					}
-				}
-			})
-			.catch()
-		},
+		},		
 		searchChoesFn(_value){
 			this.searchData = _value;
 			this.show_xiala = false
@@ -390,9 +260,6 @@ export default {
 		clickFn(_value){
 			this.clickData={one:false,two:false,three:false,four:false};
 			switch(_value){
-				case 'type':
-				this.clickData.type = true;
-				break;
 				case 'one':
 				if(this.one%2){
 					this.order = 'desc';
@@ -491,9 +358,6 @@ export default {
 			this.page = 1;
 			this.userList = []
 			this.getData()
-		},
-		detailsFn(value){
-			window.open('/#/searchDetails/searchDetails_index?data='+value.wxVideoaccountId, '_blank');
 		}
 	},
 }
@@ -504,7 +368,6 @@ export default {
 	width: 100%;
 	/* height: 100%; */
 	overflow-y: scroll;
-	overflow: hidden;
 }
 .douyinSearch::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
@@ -512,9 +375,6 @@ export default {
 .douyinSearch::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;}
 .douyinSearch::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;}
 .search{width: 100%;position: relative;}
-.search_type{
-	min-width: 660px;
-}
 .search_box{
 	width: 532px;
 	height: 32px;
@@ -558,12 +418,12 @@ export default {
 .search_box_xiala>ul>li:last-child{
 	margin-bottom: 5px;
 }
-/* .search_box_xiala>ul>li:hover{
+.search_box_xiala>ul>li:hover{
 	    transition: background .3s ease;
 		cursor: pointer;
 	transition: all .5s;
 	background-color: hsla(0,0%,100%,.1)!important;
-} */
+}
 .search_box_input{
 	height: 34px;
 	width: 400px;
@@ -665,12 +525,12 @@ export default {
 	margin: 0;
 	padding: 0;
 }
-.search_type ul li,.search_zhishu ul li{
+.search_type ul li{
 	display: inline-block;
 	margin-right: 18px;
 	
 }
-.search_type ul li span,.search_zhishu ul li span{
+.search_type ul li span{
 	display: inline-block;
 	height: 22px;
 	line-height: 22px;
@@ -680,317 +540,11 @@ export default {
 	padding: 5px;
 }
 
-.search_type ul li span:hover,.search_zhishu ul li span:hover{
+.search_type ul li span:hover{
 	cursor: pointer;
 	color: #ff9429;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 	/* background-color: #ff7800; */
 }
 
-.search_renzheng ul li{
-	display: inline-block;margin-right: 30px;
-	position: relative;
-}
-.search_renzheng ul li:first-child span,.search_zhishu ul li{
-	display: inline-block;
-	width: 104px;
-	height: 30px;
-	line-height: 32px;
-	text-align: center;
-	color: #cdcfcf;
-	border-radius: 4px;
-	border: 1px solid #6d6d6d;
-}
-.search_renzheng ul li:first-child span:hover,.search_zhishu ul li:hover{
-	transition: all .2s;
-	border-color: #ff7800;
-}
-.search_renzheng ul li:nth-child(2) span{
-	margin-right: 0px;
-}
-.search_renzheng ul li span{
-	margin-right: 5px;
-	color: #e8edee;
-}
-.search_renzheng ul li svg{
-	position: absolute;
-	top:0;bottom: 0;margin: auto 0px;
-	right: -15px;
-}
-.dataColor{
-	color: #6b6d6d!important;
-	cursor: not-allowed;
-}
-.ant-checkbox-disabled .ant-checkbox-input {
-    cursor: not-allowed;
-}
-.ant-checkbox-input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    opacity: 0;
-}
-._1OZfUfro .ant-checkbox-inner {
-    background-color: transparent;
-	/* background-color: #3e3e3e; */
-	/* border-color: #6d6d6d!important; */
-}
-.ant-checkbox-inner {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    border: 1px solid #6d6d6d;
-    border-radius: 2px;
-    border-collapse: separate;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-	background-color: transparent;
-}
-.ant-checkbox {
-    margin: 0;
-    padding: 0;
-    color: #e8edee;
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5;
-    list-style: none;
-    -webkit-font-feature-settings: "tnum","tnum";
-    font-feature-settings: "tnum","tnum";
-    position: relative;
-    top: -.09em;
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    vertical-align: middle;
-    outline: none;
-    cursor: pointer;
-}
-.ant-checkbox-disabled {
-    cursor: not-allowed;
-}
-
->>>.el-table th {
-    background: rgb(58, 58, 62);
-        color: rgb(232, 237, 238);
-}
-.searchList_type{
-	text-align: center;
-	display: inline-block;
-	width: 18%;
-	min-width: 56px;
-	max-width: 80px;
-	cursor: pointer;
-	/* margin-right: 3%; */
-}
-
-
-.searchList_Title{
-	color: #cdcfcf;
-	font-weight: 500;
-}
-.searchList_canshu,.searchList_shuju{
-	width: 100%;
-	height: 100%;
-	color: #cdcfcf;
-	font-weight: 500;
-	text-align: left;
-	min-width: 340px;
-}
-.searchList_shuju{
-	/* height: 100px; */
-}
-.searchList_canshu ul,.searchList_shuju ul{
-	padding: 0;
-	margin: 0;
-	text-align: right;
-}
-.searchList_canshu ul li,.searchList_shuju ul li{
-	text-align: center;
-	display: inline-block;
-	width: 18%;
-	min-width: 56px;
-	max-width: 80px;
-	cursor: pointer;
-	/* margin-right: 3%; */
-}
-.searchList_canshu ul li:first-child{
-	cursor: pointer;
-	width: 23%;
-	max-width: 140px;
-	min-width: 110px;
-	float: left;
-}
-.searchList_canshu ul li:last-child,.searchList_shuju ul li:last-child{
-	width: 18%;
-	max-width: 120px;
-	min-width: 100px;
-}
-.searchList_shuju{
-	margin: auto 0px;
-	position: absolute;
-	right: 0;
-	top: 40%;
-}
-.searchList_shuju ul li{
-	color: #e8edee;
-	font-size: 14px;
-	margin: auto 0px;
-}
-.searchList_shuju ul li:first-child{
-	cursor: pointer;
-	width: 23%;
-	max-width: 140px;
-	min-width: 110px;
-	text-align: center;
-	    display: inline-block;
-	/* float: left; */
-}
-.xuanzhongColor{
-	color: #ff7800!important;
-	transition: all .3s;
-}
-.searchList{
-	position: relative;
-	width: 100%;
-}
-.searchList_lie{
-	border-radius: 6px;
-	color: #e8edee;
-	font-size: 14px;
-	border-bottom:1px solid #404040;
-	position: relative;
-}
-.searchList_lie:hover{
-	background: #3c3c3e;
-	transition: all .3s,height 0s;
-	cursor: pointer;
-}
-
-.searchList_lie_xinxi{
-	width: 100%;
-	position: relative;
-	min-width: 205px;
-}
-.searchList_lie_xinxi>img{
-	width: 60px;
-	height: 60px;
-	border-radius: 50px;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 5px;
-	margin-left: 5px;
-	border: 2px solid #fff;
-}
-.searchList_lie_xinxi_jianjie{
-	padding: 20px 8px 8px 8px;
-	display: inline-block;
-	margin-left: 75px;
-}
-.searchList_lie_xinxi_jianjie>h3{
-	display: inline-block;
-	color: #e8edee;
-	font-size: 16px;
-}
-.searchList_lie_xinxi_jianjie>h3:hover{
-	text-decoration: none;
-	background-color: transparent;
-	outline: none;
-	transition: color .3s;
-	cursor: pointer;
-	color: #ff8b1d;
-}
-.biaoqianClass{
-	/* margin-left: 8px; */
-	padding: 2px 8px 1px;
-	line-height: 16px;
-	font-size: 12px;
-	color: #cdcfcf;
-	border-radius: 11px;
-	border: 1px solid rgba(205,207,207,.3);
-	background-color: rgba(232,237,238,.1);
-	white-space: nowrap;
-	float: left;
-	margin: 3px;
-}
-.searchList_lie_xinxi_jianjie>p:last-child{
-	width: 90%;
-	height: 42px;
-	color: #787a7a;
-}
-.searchList_lie_xinxi_jianjie>svg{
-	position: absolute;
-	margin-top: 3px;
-}
-.searchList_lie_xinxi_jianjie>span:nth-child(4){
-	/* margin-left: 20px; */
-}
-.searchList_lie_xinxi_jianjie>p:nth-child(5){
-	padding: 6px 0;
-}
-.diquColor{
-	color:#cdcfcf;
-	display: inline-block;
-}
-.diquColor::before{
-	position: absolute;
-	color: #707070;
-}
-._3wruq4Mm {
-	margin: 0 8px;
-   width: 1px;
-   height: 12px;
-	line-height: 12px;
-   background-color: #707070;
-	display: inline-block;
-}
-
-
-
->>>.el-table{
-	background-color: transparent;
-}
->>>.el-table th.is-leaf {
-    border:none;
-}
->>>.el-table tr{
-	background-color: transparent;
-}
->>>.el-table__body tr.hover-row>td{
-    background-color: transparent;
-}
->>>.el-table td{
-	border:none;
-}
->>>.el-table__row:hover > td{
-	transition: background .3s ease;
-		cursor: pointer;
-	transition: all .5s;
-	background-color: hsla(0,0%,100%,.1)!important;
-}
-.typeCilckColor{
-	color: #fff!important;
-	background-color: #ff7800;
-	transition: all .3s cubic-bezier(.78,.14,.15,.86);
-}
-.el-table::before {
-    height: 0px;
-}
-
-/* @media only screen and (max-width: 1366px) {
-    .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
-    	display: none;
-    }
-} */
 </style>

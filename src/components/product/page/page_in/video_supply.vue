@@ -1,55 +1,35 @@
 <template>
   <div class="video">
     <el-row>
+      
       <div>
-        <!-- <span>作品列表</span> -->
-        <el-button style="margin: 10px 0;" type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
-        <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
-      </div>
-      <div>
-        <el-table stripe :data="tableData" style="width: 100%">
-          <el-table-column type="expand">
-            <template slot-scope="props">
-              <el-form label-position="left" inline class="demo-table-expand">
-                <el-form-item label="视频名称">
-                  <span>{{ props.row.name }}</span>
-                </el-form-item>
-                <el-form-item label="视频封面">
-                  <img :src="props.row.cover" style="width: 50px;height: 50px;" alt="" />
-                  <!-- <span>{{ props.row.cover }}</span> -->
-                </el-form-item>
-                <el-form-item label="视频">
-                  <!-- <span>{{ props.row.video }}</span> -->
-                  <video controls="controls" style="width: 50%;min-width: 200px;max-width: 500px;" :src="props.row.video"></video>
-                </el-form-item>
-                <el-form-item label="点赞量">
-                  <span>{{ props.row.likeCount }}</span>
-                </el-form-item>
-                <el-form-item label="曝光量">
-                  <span>{{ props.row.pv }}</span>
-                </el-form-item>
-                <el-form-item label="描述">
-                  <span>{{ props.row.brief }}</span>
-                </el-form-item>
-                <!-- <el-form-item label="视频描述">
-                    <span>{{ props.row.desc }}</span>
-                  </el-form-item> -->
-              </el-form>
-            </template>
-          </el-table-column>
+        <el-table stripe :data="tableData" style="width: 100%;">
+
           <el-table-column label="视频名称" prop="name"></el-table-column>
-          <el-table-column label="视频封面" align="center">
+         <!-- <el-table-column label="视频封面" align="center">
             <template slot-scope="scope">
               <img :src="scope.row.cover" width="50" height="50" />
             </template>
-          </el-table-column>
+          </el-table-column> -->
           <el-table-column label="描述" prop="brief"></el-table-column>
+           <el-table-column label="视频"  align="center">
+             <template slot-scope="scope">
+                <video controls="controls" style="width: 100px;height: 100px;object-fit: contain;" :poster="scope.row.cover" :src="scope.row.video"></video>
+             </template>
+           </el-table-column>
+          <el-table-column label="点赞量" prop="likeCount"></el-table-column>
+          <el-table-column label="曝光量" prop="pv"></el-table-column>
           <el-table-column fixed="right" label="操作" width="120">
             <template slot-scope="scope">
-              <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
+              <el-button  :disabled='disabled' @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small">移除</el-button>
             </template>
           </el-table-column>
         </el-table>
+      </div>
+      <div>
+        <!-- <span>作品列表</span> -->
+        <el-button style="margin: 10px 0;" v-if='showIf' type="primary" @click="centerDialogVisible = true">上传视频<i class="el-icon-upload el-icon--right" style="display: inline-block;"></i></el-button>
+        <!-- <el-button type="primary" @click="centerDialogVisible = true">点击添加视频</el-button> -->
       </div>
     </el-row>
 
@@ -79,6 +59,7 @@
             </div>
           </li>
           <li>
+            <span>视频:</span>
             <el-upload
               class="upload-demo"
               action="/upload-file"
@@ -130,6 +111,11 @@ import login from '../../../common/functionPage/login.vue'
 export default {
   data() {
     return {
+      styleObject:{
+        display:'block',
+      },
+      showIf:'',
+      disabled:'',
       name: '',
       likeCount: '',
       pv: '',
@@ -149,8 +135,31 @@ export default {
 	components: {
 	  login
 	},
+  activated() {
+    if(!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null||this.$store.state.wxVideoaccount.type==0){
+      this.disabled=false
+      this.showIf=true
+    }else if(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null||this.$store.state.wxVideoaccount.audit==12){
+      this.disabled=false
+       this.showIf=true
+    }else{
+      this.disabled=true
+      this.showIf=false
+    }
+  },
   mounted(){
- console.log(this.getVideoList.itemList)
+    if(!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null||this.$store.state.wxVideoaccount.type==0){
+      this.disabled=false
+      this.showIf=true
+    }else if(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null||this.$store.state.wxVideoaccount.audit==12){
+      this.disabled=false
+       this.showIf=true
+    }else{
+      this.disabled=true
+      this.showIf=false
+    }
+
+ // console.log(this.getVideoList.itemList)
  var itemList=this.getVideoList.itemList
      if(this.getVideoList&&this.getVideoList.itemList!=null&&this.getVideoList.itemList!=undefined&&this.getVideoList.itemList.length!=0){
 
@@ -163,16 +172,16 @@ export default {
     // 视频上传
     uploadVideo(response, file, fileList) {
       this.video = response.data.url;
-      console.log(this.video);
+      //console.log(this.video);
     },
     deleteRow(index, rows) {
       rows.splice(index, 1);
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePreview(file) {
-      console.log(file);
+      //console.log(file);
     },
     handleExceed(files, fileList) {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
@@ -182,7 +191,7 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // console.log( URL.createObjectURL(file.raw))
+      // //console.log( URL.createObjectURL(file.raw))
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -210,7 +219,7 @@ export default {
      // this.video=''
      this.videolist=[]
      this.fileList=[]
-     console.log(this.tableData)
+     //console.log(this.tableData)
     //   this.$axios
     //     .post(
     //       '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',

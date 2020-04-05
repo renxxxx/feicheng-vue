@@ -182,7 +182,7 @@ strong {
 .mainbottom > div {
   width: 1200px;
   height: 720px;
-  background: url(https://xd1.newrank.cn/_next/static/media/map.880c99f2.svg) 0 0 no-repeat;
+  background: url(../../../assets/img/map.svg) 0 0 no-repeat;
   position: relative;
   margin: 0 auto;
 }
@@ -191,7 +191,7 @@ strong {
   opacity: 0;
   width: 601px;
   height: 260px;
-  background: url(https://xd1.newrank.cn/_next/static/media/address.11eb12d5.svg) 0 0 no-repeat;
+  background: url(../../../assets/img/address.svg) 0 0 no-repeat;
   left: 297px;
   top: 255px;
 }

@@ -1,7 +1,7 @@
 <template>
 	<el-row :gutter='17' class="nav">
 		<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-			<router-link :to="{path:'/'}" style="height: 55px;width: 100%;display: block;">
+			<router-link :to="{path:'./'}" style="height: 55px;width: 100%;display: block;">
 				<!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
 				<img src="../../../assets/img/logo.png" style="width: 69.8px;heigt:35px;margin-left: 34px;margin-top: 11px;" alt="">
 			</router-link>
@@ -16,16 +16,32 @@
 							<el-popover placement="top-start" trigger="hover">
 								<div class="nav_data_xiala">
 									<ul>
-										<li>视频管家</li>
+										<!-- <li>视频管家</li> -->
 										<li>我的收藏</li>
-										<li>购买续费</li>
-										<li>我的权限</li>
+										<!-- <li>购买续费</li> -->
+										<!-- <li>我的权限</li> -->
 										<li @click="exitFn">退出</li>
 									</ul>
 								</div>
-								<span slot="reference" style="cursor: pointer;">体验版</span>
+								<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+									<span class="spanColor">
+										{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
+										:this.$store.state.wxVideoaccount.type==0?"体验版"
+										:this.$store.state.wxVideoaccount.type==1?"个人号"
+										:this.$store.state.wxVideoaccount.type==2?"达人号"
+										:this.$store.state.wxVideoaccount.type==3?"企业号"
+										:"未知" }}
+										{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
+										:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+										:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
+										:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
+										:"未知" }}
+									</span>
+									<i class="el-icon-arrow-down"></i>
+								</span>
+
 							</el-popover>
-							<i class="el-icon-arrow-down" style="padding-top: 25px;"></i>
+							
 						</div>
 						<div class="nav_function">
 							<!-- <svg width="16" height="16" viewBox="0 0 16 16" class="_pniUROVW">
@@ -53,7 +69,7 @@
 							</svg>
 						</div>
 						<div class="nav_user_search">
-							<input type="search" placeholder="搜索">
+							<input type="search" placeholder="搜索" @click="searchDiialogFn" readonly>
 							<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor"
 							 aria-hidden="true">
 								<path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
@@ -95,13 +111,18 @@ export default {
 	exitFn(){
 		this.$axios.post("/user/logout")
 		.then(res=>{
+			debugger
 			if(res.data.code == 0){
 				localStorage.clear();
 				this.$router.replace('/')
 				location.reload()
 			}
 		})
-	}
+	},
+	searchDiialogFn(){
+	this.$store.state.publicSearchShow = true
+			  
+	},
   },
 }
 </script>
@@ -309,10 +330,11 @@ export default {
 		float: right;
 		    margin-right: 20px;
 		    height: 56px;
-		    line-height: 5px!important;
+		    line-height: 56px!important;
 	}
-	.nav_data>i{
-		line-height: 0;
+	.nav_data>span:nth-child(3)>i{
+		margin-left: 15px;
+		display: inline-block;
 	}
 	.nav_data>img {
 		height: 24px;
@@ -337,17 +359,16 @@ export default {
 		margin-right: 4px;
 	}
 
-	.nav_data>span:nth-child(3) {
+	.spanColor{
 		font-size: 12px;
 		height: 22px;
-		display: inline-block;
-		line-height: 20px;
+		line-height: 22px;
 		padding: 0 14px;
 		border-radius: 4px;
 		border: 1px solid #66666d;
-		background: rgba(102, 102, 109, .1);
+		background: rgba(102,102,109,.1);
+		display: inline-block;
 	}
-
 	.nav_data_xiala{
 			width: 100px;
 			margin: 0px auto;

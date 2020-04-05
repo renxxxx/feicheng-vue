@@ -132,7 +132,7 @@
         font-size: 14px;
         line-height: 38px;
         color: #595959;
-        opacity: .8;
+        /* opacity: .8; */
         /* margin-top: -28px; */
             text-align: right;
   }

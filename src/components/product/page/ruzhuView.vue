@@ -218,9 +218,9 @@ export default {
   //   });
   // },
   mounted() {
-    // console.log(area)
+    // //console.log(area)
     this.options = area;
-    console.log(this.options);
+    //console.log(this.options);
      this.accountRealmIdList()
      if(this.$store.state.wxVideoaccount){
         if(this.$store.state.wxVideoaccount.type==0){
@@ -234,9 +234,9 @@ export default {
        }
        for(var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
           this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo=''
-         // console.log(11111, this.wxVideoaccountRealmIdList)
+         // //console.log(11111, this.wxVideoaccountRealmIdList)
        }
-       // console.log(238238+this.dialogImageUrl2)
+       // //console.log(238238+this.dialogImageUrl2)
 
 
        this.checkedCities=this.$store.state.wxVideoaccount.wxVideoaccountRealmList
@@ -290,7 +290,7 @@ export default {
           )
           .then(res => {
       		if(res.data.code == 20){
-            console.log(this.centerDialogVisible)
+            //console.log(this.centerDialogVisible)
       			if(!this.centerDialogVisible){
       				this.centerDialogVisible = true;
       				this.$refs.loginRef.getData();
@@ -327,7 +327,7 @@ export default {
 			  	id:name3.value
 			  }
 		  }
-		  console.log(this.dili)
+		  //console.log(this.dili)
 	  },
 		onSubmit(){
 			this.$axios.post("/user/wx-videoaccount/apply-audit-my-wx-videoaccount?",qs.stringify({
@@ -352,7 +352,7 @@ export default {
 			}))
 			.then(res =>{
 				if(res.data.code == 20){
-          console.log(this.centerDialogVisible)
+          //console.log(this.centerDialogVisible)
           if(!this.centerDialogVisible){
           	this.centerDialogVisible = true;
           	this.$refs.loginRef.getData();
@@ -394,7 +394,7 @@ export default {
 		typeFn(_value){
 			this.num = _value
        donsole.log(this.num)
-			// console.log(this.num)
+			// //console.log(this.num)
 		},
     // 获取领域列表
     accountRealmIdList(){
@@ -402,7 +402,7 @@ export default {
         .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
 					if(res.data.code == 20){
-            console.log(this.centerDialogVisible)
+            //console.log(this.centerDialogVisible)
 						if(!this.centerDialogVisible){
 							this.centerDialogVisible = true;
 							this.$refs.loginRef.getData();
@@ -421,7 +421,7 @@ export default {
 
     handleAvatarSuccess(res, file) {
 		 this.imageUrlNow = res.data.url
-		 // console.log(this.imageUrlNow)
+		 // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -436,11 +436,11 @@ export default {
       return isLt2M; // isJPG && isLt2M;
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      //console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
-		 console.log(this.dialogImageUrl)
+		 //console.log(this.dialogImageUrl)
       this.dialogVisible = true;
     },
 
@@ -449,7 +449,7 @@ export default {
      this.dialogImageUrlNowlist=[]
 		 this.dialogImageUrlNowlist.push(response.data.url);
 		 this.dialogImageUrlNow = this.dialogImageUrlNowlist.join(",");
-		 console.log(this.dialogImageUrlNow)
+		 //console.log(this.dialogImageUrlNow)
 	 },
     // 选择领域
       handleCheckAllChange(val) {
@@ -467,7 +467,7 @@ export default {
 				 for(let i in this.checkedCities){
 				 	this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId)
 				 }
-          console.log(this.checkedCities)
+          //console.log(this.checkedCities)
 				 this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(",");
             let checkedCount = value.length;
             this.checkAll = checkedCount === this.cities.length;
