@@ -412,9 +412,23 @@ askIfEnter(){
 body{
 	background-color: #2b2b2e;
 }
+
+el-menu-item {
+	color: #fff !important;
+}
 </style>
 
 <style >
+#product {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #2b2b2e;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  min-width: 1000px;
+}
+
   .dialogThis {
     background: #55555a !important;
     color: #fff !important;
@@ -487,9 +501,7 @@ body{
 
 
 
-el-menu-item {
-	color: #fff !important;
-}
+
 .appView{
 	/* padding-left:10px; */
 	min-width: 1020px;
@@ -772,15 +784,7 @@ el-menu-item {
 	transition: all .3s;
 	color: #f5222d;
 }
-#product {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #2b2b2e;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  min-width: 850px;
-}
+
 /* #product::-webkit-scrollbar{width:4px;border-radius: 50px;} */
 /* #product::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */
 /* #product::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;} */

@@ -16,7 +16,13 @@ import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 import moment from 'moment'
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
 
+Vue.use(Viewer);
+Viewer.setDefaults({
+  Options: { "inline": true, "button": true, "navbar": true, "title": true, "toolbar": true, "tooltip": true, "movable": true, "zoomable": true, "rotatable": true, "scalable": true, "transition": true, "fullscreen": true, "keyboard": true, "url": "data-source" }
+});
 import VueLazyload from 'vue-lazyload'
 //版本号
  

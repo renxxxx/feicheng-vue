@@ -256,7 +256,10 @@
 									<div class="_1KGIPaKA"></div>
 									<div class="_1KGIPaKA">
                     <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
-                    <img @click='dialogVisibleIcon=true' style="height: 64px; width: 64px;object-fit: contain;" :src="message.qrcode" alt="">
+
+					<viewer>
+                    <img style="height: 64px; width: 64px;cursor: pointer;" :src="message.qrcode" alt="">
+					</viewer>
 
                   </div>
 								</div>
