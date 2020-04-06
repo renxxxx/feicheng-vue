@@ -24,8 +24,8 @@ img {vertical-align: middle;border-style: none;}
 /* 加载不出来的图片不要显示灰色边框 */
 img:not([src]),img[src=""] {opacity: 0;}
 table {border-collapse: collapse; border-spacing: 0;}
-input, select, button, textarea {font-size: 100%; font: inherit;-webkit-appearance: none; border-radius:0px; border:none;}
-/* html, body { width: 100%;height: 100%; box-sizing: border-box;} */
+input, select, button, textarea {font-size: 100%; -webkit-appearance: none; border-radius:0px; border:none;font: inherit;}
+html, body { width: 100%;height: 100%; box-sizing: border-box;}
 span{list-style: none}
 .line-1{
   display: -webkit-box;

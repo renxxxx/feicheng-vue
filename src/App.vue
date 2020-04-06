@@ -57,15 +57,16 @@ img[lazy="error"]{
  }
 #app {
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	/* height: 100%; */
-	/* width: 100%; */
-	/* padding: 0;
-	margin: 0; */
-	/* overflow-x: scroll;
-	overflow-y:hidden; */
-	/* min-width: 850px; */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/* height: 100%; */
+		/* width: 100%; */
+		padding: 0;
+		margin: 0;
+    overflow-y: hidden;
+		/* overflow-x: scroll;
+		overflow-y:hidden; */
+		/* min-width: 850px; */
 }
 .muti::-webkit-scrollbar{
 	width:4px;

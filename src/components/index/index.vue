@@ -1,5 +1,5 @@
 <template>
-  <div id="showPage" class="muti">
+  <div id="showPage" >
       <!-- 顶部导航 -->
       <div class="navBarBox">
         <el-header class="navBar">
@@ -308,7 +308,7 @@ export default {
     window.addEventListener("scroll", this.scrollToTop, true);
 
 
-    
+
 
     // 跳转回跳页面
     let lastRoute = localStorage.getItem("lastRoute");
@@ -390,21 +390,23 @@ askIfEnter(){
       this.$refs.loginRef.getData();
     },
     scrollToTop() {
-      var scrollTop = document.getElementById("showPage").scrollTop;
+      // var scrollTop = document.getElementById("showPage").scrollTop;
+         var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       // var height1 = this.$refs.showPage1.offsetTop;
       // var height2 = this.$refs.showPage2.offsetTop;
-      // console.dir(this.$refs.showPage_two.$el.offsetHeight)
+
       var height2 = 0;
-      var height3 = height2 + this.$refs.showPage_one.$el.offsetHeight;
-      var height4 = height3 + this.$refs.showPage_two.$el.offsetHeight;
-      var height5 = height4 + this.$refs.showPage_three.$el.offsetHeight;
-      var height6 = height5 + this.$refs.showPage_four.$el.offsetHeight;
-      var height7 = height6 + this.$refs.showPage_five.$el.offsetHeight;
-      var height8 = height7 + this.$refs.showPage_six.$el.offsetHeight;
-      var height9 = height8 + this.$refs.showPage_eight.$el.offsetHeight;
-      var height10 = height9 + this.$refs.showPage_nine.$el.offsetHeight;
-      //console.log(scrollTop, height2, height3, height4);
+      var height3 = height2 + this.$refs.showPage_one.$el.scrollHeight;
+      var height4 = height3 + this.$refs.showPage_two.$el.scrollHeight;
+      var height5 = height4 + this.$refs.showPage_three.$el.scrollHeight;
+      var height6 = height5 + this.$refs.showPage_four.$el.scrollHeight;
+      var height7 = height6 + this.$refs.showPage_five.$el.scrollHeight;
+      var height8 = height7 + this.$refs.showPage_six.$el.scrollHeight;
+      var height9 = height8 + this.$refs.showPage_eight.$el.scrollHeight;
+      var height10 = height9 + this.$refs.showPage_nine.$el.scrollHeight;
+      console.log(scrollTop, height2, height3, height4,height5,height6,height7,height8,height9,height10);
       if (scrollTop >= height3 / 2) {
+        console.log(123)
         document
           .getElementById("one_1")
           .setAttribute("class", "oneBox_mid_line oneBox_mid_line_one_1");
@@ -514,7 +516,7 @@ askIfEnter(){
           .getElementById("eight_1")
           .setAttribute("class", " main_bottom main_bottom_transition_8");
       }
-      if (scrollTop >= height10 + 700) {
+      if (scrollTop >= height10 + 500) {
         document
           .getElementById("nine_1")
           .setAttribute("class", " main main_transition_9");
@@ -625,7 +627,7 @@ html {
 }
 #showPage {
    min-width: 850px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   height: 100%;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
@@ -682,12 +684,12 @@ el-row,
       width: 100%;
       z-index: 999;
       background: #40404d;
-      left: -8px;
+      /* left: -8px; */
 }
 .fclogo {
   line-break: 64px;
   vertical-align: middle;
-  padding-left: 8px;
+  /* padding-left: 8px; */
 }
 .indexNav {
   width: 1200px;
