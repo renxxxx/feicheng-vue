@@ -219,6 +219,7 @@
 
 <script>
 import axios from 'axios'
+import h5p from '../../../build/h5p.js'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
 import login from '@/components/login.vue'
@@ -343,7 +344,6 @@ export default {
 		}
 		this.nextPage();
 		this.getDataType();
-		console.log(this.$route.query.value)
 	},
 	methods: {
 		inDataFn(){
