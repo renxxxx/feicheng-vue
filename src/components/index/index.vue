@@ -534,6 +534,11 @@ askIfEnter(){
 };
 </script>
 
+<style >
+body{
+	background-color: #2b2b2e;
+}
+</style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   ._2L2iRuHT{

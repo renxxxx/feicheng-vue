@@ -49,9 +49,7 @@ export default {
 </script>
 
 <style>
-body{
-	background-color: #2b2b2e;
-}
+
 img[lazy="loading"]{
     object-fit:scale-down!important;
  }
@@ -64,9 +62,8 @@ img[lazy="error"]{
 		-moz-osx-font-smoothing: grayscale;
 		/* height: 100%; */
 		/* width: 100%; */
-		padding: 0;
-		margin: 0;
-    overflow-y: hidden;
+		/* padding: 0;
+		margin: 0; */
 		/* overflow-x: scroll;
 		overflow-y:hidden; */
 		/* min-width: 850px; */

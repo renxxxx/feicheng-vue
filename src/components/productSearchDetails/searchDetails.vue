@@ -484,7 +484,11 @@
 		},
 	}
 </script>
-
+<style >
+body{
+	background-color: #2b2b2e;
+}
+</style>
 <style scoped>
 	#searchDetails {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
