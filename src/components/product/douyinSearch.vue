@@ -26,7 +26,7 @@
 			</el-row>
 			<el-row style="line-height: 47px;" class="search_type">
 				<!-- <el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1"> -->
-					<span class="search_type_span">领域类型:</span>
+					<span class="search_type_span">领域:</span>
 				<!-- </el-col> -->
 				<!-- <el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23"> -->
 					<ul>
