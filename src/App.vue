@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="muti" ref='appRef'>
-    <keep-alive> 
+    <keep-alive>
     <router-view />
-</keep-alive> 
+</keep-alive>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     if(!this.cookieOn()){
        this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
           confirmButtonText: '确定',
-          
+
         });
     }
 
@@ -32,7 +32,7 @@ export default {
 			    }
 			  }
       })
-      
+
  this.$jquery.ajax({
 			  url:'/user/my/wx-videoaccount',
 			  type:'get',
@@ -43,7 +43,7 @@ export default {
 			    }
 			  }
       })
-      
+
   }
 }
 </script>

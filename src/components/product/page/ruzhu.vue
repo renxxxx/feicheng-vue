@@ -121,6 +121,10 @@
         </el-col>
       </el-row>
       <video_supply ref="refChild"></video_supply>
+
+      <el-checkbox class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+     
+
       <el-row v-if='showIf'>
         <div class="submit_div"><el-button  type="primary" @click="onSubmit">立即入驻</el-button></div>
       </el-row>
@@ -139,6 +143,9 @@ export default {
   name: 'ruzhu',
   data() {
     return {
+
+      checked: true,
+
       showIf:false,
       disabled:false,
       selectedOptions: [],
@@ -158,7 +165,7 @@ export default {
       dialogVisibleIcon:false,
       options: [],
       checkAll: false,
-      checkedCities: [],
+      checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
       cities: [],
       isIndeterminate: false,
       type: [
@@ -198,6 +205,7 @@ export default {
       imageUrlNow: '',
       dialogImageUrlNow: [],
       dialogImageUrlNowlist: [],
+      getConfig:this.$store.state.getConfig.config(),
 		// diliNow:{}
     };
   },
@@ -324,12 +332,17 @@ export default {
          this.disabled=true
        }
 
-      if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
-        for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
-          this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
-        }
-        this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
-      }
+//       if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
+//         for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
+//           this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
+//         }
+// // <<<<<<< HEAD
+
+// //       this.dialogImageUrl2 = dialogImageUrl2;
+// // =======
+// //         this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
+//       }
+// // >>>>>>> 9924d97050574270432db6522c831ce86213b02f
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
       this.phone = this.$store.state.wxVideoaccount.phone;
@@ -493,10 +506,10 @@ export default {
         })
         .catch();
         }).catch(() => {
-                   
+
         });
 
-      
+
     },
     typeFn(_value) {
       this.num = _value;
@@ -584,6 +597,9 @@ export default {
 };
 </script>
 <style scoped>
+  .userXy{
+    margin: 40px 10px 20px 40px;
+  }
 .ruzhu {
   background: #3a3a3e;
   height: auto;
@@ -657,7 +673,7 @@ ul > li > div {
 .submit_div {
   width: 100%;
   /* text-align: center; */
-  line-height: 130px;
+  line-height: 65px;
   margin-bottom: 70px;
   padding-left: 40px;
   text-align: left;
