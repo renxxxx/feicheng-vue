@@ -276,7 +276,7 @@ export default {
 			icon:'',
 			data:true,
 			onechild:[
-					{name:'博主列表',data:'true',url:'/product/product_collection'},
+					{name:'博主',data:'true',url:'/product/product_collection'},
 		]},
 		],
     }
