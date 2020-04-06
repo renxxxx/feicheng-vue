@@ -228,8 +228,8 @@
 <script>
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
-import login from '../login.vue'
-import searchDialog from './function/searchDialog.vue'
+import login from '@/components/login.vue'
+import searchDialog from './searchDialog.vue'
 export default {
   name: 'product',
   data(){

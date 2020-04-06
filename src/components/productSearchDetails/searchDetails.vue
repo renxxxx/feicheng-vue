@@ -352,7 +352,7 @@
 	import qs from 'qs';
 	import login from '../login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
-	import searchDialog from '../product/function/searchDialog.vue'
+	import searchDialog from '../product/searchDialog.vue'
 	export default {
 		name: 'searchDetails',
 		data() {

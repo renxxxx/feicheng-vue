@@ -10,13 +10,12 @@ const tihuan = ()=>import( '@/components/tihuan.vue')
 
 //产品页面
 const product = ()=>import( '@/components/product/product.vue')
-const product_user = ()=>import( '@/components/product/page/user.vue')
-const product_douyinSearch = ()=>import( '@/components/product/page/douyinSearch.vue')
-const product_ruzhu = ()=>import( '@/components/product/page/ruzhu.vue')
-const product_ruzhuView = ()=>import( '@/components/product/page/ruzhuView.vue')
-const product_videoSearch = ()=>import( '@/components/product/page/videoSearch.vue')
-const product_addressSearch = ()=>import( '@/components/product/page/addressSearch.vue')
-const product_collection = ()=>import( '@/components/product/page/collection.vue')
+const product_user = ()=>import( '@/components/product/user.vue')
+const product_douyinSearch = ()=>import( '@/components/product/douyinSearch.vue')
+const product_ruzhu = ()=>import( '@/components/ruzhu/ruzhu.vue')
+const product_videoSearch = ()=>import( '@/components/product/videoSearch.vue')
+const product_addressSearch = ()=>import( '@/components/product/addressSearch.vue')
+const product_collection = ()=>import( '@/components/product/collection/collection.vue')
 
 //产品详情页面
 const searchDetails = ()=>import( '@/components/productSearchDetails/searchDetails.vue')
@@ -34,11 +33,11 @@ const article = ()=>import( '@/components/article.vue')
 
 // //产品页面
 // import product from '@/components/product/product.vue'
-// import product_user from '@/components/product/page/user.vue'
-// import product_douyinSearch from '@/components/product/page/douyinSearch.vue'
-// import product_ruzhu from '@/components/product/page/ruzhu.vue'
-// import product_ruzhuView from '@/components/product/page/ruzhuView.vue'
-// import product_videoSearch from '@/components/product/page/videoSearch.vue'
+// import product_user from '@/components/product/user.vue'
+// import product_douyinSearch from '@/components/product/douyinSearch.vue'
+// import product_ruzhu from '@/components/product/ruzhu.vue'
+// import product_ruzhuView from '@/components/product/ruzhuView.vue'
+// import product_videoSearch from '@/components/product/videoSearch.vue'
 
 // //产品详情页面
 // import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
@@ -110,12 +109,7 @@ const router = new Router({
 					component: product_videoSearch,
 					meta: {auth:true},
 				},
-				{
-					path: 'product_ruzhuView',
-					name: 'product_ruzhuView',
-					component: product_ruzhuView,
-					meta: {auth:true},
-				},
+				
 				{
 					path: 'product_addressSearch',
 					name: 'product_addressSearch',
