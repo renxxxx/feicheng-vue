@@ -42,6 +42,8 @@
                       !this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit == null
                         ? ''
                         : this.$store.state.wxVideoaccount.audit == 0
+                        ? ''
+                        : this.$store.state.wxVideoaccount.audit == 1
                         ? '(审核中)'
                         : this.$store.state.wxVideoaccount.audit == 11
                         ? '(已认证)'
@@ -66,7 +68,7 @@
 									<path d="M11.5 13.5h4M13.5 11.5v4"></path>
 								</g>
 							</svg> -->
-               <router-link :to="{path : '/productPage/productPage_user'}" style="display: inline-block;">
+               <router-link :to="{path : '/'}" style="display: inline-block;">
               <svg width="16" style="margin-top: 20px;" height="15.999" viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
                 <title></title>

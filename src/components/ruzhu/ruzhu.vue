@@ -122,7 +122,7 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
 
-      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol" target="_blank"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
 
 
       <el-row v-if='showIf'>
