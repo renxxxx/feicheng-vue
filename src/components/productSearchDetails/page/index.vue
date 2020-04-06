@@ -597,7 +597,7 @@
 }
 .searchList_lie_xinxi_jianjie{
 	width: auto;
-	float: left;
+	/* float: left; */
 	margin-left: 14px;
 	height: 100%;
 }
@@ -743,11 +743,13 @@
 >>>.el-table tr{
 	background-color: transparent;
 }
+
 >>>.el-table__body tr.hover-row>td{
     background-color: transparent;
 }
 >>>.el-table td{
-    padding: 0;
+    /* padding: 0; */
+      padding: 20px 0 24px 0;
 	border:none;
   border-bottom: 0.5px solid rgb(109,109,109) !important;
 }
