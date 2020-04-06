@@ -242,9 +242,9 @@ export default {
 			order:'',
 			show_jieguo:[false,false],
 			dataList:[
-				{name:'个人号',value:'0',typeData:false},
-				{name:'达人号',value:'1',typeData:false},
-				{name:'企业号',value:'2',typeData:false},],
+				{name:'个人号',value:'1',typeData:false},
+				{name:'达人号',value:'2',typeData:false},
+				{name:'企业号',value:'3',typeData:false},],
 			dataType:'',
 			searchNum:0,
 		}
@@ -947,5 +947,15 @@ export default {
 .dataColor{
 	color: #6b6d6d!important;
 	cursor: not-allowed;
+}
+._1OxA1GcO {
+    color: #fe2c55;
+    cursor: pointer;
+	/* display: inline-block; */
+	/* float: right; */
+	/* margin: 16px 0px; */
+}
+._1OxA1GcO:hover {
+    color: #fe3e65;
 }
 </style>

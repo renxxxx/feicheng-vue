@@ -134,7 +134,7 @@
 				       <div class="searchList_lie_xinxi">
 				       	<img v-lazy="scope.row.logo" alt="">
 				       	<div class="searchList_lie_xinxi_jianjie">
-				       		<h3>{{scope.row.name}}</h3>
+				       		<h3>{{scope.row.name}}<span v-if='scope.row.type==1'>个人号</span><span v-if='scope.row.type==2'>达人号</span><span v-if='scope.row.type==3'>企业号</span></h3>
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
@@ -235,9 +235,9 @@ export default {
 			},
 			typeList:[],
 			dataList:[
-				{name:'个人号',value:'0',typeData:false},
-				{name:'达人号',value:'1',typeData:false},
-				{name:'企业号',value:'2',typeData:false},],
+				{name:'个人号',value:'1',typeData:false},
+				{name:'达人号',value:'2',typeData:false},
+				{name:'企业号',value:'3',typeData:false},],
 			dataType:'',
 			userList:[],
 			searchNum:0,
@@ -650,8 +650,8 @@ body{
 	height: 32px;
 	line-height: 32px;
 
-	/* margin: 13px 0px; */
-	/* float: left; */
+	margin: 13px 0px;
+	float: left;
 	/* border: 1px solid #6d6d6d; */
 
 }
