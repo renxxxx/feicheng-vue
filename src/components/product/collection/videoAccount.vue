@@ -8,7 +8,7 @@
 				       <div class="searchList_lie_xinxi">
 				       	<img :src="scope.row.logo" alt="">
 				       	<div class="searchList_lie_xinxi_jianjie">
-				       		<h3>{{scope.row.name}}</h3>
+				       		<h3>{{scope.row.name}}<span v-if='scope.row.type==1'>个人号</span><span v-if='scope.row.type==2'>达人号</span><span v-if='scope.row.type==3'>企业号</span></h3>
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
@@ -378,6 +378,20 @@ export default {
 	cursor: pointer;
 	color: #ff8b1d;
 }
+.searchList_lie_xinxi_jianjie>h3 span{
+ margin-left: 8px;
+     line-height: 16px;
+     font-size: 12px;
+     color: rgb(205, 207, 207);
+     background-color: rgba(232, 237, 238, 0.1);
+     white-space: nowrap;
+     padding: 2px 8px 1px;
+     border-radius: 11px;
+     border-width: 1px;
+     border-style: solid;
+     border-color: rgba(205, 207, 207, 0.3);
+     border-image: initial;
+ }
 .biaoqianClass{
 	/* margin-left: 8px; */
 	padding: 2px 8px 1px;
