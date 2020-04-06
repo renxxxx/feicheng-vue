@@ -119,4 +119,96 @@ background: rgba(0,0,0,0.2);
 border-radius:0;
 background:#e0e0e0;
 }
+
+
+html{font-size: 35.8px;}
+body{margin: 0px;padding: 0px;font: 15px/1.5 helvetica,arial,"Microsoft YaHei";color: #e8edee;font-size: 14px;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+	font-size: inherit;font-weight: normal;
+	margin-block-start: 0rem !important;
+	margin-block-end: 0rem !important;
+}
+strong{
+      font-weight: bolder;
+}
+/* 默认不要下划线 */
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+
+
+img {vertical-align: middle;border-style: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+input, select, button, textarea {font-size: 100%; -webkit-appearance: none; border-radius:0px; border:none;font: inherit;}
+/* html, body { width: 100%;height: 100%; box-sizing: border-box;} */
+span{list-style: none}
+.line-1{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-4{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+
+
+
+
+/* 首页轮播图重写 */
+.showPage_eight .el-carousel__button{
+    width: 6px !important;
+    height: 6px !important;
+
+       padding: 0;
+       color: transparent;
+       font-size: 0;
+       background: #2b2b2b;
+       border: 0;
+       border-radius: 3px;
+       outline: none;
+       cursor: pointer;
+       opacity: .3;
+       -webkit-transition: all .5s;
+       transition: all .5s;
+  }
+.showPage_eight .el-carousel__indicator.is-active button{
+      width: 32px !important;
+      height: 6px !important;
+      border-radius: 3px !important;
+      background: #ff7800 !important;
+    }
+.el-carousel__indicators{
+   bottom: 0 !important;
+  }
+
 </style>
