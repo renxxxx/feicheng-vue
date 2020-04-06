@@ -492,11 +492,16 @@
 	}
 </script>
 <style >
+  
 body{
 	background-color: #2b2b2e;
 }
 </style>
 <style scoped>
+  body{
+    height: 100% !important;
+  }
+  
 	#searchDetails {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
