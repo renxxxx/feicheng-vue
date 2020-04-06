@@ -1,5 +1,5 @@
 <template>
-	<div class="douyinSearch">
+	<div class="douyinSearch" style="margin-top:24px;">
 		<div class="search">
 			<el-row style="height: 60px;">
 				<div class="search_box">
@@ -213,7 +213,7 @@
 		width: 532px;
 		height: 32px;
 		line-height: 32px;
-		margin: 16px 0px;
+		/* margin: 16px 0px; */
 		/* border: 1px solid #6d6d6d; */
 
 	}

@@ -1,5 +1,5 @@
 <template>
-  <div class="ruzhu">
+  <div class="ruzhu" style="    margin-top: 24px;">
     <div>
       <el-row style="height: 60px;">
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10"><span class="maintop">博主入驻:</span></el-col>
