@@ -5,7 +5,7 @@
 				<div class="search_box">
 					<!-- <div class="search_box_xiala" @click="showXiaLaFn">
 						<div class="search_box_xialaButton">
-							<span slot="reference">{{searchData}}</span>	
+							<span slot="reference">{{searchData}}</span>
 							<i class="el-icon-arrow-down" v-if="icon_down"></i>
 							<i class="el-icon-arrow-up" v-if="icon_up"></i>
 						</div>
@@ -56,11 +56,11 @@
 					<ul>
 						<li>
 							<span>不限</span>
-						</li> 
+						</li>
 						<li>
 							<span>条件</span>
 							<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-						</li> 
+						</li>
 						<li class="dataColor">
 							<span class="ant-checkbox ant-checkbox-disabled">
 								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
@@ -105,8 +105,8 @@
 				</el-col>
 			</el-row> -->
 		</div>
-		
-		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10"> 
+
+		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
@@ -140,44 +140,46 @@
 				   <template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">粉丝数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
+							<svg viewBox="0 0 1024 1024" focusable="false" class="" style="vertical-align: middle;" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="false"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+						<!-- <svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-up" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg> -->
+
+            </div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>
 					</template>
 			   </el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''" >获赞数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.three? 'xuanzhongColor':''">视频量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;" :class="clickData.four? 'xuanzhongColor':''">曝光量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>
 					</template>
 				</el-table-column>
 			 </el-table>
@@ -248,7 +250,7 @@ export default {
 
 	},
 	created(){
-		
+
 	},
 	activated(){
 		debugger
@@ -372,7 +374,7 @@ export default {
 				this.show_xiala = true;
 				this.icon_down = false;
 				this.icon_up = true
-				
+
 			}else{
 				this.show_xiala = false;
 				this.icon_down = true;
@@ -426,7 +428,7 @@ export default {
 				this.one++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'two':
 				this.type = 0;
@@ -451,7 +453,7 @@ export default {
 				this.two++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'three':
 				this.type = 0;
@@ -476,7 +478,7 @@ export default {
 				this.three++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'four':
 				this.type = 0;
@@ -501,14 +503,14 @@ export default {
 				this.four++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 			}
 		},
 		typeClickFn(_item,_inx){
 			// //console.log(_item)
 			if(this.typeList[_inx].typeData){
-				
+
 				this.typeList[_inx].typeData = false;
 				this.wxVideoaccountRealmIdNow = '';
 				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
@@ -579,7 +581,7 @@ export default {
 	line-height: 32px;
 	margin: 16px 0px;
 	/* border: 1px solid #6d6d6d; */
-	
+
 }
 .search_box_xiala{
 	width: 67px;
@@ -695,7 +697,7 @@ export default {
 	padding-right: 5px;
 }
 .search_box_input>input[type=search]::-webkit-search-cancel-button{
-	-webkit-appearance: none; 
+	-webkit-appearance: none;
 
 }
 .search_type_span{
@@ -718,7 +720,7 @@ export default {
 .search_type ul li,.search_zhishu ul li{
 	display: inline-block;
 	margin-right: 18px;
-	
+
 }
 .search_type ul li span,.search_zhishu ul li span{
 	display: inline-block;

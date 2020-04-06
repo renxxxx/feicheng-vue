@@ -35,44 +35,44 @@
 				   <template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">粉丝数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false" class=""  style="vertical-align: middle;" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>			  
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>
 					</template>
 			   </el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''" >获赞数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false" style="vertical-align: middle;" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.three? 'xuanzhongColor':''">视频量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false" class="" style="vertical-align: middle;" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;" :class="clickData.four? 'xuanzhongColor':''">曝光量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false" class=""  style="vertical-align: middle;" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>
 					</template>
 				</el-table-column>
 			 </el-table>
@@ -129,7 +129,7 @@ export default {
 
 	},
 	created(){
-		
+
 	},
 	activated(){
     let thisVue = this
@@ -248,7 +248,7 @@ export default {
 				this.one++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'two':
 				this.type = 0;
@@ -273,7 +273,7 @@ export default {
 				this.two++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'three':
 				this.type = 0;
@@ -298,7 +298,7 @@ export default {
 				this.three++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 				case 'four':
 				this.type = 0;
@@ -323,7 +323,7 @@ export default {
 				this.four++;
 				debugger
 				this.nextPage()
-				
+
 				break;
 			}
 		},
@@ -332,6 +332,7 @@ export default {
 </script>
 
 <style scoped>
+
 .videoAccount{
 	width: 100%;
 	height: 100%;
