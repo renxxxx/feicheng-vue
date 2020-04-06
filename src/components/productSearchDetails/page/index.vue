@@ -36,15 +36,15 @@
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
 				       			<!-- 视频号:{{scope.row.wx}} -->
-				       			<span class="_3wruq4Mm"></span>
-				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
+				       			<!-- <span class="_3wruq4Mm"></span> -->
+				       			<span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span>
 				       		</p>
-				       		<p class="line-2">简介：{{scope.row.brief}}</p>
+				       		<div class="line-2">简介：{{scope.row.brief}}</div>
 				       	</div>
 				       </div>
 				    </template>
 			   </el-table-column>
-				<el-table-column prop="name" min-width="7%">
+				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">获赞数</span>
@@ -55,12 +55,12 @@
 						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
 					</template>
 				</el-table-column>
-				<el-table-column prop="name" min-width="7%">
+				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''">曝光量</span>
 							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						
+
             </div>
 					</template>
 					<template slot-scope="scope">
@@ -630,6 +630,15 @@
 	color: #8b8b8b;
 	margin-top: 70px;
 }
+.searchList_lie_xinxi_jianjie>div{
+  color: rgb(120, 122, 122);
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 15px;
+}
 /* .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
 	height: 42px;
@@ -715,6 +724,16 @@
 	position: relative;
 	width: 100%;
 }
+>>>.el-table thead tr{
+  border-radius: 6px;
+}
+>>>.el-table th {
+    background-color: #3a3a3e;
+
+        color: rgb(232, 237, 238);
+
+		/* margin-top: 60px; */
+}
 >>>.el-table{
 	background-color: transparent;
 }
@@ -728,7 +747,9 @@
     background-color: transparent;
 }
 >>>.el-table td{
+    padding: 0;
 	border:none;
+  border-bottom: 0.5px solid rgb(109,109,109) !important;
 }
 >>>.el-table__row:hover > td{
 	transition: background .3s ease;
