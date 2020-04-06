@@ -8,7 +8,7 @@
 						<div class="_3ykadlND">
 							<div class="_28OpAn63">
 								<div class="_3mUgA-Vh">
-									<a target="_blank" rel="noopener noreferrer" href="https://www.iesdouyin.com/share/user/104255897823">
+									<a target="_blank" rel="noopener noreferrer" href="/">
 										<img alt="pic" class="_3t5L3W5T" :src="message.logo">
 									</a>
 									<div class="_3DQ4NUnP">
