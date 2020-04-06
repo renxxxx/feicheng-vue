@@ -25,7 +25,7 @@
 			</el-row> -->
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%">
+			<el-table :data="userList"  style="width: 99%;min-width: 700px;">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -596,8 +596,10 @@
 	border-radius: 4px;
 }
 .searchList_lie_xinxi_jianjie{
-	width: auto;
-	/* float: left; */
+	/* width: auto; */
+  /* width: 80%; */
+  width: 350px;
+	float: left;
 	margin-left: 14px;
 	height: 100%;
 }
@@ -748,6 +750,13 @@
     background-color: transparent;
 }
 >>>.el-table td{
+    /* padding: 0; */
+      padding: 20px 0 24px 0;
+	border:none;
+  border-bottom: 0.5px solid rgb(109,109,109) !important;
+}
+>>>.el-table tr td:nth-child(1){
+  min-width: 458px;
     /* padding: 0; */
       padding: 20px 0 24px 0;
 	border:none;
