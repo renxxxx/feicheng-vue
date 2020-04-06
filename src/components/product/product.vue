@@ -433,6 +433,7 @@ askIfEnter(){
     color: #ffffff;
   }
   .dialogThis > div:nth-child(2) {
+    padding: 24px !important;
     border-bottom: 1px solid #6d6d6d;
   }
   .dialogThis > div:nth-child(3) > span > button {
@@ -454,7 +455,7 @@ askIfEnter(){
   .avatarBox {
     width: 120px;
     height: 120px;
-    margin: 24px 172px 16px;
+    margin:0 172px 16px;
     padding: 8px;
     background: #ffffff;
   }
@@ -469,7 +470,7 @@ askIfEnter(){
     display: block;
     margin-top: 10px;
     color: #ffffff;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
   }
 
 

@@ -199,7 +199,7 @@ export default {
   .avatarBox {
     width: 120px;
     height: 120px;
-    margin: 24px 172px 16px;
+    margin: 0 172px 16px;
     padding: 8px;
     background: #ffffff;
   }
@@ -214,7 +214,7 @@ export default {
     display: block;
     margin-top: 10px;
     color: #ffffff;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
   }
 
 
