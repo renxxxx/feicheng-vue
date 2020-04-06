@@ -16,7 +16,7 @@
 				       			<!-- <span class="_3wruq4Mm"></span> -->
 				       			<span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span>
 				       		</p>
-				       		<div class="line-2">简介：{{scope.row.brief}}</div>
+				       		<div  class="line-2">简介：{{scope.row.brief}}</div>
 				       	</div>
 				       </div>
 				    </template>

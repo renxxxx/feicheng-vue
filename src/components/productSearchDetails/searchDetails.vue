@@ -23,7 +23,7 @@
 							<div class="_3Mt2vQgI">
 								<div class="_1bv9Xtl-">
 									<span class="xd-ellipsis _3rF1A6fj" :title="message.name">{{message.name}}</span>
-									<span class="_8TRvoTKy">{{message.wx}}</span>
+									<!-- <span class="_8TRvoTKy">{{message.wx}}</span> -->
 								</div>
 								<div class="_1bv9Xtl-">
 									<svg v-if="shouchangData" @click="shouchangFn('false')" width="2em" height="2em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
@@ -51,7 +51,7 @@
 											 transform="translate(918 594)" fill="currentColor"></path>
 										</g>
 									</svg> -->
-									<span>地址:{{message.area1Name}}&nbsp;&nbsp;{{message.area2Name}}</span>
+									<span>地址：{{message.area1Name}}&nbsp;&nbsp;{{message.area2Name}}</span>
 								</div>
 							</div>
 						</div>
