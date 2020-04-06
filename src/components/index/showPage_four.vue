@@ -182,7 +182,7 @@ strong {
 .mainbottom > div {
   width: 1200px;
   height: 720px;
-  background: url(../../../assets/img/map.svg) 0 0 no-repeat;
+  background: url(/assets/img/map.svg) 0 0 no-repeat;
   position: relative;
   margin: 0 auto;
 }
@@ -191,7 +191,7 @@ strong {
   opacity: 0;
   width: 601px;
   height: 260px;
-  background: url(../../../assets/img/address.svg) 0 0 no-repeat;
+  background: url(/assets/img/address.svg) 0 0 no-repeat;
   left: 297px;
   top: 255px;
 }
@@ -280,7 +280,7 @@ strong {
   transform: translateX(0px);
 }
 .mainbottom_mid > div {
-  background: url(../../../assets/img/cityPic.d155ba3c.png) 0 0 no-repeat;
+  background: url(/assets/img/cityPic.d155ba3c.png) 0 0 no-repeat;
   background-size: 117px 117px;
   display: flex;
   padding-left: 57px;

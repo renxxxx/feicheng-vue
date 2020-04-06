@@ -1,5 +1,5 @@
 <template>
-  <div id="productPage" ref="productPageRef">
+  <div id="product" ref="productRef">
 		<el-row :gutter='17' class="nav">
 			<el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="3" >
 				<router-link :to="{path:'/'}" class='logo' style="height: 55px;width: 100%;display: block;position: relative">
@@ -109,13 +109,13 @@
 				<div class="leftNav" >
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-						<el-menu-item index="/productPage/productPage_user">
-							<template slot="title" class="data" :to="{path:'/productPage/productPage_user'}">
+						<el-menu-item index="/product/product_user">
+							<template slot="title" class="data" :to="{path:'/product/product_user'}">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
 								<span style="font-weight: 500;font-size: 16px;margin-left: 3px;">商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.login' index="/productPage/productPage_ruzhu">
+						<el-menu-item  v-if='!this.$store.state.login' index="/product/product_ruzhu">
 							<template slot="title">
 								<!-- <svg t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294" width="200" height="200">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
@@ -126,14 +126,14 @@
 								<span >博主入驻</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item v-if='this.$store.state.login' index="/productPage/productPage_ruzhu">
+						<el-menu-item v-if='this.$store.state.login' index="/product/product_ruzhu">
 							<template slot="title">
 								<svg width="1em" height="1em" t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
 									<path d="M512 651.636364a302.545455 302.545455 0 1 1 302.545455-302.545455 302.545455 302.545455 0 0 1-302.545455 302.545455z m0-558.545455a256 256 0 1 0 256 256A256 256 0 0 0 512 93.090909z" fill="#FFA942" p-id="1296"></path>
 								</svg>
 								<span style="margin-left: 3px;">
-									<!-- <router-link :to="{path:'/productPage/productPage_ruzhu'}"> -->
+									<!-- <router-link :to="{path:'/product/product_ruzhu'}"> -->
 										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==1?"个人号"
@@ -228,10 +228,10 @@
 <script>
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
-import login from '../common/functionPage/login.vue'
+import login from '../login.vue'
 import searchDialog from './function/searchDialog.vue'
 export default {
-  name: 'productPage',
+  name: 'product',
   data(){
   	return{
 		tanShow : false,
@@ -241,13 +241,13 @@ export default {
 			name:'找视频号',
 			icon:'',
 			data:false,
-			onechild:[{name:'视频号搜索',data:'',url:'/productPage/productPage_douyinSearch'},
+			onechild:[{name:'视频号搜索',data:'',url:'/product/product_douyinSearch'},
 		]},
 		{
 			name:'素材创意',
 			icon:'',
 			data:true,
-			onechild:[{name:'视频搜索',data:'true',url:'/productPage/productPage_videoSearch'},
+			onechild:[{name:'视频搜索',data:'true',url:'/product/product_videoSearch'},
 				
 		]},
 		{
@@ -255,7 +255,7 @@ export default {
 			icon:'',
 			data:true,
 			onechild:[
-				{name:'打卡地点搜索',data:'true',url:'/productPage/productPage_addressSearch'},
+				{name:'打卡地点搜索',data:'true',url:'/product/product_addressSearch'},
 					// {name:'热门城市',data:'true',url:''},
 		]},
 		{
@@ -263,13 +263,13 @@ export default {
 			icon:'',
 			data:true,
 			onechild:[
-					{name:'博主列表',data:'true',url:'/productPage/productPage_collection'},
+					{name:'博主列表',data:'true',url:'/product/product_collection'},
 		]},
 		],
     }
   },
   beforeRouteLeave(to, from, next) {
-  this.scrollTop =document.documentElement.scrollTop || window.pageYOffset || this.$refs.productPageRef.scrollTop
+  this.scrollTop =document.documentElement.scrollTop || window.pageYOffset || this.$refs.productRef.scrollTop
   if(!to.query.time || !from.query.time || to.query.time < from.query.time){
             if (this.$vnode && this.$vnode.data.keepAlive)
             {
@@ -302,7 +302,7 @@ export default {
   //进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
     next(vm => {
-   document.getElementById('productPage').scrollTop=document.getElementById('productPage').pageYOffset=vm.scrollTop;
+   document.getElementById('product').scrollTop=document.getElementById('product').pageYOffset=vm.scrollTop;
   });
 
   },
@@ -343,13 +343,13 @@ askIfEnter(){
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
-              this.$router.push({path:'/productPage/productPage_ruzhu'});
+              this.$router.push({path:'/product/product_ruzhu'});
            })
     }else{
-      this.$router.push({path:'/productPage/productPage_ruzhu'});
+      this.$router.push({path:'/product/product_ruzhu'});
     }
   }else{
-    this.$router.push({path:'/productPage/productPage_ruzhu'});
+    this.$router.push({path:'/product/product_ruzhu'});
   }
 },
 	// initData(){
@@ -679,7 +679,7 @@ el-menu-item {
 	transition: all .3s;
 	color: #f5222d;
 }
-#productPage {
+#product {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -690,11 +690,11 @@ el-menu-item {
   overflow-x: hidden;
   min-width: 800px;
 }
-/* #productPage::-webkit-scrollbar{width:4px;border-radius: 50px;} */
-/* #productPage::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */
-/* #productPage::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;} */
-/* #productPage::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;} */
-/* #productPage::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;} */
+/* #product::-webkit-scrollbar{width:4px;border-radius: 50px;} */
+/* #product::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */
+/* #product::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;} */
+/* #product::-webkit-scrollbar-thumb:hover {background-color:#2b2b2e;border-radius: 50px;} */
+/* #product::-webkit-scrollbar-thumb:active {background-color:#2b2b2e;border-radius: 50px;} */
 .height{
 	height: 100%;
 	overflow-y: scroll;

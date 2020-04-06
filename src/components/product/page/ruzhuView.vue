@@ -111,7 +111,7 @@ import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 import area from '../../../assets/area.json';
-import login from '../../common/functionPage/login.vue'
+import login from '../../login.vue'
 import video_supply_view from './page_in/video_supply_view.vue';
 export default {
   name: 'ruzhu',
@@ -186,7 +186,7 @@ export default {
   created() {},
   //离开前判断前进和后退时间来判断是否保存滚动值
   // beforeRouteLeave(to, from, next) {
-  //   this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset;
+  //   this.scrollTop = document.getElementById('product').scrollTop || document.getElementById('product').pageYOffset;
   //   if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
   //     if (this.$vnode && this.$vnode.data.keepAlive) {
   //       if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
@@ -214,7 +214,7 @@ export default {
   //进入该页面时，用之前保存的滚动位置赋值
   // beforeRouteEnter(to, from, next) {
   //   next(vm => {
-  //     document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
+  //     document.getElementById('product').scrollTop = document.getElementById('product').pageYOffset = vm.scrollTop;
   //   });
   // },
   mounted() {
@@ -297,7 +297,7 @@ export default {
       			}
       		}else 	if(res.data.code == 0){
 //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
-//    			this.$router.push({path:'/productPage/productPage_user'});
+//    			this.$router.push({path:'/product/product_user'});
       		}else{
             this.$message.error(res.data.codeMsg);
           }
@@ -368,18 +368,18 @@ export default {
                         })
 
 					 this.$message.success('入驻申请已提交，请耐心等待审核')
-          // path:'/productPage/productPage_user'
-          		// this.$router.push({path:'/productPage/productPage_user'});
+          // path:'/product/product_user'
+          		// this.$router.push({path:'/product/product_user'});
               // console.dir(this.$refs.refChild.tableData)
               if(this.$refs.refChild.tableData&&this.$refs.refChild.tableData.length>0){
                 var tableData=this.$refs.refChild.tableData
                 for(var i in tableData){
                   this.supplyVideo(tableData[i].name,tableData[i].pv,tableData[i].imageUrlNow,tableData[i].likeCount,tableData[i].brief,tableData[i].video)
                 }
-                this.$router.push({path:'/productPage/productPage_user'});
+                this.$router.push({path:'/product/product_user'});
               }else{
               	 this.$message.success('入驻申请已提交，请耐心等待审核')
-                this.$router.push({path:'/productPage/productPage_user'});
+                this.$router.push({path:'/product/product_user'});
               }
 
 

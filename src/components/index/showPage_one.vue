@@ -435,31 +435,31 @@ export default {
 }
 .oneBox_mid_line_one_1 {
   transition: all 0.5s ease-out, opacity 0.8s ease-out;
-  background: url(../../../assets/img/video-g.c7cfbf04.png) 0px 0px / 100% 100% no-repeat;
+  background: url(/assets/img/video-g.c7cfbf04.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
 .oneBox_mid_line_two_1 {
   transition: all 0.5s ease-out 0.1s, opacity 0.8s ease-out 0.1s;
-  background: url(../../../assets/img/music-g.9f9f527a.png) 0px 0px / 100% 100% no-repeat;
+  background: url(/assets/img/music-g.9f9f527a.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
 .oneBox_mid_line_three_1 {
   transition: all 0.5s ease-out 0.2s, opacity 0.8s ease-out 0.2s;
-  background: url(../../../assets/img/topic-g.34bdf7e4.png) 0px 0px / 100% 100% no-repeat;
+  background: url(/assets/img/topic-g.34bdf7e4.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
 .oneBox_mid_line_four_1 {
   transition: all 0.5s ease-out 0.3s, opacity 0.8s ease-out 0.3s;
-  background: url(../../../assets/img/comment-g.31b32840.png) 0px 0px / 100% 100% no-repeat;
+  background: url(/assets/img/comment-g.31b32840.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
 .oneBox_mid_line_five_1 {
   transition: all 0.5s ease-out 0.4s, opacity 0.8s ease-out 0.4s;
-  background: url(../../../assets/img/scene-g.5d527efe.png) 0px 0px / 100% 100% no-repeat;
+  background: url(/assets/img/scene-g.5d527efe.png) 0px 0px / 100% 100% no-repeat;
   opacity: 1;
   transform: translateX(0px);
 }
@@ -482,23 +482,23 @@ export default {
         bottom: 0;
   }
 .oneBox_mid_line_top_one {
-  background: url(../../../assets/img/video.4531a180.png) 0 0 no-repeat;
+  background: url(/assets/img/video.4531a180.png) 0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_two {
-  background: url(../../../assets/img/music.98f31e06.png) 0 0 no-repeat;
+  background: url(/assets/img/music.98f31e06.png) 0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_three {
-  background: url(../../../assets/img/topic.34b55e00.png) 0 0 no-repeat;
+  background: url(/assets/img/topic.34b55e00.png) 0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_four {
-  background: url(../../../assets/img/comment.11356fb0.png) 0 0 no-repeat;
+  background: url(/assets/img/comment.11356fb0.png) 0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_five {
-  background: url(../../../assets/img/scene.2de8eadd.png) 0 0 no-repeat;
+  background: url(/assets/img/scene.2de8eadd.png) 0 0 no-repeat;
   background-size: 100% 100%;
 }
 

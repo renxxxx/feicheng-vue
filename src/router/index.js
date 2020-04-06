@@ -9,14 +9,14 @@ const notFound = ()=>import( '@/components/notFound.vue')
 const tihuan = ()=>import( '@/components/tihuan.vue')
 
 //产品页面
-const productPage = ()=>import( '@/components/product/productPage.vue')
-const productPage_user = ()=>import( '@/components/product/page/user.vue')
-const productPage_douyinSearch = ()=>import( '@/components/product/page/douyinSearch.vue')
-const productPage_ruzhu = ()=>import( '@/components/product/page/ruzhu.vue')
-const productPage_ruzhuView = ()=>import( '@/components/product/page/ruzhuView.vue')
-const productPage_videoSearch = ()=>import( '@/components/product/page/videoSearch.vue')
-const productPage_addressSearch = ()=>import( '@/components/product/page/addressSearch.vue')
-const productPage_collection = ()=>import( '@/components/product/page/collection.vue')
+const product = ()=>import( '@/components/product/product.vue')
+const product_user = ()=>import( '@/components/product/page/user.vue')
+const product_douyinSearch = ()=>import( '@/components/product/page/douyinSearch.vue')
+const product_ruzhu = ()=>import( '@/components/product/page/ruzhu.vue')
+const product_ruzhuView = ()=>import( '@/components/product/page/ruzhuView.vue')
+const product_videoSearch = ()=>import( '@/components/product/page/videoSearch.vue')
+const product_addressSearch = ()=>import( '@/components/product/page/addressSearch.vue')
+const product_collection = ()=>import( '@/components/product/page/collection.vue')
 
 //产品详情页面
 const searchDetails = ()=>import( '@/components/productSearchDetails/searchDetails.vue')
@@ -33,12 +33,12 @@ const article = ()=>import( '@/components/article.vue')
 // import tihuan from '@/components/common/tihuan.vue'
 
 // //产品页面
-// import productPage from '@/components/product/productPage.vue'
-// import productPage_user from '@/components/product/page/user.vue'
-// import productPage_douyinSearch from '@/components/product/page/douyinSearch.vue'
-// import productPage_ruzhu from '@/components/product/page/ruzhu.vue'
-// import productPage_ruzhuView from '@/components/product/page/ruzhuView.vue'
-// import productPage_videoSearch from '@/components/product/page/videoSearch.vue'
+// import product from '@/components/product/product.vue'
+// import product_user from '@/components/product/page/user.vue'
+// import product_douyinSearch from '@/components/product/page/douyinSearch.vue'
+// import product_ruzhu from '@/components/product/page/ruzhu.vue'
+// import product_ruzhuView from '@/components/product/page/ruzhuView.vue'
+// import product_videoSearch from '@/components/product/page/videoSearch.vue'
 
 // //产品详情页面
 // import searchDetails from '@/components/productSearchDetails/searchDetails.vue'
@@ -79,53 +79,53 @@ const router = new Router({
 			meta: {unkeepLastRoute:true},
 		},
 		{
-			path: '/productPage',
-			name: 'productPage',
-			component: productPage,
+			path: '/product',
+			name: 'product',
+			component: product,
 			meta: {auth:true},
-			redirect:'/productPage/productPage_user',
+			redirect:'/product/product_user',
 			children:[
 				// 登录后的页面路径配置
 				{
-					path: 'productPage_user',
-					name: 'productPage_user',
-					component: productPage_user,
+					path: 'product_user',
+					name: 'product_user',
+					component: product_user,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_douyinSearch',
-					name: 'productPage_douyinSearch',
-					component: productPage_douyinSearch,
+					path: 'product_douyinSearch',
+					name: 'product_douyinSearch',
+					component: product_douyinSearch,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_ruzhu',
-					name: 'productPage_ruzhu',
-					component: productPage_ruzhu,
+					path: 'product_ruzhu',
+					name: 'product_ruzhu',
+					component: product_ruzhu,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_videoSearch',
-					name: 'productPage_videoSearch',
-					component: productPage_videoSearch,
+					path: 'product_videoSearch',
+					name: 'product_videoSearch',
+					component: product_videoSearch,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_ruzhuView',
-					name: 'productPage_ruzhuView',
-					component: productPage_ruzhuView,
+					path: 'product_ruzhuView',
+					name: 'product_ruzhuView',
+					component: product_ruzhuView,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_addressSearch',
-					name: 'productPage_addressSearch',
-					component: productPage_addressSearch,
+					path: 'product_addressSearch',
+					name: 'product_addressSearch',
+					component: product_addressSearch,
 					meta: {auth:true},
 				},
 				{
-					path: 'productPage_collection',
-					name: 'productPage_collection',
-					component: productPage_collection,
+					path: 'product_collection',
+					name: 'product_collection',
+					component: product_collection,
 					meta: {auth:true},
 				}
 				

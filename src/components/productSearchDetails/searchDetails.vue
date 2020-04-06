@@ -298,13 +298,13 @@
 													</router-link>
 												</div>
 												<div role="tab" @click="xiaclickFn(125)" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
-													<router-link :to="{path:'/productPage'}" class="_1zlCAgAE">
+													<router-link :to="{path:'/product'}" class="_1zlCAgAE">
 														作品列表
 													</router-link>
 												</div>
 												<div role="tab" @click="xiaclickFn(250)" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
 													<div class="_1zlCAgAE _2AXT3VPr">
-														<router-link :to="{path:'/productPage/productPage_douyinSearch'}" class="_1zlCAgAE">
+														<router-link :to="{path:'/product/product_douyinSearch'}" class="_1zlCAgAE">
 															作品分析
 															<i aria-label="图标: lock" class="anticon anticon-lock">
 																<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true">
@@ -350,7 +350,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../common/functionPage/login.vue'
+	import login from '../login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
 	import searchDialog from '../product/function/searchDialog.vue'
 	export default {

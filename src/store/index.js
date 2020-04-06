@@ -12,8 +12,7 @@ const state = {
 	publicSearchShow:false,
   login:null,
   wxVideoaccount:null,
-	//视频播放弹窗
-  showVideoDialog: false,
+
   
 // 获取配置信息
  getConfig:{
@@ -55,7 +54,6 @@ const getters = {
   //登录弹窗
   centerDialogVisible: state => state.centerDialogVisible,
 	//视频播放弹窗
-	showVideoDialog: state => state.showVideoDialog,
 	// 全局搜索弹出显示值
 	publicSearchShow: state => state.publicSearchShow,
 	

@@ -20,7 +20,7 @@
           <div class="mainmid_one_top"><strong><span class=""></span>排行榜查找</strong><div>各模块数据交叉对比，既有单项最强也有综合比较</div></div>
         </div>
         <div id="three_2" class="mainmid_two transitionlFTwo">
-          <img src="../../../assets/img/operate.0d6948a3.png" alt="">
+          <img src="/assets/img/operate.0d6948a3.png" alt="">
         </div>
       </div>
       <div></div>
@@ -42,7 +42,7 @@
   margin-top: -94px;
   position: relative;
   z-index: 5;
-  background: url(../../../assets/img/index_1.jpg) 0 413px no-repeat;
+  background: url(/assets/img/index_1.jpg) 0 413px no-repeat;
   background-size: 100% 484px;
   background-color: #fff;
 }

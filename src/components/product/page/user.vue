@@ -33,7 +33,7 @@
 							<h5>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</h5>
 							<p v-if='!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type'>
 								您还不是博主，
-								<router-link :to="{path:'/productPage/productPage_ruzhu'}">
+								<router-link :to="{path:'/product/product_ruzhu'}">
 									<span>立即入驻</span>
 								</router-link>
 							</p>
@@ -117,7 +117,7 @@
 			</el-row>
 			<el-row style="margin-top: 1px;height: 158px;" >
 				<div class="user_type_one" @mouseenter="mouseFn('one')" @mouseleave="leaveFn('one')">
-					<router-link :to="{path:'/productPage/productPage_videoSearch'}">
+					<router-link :to="{path:'/product/product_videoSearch'}">
 						<div class="_IskksKxv" v-if="oneValue.data"><div class="_3EmITLRt"></div></div>
 						<!-- <div class="leftType" v-if="!oneValue.data">
 							<h3>{{oneValue.title}}</h3>
@@ -134,7 +134,7 @@
 					</router-link>
 				</div>
 				<div class="user_type_two" @mouseenter="mouseFn('two')" @mouseleave="leaveFn('two')">
-					<router-link :to="{path:'/productPage/productPage_douyinSearch'}">
+					<router-link :to="{path:'/product/product_douyinSearch'}">
 					<div class="_IskksKxv" v-if="twoValue.data"><div class="_3EmITLRt"></div></div>
 					<div class="type_center" :class="[twoValue.data? 'color':'']">
 						{{twoValue.title}}
@@ -156,7 +156,7 @@
 					</router-link>
 				</div>
 				<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
-					<router-link :to="{path:'/productPage/productPage_user'}">
+					<router-link :to="{path:'/product/product_user'}">
 						<div class="_IskksKxv" v-if="fourValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fourValue.data? 'color':'']">
 							{{fourValue.title}}
@@ -167,7 +167,7 @@
 					</router-link>
 				</div>
 				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
-					<router-link :to="{path:'/productPage/productPage_ruzhu'}">
+					<router-link :to="{path:'/product/product_ruzhu'}">
 						<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fiveValue.data? 'color':'']">
 							{{fiveValue.title}}
@@ -187,7 +187,7 @@
 import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 import qs from "qs";
-import login from '../../common/functionPage/login.vue'
+import login from '../../login.vue'
 export default {
   name: "gene",
   data() {
@@ -197,7 +197,7 @@ export default {
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
 		fourValue:{title:'商学院',center:'',data:false},
 		fiveValue:{title:'博主入驻',center:'',data:false},
-		list:[{url:'/productPage/productPage_ruzhu',src:require('../../../assets/img/1.png')}],
+		list:[{url:'/product/product_ruzhu',src:require('../../../assets/img/1.png')}],
 		typeList:[],
 		articleOne:[],
 		articleTwo:[],
@@ -247,7 +247,7 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
 	  debugger
-  	let scrollTop = this.scrollTop =document.getElementById('productPage').scrollTop;
+  	let scrollTop = this.scrollTop =document.getElementById('product').scrollTop;
   	this.scrollTop = scrollTop?scrollTop :0;
   	//console.log(this.scrollTop)
   	if(!to.query.time || !from.query.time || to.query.time < from.query.time){
@@ -283,7 +283,7 @@ export default {
 	//进入该页面时，用之前保存的滚动位置赋值
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
-			document.getElementById('productPage').scrollTop=document.getElementById('productPage').pageYOffset=vm.scrollTop;
+			document.getElementById('product').scrollTop=document.getElementById('product').pageYOffset=vm.scrollTop;
 		});
 
 	  },
@@ -364,13 +364,13 @@ export default {
 						cancelButtonText: '取消',
 						type: 'warning'
 					}).then(() => {
-					this.$router.push({path:'/productPage/productPage_ruzhu'});
+					this.$router.push({path:'/product/product_ruzhu'});
 				})
 			}else{
-			this.$router.push({path:'/productPage/productPage_ruzhu'});
+			this.$router.push({path:'/product/product_ruzhu'});
 			}
 		}else{
-			this.$router.push({path:'/productPage/productPage_ruzhu'});
+			this.$router.push({path:'/product/product_ruzhu'});
 		}
     },
 		detailClickFn(_data){
