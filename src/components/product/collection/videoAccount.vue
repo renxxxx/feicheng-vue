@@ -432,6 +432,7 @@ export default {
 		getData(){
 			this.load = true;
 			this.$axios.get("/user/my-favor/wx-videoaccount-list?"+qs.stringify({
+				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
 				type:this.dataType,
 				sort:this.sort,
 				order:this.order,
