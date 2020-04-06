@@ -2,7 +2,7 @@
 	<div class="videoAccount">
 		<div style="text-align: right;height: 60px;line-height: 60px;align-items: center;color: #787a7a;"></div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
+			<el-table align='center' :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -13,25 +13,25 @@
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
 				       			<!-- 视频号:{{scope.row.wx}} -->
-				       			<span class="_3wruq4Mm"></span>
-				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
+				       			<!-- <span class="_3wruq4Mm"></span> -->
+				       			<span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span>
 				       		</p>
-				       		<p class="line-2">简介：{{scope.row.brief}}</p>
+				       		<div class="line-2">简介：{{scope.row.brief}}</div>
 				       	</div>
 				       </div>
 				    </template>
 			   </el-table-column>
-			 <el-table-column prop="name" min-width="10%" >
+			 <el-table-column align='center'   prop="name" min-width="13%" >
 					<template slot="header" slot-scope="scope" v-if="scope.row.wxVideoaccountRealmList">
 			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 			   				<span style="color: #cdcfcf;" :class="clickData.type? 'xuanzhongColor':''">领域</span>
 			   			</div>
 					</template>
 					<template slot-scope="scope" >
-			   			<span class="biaoqianClass" v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList" :key="num">{{biaoqian.name}}</span>
+			   			<span class="biaoqianClass" style="text-align: center;" v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList" :key="num">{{biaoqian.name}}</span>
 					</template>
 			   </el-table-column>
-			   <el-table-column prop="name" min-width="7%">
+			   <el-table-column align='center'   prop="name" min-width="10%">
 				   <template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">粉丝数</span>
@@ -39,10 +39,10 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>
+						<span style="color: #e8edee;font-size: 14px;text-align: center !important;">{{scope.row.fansCount}}</span>
 					</template>
 			   </el-table-column>
-				<el-table-column prop="name" min-width="7%">
+				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''" >获赞数</span>
@@ -53,7 +53,7 @@
 						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
 					</template>
 				</el-table-column>
-				<el-table-column prop="name" min-width="7%">
+				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('three')" :class="clickData.three? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.three? 'xuanzhongColor':''">视频量</span>
@@ -64,7 +64,7 @@
 						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>
 					</template>
 				</el-table-column>
-				<el-table-column prop="name" min-width="7%">
+				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('four')" :class="clickData.four? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;" :class="clickData.four? 'xuanzhongColor':''">曝光量</span>
@@ -391,11 +391,20 @@ export default {
 	float: left;
 	margin: 3px ;
 }
-.searchList_lie_xinxi_jianjie>p:last-child{
+.searchList_lie_xinxi_jianjie>div{
+  color: rgb(120, 122, 122);
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 15px;
+}
+/* .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
 	height: 42px;
 	color: #787a7a;
-}
+} */
 .searchList_lie_xinxi_jianjie>svg{
 	position: absolute;
 	margin-top: 3px;
@@ -426,10 +435,14 @@ export default {
 /* >>>.has-gutter{
 	display: none;
 } */
+>>>.el-table thead tr{
+  border-radius: 6px;
+}
 >>>.el-table th {
     background-color: #3a3a3e;
-	height: 0px;
+
         color: rgb(232, 237, 238);
+
 		/* margin-top: 60px; */
 }
 >>>.el-table{
@@ -446,6 +459,8 @@ export default {
 }
 >>>.el-table td{
 	border:none;
+    padding: 0;
+  border-bottom: 0.5px solid rgb(109,109,109) !important;
 }
 >>>.el-table__row:hover > td{
 	transition: background .3s ease;
