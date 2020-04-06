@@ -1,5 +1,5 @@
 <template>
-	<div class="douyinSearch" >
+	<div class="douyinSearch" style="margin-top:24px;">
 		<div class="search">
 			<el-row style="height: 60px;line-height: 60px;">
 				<div class="search_box">
@@ -142,7 +142,7 @@
 				       			<!-- <span class="_3wruq4Mm"></span> -->
 				       			<span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span>
 				       		</p>
-				       		<div class="line-2">简介：{{scope.row.brief}}</div>
+				       		<div class="line-2" >{{scope.row.brief?`简介：${scope.row.brief}`:scope.row.brief}}</div>
 				       	</div>
 				       </div>
 				    </template>
@@ -649,8 +649,9 @@ body{
 	/* width: 532px; */
 	height: 32px;
 	line-height: 32px;
-	margin: 13px 0px;
-	float: left;
+
+	/* margin: 13px 0px; */
+	/* float: left; */
 	/* border: 1px solid #6d6d6d; */
 
 }
