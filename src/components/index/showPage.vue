@@ -650,7 +650,7 @@ html {
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 #showPage::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-track {
@@ -662,7 +662,11 @@ html {
   /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-thumb:hover {
-  background-color: #e0e0e0;
+  background-color:  #b3b3b3;
+  /* border-radius: 50px; */
+}
+#showPage::-webkit-scrollbar-thumb:active {
+  background-color: #b3b3b3;
   /* border-radius: 50px; */
 }
 #showPage::-webkit-scrollbar-thumb:active {
