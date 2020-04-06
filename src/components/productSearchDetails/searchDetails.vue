@@ -256,9 +256,11 @@
 									<div class="_1KGIPaKA"></div>
 									<div class="_1KGIPaKA">
                     <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
+
 					<viewer>
                     <img style="height: 64px; width: 64px;cursor: pointer;" :src="message.qrcode" alt="">
 					</viewer>
+
                   </div>
 								</div>
 							</div>
@@ -346,8 +348,10 @@
 				</keep-alive>
 			</el-col>
 		</el-row>
+    <el-dialog :visible.sync="dialogVisibleIcon" width="20%" style="z-index: 9999;"><img width="100%" style="object-fit: contain; background: #FFFFFF;height: 50vh;" :src="message.qrcode" alt="" /></el-dialog>
 		<login ref="loginRef"></login>
 		<searchDialog></searchDialog>
+
 	</div>
 </template>
 
@@ -364,7 +368,8 @@
 			return {
 				data:{},
 				message:{},
-				shouchangData:true
+				shouchangData:true,
+        dialogVisibleIcon:false,
 			}
 		},
 		computed: {
