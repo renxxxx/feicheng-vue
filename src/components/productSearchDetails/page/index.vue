@@ -48,30 +48,31 @@
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;" :class="clickData.one? 'xuanzhongColor':''">获赞数</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+							<svg viewBox="0 0 1024 1024" focusable="false" class=""  style="vertical-align: middle;"  data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
 					<template slot="header" slot-scope="scope">
 						<div @click="clickFn('two')" :class="clickData.two? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;" :class="clickData.two? 'xuanzhongColor':''">曝光量</span>
-							<svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
+							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+						
+            </div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			   
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>
 					</template>
 				</el-table-column>
 			 </el-table>
 			<!-- </div> -->
 		</div>
-		
-		
-		
+
+
+
 		<login ref="loginRef"></login>
 	</div>
 </template>
@@ -201,7 +202,7 @@
 				this.page++;
 				this.getData();
 			},
-			
+
 			getData(){
 				this.load = true;
 				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({
@@ -258,7 +259,7 @@
 					this.page = 0;
 					this.one++;
 					this.nextPage()
-					
+
 					break;
 					case 'two':
 					this.one=0;
@@ -293,7 +294,7 @@
 	line-height: 32px;
 	margin: 16px 0px;
 	/* border: 1px solid #6d6d6d; */
-	
+
 }
 .search_box_input{
 	height: 34px;
@@ -376,7 +377,7 @@
 .search_type ul li,.search_zhishu ul li{
 	display: inline-block;
 	margin-right: 18px;
-	
+
 }
 .search_type ul li span,.search_zhishu ul li span{
 	display: inline-block;
@@ -622,7 +623,7 @@
 	border: 1px solid rgba(205,207,207,.3);
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
-	
+
 }
 .searchList_lie_xinxi_jianjie>p{
 	width: auto;
