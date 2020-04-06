@@ -122,7 +122,11 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
 
+<<<<<<< HEAD
+      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a   v-if='showIf' target="_blank" :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+=======
       <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol" target="_blank"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+>>>>>>> 94f65e73f8aca8fa680d448d9ed2cd04e51432e8
 
 
       <el-row v-if='showIf'>
@@ -432,6 +436,10 @@ export default {
       };
     },
     onSubmit() {
+      if(this.$refs.refChild.tableData.length<3){
+         this.$message.warning('请最少上传三个视频！');
+         return
+      }
       if(this.checked===false){
         this.$message.warning('请勾选用户协议与隐私政策！');
       }else{
@@ -479,12 +487,12 @@ export default {
                               if(res.data.code ==0)
                                 this.$store.state.wxVideoaccount=res.data.data
                           })
-        
-        
+
+
               this.$message.success('入驻申请已提交，请耐心等待审核');
               if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
                 var tableData = this.$refs.refChild.tableData;
-        
+
                 for (var i in tableData) {
                   this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
                 }
@@ -499,10 +507,10 @@ export default {
           })
           .catch();
           }).catch(() => {
-        
+
           });
       }
-    
+
 
 
     },

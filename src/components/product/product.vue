@@ -37,7 +37,7 @@
 						</div>
 					</el-col>
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
-						<div class="nav_user">
+						<div class="nav_user" style="min-width: 480px;">
 							<div class="nav_data" >
 								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
 								<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
@@ -440,6 +440,7 @@ body{
     color: #ffffff;
   }
   .dialogThis > div:nth-child(2) {
+    padding: 24px !important;
     border-bottom: 1px solid #6d6d6d;
   }
   .dialogThis > div:nth-child(3) > span > button {
@@ -461,7 +462,7 @@ body{
   .avatarBox {
     width: 120px;
     height: 120px;
-    margin: 24px 172px 16px;
+    margin:0 172px 16px;
     padding: 8px;
     background: #ffffff;
   }
@@ -476,7 +477,7 @@ body{
     display: block;
     margin-top: 10px;
     color: #ffffff;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
   }
 
 
