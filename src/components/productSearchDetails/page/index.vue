@@ -25,7 +25,7 @@
 			</el-row> -->
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%">
+			<el-table :data="userList"  style="width: 99%;min-width: 700px;">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -34,12 +34,12 @@
 				       		<h3>{{scope.row.name}}</h3>
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
-				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
+				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 63px;line-height: 33px;">
 				       			<!-- 视频号:{{scope.row.wx}} -->
 				       			<!-- <span class="_3wruq4Mm"></span> -->
-				       			<span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span>
+				       			<!-- <span class="diquColor"><span>{{scope.row.area1Name}}</span><span v-if='scope.row.area2Name'>·{{scope.row.area2Name}}</span><span v-if='scope.row.area3Name'>·{{scope.row.area3Name}}</span></span> -->
 				       		</p>
-				       		<div class="line-2">简介：{{scope.row.brief}}</div>
+				       		<div class="line-2">日期：{{moment(scope.row.createTime).format('YYYY-MM-DD')}}</div>
 				       	</div>
 				       </div>
 				    </template>
@@ -176,6 +176,7 @@
 			this.nextPage();
 		},
 		methods: {
+
 			typeClickFn(_item,_inx){
 				// //console.log(_item)
 				if(this.dataList[_inx].typeData){
@@ -596,7 +597,9 @@
 	border-radius: 4px;
 }
 .searchList_lie_xinxi_jianjie{
-	width: auto;
+	/* width: auto; */
+  /* width: 80%; */
+  width: 350px;
 	float: left;
 	margin-left: 14px;
 	height: 100%;
@@ -637,7 +640,7 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      margin-bottom: 15px;
+      /* margin-bottom: 15px; */
 }
 /* .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
@@ -743,11 +746,20 @@
 >>>.el-table tr{
 	background-color: transparent;
 }
+
 >>>.el-table__body tr.hover-row>td{
     background-color: transparent;
 }
 >>>.el-table td{
-    padding: 0;
+    /* padding: 0; */
+      padding: 20px 0 24px 0;
+	border:none;
+  border-bottom: 0.5px solid rgb(109,109,109) !important;
+}
+>>>.el-table tr td:nth-child(1){
+  min-width: 458px;
+    /* padding: 0; */
+      padding: 20px 0 24px 0;
 	border:none;
   border-bottom: 0.5px solid rgb(109,109,109) !important;
 }
