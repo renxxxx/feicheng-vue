@@ -2,8 +2,10 @@
 	<div class="douyinSearch">
 		<main class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content" style="margin: 24px 40px 24px 16px;">
 			<div class="_3UQcDOSt">
-				<div class="_3Wc9DmbT amap-container" style="background: rgb(42, 42, 42);"><object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
-					 type="text/html" data="about:blank"></object>
+				<div class="_3Wc9DmbT amap-container" style="background: rgb(42, 42, 42); overflow: hidden;">
+					<img src="../../assets/img/ditu.png" alt="" style="display: block; position: absolute; top: 0; left: -30px; height: 110%; width: 110%; overflow: hidden; pointer-events: none; ">
+					<!-- <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;" -->
+					 <!-- type="text/html" data="about:blank"></object> -->
 					<div class="amap-maps">
 						<div class="amap-drags">
 							<div class="amap-layers" style="transform: translateZ(0px);"><canvas class="amap-layer" width="1595" height="372"

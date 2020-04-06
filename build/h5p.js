@@ -88,7 +88,16 @@ function shareWeb(url,cover,title,content,callback){
 			plus.nativeUI.alert('获取分享服务列表失败：'+e.message);
 		});
 	}
-
+function numberTry(options) {
+		  const numberOut = ''
+			if(options.length>4){
+				numberOut=options/4+'.'+options.slice(options.length-4,options.length-3)+"万"
+			}else{
+				numberOut=options
+			}
+		
+		  return numberOut
+		}
 		
 
 export default {
