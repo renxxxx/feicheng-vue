@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style>
+body{
+	background-color: #2b2b2e;
+}
 img[lazy="loading"]{
     object-fit:scale-down!important;
  }

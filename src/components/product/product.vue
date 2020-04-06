@@ -118,10 +118,10 @@
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.login' index="/product/ruzhu">
 							<template slot="title">
-								<!-- <svg t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294" width="200" height="200">
+							<svg width="1em" height="1em" t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
 									<path d="M512 651.636364a302.545455 302.545455 0 1 1 302.545455-302.545455 302.545455 302.545455 0 0 1-302.545455 302.545455z m0-558.545455a256 256 0 1 0 256 256A256 256 0 0 0 512 93.090909z" fill="#FFA942" p-id="1296"></path>
-								</svg> -->
+								</svg>
 								<!-- <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg> -->
 
 								<span >博主入驻</span>
@@ -768,12 +768,10 @@ el-menu-item {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  width: 100%;
   background-color: #2b2b2e;
   overflow-y: hidden;
   overflow-x: hidden;
-  min-width: 800px;
+  min-width: 850px;
 }
 /* #product::-webkit-scrollbar{width:4px;border-radius: 50px;} */
 /* #product::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;} */

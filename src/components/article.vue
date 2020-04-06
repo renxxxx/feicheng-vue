@@ -88,6 +88,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+</style>
+
+<style >
+ body {
+	background-color: #ffffff!important;
+}
 </style>
