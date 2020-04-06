@@ -624,7 +624,12 @@ export default {
 </script>
 
 <style scoped>
-
+body{
+	height: 100%;
+}
+#app{
+	height: 100%;
+}
 .douyinSearch{
 	width: 100%;
 	height: 100%;
@@ -839,6 +844,7 @@ export default {
 	color: #6b6d6d!important;
 	cursor: not-allowed;
 }
+
 .ant-checkbox-disabled .ant-checkbox-input {
     cursor: not-allowed;
 }

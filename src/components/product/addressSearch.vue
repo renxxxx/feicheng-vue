@@ -166,12 +166,12 @@
 															<div class="ant-row-flex ant-row-flex-space-between ant-row-flex-middle">
 																<div class="ant-col ant-col-20">
 																	<div class="ant-row-flex" style="margin-left: -4px; margin-right: -4px;">
-																		<div class="ant-col" style="padding-left: 4px; padding-right: 4px;">
+																		<div class="ant-col" style="padding-left: 4px; padding-right: 4px; ;">
 																			<div class="_EW_6tDz1">
 																				<img :src="item.logo"alt="">
 																			 </div>
 																		</div>
-																		<div class="ant-col" style="padding-left: 4px; padding-right: 4px;">
+																		<div class="ant-col" style="padding-left: 4px; padding-right: 4px; width: 70%">
 																			<div :title="item.name" class="_aQk6zb4W">{{item.name}}</div>
 																			<div class="_2TVkbDFI line-1">{{item.brief}}</div>
 																		</div>
