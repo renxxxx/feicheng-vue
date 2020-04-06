@@ -332,17 +332,7 @@ export default {
          this.disabled=true
        }
 
-//       if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
-//         for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
-//           this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
-//         }
-// // <<<<<<< HEAD
 
-// //       this.dialogImageUrl2 = dialogImageUrl2;
-// // =======
-// //         this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
-//       }
-// // >>>>>>> 9924d97050574270432db6522c831ce86213b02f
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
       this.phone = this.$store.state.wxVideoaccount.phone;

@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Store from '../store'
 import Router from 'vue-router'
 //主页面
-const showPage = ()=>import("@/components/index/showPage.vue")
+const index = ()=>import("@/components/index/index.vue")
 //404错误页面
-const page404 = ()=>import( '@/components/404Page.vue')
+const notFound = ()=>import( '@/components/notFound.vue')
 //替换路由
-const tihuan = ()=>import( '@/components/common/tihuan.vue')
+const tihuan = ()=>import( '@/components/tihuan.vue')
 
 //产品页面
 const productPage = ()=>import( '@/components/product/productPage.vue')
@@ -23,7 +23,7 @@ const searchDetails = ()=>import( '@/components/productSearchDetails/searchDetai
 const searchDetails_index = ()=>import( '@/components/productSearchDetails/page/index.vue')
 
 //文章详情页面
-const articleDetails = ()=>import( '@/components/article/article.vue')
+const article = ()=>import( '@/components/article.vue')
 
 // //展示页面
 // import showPage from '@/components/index/showPage.vue'
@@ -56,20 +56,20 @@ const router = new Router({
 
 		  path: '/',
 		  name: 'showPage',
-		  component: showPage,
+		  component: index,
 		  meta: {unkeepLastRoute:true},
 		},
 		{
 		  path: '/index',
 		  name: 'showPage',
-		  component: showPage,
+		  component: index,
 		  meta: {unkeepLastRoute:true},
 		},
 		//错误页面
 		{
 			path: '*',
 			name: 'error',
-			component: page404,
+			component: notFound,
 			meta: {unkeepLastRoute:true},
 		},
 		{
@@ -143,16 +143,16 @@ const router = new Router({
 					path: 'searchDetails_index',
 					name: 'searchDetails_index',
 					component: searchDetails_index,
-					meta: {auth:true,unkeepLastRoute:true},
+					meta: {auth:true},
 				},
 
 			]
 		},
 		{
 			///文章详情页面
-			path: '/articleDetails',
-			name: 'articleDetails',
-			component: articleDetails,
+			path: '/article',
+			name: 'article',
+			component: article,
 			meta: {auth:true},
 			// redirect:'/articleDetails/searchDetails_index',
 		// 	children:[

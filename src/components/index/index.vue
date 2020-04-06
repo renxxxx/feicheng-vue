@@ -307,31 +307,8 @@ export default {
     // //console.log(this.$refs.showPage_two.$el.offsetHeight);
     window.addEventListener("scroll", this.scrollToTop, true);
 
-    // // 获取配置信息
 
-    // this.$axios
-    //   .get("/config")
-    //   .then(res => {
-    //     this.codeSrc = res.data.data.servantWxQrcode;
-    //     this.servant = res.data.data;
-    //   })
-    //   .catch(err => {});
-    // 登陆刷新
-// =======
-//     // 获取配置信息
-//     this.$axios
-//       .get("/config")
-//       .then(res => {
-//         this.codeSrc = res.data.data.servantWxQrcode;
-//         this.servant = res.data.data;
-//       })
-//       .catch(err => {});
-//     // 登录刷新
-// >>>>>>> 9924d97050574270432db6522c831ce86213b02f
-    this.$axios
-      .get("/user/login-refresh")
-      .then(res => {})
-      .catch(err => {});
+    
 
     // 跳转回跳页面
     let lastRoute = localStorage.getItem("lastRoute");
@@ -341,7 +318,13 @@ export default {
     }
 
 
-
+    this.$axios
+      .get("/user/login-refresh")
+      .then(res => {
+          if(res.data.code == 0)
+           this.$store.state.login=res.data.data
+      })
+      .catch(err => {});
 
 
     this.showData = localStorage.getItem("showData");
@@ -399,8 +382,6 @@ askIfEnter(){
     initData() {
       this.showData = true;
       localStorage.setItem("showData", this.showData);
-      // //console.log('路由发送变化doing...');
-      // Object.assign(this.$data, this.$options.data());
     },
     loginFn() {
       debugger;
