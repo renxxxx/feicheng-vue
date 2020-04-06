@@ -101,20 +101,25 @@
                   <img v-if="dialogImageUrl" :src="dialogImageUrl" class="avatar" />
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
-               <!-- <el-upload :disabled='disabled'
-                  accept="image/*"
-                  :file-list="dialogImageUrl2"
-                  :limit="1"
-                  action="/upload-file"
-                  list-type="picture-card"
-                  :on-success="uploadCover"
-                  :on-exceed="handleExceed"
-                  :on-preview="handlePictureCardPreview"
-                  :on-remove="handleRemove"
-                >
-                  <i class="el-icon-plus"></i>
-                </el-upload> -->
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
+              </div>
+            </li>
+            <li>
+              <span>视频号二维码:<span @click='lookBigPicNow1()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
+              <div>
+                <el-upload  :disabled='disabled'
+                  :file-list="twocode"
+                  accept="image/*"
+                  class="avatar-uploader"
+                  action="/upload-file"
+                  :show-file-list="false"
+                  :on-success="uploadCover1"
+                  :before-upload="beforeAvatarUpload"
+                >
+                  <img v-if="twocodeNow" :src="twocodeNow" class="avatar" />
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible1"><img width="100%" :src="twocodeNow" alt="" /></el-dialog>
               </div>
             </li>
           </ul>
@@ -122,11 +127,9 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
 
-<<<<<<< HEAD
+
       <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a   v-if='showIf' target="_blank" :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
-=======
-      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol" target="_blank"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
->>>>>>> 94f65e73f8aca8fa680d448d9ed2cd04e51432e8
+
 
 
       <el-row v-if='showIf'>
@@ -166,12 +169,15 @@ export default {
       imageUrl: '',
       dialogImageUrl: '',
       dialogVisible: false,
+      dialogVisible1: false,
       dialogVisibleIcon:false,
       options: [],
       checkAll: false,
       checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
       cities: [],
       isIndeterminate: false,
+      twocodeNow:'',
+      twocode:'',
       type: [
         {
           value: '0',
@@ -313,6 +319,11 @@ export default {
         this.imageUrl = this.$store.state.wxVideoaccount.logo;
         this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
      }
+     if(this.$store.state.wxVideoaccount.qrcode!=null&&this.$store.state.wxVideoaccount.qrcode!=undefined&&this.$store.state.wxVideoaccount.qrcode!=''){
+        this.twocode = this.$store.state.wxVideoaccount.logo;
+        this.twocodeNow = this.$store.state.wxVideoaccount.logo;
+     }
+
      this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
   },
   mounted() {
@@ -452,6 +463,7 @@ export default {
           .post(
             '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
             qs.stringify({
+              qrcode:this.twocodeNow,
               name: this.name,
               phone: this.phone,
               logo: this.imageUrlNow,
@@ -542,13 +554,15 @@ export default {
 
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     uploadCover(res, file) {
       this.dialogImageUrlNow = res.data.url;
-      // console.log(this.imageUrlNow)
       this.dialogImageUrl = URL.createObjectURL(file.raw);
+    },
+    uploadCover1(res, file) {
+      this.twocodeNow = res.data.url;
+      this.twocode = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
@@ -574,6 +588,9 @@ export default {
     },
     lookBigPicNow() {
       this.dialogVisible = true;
+    },
+    lookBigPicNow1() {
+      this.dialogVisible1 = true;
     },
     // checkThis(val){
     //   console.log(val)
