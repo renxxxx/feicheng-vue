@@ -1,5 +1,10 @@
 <template>
+
 	<div class="user">
+		<div v-if="loading" style="text-align:center;">
+		  <img style="width:30px" src="../../assets/img/loading.png" />
+	  	</div>
+	<div v-if="!loading">
 		<div class="first">
 			<el-row class="user_name" :gutter='2' style="margin-bottom: 2px;">
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
@@ -187,6 +192,7 @@
 			</el-row>
 		</div>
 		<login ref="loginRef"></login>
+		</div>
 	</div>
 </template>
 
@@ -199,6 +205,7 @@ export default {
   name: "gene",
   data() {
     return {
+		loading:true,
 		oneValue:{title:'素材创意',center:'看集赞最多的视频作品',data:false},
 		twoValue:{title:'找视频号',center:'找涨粉最快的视频达人',data:false},
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
@@ -230,7 +237,6 @@ export default {
   },
 
   beforeCreate(){
-
   },
   activated(){
 	  debugger
@@ -298,7 +304,8 @@ export default {
 
 	  },
 	mounted() {
-		this.getDataType()
+		this.getDataType();
+		this.loading=false;
 	},
 
 	deactivated(){
