@@ -54,7 +54,13 @@
 					<span class="search_type_span">账号类型:</span>
 					<ul>
 						<li v-for="(item,inx) in dataList" :key="inx"  @click="renzhengClickFn(item,inx)">
-							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
+							<div class="ant-col" style="padding-left: 16px">
+								<div class="_1CbZWulL">
+									<div class="_3jSKX6Bn">
+										<div class="_o0SOfc8d">{{item.name}}</div>
+									</div>
+								</div>
+							</div>
 						</li>
 					</ul>
 			</el-row>
@@ -957,5 +963,23 @@ export default {
 }
 ._1OxA1GcO:hover {
     color: #fe3e65;
+}
+._3jSKX6Bn {
+    cursor: pointer;
+}
+._o0SOfc8d {
+    text-align: center;
+    color: #cdcfcf;
+    border-radius: 4px;
+    border: 1px solid #6d6d6d;
+    width: 104px;
+    line-height: 29px;
+    height: 32px;
+    box-sizing: border-box;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+._o0SOfc8d:hover {
+    border-color: #ff7800;
 }
 </style>

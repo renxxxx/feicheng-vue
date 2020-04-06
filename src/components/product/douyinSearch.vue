@@ -53,7 +53,14 @@
 					<span class="search_type_span">账号类型:</span>
 					<ul>
 						<li v-for="(item,inx) in dataList" :key="inx"  @click="renzhengClickFn(item,inx)">
-							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
+							<div class="ant-col" style="padding-left: 16px">
+								<div class="_1CbZWulL">
+									<div class="_3jSKX6Bn">
+										<div class="_o0SOfc8d">{{item.name}}</div>
+									</div>
+								</div>
+							</div>
+							<!-- <span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span> -->
 						</li>
 					</ul>
 			</el-row>
@@ -1130,7 +1137,21 @@ svg:not(:root) {
 ._3EYKFwfn {
     color: #ff7800;
 }
-
+.searchList_lie_xinxi_jianjie>h3 span{
+    margin-left: 8px;
+    line-height: 16px;
+    font-size: 12px;
+    color: rgb(205, 207, 207);
+    background-color: rgba(232, 237, 238, 0.1);
+    white-space: nowrap;
+    padding: 2px 8px 1px;
+    border-radius: 11px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(205, 207, 207, 0.3);
+    -o-border-image: initial;
+    border-image: initial;
+}
 
 >>>.el-table thead tr{
   border-radius: 6px;
@@ -1173,7 +1194,28 @@ svg:not(:root) {
 .el-table::before {
     height: 0px;
 }
-
+.ant-layout * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+._3jSKX6Bn {
+    cursor: pointer;
+}
+._o0SOfc8d {
+    text-align: center;
+    color: #cdcfcf;
+    border-radius: 4px;
+    border: 1px solid #6d6d6d;
+    width: 104px;
+    line-height: 29px;
+    height: 32px;
+    box-sizing: border-box;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+._o0SOfc8d:hover {
+    border-color: #ff7800;
+}
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
     	display: none;
