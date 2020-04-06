@@ -122,8 +122,8 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
 
-      <el-checkbox class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
-     
+      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+
 
       <el-row v-if='showIf'>
         <div class="submit_div"><el-button  type="primary" @click="onSubmit">立即入驻</el-button></div>
@@ -442,72 +442,77 @@ export default {
       };
     },
     onSubmit() {
-      this.$confirm('确认提交入驻?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$axios
-        .post(
-          '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
-          qs.stringify({
-            name: this.name,
-            phone: this.phone,
-            logo: this.imageUrlNow,
-            screenshot: this.dialogImageUrlNow,
-            wx: this.wx,
-            fansCount: this.fansCount,
-            likeCount: this.likeCount,
-            videoCount: this.videoCount,
-            pv: this.pv,
-            brief: this.brief,
-            type: this.num,
-            area1Id: this.diliNow.shenfen.id,
-            area2Id: this.diliNow.city.id,
-            area3Id: this.diliNow.qu.id,
-            area1Name: this.diliNow.shenfen.name,
-            area2Name: this.diliNow.city.name,
-            area3Name: this.diliNow.qu.name,
-            wxVideoaccountRealmIdList: this.wxVideoaccountRealmIdListNow
-          })
-        )
-        .then(res => {
-          if (res.data.code == 20) {
-            if (!this.centerDialogVisible) {
-              this.centerDialogVisible = true;
-              this.$refs.loginRef.getData();
-            }
-            // this.centerDialogVisible = true;
-            // this.$refs.loginRef.getData();
-          } else if (res.data.code == 0) {
-                this.$axios
-                        .get('/user/my/wx-videoaccount')
-                        .then(res => {
-                            if(res.data.code ==0)
-                              this.$store.state.wxVideoaccount=res.data.data
-                        })
-
-
-            this.$message.success('入驻申请已提交，请耐心等待审核');
-            if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
-              var tableData = this.$refs.refChild.tableData;
-
-              for (var i in tableData) {
-                this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
+      if(this.checked===false){
+        this.$message.warning('请勾选用户协议与隐私政策！');
+      }else{
+        this.$confirm('确认提交入驻?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.$axios
+          .post(
+            '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
+            qs.stringify({
+              name: this.name,
+              phone: this.phone,
+              logo: this.imageUrlNow,
+              screenshot: this.dialogImageUrlNow,
+              wx: this.wx,
+              fansCount: this.fansCount,
+              likeCount: this.likeCount,
+              videoCount: this.videoCount,
+              pv: this.pv,
+              brief: this.brief,
+              type: this.num,
+              area1Id: this.diliNow.shenfen.id,
+              area2Id: this.diliNow.city.id,
+              area3Id: this.diliNow.qu.id,
+              area1Name: this.diliNow.shenfen.name,
+              area2Name: this.diliNow.city.name,
+              area3Name: this.diliNow.qu.name,
+              wxVideoaccountRealmIdList: this.wxVideoaccountRealmIdListNow
+            })
+          )
+          .then(res => {
+            if (res.data.code == 20) {
+              if (!this.centerDialogVisible) {
+                this.centerDialogVisible = true;
+                this.$refs.loginRef.getData();
               }
-              this.$router.push({ path: '/productPage/productPage_user' });
-            } else {
+              // this.centerDialogVisible = true;
+              // this.$refs.loginRef.getData();
+            } else if (res.data.code == 0) {
+                  this.$axios
+                          .get('/user/my/wx-videoaccount')
+                          .then(res => {
+                              if(res.data.code ==0)
+                                this.$store.state.wxVideoaccount=res.data.data
+                          })
+        
+        
               this.$message.success('入驻申请已提交，请耐心等待审核');
-              this.$router.push({ path: '/productPage/productPage_user' });
+              if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
+                var tableData = this.$refs.refChild.tableData;
+        
+                for (var i in tableData) {
+                  this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
+                }
+                this.$router.push({ path: '/productPage/productPage_user' });
+              } else {
+                this.$message.success('入驻申请已提交，请耐心等待审核');
+                this.$router.push({ path: '/productPage/productPage_user' });
+              }
+            } else {
+              this.$message.error(res.data.codeMsg);
             }
-          } else {
-            this.$message.error(res.data.codeMsg);
-          }
-        })
-        .catch();
-        }).catch(() => {
-
-        });
+          })
+          .catch();
+          }).catch(() => {
+        
+          });
+      }
+    
 
 
     },
@@ -572,6 +577,11 @@ export default {
     lookBigPicNow() {
       this.dialogVisible = true;
     },
+    // checkThis(val){
+    //   console.log(val)
+    //   this.checkVal=val
+    //   console.log(this.checked)
+    // },
     // 选择领域
     handleCheckAllChange(val) {
       this.checkedCities = val ? this.cities : [];
