@@ -254,7 +254,12 @@
 								<div class="_2UsHTV5v">
 									<div class="_1KGIPaKA"></div>
 									<div class="_1KGIPaKA"></div>
-									<div class="_1KGIPaKA"><canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas></div>
+									<div class="_1KGIPaKA">
+                    <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
+					<viewer>
+                    <img style="height: 64px; width: 64px;" :src="message.qrcode" alt="">
+					</viewer>
+                  </div>
 								</div>
 							</div>
 							<div class="_14YV3H8t">
@@ -315,7 +320,7 @@
 													</div>
 												</div>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -436,14 +441,14 @@
 				}))
 				.then(res=>{
 					this.message = res.data.data;
-					
+
 					if(res.data.data.favorIs){
 						this.shouchangData = false;
 						console.log(this.shouchangData)
 					}
 				})
 				.catch()
-				
+
 				.catch()
 			},
 			gengxinFn(){
@@ -461,7 +466,7 @@
 						   this.shouchangData = false;
 						   console.log(this.shouchangData)
 						}
-						
+
 					})
 				}else{
 					this.$axios.post('/user/my-favor/unfavor-wx-videoaccount-list?',qs.stringify({
@@ -474,9 +479,9 @@
 						   this.shouchangData = true
 						}
 					})
-					
+
 				}
-				
+
 			}
 		},
 	}
@@ -749,7 +754,7 @@ body{
 			-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 			box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 		}
-		
+
 		.nav_data_xiala>ul>li {
 			height: 42px;
 			line-height: 42px;
@@ -1471,7 +1476,7 @@ body{
 	}
 	._1nF74FAR .ant-tabs-ink-bar {
 	    height: 3px;
-		 
+
 	}
 	.ant-tabs-bottom .ant-tabs-ink-bar-animated, .ant-tabs-top .ant-tabs-ink-bar-animated {
 	    opacity: 1;
@@ -1507,7 +1512,7 @@ body{
 	.appView{
 		/* width: 100%; */
 		/* height: 100%; */
-		
+
 	}
-	
+
 </style>
