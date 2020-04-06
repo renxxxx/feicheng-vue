@@ -1,6 +1,133 @@
 <template>
 	<div class="videoAccount">
-		<div style="text-align: right;height: 60px;line-height: 60px;align-items: center;color: #787a7a;"></div>
+		<div style="text-align: right;height: 20px;line-height: 20px;align-items: center;color: #787a7a;"></div>
+		<div class="search">
+			<el-row style="height: 60px;line-height: 60px;">
+				<div class="search_box">
+					<!-- <div class="search_box_xiala" @click="showXiaLaFn">
+						<div class="search_box_xialaButton">
+							<span slot="reference">{{searchData}}</span>
+							<i class="el-icon-arrow-down" v-if="icon_down"></i>
+							<i class="el-icon-arrow-up" v-if="icon_up"></i>
+						</div>
+						<ul v-if="show_xiala">
+							<li @click="searchChoesFn('全部')">全部</li>
+							<li @click="searchChoesFn('名称')">名称</li>
+							<li @click="searchChoesFn('认证')">认证</li>
+							<li @click="searchChoesFn('简介')">简介</li>
+						</ul>
+					</div> -->
+					<div class="search_box_input">
+						<img src="../../../assets/img/search.png" alt="">
+						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
+						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+					</div>
+					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
+				</div>
+				<div v-if='show_jieguo[0]||show_jieguo[1]' class="ant-col" style="padding-left: 16px; padding-right: 16px; float: left;">
+					<span class="_3EYKFwfn">{{searchNum}}</span>
+					<span>条结果</span>
+				</div>
+				<div class="_1OxA1GcO" v-if='show_jieguo[0]||show_jieguo[1]' @click="inDataFn">
+					<i aria-label="图标: sync" class="anticon anticon-sync">
+						<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="sync" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+							<path d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 0 1 755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 0 0 3 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 0 1 512.1 856a342.24 342.24 0 0 1-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 0 0-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 0 0-8-8.2z">
+							</path>
+						</svg>
+					</i>
+					<span>重置筛选条件</span>
+				</div>
+			</el-row>
+			<el-row style="line-height: 47px;" class="search_type">
+				<!-- <el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1"> -->
+					<span class="search_type_span">领域:</span>
+				<!-- </el-col> -->
+				<!-- <el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23"> -->
+					<ul>
+						<li v-for="(item,inx) in typeList" :key="inx"  @click="typeClickFn(item,inx)">
+							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
+						</li>
+					</ul>
+				<!-- </el-col> -->
+			</el-row>
+			<el-row style="line-height: 47px;" class="search_type">
+					<span class="search_type_span">账号类型:</span>
+					<ul>
+						<li v-for="(item,inx) in dataList" :key="inx"  @click="renzhengClickFn(item,inx)">
+							<span :class="[item.typeData? 'typeCilckColor':'']">{{item.name}}</span>
+						</li>
+					</ul>
+			</el-row>
+			<!-- <el-row style="line-height: 47px" class="search_type">
+				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
+					<span class="search_type_span">新增指数:</span>
+				</el-col>
+				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
+					<ul>
+						<li v-for="(data,_inx) in numList" :key="_inx" @click="numClickFn(_inx)">
+							<span :class="[data.typeData? 'typeCilckColor':'']">{{data.name}}</span>
+						</li>
+					</ul>
+				</el-col>
+			</el-row> -->
+			<!-- <el-row style="line-height: 47px" class="search_renzheng">
+				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
+					<span class="search_type_span">账号认证</span>
+				</el-col>
+				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
+					<ul>
+						<li>
+							<span>不限</span>
+						</li>
+						<li>
+							<span>条件</span>
+							<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
+						</li>
+						<li class="dataColor">
+							<span class="ant-checkbox ant-checkbox-disabled">
+								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
+								<span class="ant-checkbox-inner"></span>
+							</span>
+							<span class="dataColor">有联系方式</span>
+							<svg width="14" height="14" viewBox="0 0 14 14" class="_3sse5IOP ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+						</li>
+						<li class="dataColor">
+							<span class="ant-checkbox ant-checkbox-disabled">
+								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
+								<span class="ant-checkbox-inner"></span>
+							</span>
+							<span class="dataColor">有直播信息</span>
+							<svg width="14" height="14" viewBox="0 0 14 14" class="_3sse5IOP ant-tooltip-open"><g><path d="M7,14A7,7,0,0,1,2.05,2.05a7,7,0,0,1,9.9,9.9A6.955,6.955,0,0,1,7,14ZM7,.984a6.017,6.017,0,0,0-2.34,11.559,6.016,6.016,0,0,0,6.594-9.8A5.99,5.99,0,0,0,7,.984ZM6.911,11.108a.592.592,0,1,1,.3-.079A.594.594,0,0,1,6.911,11.108Zm.018-2.032-.037,0H6.88a.494.494,0,0,1-.442-.539A3.168,3.168,0,0,1,7.556,6.751c.883-.883.9-1.162.912-1.458a1.269,1.269,0,0,0-.361-.945A1.537,1.537,0,0,0,7,3.874a1.473,1.473,0,0,0-1.469,1.47.492.492,0,0,1-.984,0A2.453,2.453,0,0,1,6.992,2.89H7a2.525,2.525,0,0,1,1.825.78,2.244,2.244,0,0,1,.631,1.675c-.035.634-.23,1.133-1.2,2.1-.492.491-.8.861-.834,1.185A.49.49,0,0,1,6.929,9.077Z" transform="translate(0 0)" fill="currentColor"></path></g></svg>
+						</li>
+						<li class="dataColor">
+							<span class="ant-checkbox ant-checkbox-disabled">
+								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
+								<span class="ant-checkbox-inner"></span>
+							</span>
+							<span class="dataColor">加入MCN</span>
+						</li>
+						<li class="dataColor">
+							<span class="ant-checkbox ant-checkbox-disabled">
+								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
+								<span class="ant-checkbox-inner"></span>
+							</span>
+							<span class="dataColor">已开通橱窗</span>
+						</li>
+					</ul>
+				</el-col>
+			</el-row> -->
+			<!-- <el-row style="line-height: 47px" class="search_zhishu">
+				<el-col :xs="5" :sm="4" :md="3" :lg="2" :xl="1">
+					<span class="search_type_span">新增指数:</span>
+				</el-col>
+				<el-col :xs="19" :sm="20" :md="21" :lg="22" :xl="23">
+					<ul>
+						<li>账号资料</li> <li>数据表现</li> <li>粉丝画像</li> <li>关联商品</li>
+					</ul>
+				</el-col>
+			</el-row> -->
+		</div>
+		
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-table align='center' :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
@@ -8,7 +135,7 @@
 				       <div class="searchList_lie_xinxi">
 				       	<img :src="scope.row.logo" alt="">
 				       	<div class="searchList_lie_xinxi_jianjie">
-				       		<h3>{{scope.row.name}}</h3>
+				       		<h3>{{scope.row.name}}<span v-if='scope.row.type==1'>个人号</span><span v-if='scope.row.type==2'>达人号</span><span v-if='scope.row.type==3'>企业号</span></h3>
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
@@ -22,7 +149,7 @@
 				    </template>
 			   </el-table-column>
 			 <el-table-column align='center'   prop="name" min-width="13%" >
-					<template slot="header" slot-scope="scope" v-if="scope.row.wxVideoaccountRealmList">
+					<template slot="header" slot-scope="scope">
 			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 			   				<span style="color: #cdcfcf;" :class="clickData.type? 'xuanzhongColor':''">领域</span>
 			   			</div>
@@ -101,6 +228,7 @@ export default {
 			three:0,
 			four:0,
 			type : 0,
+			kw:'',
 			clickData:{
 				type:false,
 				 one:false,
@@ -108,8 +236,17 @@ export default {
 				 three:false,
 				 four:false
 			},
+			typeList:[],
 			sort:'',
+			searchColor:false,
 			order:'',
+			show_jieguo:[false,false],
+			dataList:[
+				{name:'个人号',value:'0',typeData:false},
+				{name:'达人号',value:'1',typeData:false},
+				{name:'企业号',value:'2',typeData:false},],
+			dataType:'',
+			searchNum:0,
 		}
 	},
 	computed:{
@@ -137,6 +274,11 @@ export default {
           this.$store.state.centerDialogVisible = true;
           this.$refs.loginRef.getData();
      }
+	 if(this.$route.query.value){
+	 		this.page = 0;
+	 		this.kw = this.$route.query.value;
+	 		this.userList = []
+	 }
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
@@ -178,16 +320,122 @@ export default {
 
   },
 	mounted(){
+		this.getDataType();
 		this.nextPage();
 	},
 	methods: {
+		searchFn(){
+			this.searchColor = true;
+			//console.log(this.kw)
+			this.page = 0;
+			this.userList = []
+			this.nextPage()
+		},
+		typeClickFn(_item,_inx){
+			// //console.log(_item)
+			if(this.typeList[_inx].typeData){
+		
+				this.typeList[_inx].typeData = false;
+				this.wxVideoaccountRealmIdNow = '';
+				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
+				// this.wxVideoaccountRealmId = a
+				this.userList = [];
+				this.show_jieguo[0] = false;
+				this.page = 0;
+				this.nextPage()
+			}else{
+				for(let i in this.typeList){
+					this.typeList[i].typeData = false;
+				}
+				//console.dir(this.typeList)
+				this.typeList[_inx].typeData = true;
+				// this.wxVideoaccountRealmId.push(_item.wxVideoaccountRealmId)
+				this.wxVideoaccountRealmIdNow = _item.wxVideoaccountRealmId;
+				this.show_jieguo[0] = true;
+				this.userList = [];
+				this.page = 0;
+				this.getNum();
+				this.nextPage()
+			}
+			// if(this.wxVideoaccountRealmId.length>1){
+			// 	this.wxVideoaccountRealmIdNow = this.wxVideoaccountRealmId.join(',')
+			// 	console.dir(this.wxVideoaccountRealmIdNow)
+			// }else{
+			// 	console.dir(this.wxVideoaccountRealmIdNow)
+			// 	this.wxVideoaccountRealmIdNow = this.wxVideoaccountRealmId
+			// }
+		},
+		inDataFn(){
+			Object.assign(this.$data, this.$options.data());
+			this.getDataType()
+		},
 		nextPage(){
 			this.page++;
 			this.getData();
 		},
+		renzhengClickFn(_item,_inx){
+			if(this.dataList[_inx].typeData){
+				this.dataList[_inx].typeData = false;
+				this.dataType = '';
+				this.userList = [];
+				this.show_jieguo[1] = false;
+				this.page = 0;
+				this.nextPage()
+			}else{
+				for(let i in this.dataList){
+					this.dataList[i].typeData = false;
+				}
+				this.dataType = _item.value;
+				this.dataList[_inx].typeData = true;
+				this.show_jieguo[1] = true;
+				this.userList = [];
+				this.page = 0;
+				this.getNum();
+				this.nextPage()
+			}
+		},
+		getDataType(){
+			this.$axios.get("/user/wx-videoaccount/wx-videoaccount-realm-list?")
+			.then(res =>{
+				if(res.data.code == 20){
+					if(!this.centerDialogVisible){
+						this.centerDialogVisible = true;
+						this.$refs.loginRef.getData();
+					}
+				}else{
+					if(res.data.data.itemList.length !=0){
+						for(let i in res.data.data.itemList){
+							this.typeList.push({
+								name:res.data.data.itemList[i].name,
+								typeData:false,
+								wxVideoaccountRealmId:res.data.data.itemList[i].wxVideoaccountRealmId
+							})
+						}
+					}
+				}
+			})
+			.catch()
+		},
+		getNum(){
+			this.$axios.get("/user/my-favor/wx-videoaccount-list-sum?"+qs.stringify({
+				kw:this.kw,
+				type:this.dataType,
+				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
+			}))
+			.then(res =>{
+				if(res.data.code == 0){
+				  this.searchNum = res.data.data.rowCount
+				}
+			})
+			.catch()
+		},
 		getData(){
 			this.load = true;
 			this.$axios.get("/user/my-favor/wx-videoaccount-list?"+qs.stringify({
+				type:this.dataType,
+				sort:this.sort,
+				order:this.order,
+				kw:this.kw,
 				get:1,
 				link:2,
 				pn:this.page,
@@ -378,6 +626,20 @@ export default {
 	cursor: pointer;
 	color: #ff8b1d;
 }
+.searchList_lie_xinxi_jianjie>h3 span{
+ margin-left: 8px;
+     line-height: 16px;
+     font-size: 12px;
+     color: rgb(205, 207, 207);
+     background-color: rgba(232, 237, 238, 0.1);
+     white-space: nowrap;
+     padding: 2px 8px 1px;
+     border-radius: 11px;
+     border-width: 1px;
+     border-style: solid;
+     border-color: rgba(205, 207, 207, 0.3);
+     border-image: initial;
+ }
 .biaoqianClass{
 	/* margin-left: 8px; */
 	padding: 2px 8px 1px;
@@ -473,11 +735,216 @@ export default {
 	background-color: #ff7800;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
-.el-table::before {
+/* .el-table::before {
     height: 0px;
-}
+} */
 .xuanzhongColor{
 	color: #ff7800!important;
 	transition: all .3s;
+}
+
+
+.search{width: 100%;position: relative;}
+.search_type{
+	min-width: 660px;
+}
+.search_box{
+	/* width: 532px; */
+	height: 32px;
+	line-height: 32px;
+	margin: 13px 0px;
+	float: left;
+	/* border: 1px solid #6d6d6d; */
+
+}
+.search_box_xiala{
+	width: 67px;
+	text-align: center;
+	border-right: 1px solid #6d6d6d;
+	background-color: #363636;
+	position: relative;
+	float: left;
+	border: 1px solid #6d6d6d;
+	border-right: none;
+}
+.search_box_xiala>ul{
+	position: absolute;
+	top: 20px;
+	left: 0;
+	background-color: #5a5a5a;
+	color: #e8edee;
+	width: 100%;
+	padding: 0px;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0,0,0,.15);
+	z-index: 9;
+}
+.search_box_xiala>ul>li{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	white-space: nowrap;
+	    text-overflow: ellipsis;
+}
+.search_box_xiala>ul>li:first-child{
+	margin-top: 5px;
+}
+.search_box_xiala>ul>li:last-child{
+	margin-bottom: 5px;
+}
+/* .search_box_xiala>ul>li:hover{
+	    transition: background .3s ease;
+		cursor: pointer;
+	transition: all .5s;
+	background-color: hsla(0,0%,100%,.1)!important;
+} */
+.search_box_input{
+	height: 34px;
+	width: 400px;
+	position: relative;
+	float: left;
+}
+.search_box_input>img{
+	width: 20px;
+	position: absolute;
+	left: 5px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto 0px;
+}
+.search_box_input>input{
+	padding-left: 30px;
+	transition: all .5s;
+	height: 34px;
+	background-color: transparent;
+	border: 1px solid #6d6d6d;
+	width: 400px;
+	color: #e8edee;
+	border-radius: 5px 0 0 5px;
+}
+.search_box_input>svg{
+	position: absolute;
+	right: 13px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0px;
+	color: #949393;
+	cursor: pointer;
+}
+.search_box_input>svg:hover{
+	transition: all .5s;
+	color: #e8edee;
+}
+.search_box>span{
+	height: 32px;
+	width: 64px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	float: left;
+	/* background-color: #ff7800; */
+	color: #6b6d6d;
+	background-color: #3e3e3e;
+	border: 1px solid #6d6d6d;
+	border-left: 0px;
+	box-shadow: 0 2px 0 rgba(0,0,0,.045);
+	border-radius: 0px 4px 4px 0px;
+	cursor: pointer;
+}
+.searchColor{
+	 color: #fff!important;
+	 background-color: #ff7800!important;
+	 border-color: #ff9429!important;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
+}
+.search_box>span:focus{
+	cursor: pointer;
+    color: #fff;
+    background-color: #ff9429;
+    border-color: #ff9429;
+	transition: all .3s cubic-bezier(.645,.045,.355,1);
+}
+.search_box_input>input[type=search]:focus,.search_box_input>input[type=search]:hover,.search_box_input>input[type=search]:link,search_box_input>input[type=search]:visited{
+	outline: none;
+	border: 1px solid #ff9429;
+	padding-right: 5px;
+}
+.search_box_input>input[type=search]::-webkit-search-cancel-button{
+	-webkit-appearance: none;
+
+}
+.search_type_span{
+	display: inline;
+	width: 100%;
+	/* text-align: center; */
+	color: #787a7a;
+	font-size: 14px;
+	flex-shrink: 0;
+}
+.search_type ul{
+	display: inline;
+	padding: 0px;
+}
+.search_renzheng ul,.search_zhishu ul{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.search_type ul li,.search_zhishu ul li{
+	display: inline-block;
+	margin-right: 18px;
+
+}
+.search_type ul li span,.search_zhishu ul li span{
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	left: 22px;
+	border-radius: 4px;
+	padding: 5px;
+}
+
+.search_type ul li span:hover,.search_zhishu ul li span:hover{
+	cursor: pointer;
+	color: #ff9429;
+	transition: all .3s cubic-bezier(.78,.14,.15,.86);
+	/* background-color: #ff7800; */
+}
+
+.search_renzheng ul li{
+	display: inline-block;margin-right: 30px;
+	position: relative;
+}
+.search_renzheng ul li:first-child span,.search_zhishu ul li{
+	display: inline-block;
+	width: 104px;
+	height: 30px;
+	line-height: 32px;
+	text-align: center;
+	color: #cdcfcf;
+	border-radius: 4px;
+	border: 1px solid #6d6d6d;
+}
+.search_renzheng ul li:first-child span:hover,.search_zhishu ul li:hover{
+	transition: all .2s;
+	border-color: #ff7800;
+}
+.search_renzheng ul li:nth-child(2) span{
+	margin-right: 0px;
+}
+.search_renzheng ul li span{
+	margin-right: 5px;
+	color: #e8edee;
+}
+.search_renzheng ul li svg{
+	position: absolute;
+	top:0;bottom: 0;margin: auto 0px;
+	right: -15px;
+}
+.dataColor{
+	color: #6b6d6d!important;
+	cursor: not-allowed;
 }
 </style>
