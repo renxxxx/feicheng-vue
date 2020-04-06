@@ -117,7 +117,7 @@ export default {
   name: 'topNav',
   data() {
     return {
-    codeDialogVisible: true,
+    codeDialogVisible: false,
     getConfig: this.$store.state.getConfig.config(),
     };
   },
