@@ -105,9 +105,7 @@ created(){
                         .then(res => {
                            if(res.data.code ==0)
                               this.$store.state.wxVideoaccount=res.data.data
-                        })
-
-      
+                        })     
                     this.$axios
                         .get('/user/login-refresh')
                         .then(res => {

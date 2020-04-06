@@ -92,7 +92,7 @@
 										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
 									</g>
 								</svg></router-link>
-								<svg width="16" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
+								<svg width="16" @click="codeDialogVisible = true" height="15.999" viewBox="0 0 16 15.999" class="_3lriKTLx _21wCsby0"><path d="M14.951 6.869a6.952 6.952 0 0 0-13.9 0 2.782 2.782 0 1 0 3.5 4.324L3.24 6.3a2.818 2.818 0 0 0-.455-.04 2.749 2.749 0 0 0-.3.017 5.561 5.561 0 0 1 11.039 0 2.763 2.763 0 0 0-.3-.017 2.836 2.836 0 0 0-.456.04l-1.31 4.89a2.774 2.774 0 0 0 1.316.6 5.572 5.572 0 0 1-2.436 1.533l-.115.115a1.739 1.739 0 1 0 .138 1.318 6.969 6.969 0 0 0 4.452-3.426 2.779 2.779 0 0 0 .146-4.456z" fill="currentColor"></path></svg>
 							</div>
 							<div class="nav_user_search">
 								<input type="search" placeholder="搜索" @click="searchDiialogFn" readonly>
@@ -222,7 +222,16 @@
 		</el-col>
 		</el-row>
 		<login ref="loginRef"></login>
+    <groupCode ref='groupCode'></groupCode>
 		<searchDialog></searchDialog>
+    <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%" :before-close="handleClose">
+      <div class="avatarBox"><img class="avator" :src="getConfig.servantWxQrcode" alt="" /></div>
+      <span class="span">添加运营人员后，进入到交流群</span>
+      <span slot="footer" class="dialog-footer">
+        <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
+        <el-button type="primary" @click="codeDialogVisible = false">关闭</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -235,6 +244,8 @@ export default {
   name: 'productPage',
   data(){
   	return{
+      codeDialogVisible: false,
+      getConfig: this.$store.state.getConfig.config(),
 		tanShow : false,
 		msg	: '视频号数据平台',
 		// 左侧导航栏数据
@@ -315,7 +326,8 @@ export default {
       set: function(newValue) {
         this.$store.state.centerDialogVisible = newValue;
       }
-    }
+    },
+
   },
   mounted(){
 	  // //console.log(this.$store.state.login)
@@ -331,6 +343,7 @@ export default {
     login,searchDialog
   },
   methods:{
+
 	  searchDiialogFn(){
 	  this.$store.state.publicSearchShow = true
 
@@ -395,6 +408,77 @@ askIfEnter(){
 </script>
 
 <style >
+  .dialogThis {
+    background: #55555a !important;
+    color: #fff !important;
+    width: 520px !important;
+    height: 329 !important;
+    border-radius: 4px;
+  }
+  .dialogThis > div:nth-child(1) {
+    padding: 16px 24px !important;
+    margin: 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    word-wrap: break-word;
+    border-bottom: 1px solid #6d6d6d;
+  }
+  .dialogThis > div:nth-child(1) span {
+    color: #ffffff !important;
+    font-size: 16px;
+  }
+  .dialogThis > div:nth-child(1) button i {
+    color: #ffffff;
+  }
+  .dialogThis > div:nth-child(2) {
+    border-bottom: 1px solid #6d6d6d;
+  }
+  .dialogThis > div:nth-child(3) > span > button {
+    width: 64px;
+    height: 32px;
+    background: none;
+    border: 1px solid #6d6d6d;
+    margin-top: 10px;
+    line-height: 32px;
+    padding: 0;
+  }
+
+  .dialogThis > div:nth-child(3) > span > button:hover {
+    color: #ff9429;
+    /* background-color: #2b2b2e; */
+    border-color: #ff9429;
+  }
+
+  .avatarBox {
+    width: 120px;
+    height: 120px;
+    margin: 24px 172px 16px;
+    padding: 8px;
+    background: #ffffff;
+  }
+  .avatarBox img {
+    width: 120px;
+    height: 120px;
+  }
+  .span {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+
+
+
+
+
+
+
+
 el-menu-item {
 	color: #fff !important;
 }
