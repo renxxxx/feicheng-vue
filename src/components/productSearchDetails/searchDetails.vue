@@ -26,10 +26,10 @@
 									<span class="_8TRvoTKy">{{message.wx}}</span>
 								</div>
 								<div class="_1bv9Xtl-">
-									<svg v-if="shouchangData" @click="shouchangFn('false')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
+									<svg v-if="shouchangData" @click="shouchangFn('false')" width="2em" height="2em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
 										<path fill="none" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
 									</svg>
-									<svg v-if="!shouchangData" @click="shouchangFn('true')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho" style="color: #ff7800;">
+									<svg v-if="!shouchangData" @click="shouchangFn('true')" width="2em" height="2em" viewBox="0 0 19.033 19.019" class="_39iY1Rho" style="color: #ff7800;">
 										<path fill="#ff7800" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
 									</svg>
 									<svg width="18" height="18" viewBox="0 0 18 18" class="_oHy0nPgB" style="display:none;">

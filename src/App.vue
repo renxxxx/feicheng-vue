@@ -48,25 +48,12 @@ export default {
 }
 </script>
 
-<style>
 
-img[lazy="loading"]{
-    object-fit:scale-down!important;
- }
-img[lazy="error"]{
-    object-fit:scale-down!important;
- }
+<style scoped>
 #app {
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		/* height: 100%; */
-		/* width: 100%; */
-		/* padding: 0;
-		margin: 0; */
-		/* overflow-x: scroll;
-		overflow-y:hidden; */
-		/* min-width: 850px; */
 }
 .muti::-webkit-scrollbar{
 	width:4px;
@@ -88,12 +75,45 @@ img[lazy="error"]{
 	background-color:#2b2b2e;
 	/* border-radius: 5px; */
 }
+
+[v-cloak]{
+    display: none;
+}
+</style>
+
+
+<style>
+*{
+	word-break: break-all;
+}
+
+img{
+  object-fit: cover;
+}
+img[lazy="loading"]{
+    object-fit:scale-down!important;
+ }
+img:not([src]),img[src=""] {opacity: 0;}
+img[lazy="error"]{
+    object-fit:scale-down!important;
+ }
+
 ::selection {
     color: #fff;
     background: #ff7800;
 }
-
-[v-cloak]{
-    display: none;
+::-webkit-scrollbar{
+width:5px;
+height:4px;
+}
+::-webkit-scrollbar-thumb{
+border-radius:0;
+-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+background: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-track{
+-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+border-radius:0;
+background:#e0e0e0;
 }
 </style>
