@@ -69,10 +69,9 @@
 				</div>
 			</el-col>
 		</el-row>
-		<el-row :gutter='17' class="nav" style="background:#FFFFFF;margin-top: 57px;">
-			 <iframe ref="iframe" align="center" width="100%" height="170" class="center">
-			 </iframe>
-		</el-row>
+			<div style="text-align:center;">{{article.name}}</div>
+			 <div v-html="article.content" style="padding:40px;" >
+			 </div>
 		<login ref="loginRef"></login>
 		<searchDialog></searchDialog>
 	</div>
@@ -88,8 +87,7 @@ export default {
 	name: 'article',
 	data () {
 		return {
-			data:{
-			}
+			article:{},
 		};
 	},
 	computed:{
@@ -174,7 +172,7 @@ export default {
 			})
 		},
 		getData(){
-			// var _this = this
+			 var _this = this
 			// //console.log(this.$route.query.data)
 			this.$axios.get('/user/article/article?'+qs.stringify({
 				articleId:this.$route.query.data
@@ -183,7 +181,11 @@ export default {
 				// console.dir(res)
 				debugger;
 				// this.url = res.data.data.contentUrl;
-				this.$refs.iframe.src =res.data.data.contentUrl; 
+				_this.article=res.data.data
+				this.$axios.get(_this.article.contentUrl).then(res=>{
+					debugger
+					_this.article.content=res.data
+				})
 				// //console.log(this.url)
 			})
 		},
