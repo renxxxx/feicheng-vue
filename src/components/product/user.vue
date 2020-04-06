@@ -33,7 +33,7 @@
 							<h5>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</h5>
 							<p v-if='!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type'>
 								您还不是博主，
-								<router-link :to="{path:'/product/product_ruzhu'}">
+								<router-link :to="{path:'/product/ruzhu'}">
 									<span>立即入驻</span>
 								</router-link>
 							</p>
@@ -167,7 +167,7 @@
 					</router-link>
 				</div>
 				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
-					<router-link :to="{path:'/product/product_ruzhu'}">
+					<router-link :to="{path:'/product/ruzhu'}">
 						<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fiveValue.data? 'color':'']">
 							{{fiveValue.title}}
@@ -197,7 +197,7 @@ export default {
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
 		fourValue:{title:'商学院',center:'',data:false},
 		fiveValue:{title:'博主入驻',center:'',data:false},
-		list:[{url:'/product/product_ruzhu',src:require('../../assets/img/1.png')}],
+		list:[{url:'/product/ruzhu',src:require('../../assets/img/1.png')}],
 		typeList:[],
 		articleOne:[],
 		articleTwo:[],
@@ -364,13 +364,13 @@ export default {
 						cancelButtonText: '取消',
 						type: 'warning'
 					}).then(() => {
-					this.$router.push({path:'/product/product_ruzhu'});
+					this.$router.push({path:'/product/ruzhu'});
 				})
 			}else{
-			this.$router.push({path:'/product/product_ruzhu'});
+			this.$router.push({path:'/product/ruzhu'});
 			}
 		}else{
-			this.$router.push({path:'/product/product_ruzhu'});
+			this.$router.push({path:'/product/ruzhu'});
 		}
     },
 		detailClickFn(_data){

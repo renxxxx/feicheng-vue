@@ -12,7 +12,7 @@ const tihuan = ()=>import( '@/components/tihuan.vue')
 const product = ()=>import( '@/components/product/product.vue')
 const product_user = ()=>import( '@/components/product/user.vue')
 const product_douyinSearch = ()=>import( '@/components/product/douyinSearch.vue')
-const product_ruzhu = ()=>import( '@/components/ruzhu/ruzhu.vue')
+const ruzhu = ()=>import( '@/components/ruzhu/ruzhu.vue')
 const product_videoSearch = ()=>import( '@/components/product/videoSearch.vue')
 const product_addressSearch = ()=>import( '@/components/product/addressSearch.vue')
 const product_collection = ()=>import( '@/components/product/collection/collection.vue')
@@ -35,8 +35,8 @@ const article = ()=>import( '@/components/article.vue')
 // import product from '@/components/product/product.vue'
 // import product_user from '@/components/product/user.vue'
 // import product_douyinSearch from '@/components/product/douyinSearch.vue'
-// import product_ruzhu from '@/components/product/ruzhu.vue'
-// import product_ruzhuView from '@/components/product/ruzhuView.vue'
+// import ruzhu from '@/components/product/ruzhu.vue'
+// import ruzhuView from '@/components/product/ruzhuView.vue'
 // import product_videoSearch from '@/components/product/videoSearch.vue'
 
 // //产品详情页面
@@ -54,32 +54,27 @@ const router = new Router({
 		{
 
 		  path: '/',
-		  name: 'showPage',
 		  component: index,
 		  meta: {unkeepLastRoute:true},
 		},
 		{
 		  path: '/index',
-		  name: 'showPage',
 		  component: index,
 		  meta: {unkeepLastRoute:true},
 		},
 		//错误页面
 		{
 			path: '*',
-			name: 'error',
 			component: notFound,
 			meta: {unkeepLastRoute:true},
 		},
 		{
 			path: '/tihuan',
-			name: 'tihuan',
 			component: tihuan,
 			meta: {unkeepLastRoute:true},
 		},
 		{
 			path: '/product',
-			name: 'product',
 			component: product,
 			meta: {auth:true},
 			redirect:'/product/product_user',
@@ -87,38 +82,32 @@ const router = new Router({
 				// 登录后的页面路径配置
 				{
 					path: 'product_user',
-					name: 'product_user',
 					component: product_user,
 					meta: {auth:true},
 				},
 				{
 					path: 'product_douyinSearch',
-					name: 'product_douyinSearch',
 					component: product_douyinSearch,
 					meta: {auth:true},
 				},
 				{
-					path: 'product_ruzhu',
-					name: 'product_ruzhu',
-					component: product_ruzhu,
+					path: 'ruzhu',
+					component: ruzhu,
 					meta: {auth:true},
 				},
 				{
 					path: 'product_videoSearch',
-					name: 'product_videoSearch',
 					component: product_videoSearch,
 					meta: {auth:true},
 				},
 				
 				{
 					path: 'product_addressSearch',
-					name: 'product_addressSearch',
 					component: product_addressSearch,
 					meta: {auth:true},
 				},
 				{
 					path: 'product_collection',
-					name: 'product_collection',
 					component: product_collection,
 					meta: {auth:true},
 				}
@@ -127,7 +116,6 @@ const router = new Router({
 		},
 		{
 			path: '/searchDetails',
-			name: 'searchDetails',
 			component: searchDetails,
 			meta: {auth:true},
 			redirect:'/searchDetails/searchDetails_index',
@@ -135,7 +123,6 @@ const router = new Router({
 				// 登录后的页面路径配置
 				{
 					path: 'searchDetails_index',
-					name: 'searchDetails_index',
 					component: searchDetails_index,
 					meta: {auth:true},
 				},
@@ -145,7 +132,6 @@ const router = new Router({
 		{
 			///文章详情页面
 			path: '/article',
-			name: 'article',
 			component: article,
 			meta: {auth:true},
 			// redirect:'/articleDetails/searchDetails_index',

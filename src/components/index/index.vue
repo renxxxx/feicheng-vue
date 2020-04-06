@@ -30,7 +30,7 @@
         	    :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
         	    :"未知" }}
         	</span>
-                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/product_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
                 <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
                 <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
                 <router-link :to="{ path: '/product/product_videoSearch' }"><span class="lf48">素材创意</span></router-link>
@@ -370,13 +370,13 @@ askIfEnter(){
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
-              this.$router.push({path:'/product/product_ruzhu'});
+              this.$router.push({path:'/product/ruzhu'});
            })
     }else{
-      this.$router.push({path:'/product/product_ruzhu'});
+      this.$router.push({path:'/product/ruzhu'});
     }
   }else{
-    this.$router.push({path:'/product/product_ruzhu'});
+    this.$router.push({path:'/product/ruzhu'});
   }
     },
     initData() {

@@ -146,7 +146,7 @@
    .box_indexLf{
 width: 377px;
     height: 735px;
-    background: url(/assets/img/phone.9548e850.png) 0 0 no-repeat;
+    background: url(../../assets/img/phone.9548e850.png) 0 0 no-repeat;
     background-size: cover;
     margin-right: -28px;
     z-index: 2;
@@ -202,7 +202,7 @@ width: 377px;
     .box_indexRt_two>div:nth-child(1){
           width: 120px;
           height: 80px;
-          background: url(/assets/img/down1.png) 0 0 no-repeat;
+          background: url(../../assets/img/down1.png) 0 0 no-repeat;
           background-size: cover;
           margin-right: 16px;
     }
@@ -326,7 +326,7 @@ width: 377px;
       }
       .box_indexRt_four{
             height: 220px;
-            background: url(/assets/img/down3.png) 0 0 no-repeat;
+            background: url(../../assets/img/down3.png) 0 0 no-repeat;
             background-size: 100% 100%;
             position: relative;
       }
@@ -349,7 +349,7 @@ width: 377px;
             width: 156px;
             height: 30px;
             line-height: 30px;
-            background: url(/assets/img/down2.png) 0 0 no-repeat;
+            background: url(../../assets/img/down2.png) 0 0 no-repeat;
             background-size: 100% 100%;
             font-size: 12px;
             color: #fff;
