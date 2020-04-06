@@ -37,7 +37,7 @@
 						</div>
 					</el-col>
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
-						<div class="nav_user">
+						<div class="nav_user" style="min-width: 480px;">
 							<div class="nav_data" >
 								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
 								<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
@@ -67,7 +67,8 @@
 												:this.$store.state.wxVideoaccount.type==3?"企业号"
 												:"未知" }}
 												{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null) ?""
-												:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+												:this.$store.state.wxVideoaccount.audit==0?""
+												:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
 												:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 												:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 												:"未知" }}
@@ -83,7 +84,7 @@
 
 							</div>
 							<div class="nav_function">
-                <router-link :to="{path : '/productPage/productPage_user'}" style="display: inline-block;">
+                <router-link :to="{path : '/'}" style="display: inline-block;">
 								<svg style="margin-top: 20px;" width="16" height="15.999"  viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 									<!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
 									<title></title>
@@ -142,7 +143,8 @@
 											:this.$store.state.wxVideoaccount.type==3?"企业号"
 											:"未知" }}
 											{{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null)?""
-											:this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+											:this.$store.state.wxVideoaccount.audit==0?""
+											:this.$store.state.wxVideoaccount.audit==1?"(审核中)"
 											:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 											:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 											:"未知" }}
