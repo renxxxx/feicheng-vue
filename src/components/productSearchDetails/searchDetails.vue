@@ -435,7 +435,12 @@
 					wxVideoaccountId:this.$route.query.data
 				}))
 				.then(res=>{
-					this.message = res.data.data
+					this.message = res.data.data;
+					
+					if(res.data.data.favorIs){
+						this.shouchangData = false;
+						console.log(this.shouchangData)
+					}
 				})
 				.catch()
 				
@@ -446,24 +451,21 @@
 			},
 			shouchangFn(){
 				if(this.shouchangData){
-					this.$axios.post('/user/my-user-object/create-user-object?',qs.stringify({
-						get:1,
-						link:2,
-						link2WxVideoaccountId:this.$route.query.data
+					this.$axios.post('/user/my-favor/favor-wx-videoaccount',qs.stringify({
+						wxVideoaccountId:this.$route.query.data
 					}))
 					.then(res=>{
 						if(res.data.codeMsg)
 						   this.$message(res.data.codeMsg);
 						if(res.data.code == 0){
 						   this.shouchangData = false;
+						   console.log(this.shouchangData)
 						}
 						
 					})
 				}else{
-					this.$axios.post('/user/my-user-object/delete-user-object-list?',qs.stringify({
-						get:1,
-						link:2,
-						link2WxVideoaccountId:this.$route.query.data
+					this.$axios.post('/user/my-favor/unfavor-wx-videoaccount-list?',qs.stringify({
+						wxVideoaccountIdList:this.$route.query.data
 					}))
 					.then(res=>{
 						if(res.data.codeMsg)
@@ -471,7 +473,6 @@
 						if(res.data.code == 0){
 						   this.shouchangData = true
 						}
-						
 					})
 					
 				}

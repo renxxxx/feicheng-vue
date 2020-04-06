@@ -6,31 +6,31 @@
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
-				       	<img :src="scope.row.link2WxVideoaccount.logo" alt="">
+				       	<img :src="scope.row.logo" alt="">
 				       	<div class="searchList_lie_xinxi_jianjie">
-				       		<h3>{{scope.row.link2WxVideoaccount.name}}</h3>
+				       		<h3>{{scope.row.name}}</h3>
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
-				       			视频号:{{scope.row.link2WxVideoaccount.wx}}
+				       			<!-- 视频号:{{scope.row.wx}} -->
 				       			<span class="_3wruq4Mm"></span>
-				       			<span class="diquColor">&nbsp;{{scope.row.link2WxVideoaccount.area1Name}}·{{scope.row.link2WxVideoaccount.area2Name}}·{{scope.row.link2WxVideoaccount.area3Name}}</span>
+				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
 				       		</p>
-				       		<p class="line-2">简介：{{scope.row.link2WxVideoaccount.brief}}</p>
+				       		<p class="line-2">简介：{{scope.row.brief}}</p>
 				       	</div>
 				       </div>
 				    </template>
 			   </el-table-column>
-			<!--  <el-table-column prop="name" min-width="10%" v-if="scope.row.link2WxVideoaccount.wxVideoaccountRealmList">
-					<template slot="header" slot-scope="scope">
+			 <el-table-column prop="name" min-width="10%" >
+					<template slot="header" slot-scope="scope" v-if="scope.row.wxVideoaccountRealmList">
 			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 			   				<span style="color: #cdcfcf;" :class="clickData.type? 'xuanzhongColor':''">领域</span>
 			   			</div>
 					</template>
 					<template slot-scope="scope" >
-			   			<span class="biaoqianClass" v-for="(biaoqian,num) in scope.row.link2WxVideoaccount.wxVideoaccountRealmList" :key="num">{{biaoqian.name}}</span>
+			   			<span class="biaoqianClass" v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList" :key="num">{{biaoqian.name}}</span>
 					</template>
-			   </el-table-column> -->
+			   </el-table-column>
 			   <el-table-column prop="name" min-width="7%">
 				   <template slot="header" slot-scope="scope">
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
@@ -39,7 +39,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.link2WxVideoaccount.fansCount}}</span>			  
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.fansCount}}</span>			  
 					</template>
 			   </el-table-column>
 				<el-table-column prop="name" min-width="7%">
@@ -50,7 +50,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.link2WxVideoaccount.likeCount}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>			 
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
@@ -61,7 +61,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.link2WxVideoaccount.videoCount}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>			 
 					</template>
 				</el-table-column>
 				<el-table-column prop="name" min-width="7%">
@@ -72,7 +72,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.link2WxVideoaccount.pv}}</span>			 
+						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>			 
 					</template>
 				</el-table-column>
 			 </el-table>
@@ -187,7 +187,7 @@ export default {
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("/user/my-user-object/user-object-list?"+qs.stringify({
+			this.$axios.get("/user/my-favor/wx-videoaccount-list?"+qs.stringify({
 				get:1,
 				link:2,
 				pn:this.page,
