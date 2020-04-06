@@ -624,6 +624,7 @@ html {
   box-sizing: border-box !important;
 }
 #showPage {
+   min-width: 850px;
   overflow-y: scroll;
   height: 100%;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
