@@ -622,6 +622,9 @@ export default {
 };
 </script>
 <style scoped>
+  body{
+    height: 100% !important;
+  }
   .userXy{
     margin: 40px 10px 20px 40px;
   }
