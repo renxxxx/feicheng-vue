@@ -10,6 +10,7 @@ const state = {
   centerDialogVisible: false,
   // 全局搜索弹出显示值
 	publicSearchShow:false,
+	loading:true,
   login:null,
   wxVideoaccount:null,
 

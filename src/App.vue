@@ -92,11 +92,13 @@ img{
   
 }
 img[lazy="loading"]{
-    object-fit:scale-down!important;
+	object-fit:scale-down!important;
+	width:20px;
  }
 img:not([src]),img[src=""] {opacity: 0;}
 img[lazy="error"]{
-    object-fit:scale-down!important;
+	object-fit:scale-down!important;
+	width:20px;
  }
 
 ::selection {
