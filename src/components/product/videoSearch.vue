@@ -4,7 +4,7 @@
 			<el-row style="height: 60px;">
 				<div class="search_box">
 					<div class="search_box_input">
-						<img src="/assets/img/search.png" alt="">
+						<img src="../../assets/img/search.png" alt="">
 						<input @click="searchColor=true"  type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em"
 						 height="1em" fill="currentColor" aria-hidden="true">
