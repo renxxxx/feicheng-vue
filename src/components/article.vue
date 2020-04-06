@@ -1,7 +1,11 @@
 <template>
-	<div >
-			<div style="text-align:center;color:#000000">{{data.name}}</div>
-			 <div v-html="content" style="max-width:1000px" >
+	<div style="min-width:150px;max-width:850px;margin:auto">
+		
+			<div style="color:#000000;    font-size: 24px;
+    font-weight: 400;
+    word-wrap: break-word;margin-top:10px;">{{data.name}}</div>
+			<hr>
+			 <div v-html="content"  >
 			 </div>
 	</div>
 </template>
