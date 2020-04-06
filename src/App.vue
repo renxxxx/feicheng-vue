@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="muti" ref='appRef'>
+  <div id="app" class="muti" ref='appRef' v-cloak>
     <keep-alive>
     <router-view />
 </keep-alive>
@@ -93,5 +93,9 @@ img[lazy="error"]{
 ::selection {
     color: #fff;
     background: #ff7800;
+}
+
+[v-cloak]{
+    display: none;
 }
 </style>
