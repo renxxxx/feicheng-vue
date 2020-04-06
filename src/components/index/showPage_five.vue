@@ -108,7 +108,7 @@
   }
   .mainmid_one_top{
         height: 222px;
-        background: url(/assets/img/brand1.6af25549.png) 0 0 no-repeat;
+        background: url(../../assets/img/brand1.6af25549.png) 0 0 no-repeat;
         background-size: 100% 100%;
         -webkit-transform: translateX(720px);
         transform: translateX(720px);
@@ -121,12 +121,12 @@
   }
   .mainmid_one_mid{
     height: 222px;
-        background: url(/assets/img/brand2.862c8727.png) 0 0 no-repeat;
+        background: url(../../assets/img/brand2.862c8727.png) 0 0 no-repeat;
         background-size: 100% 100%;
         -webkit-transform: translateX(720px);
         transform: translateX(720px);
         opacity: 0;
-        background: url(/assets/img/brand2.862c8727.png) 0 0 no-repeat;
+        background: url(../../assets/img/brand2.862c8727.png) 0 0 no-repeat;
         background-size: 100% 100%;
         margin-top: 40px;
   }
