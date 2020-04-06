@@ -89,7 +89,7 @@ export default {
 
 img{
   object-fit: cover;
-  cursor: pointer;
+  
 }
 img[lazy="loading"]{
     object-fit:scale-down!important;

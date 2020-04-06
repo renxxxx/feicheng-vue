@@ -257,7 +257,7 @@
 									<div class="_1KGIPaKA">
                     <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
 					<viewer>
-                    <img style="height: 64px; width: 64px;" :src="message.qrcode" alt="">
+                    <img style="height: 64px; width: 64px;cursor: pointer;" :src="message.qrcode" alt="">
 					</viewer>
                   </div>
 								</div>
