@@ -69,18 +69,20 @@
 			</el-row>
 			<el-row class="uer_zhixun" :gutter='2'>
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-					<div class="uer_zhixun_gongneng" >
+					<div class="uer_zhixun_gongneng" style="position: relative;">
 						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
 							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;padding: 5px;overflow-x:hidden ;">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
 									<span >{{item.name}}</span>
 								<!-- </router-link> -->
 							</div>
+							
 						</div>
+						<div class="_sXxpqwDa">帮助</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
-					<div class="uer_zhixun_tuisong ">
+					<div class="uer_zhixun_tuisong "  style="position: relative;">
 						<div class="uer_zhixun_tuisongList uer_scroll" v-infinite-scroll="nextPageTwo" :infinite-scroll-disabled="loadTwo" infinite-scroll-distance="10">
 							<div class="uer_zhixun_tuisongList_hezhi" @click="detailClickFn(item)" v-for="(item,inx) in articleTwo" :key="inx">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
@@ -91,12 +93,14 @@
 									<p>{{item.brief}}</p>
 								<!-- </router-link> -->
 							</div>
+							
 							<!-- <span>查看更多 ></span> -->
 						</div>
+						<div class="_sXxpqwDa">公告</div>
 					</div>
 				</el-col>
 				<el-col :xs="9" :sm="9" :md="9" :lg="9" :xl="9">
-					<div class="uer_zhixun_lishi "  >
+					<div class="uer_zhixun_lishi "   style="position: relative;">
 						<div class="uer_zhixun_lishiList uer_scroll" v-infinite-scroll="nextPageThree" :infinite-scroll-disabled="loadThree" infinite-scroll-distance="10">
 							<div class="uer_zhixun_lishiList_hezhi" @click="detailClickFn(item)" v-for="(item,inx) in articleThree" :key="inx">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
@@ -111,8 +115,10 @@
 									</div>
 								<!-- </router-link> -->
 							</div>
+							
 							<!-- <span>查看更多 ></span> -->
 						</div>
+						<div class="_sXxpqwDa">资讯</div>
 					</div>
 				</el-col>
 			</el-row>
@@ -612,6 +618,7 @@ export default {
 	padding: 23px 16px 24px 24px;
 }
 .uer_scroll{
+	position: relative;
 	/* height: 100%; */
 	/* overflow-y: scroll; */
 }
@@ -831,4 +838,14 @@ export default {
     margin-top: -20px;
     margin-left: -16px;
 }
+._sXxpqwDa{
+	    position: absolute;
+	    font-size: 64px;
+	    color: #fff;
+	    opacity: .04;
+	    right: 25px;
+	    bottom: 9px;
+	    z-index: 0;
+		font-family: DINPro Medium,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+	}
 </style>
