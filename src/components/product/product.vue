@@ -411,6 +411,7 @@ askIfEnter(){
 <style >
 body{
 	background-color: #2b2b2e;
+	height:100%
 }
 
 el-menu-item {
