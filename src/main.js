@@ -33,7 +33,7 @@ Vue.use(VueLazyload, {
 })
 
 
-Vue.prototype.$version = '2004031042-c2f06fd'
+Vue.prototype.$version = '2004070252-ba662c0'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 
