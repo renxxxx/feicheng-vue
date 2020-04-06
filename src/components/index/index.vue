@@ -1,5 +1,5 @@
 <template>
-  <div id="showPage" class="muti">
+  <div id="showPage" >
       <!-- 顶部导航 -->
       <div class="navBarBox">
         <el-header class="navBar">
@@ -25,20 +25,21 @@
         	    :this.$store.state.wxVideoaccount.type==3?"企业号"
         	    :"未知" }}
         	  {{(!this.$store.state.wxVideoaccount || this.$store.state.wxVideoaccount.audit==null)?""
-        	    :this.$store.state.wxVideoaccount.audit==0?"(审核中)"
+        	    :this.$store.state.wxVideoaccount.audit==0?""
+        	    :this.$store.state.wxVideoaccount.audit==1?"(审核中)"
         	    :this.$store.state.wxVideoaccount.audit==11?"(已认证)"
         	    :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
         	    :"未知" }}
         	</span>
-                          <router-link v-if='!this.$store.state.login' :to="{ path: '/productPage/productPage_ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
-                <router-link :to="{ path: '/productPage/productPage_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
-                <router-link :to="{ path: '/productPage/productPage_user' }"><span class="lf48">飞橙商学院</span></router-link>
-                <router-link :to="{ path: '/productPage/productPage_videoSearch' }"><span class="lf48">素材创意</span></router-link>
+                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+                <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
+                <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
+                <router-link :to="{ path: '/product/product_videoSearch' }"><span class="lf48">素材创意</span></router-link>
                 <el-button   v-if="this.$store.state.login? false:true" @click="loginFn" >登录 / 注册</el-button>
                 <div v-else class="userToGo">
                   <span><img style="border-radius: 50%;" :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt=""></span>
                   <span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
-                  <router-link :to="{path: '/productPage/productPage_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
+                  <router-link :to="{path: '/product/product_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
                   </router-link>
                 </div>
               </div>
@@ -84,7 +85,7 @@
                   </div>
                 </div>
                 <div v-if="!this.$store.state.login"  @click="loginFn">立即使用</div>
-                <div v-if="this.$store.state.login" class="userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
+                <div v-if="this.$store.state.login" class="userTo"><router-link :to="{ path: '/product/product_user' }">已登录,去使用</router-link></div>
               </div>
             </div>
           </div>
@@ -205,17 +206,17 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import showPage_one from "./functionPage/showPage_one.vue";
-import showPage_two from "./functionPage/showPage_two.vue";
-import showPage_three from "./functionPage/showPage_three.vue";
-import showPage_four from "./functionPage/showPage_four.vue";
-import showPage_five from "./functionPage/showPage_five.vue";
-import showPage_six from "./functionPage/showPage_six.vue";
-import showPage_seven from "./functionPage/showPage_seven.vue";
-import showPage_eight from "./functionPage/showPage_eight.vue";
-import showPage_nine from "./functionPage/showPage_nine.vue";
+import showPage_one from "./showPage_one.vue";
+import showPage_two from "./showPage_two.vue";
+import showPage_three from "./showPage_three.vue";
+import showPage_four from "./showPage_four.vue";
+import showPage_five from "./showPage_five.vue";
+import showPage_six from "./showPage_six.vue";
+import showPage_seven from "./showPage_seven.vue";
+import showPage_eight from "./showPage_eight.vue";
+import showPage_nine from "./showPage_nine.vue";
 
-import login from "../common/functionPage/login.vue";
+import login from "../login.vue";
 export default {
   name: "account",
   data() {
@@ -307,31 +308,8 @@ export default {
     // //console.log(this.$refs.showPage_two.$el.offsetHeight);
     window.addEventListener("scroll", this.scrollToTop, true);
 
-    // // 获取配置信息
 
-    // this.$axios
-    //   .get("/config")
-    //   .then(res => {
-    //     this.codeSrc = res.data.data.servantWxQrcode;
-    //     this.servant = res.data.data;
-    //   })
-    //   .catch(err => {});
-    // 登陆刷新
-// =======
-//     // 获取配置信息
-//     this.$axios
-//       .get("/config")
-//       .then(res => {
-//         this.codeSrc = res.data.data.servantWxQrcode;
-//         this.servant = res.data.data;
-//       })
-//       .catch(err => {});
-//     // 登录刷新
-// >>>>>>> 9924d97050574270432db6522c831ce86213b02f
-    this.$axios
-      .get("/user/login-refresh")
-      .then(res => {})
-      .catch(err => {});
+
 
     // 跳转回跳页面
     let lastRoute = localStorage.getItem("lastRoute");
@@ -341,7 +319,13 @@ export default {
     }
 
 
-
+    this.$axios
+      .get("/user/login-refresh")
+      .then(res => {
+          if(res.data.code == 0)
+           this.$store.state.login=res.data.data
+      })
+      .catch(err => {});
 
 
     this.showData = localStorage.getItem("showData");
@@ -387,43 +371,43 @@ askIfEnter(){
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
-              this.$router.push({path:'/productPage/productPage_ruzhu'});
+              this.$router.push({path:'/product/ruzhu'});
            })
     }else{
-      this.$router.push({path:'/productPage/productPage_ruzhu'});
+      this.$router.push({path:'/product/ruzhu'});
     }
   }else{
-    this.$router.push({path:'/productPage/productPage_ruzhu'});
+    this.$router.push({path:'/product/ruzhu'});
   }
     },
     initData() {
       this.showData = true;
       localStorage.setItem("showData", this.showData);
-      // //console.log('路由发送变化doing...');
-      // Object.assign(this.$data, this.$options.data());
     },
     loginFn() {
       debugger;
-      localStorage.setItem('lastRoute',JSON.stringify({path:'/productPage/productPage_user'}))
+      localStorage.setItem('lastRoute',JSON.stringify({path:'/product/product_user'}))
       this.centerDialogVisible = true;
       this.$refs.loginRef.getData();
     },
     scrollToTop() {
-      var scrollTop = document.getElementById("showPage").scrollTop;
+      // var scrollTop = document.getElementById("showPage").scrollTop;
+         var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       // var height1 = this.$refs.showPage1.offsetTop;
       // var height2 = this.$refs.showPage2.offsetTop;
-      // console.dir(this.$refs.showPage_two.$el.offsetHeight)
+
       var height2 = 0;
-      var height3 = height2 + this.$refs.showPage_one.$el.offsetHeight;
-      var height4 = height3 + this.$refs.showPage_two.$el.offsetHeight;
-      var height5 = height4 + this.$refs.showPage_three.$el.offsetHeight;
-      var height6 = height5 + this.$refs.showPage_four.$el.offsetHeight;
-      var height7 = height6 + this.$refs.showPage_five.$el.offsetHeight;
-      var height8 = height7 + this.$refs.showPage_six.$el.offsetHeight;
-      var height9 = height8 + this.$refs.showPage_eight.$el.offsetHeight;
-      var height10 = height9 + this.$refs.showPage_nine.$el.offsetHeight;
-      //console.log(scrollTop, height2, height3, height4);
+      var height3 = height2 + this.$refs.showPage_one.$el.scrollHeight;
+      var height4 = height3 + this.$refs.showPage_two.$el.scrollHeight;
+      var height5 = height4 + this.$refs.showPage_three.$el.scrollHeight;
+      var height6 = height5 + this.$refs.showPage_four.$el.scrollHeight;
+      var height7 = height6 + this.$refs.showPage_five.$el.scrollHeight;
+      var height8 = height7 + this.$refs.showPage_six.$el.scrollHeight;
+      var height9 = height8 + this.$refs.showPage_eight.$el.scrollHeight;
+      var height10 = height9 + this.$refs.showPage_nine.$el.scrollHeight;
+      console.log(scrollTop, height2, height3, height4,height5,height6,height7,height8,height9,height10);
       if (scrollTop >= height3 / 2) {
+        console.log(123)
         document
           .getElementById("one_1")
           .setAttribute("class", "oneBox_mid_line oneBox_mid_line_one_1");
@@ -533,7 +517,7 @@ askIfEnter(){
           .getElementById("eight_1")
           .setAttribute("class", " main_bottom main_bottom_transition_8");
       }
-      if (scrollTop >= height10 + 700) {
+      if (scrollTop >= height10 + 500) {
         document
           .getElementById("nine_1")
           .setAttribute("class", " main main_transition_9");
@@ -550,6 +534,11 @@ askIfEnter(){
 };
 </script>
 
+<style >
+body{
+	background-color: #2b2b2e;
+}
+</style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   ._2L2iRuHT{
@@ -643,7 +632,8 @@ html {
   box-sizing: border-box !important;
 }
 #showPage {
-  overflow-y: scroll;
+   min-width: 850px;
+  overflow-y: hidden;
   height: 100%;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
@@ -700,12 +690,12 @@ el-row,
       width: 100%;
       z-index: 999;
       background: #40404d;
-      left: -8px;
+      /* left: -8px; */
 }
 .fclogo {
   line-break: 64px;
   vertical-align: middle;
-  padding-left: 8px;
+  /* padding-left: 8px; */
 }
 .indexNav {
   width: 1200px;

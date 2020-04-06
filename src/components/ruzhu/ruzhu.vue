@@ -101,20 +101,25 @@
                   <img v-if="dialogImageUrl" :src="dialogImageUrl" class="avatar" />
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
-               <!-- <el-upload :disabled='disabled'
-                  accept="image/*"
-                  :file-list="dialogImageUrl2"
-                  :limit="1"
-                  action="/upload-file"
-                  list-type="picture-card"
-                  :on-success="uploadCover"
-                  :on-exceed="handleExceed"
-                  :on-preview="handlePictureCardPreview"
-                  :on-remove="handleRemove"
-                >
-                  <i class="el-icon-plus"></i>
-                </el-upload> -->
                 <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
+              </div>
+            </li>
+            <li>
+              <span>视频号二维码:<span @click='lookBigPicNow1()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
+              <div>
+                <el-upload  :disabled='disabled'
+                  :file-list="twocode"
+                  accept="image/*"
+                  class="avatar-uploader"
+                  action="/upload-file"
+                  :show-file-list="false"
+                  :on-success="uploadCover1"
+                  :before-upload="beforeAvatarUpload"
+                >
+                  <img v-if="twocodeNow" :src="twocodeNow" class="avatar" />
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible1"><img width="100%" :src="twocodeNow" alt="" /></el-dialog>
               </div>
             </li>
           </ul>
@@ -122,7 +127,9 @@
       </el-row>
       <video_supply ref="refChild"></video_supply>
 
-      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+
+      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a   v-if='showIf' target="_blank" :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+
 
 
       <el-row v-if='showIf'>
@@ -136,9 +143,9 @@
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
-import area from '../../../assets/area.json';
-import login from '../../common/functionPage/login.vue';
-import video_supply from './page_in/video_supply.vue';
+import area from '@/assets/area.json';
+import login from '@/components/login.vue';
+import video_supply from '@/components/ruzhu/video_supply.vue';
 export default {
   name: 'ruzhu',
   data() {
@@ -162,12 +169,15 @@ export default {
       imageUrl: '',
       dialogImageUrl: '',
       dialogVisible: false,
+      dialogVisible1: false,
       dialogVisibleIcon:false,
       options: [],
       checkAll: false,
       checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
       cities: [],
       isIndeterminate: false,
+      twocodeNow:'',
+      twocode:'',
       type: [
         {
           value: '0',
@@ -228,7 +238,7 @@ export default {
   created() {},
   //离开前判断前进和后退时间来判断是否保存滚动值
   // beforeRouteLeave(to, from, next) {
-  //   this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset;
+  //   this.scrollTop = document.getElementById('product').scrollTop || document.getElementById('product').pageYOffset;
   //   if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
   //     if (this.$vnode && this.$vnode.data.keepAlive) {
   //       if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
@@ -256,7 +266,7 @@ export default {
   //进入该页面时，用之前保存的滚动位置赋值
   // beforeRouteEnter(to, from, next) {
   //   next(vm => {
-  //     document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
+  //     document.getElementById('product').scrollTop = document.getElementById('product').pageYOffset = vm.scrollTop;
   //   });
   // },
   activated(){
@@ -309,6 +319,11 @@ export default {
         this.imageUrl = this.$store.state.wxVideoaccount.logo;
         this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
      }
+     if(this.$store.state.wxVideoaccount.qrcode!=null&&this.$store.state.wxVideoaccount.qrcode!=undefined&&this.$store.state.wxVideoaccount.qrcode!=''){
+        this.twocode = this.$store.state.wxVideoaccount.logo;
+        this.twocodeNow = this.$store.state.wxVideoaccount.logo;
+     }
+
      this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
   },
   mounted() {
@@ -332,17 +347,7 @@ export default {
          this.disabled=true
        }
 
-//       if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
-//         for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
-//           this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
-//         }
-// // <<<<<<< HEAD
 
-// //       this.dialogImageUrl2 = dialogImageUrl2;
-// // =======
-// //         this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
-//       }
-// // >>>>>>> 9924d97050574270432db6522c831ce86213b02f
       this.num = this.$store.state.wxVideoaccount.type;
       this.name = this.$store.state.wxVideoaccount.name;
       this.phone = this.$store.state.wxVideoaccount.phone;
@@ -409,7 +414,7 @@ export default {
             }
           } else if (res.data.code == 0) {
             //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
-            //    			this.$router.push({path:'/productPage/productPage_user'});
+            //    			this.$router.push({path:'/product/product_user'});
           } else {
             this.$message.error(res.data.codeMsg);
           }
@@ -442,6 +447,10 @@ export default {
       };
     },
     onSubmit() {
+      if(this.$refs.refChild.tableData.length<3){
+         this.$message.warning('请最少上传三个视频！');
+         return
+      }
       if(this.checked===false){
         this.$message.warning('请勾选用户协议与隐私政策！');
       }else{
@@ -454,6 +463,7 @@ export default {
           .post(
             '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
             qs.stringify({
+              qrcode:this.twocodeNow,
               name: this.name,
               phone: this.phone,
               logo: this.imageUrlNow,
@@ -489,19 +499,19 @@ export default {
                               if(res.data.code ==0)
                                 this.$store.state.wxVideoaccount=res.data.data
                           })
-        
-        
+
+
               this.$message.success('入驻申请已提交，请耐心等待审核');
               if (this.$refs.refChild.tableData && this.$refs.refChild.tableData.length > 0) {
                 var tableData = this.$refs.refChild.tableData;
-        
+
                 for (var i in tableData) {
                   this.supplyVideo(tableData[i].name, tableData[i].pv, tableData[i].cover, tableData[i].likeCount, tableData[i].brief, tableData[i].video,tableData[i].videoId);
                 }
-                this.$router.push({ path: '/productPage/productPage_user' });
+                this.$router.push({ path: '/product/product_user' });
               } else {
                 this.$message.success('入驻申请已提交，请耐心等待审核');
-                this.$router.push({ path: '/productPage/productPage_user' });
+                this.$router.push({ path: '/product/product_user' });
               }
             } else {
               this.$message.error(res.data.codeMsg);
@@ -509,10 +519,10 @@ export default {
           })
           .catch();
           }).catch(() => {
-        
+
           });
       }
-    
+
 
 
     },
@@ -544,13 +554,15 @@ export default {
 
     handleAvatarSuccess(res, file) {
       this.imageUrlNow = res.data.url;
-      // //console.log(this.imageUrlNow)
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     uploadCover(res, file) {
       this.dialogImageUrlNow = res.data.url;
-      // console.log(this.imageUrlNow)
       this.dialogImageUrl = URL.createObjectURL(file.raw);
+    },
+    uploadCover1(res, file) {
+      this.twocodeNow = res.data.url;
+      this.twocode = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
       // const isJPG = file.type === 'image/jpeg';
@@ -576,6 +588,9 @@ export default {
     },
     lookBigPicNow() {
       this.dialogVisible = true;
+    },
+    lookBigPicNow1() {
+      this.dialogVisible1 = true;
     },
     // checkThis(val){
     //   console.log(val)

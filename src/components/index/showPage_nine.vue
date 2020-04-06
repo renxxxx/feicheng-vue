@@ -11,7 +11,7 @@
         </div>
         <div class="main_bottom" v-if="!this.$store.state.login" @click="loginsFn">立即使用</div>
 
-        <div v-else class="main_bottom userTo"><router-link :to="{ path: '/productPage/productPage_user' }">已登录,去使用</router-link></div>
+        <div v-else class="main_bottom userTo"><router-link :to="{ path: '/product/product_user' }">已登录,去使用</router-link></div>
       </div>
     </div>
 		<!-- <logins ref="loginRefs"></logins> -->
@@ -20,7 +20,7 @@
 
 <script>
 	import { mapActions, mapGetters } from 'vuex';
-  import logins from '../../common/functionPage/login.vue'
+  import logins from '../login.vue'
 	export default {
 	  name: 'accounts',
 	  data() {
@@ -64,7 +64,7 @@
 <style scoped>
   .main{
           height: 387px;
-          background: url(../../../assets/img/freeBack.svg) 0 0 no-repeat;
+          background: url(../../assets/img/freeBack.svg) 0 0 no-repeat;
           background-size: 100% 100%;
           -webkit-transform: translateY(400px);
           transform: translateY(400px);

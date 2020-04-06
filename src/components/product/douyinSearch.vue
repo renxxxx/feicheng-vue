@@ -17,7 +17,7 @@
 						</ul>
 					</div> -->
 					<div class="search_box_input">
-						<img src="../../../assets/img/search.png" alt="">
+						<img src="../../assets/img/search.png" alt="">
 						<input @click="searchColor=true" type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
 					</div>
@@ -117,7 +117,7 @@
 				       		<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" style="color: rgb(24, 144, 255); font-size: 16px;"><g transform="translate(-982 -658)"><circle cx="8" cy="8" r="8" transform="translate(982 658)" fill="#fff"></circle><path d="M72,64a8,8,0,1,0,8,8A8,8,0,0,0,72,64Zm3.455,5.388L71.695,74.6a.568.568,0,0,1-.923,0l-2.227-3.086a.143.143,0,0,1,.116-.227H69.5a.569.569,0,0,1,.463.238l1.271,1.764L74.039,69.4a.571.571,0,0,1,.463-.238h.837A.143.143,0,0,1,75.455,69.388Z" transform="translate(918 594)" fill="currentColor"></path></g></svg> -->
 				       		<!-- <span>{{user.name}}</span> -->
 				       		<p style="color: #787a7a;display: block;padding: 1px 0px;height: 33px;line-height: 33px;">
-				       			视频号:{{scope.row.wx}}
+				       			<!-- 视频号:{{scope.row.wx}} -->
 				       			<span class="_3wruq4Mm"></span>
 				       			<span class="diquColor">&nbsp;{{scope.row.area1Name}}·{{scope.row.area2Name}}·{{scope.row.area3Name}}</span>
 				       		</p>
@@ -191,7 +191,7 @@
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
-import login from '../../common/functionPage/login.vue'
+import login from '@/components/login.vue'
 export default {
 	name: 'douyinSearch',
 	data () {
@@ -267,7 +267,7 @@ export default {
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
-	this.scrollTop =document.getElementById('productPage').scrollTop ||document.getElementById('productPage').pageYOffset
+	this.scrollTop =document.getElementById('product').scrollTop ||document.getElementById('product').pageYOffset
 	if(!to.query.time || !from.query.time || to.query.time < from.query.time){
             if (this.$vnode && this.$vnode.data.keepAlive)
             {
@@ -300,7 +300,7 @@ export default {
   //进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
     next(vm => {
-	 document.getElementById('productPage').scrollTop=document.getElementById('productPage').pageYOffset=vm.scrollTop;
+	 document.getElementById('product').scrollTop=document.getElementById('product').pageYOffset=vm.scrollTop;
 	});
 
   },
@@ -696,15 +696,7 @@ export default {
 }
 .search_box_input>input[type=search]::-webkit-search-cancel-button{
 	-webkit-appearance: none; 
-	/* position: relative; 
-	height: 10px;
-	width: 10px;
-	line-height: 10px;
-	text-align: center;
-	background : url("../../../assets/img/detele.png") no-repeat center;
-	background-size: 7px 7px;
-	border:1px solid #999999;
-	border-radius: 100%; */
+
 }
 .search_type_span{
 	display: inline;

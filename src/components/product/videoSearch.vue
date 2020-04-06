@@ -4,7 +4,7 @@
 			<el-row style="height: 60px;">
 				<div class="search_box">
 					<div class="search_box_input">
-						<img src="../../../assets/img/search.png" alt="">
+						<img src="../../assets/img/search.png" alt="">
 						<input @click="searchColor=true"  type="search" @keydown.enter="searchFn" v-model="kw" placeholder="请输入关键字">
 						<svg v-if="kw" @click="kw =''" viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em"
 						 height="1em" fill="currentColor" aria-hidden="true">
@@ -52,7 +52,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../../common/functionPage/login.vue'
+	import login from '@/components/login.vue'
 	export default {
 		name: 'douyinSearch',
 		data() {
@@ -73,14 +73,6 @@
 					this.$store.state.centerDialogVisible = newValue;
 				}
 			},
-			showVideoDialog:{
-				get: function() {
-				  return this.$store.state.showVideoDialog;
-				},
-				set: function(newValue) {
-				  this.$store.state.showVideoDialog = newValue;
-				}
-			}
 		},
 		components: {
 			login
@@ -93,7 +85,7 @@
 		},
 		//离开前判断前进和后退时间来判断是否保存滚动值
 		beforeRouteLeave(to, from, next) {
-			this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset
+			this.scrollTop = document.getElementById('product').scrollTop || document.getElementById('product').pageYOffset
 			if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
 				if (this.$vnode && this.$vnode.data.keepAlive) {
 					if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
@@ -123,7 +115,7 @@
 		//进入该页面时，用之前保存的滚动位置赋值
 		beforeRouteEnter(to, from, next) {
 			next(vm => {
-				document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
+				document.getElementById('product').scrollTop = document.getElementById('product').pageYOffset = vm.scrollTop;
 			});
 
 		},
@@ -175,7 +167,6 @@
 			},
 			playFn(){
 				// this.$route.
-				// this.showVideoDialog = true
 			}
 		},
 	}
@@ -358,15 +349,7 @@
 
 	.search_box_input>input[type=search]::-webkit-search-cancel-button {
 		-webkit-appearance: none;
-		/* position: relative; 
-	height: 10px;
-	width: 10px;
-	line-height: 10px;
-	text-align: center;
-	background : url("../../../assets/img/detele.png") no-repeat center;
-	background-size: 7px 7px;
-	border:1px solid #999999;
-	border-radius: 100%; */
+	
 	}
 
 	.search_type_span {

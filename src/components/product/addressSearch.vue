@@ -219,8 +219,7 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../../common/functionPage/login.vue'
-	// import area from ';
+	import login from '@/components/login.vue'
 	export default {
 		name: 'douyinSearch',
 		data() {
@@ -239,7 +238,7 @@
 				searchColor: false,
 				showAllAdressValue:false,
 				heardZhiMu:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-				area:require('../../../assets/area.json'),
+				area:require('../../assets/area.json'),
 				id:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,34]
 			}
 		},
@@ -271,7 +270,7 @@
 		},
 		//离开前判断前进和后退时间来判断是否保存滚动值
 		beforeRouteLeave(to, from, next) {
-			this.scrollTop = document.getElementById('productPage').scrollTop || document.getElementById('productPage').pageYOffset
+			this.scrollTop = document.getElementById('product').scrollTop || document.getElementById('product').pageYOffset
 			if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
 				if (this.$vnode && this.$vnode.data.keepAlive) {
 					if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
@@ -301,7 +300,7 @@
 		//进入该页面时，用之前保存的滚动位置赋值
 		beforeRouteEnter(to, from, next) {
 			next(vm => {
-				document.getElementById('productPage').scrollTop = document.getElementById('productPage').pageYOffset = vm.scrollTop;
+				document.getElementById('product').scrollTop = document.getElementById('product').pageYOffset = vm.scrollTop;
 			});
 
 		},

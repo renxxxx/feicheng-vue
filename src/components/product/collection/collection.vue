@@ -56,8 +56,8 @@
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
-import videoTemplate from '../function/video.vue'
-import videoAccount from '../function/videoAccount.vue'
+import videoTemplate from '@/components/product/collection/video.vue'
+import videoAccount from '@/components/product/collection/videoAccount.vue'
 export default {
 	name: 'caseDetails',
 	data () {

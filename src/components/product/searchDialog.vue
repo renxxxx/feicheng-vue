@@ -12,10 +12,10 @@
 								 aria-hidden="true">
 									<path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
 								</svg></i></label>
-								<input id="global-search" class="ant-input ant-input-lg _2dLoj_zS" v-model="kw" type="text" value=""></div>
+								<input id="global-search" autofocus v-focus  ref="input" class="ant-input ant-input-lg _2dLoj_zS" v-model="kw" type="text" value=""></div>
 					<div style="height: 38px; background: rgba(43, 43, 46, 0.9);"></div>
 					<div class="_3wj-fWTO">
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_douyinSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_douyinSearch',value:this.kw}}" >
 						<div @click="closeFn" class="_jIuEjZsm _3_pdiDbl"><svg width="18" height="20" viewBox="0 0 18 20" class="_2ya-WN18">
 								<g transform="translate(-146.422 -95.552)">
 									<path fill="#25f4ee" d="M348.3,100.45c.014-1.633,0-3.266.014-4.9h3.338a4.16,4.16,0,0,0,.072.853h-2.457v13.265a3.168,3.168,0,0,1-.4,1.618,2.74,2.74,0,0,1-2.11,1.344,2.829,2.829,0,0,1-1.6-.332,2.753,2.753,0,0,1-.939-.838,2.755,2.755,0,0,0,2.789-.1,2.836,2.836,0,0,0,1.315-2.37c-.015-2.847-.015-5.693-.015-8.54Zm5.505-.939a4.835,4.835,0,0,0,1.517.636,4.315,4.315,0,0,0,.968.1V101A4.758,4.758,0,0,1,353.809,99.511Zm0,0"
@@ -31,14 +31,14 @@
 								</g>
 							</svg><span>搜视频号</span></div>
 						</router-link>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_douyinSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_douyinSearch',value:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜MCN</div>
 						</router-link>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_douyinSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_douyinSearch',value:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜地点</div>
 						</router-link>
 						<div class="_3ObVFtrt"></div>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_videoSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_videoSearch',value:this.kw}}" >
 						<div @click="closeFn" class="_jIuEjZsm _3_pdiDbl"><svg width="22" height="14" viewBox="0 0 22 14" class="_2ya-WN18">
 								<g transform="translate(-309 -271)">
 									<path fill="#fe2c55" d="M213.082,295.015a1.006,1.006,0,0,1-.56-.17l-4.056-2.7a.481.481,0,0,1-.214-.4v-2.292a.482.482,0,0,1,.214-.4l4.054-2.706a1.009,1.009,0,0,1,1.045-.048,1.036,1.036,0,0,1,.536.91v6.78a1.039,1.039,0,0,1-.536.912A.99.99,0,0,1,213.082,295.015Zm-5.987-10.425H196.21a2.127,2.127,0,0,0-2.11,2.138v7.723a2.127,2.127,0,0,0,2.11,2.138h10.885a2.125,2.125,0,0,0,2.11-2.138v-7.723A2.127,2.127,0,0,0,207.095,284.59Zm-8.142,4.789a1.613,1.613,0,0,1-1.632,0,1.632,1.632,0,1,1,1.632,0Z"
@@ -50,16 +50,16 @@
 								</g>
 							</svg><span>搜视频</span></div>
 						</router-link>
-						<router-link  :to="{path:'/productPage/productPage_videoSearch',value:{kw:this.kw}}" >
+						<router-link  :to="{path:'/product/product_videoSearch',value:{kw:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜音乐</div>
 						</router-link>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_videoSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_videoSearch',value:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜话题</div>
 						</router-link>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_videoSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_videoSearch',value:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜魔法道具</div>
 						</router-link>
-						<router-link  :to="{path:'/tihuan',query:{path:'/productPage/productPage_videoSearch',value:this.kw}}" >
+						<router-link  :to="{path:'/tihuan',query:{path:'/product/product_videoSearch',value:this.kw}}" >
 							<div @click="closeFn" class="_jIuEjZsm">搜评论</div>
 						</router-link>
 					</div>
@@ -160,13 +160,21 @@
 
 		},
 		created() {
-
 		},
 		mounted() {
 
-
 		},
+
+    directives: {
+    focus: {
+    // 指令的定义
+    inserted: function (el) {
+    el.focus()
+    }
+    }
+    },
 		methods: {
+
 			closeFn() {
 				this.$store.state.publicSearchShow = false
 			}
@@ -179,7 +187,7 @@
 	.searchGoods_cls-2 {
 		fill: #fe2c55;
 	}
-	
+
 	.searchGoods_cls-1,
 	.searchGoods_cls-3,
 	.searchGoods_cls-5 {
@@ -187,21 +195,21 @@
 		stroke-miterlimit: 10;
 		opacity: 0;
 	}
-	
+
 	.searchGoods_cls-3,
 	.searchGoods_cls-4 {
 		fill: #25f4ee;
 	}
-	
+
 	.searchGoods_cls-5,
 	.searchGoods_cls-6 {
 		fill: #fff;
 	}
-	
+
 	.searchGoods_cls-7 {
 		stroke: none;
 	}
-	
+
 	.searchGoods_cls-8 {
 		fill: none;
 	}
@@ -211,7 +219,7 @@
 	.ant-modal-content {
 		color: #fff;
 	    background-color: #55555a!important;
-		
+
 	}
 	.ant-modal-content {
 	    position: relative;

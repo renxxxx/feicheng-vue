@@ -36,13 +36,13 @@
               <div>播放数</div>
             </div>
             <div class="lf_four">
-              <img src='../../../assets/img/down15.png' alt="">
+              <img src='../../assets/img/down15.png' alt="">
               <div>冷成狗...</div>
               <div>14.5w</div>
               <div>577</div>
             </div>
             <div class="lf_five">
-              <img src="../../../assets/img/down15.png" alt="">
+              <img src="/assets/img/down15.png" alt="">
               <div>公司团建，无人机拍摄<br>效果不错嘛.....</div>
               <div>269</div>
               <div>3</div>
@@ -64,7 +64,7 @@
                 正在监测
                 <span>3</span>
                 个今日发布的视频，分别来自
-                <img src="../../../assets/img/down14.png" alt="">
+                <img src="../../assets/img/down14.png" alt="">
                 等
                 <span>1</span>
                 个账号
@@ -220,7 +220,7 @@
 }
 /* TODO 圖片 */
 .mainbottom_lf_two{
-      background: url(../../../assets/img/left.svg) 0 0 no-repeat;
+      background: url(../../assets/img/left.svg) 0 0 no-repeat;
       padding: 40px 0 24px 32px;
           position: relative;
 }
@@ -375,7 +375,7 @@
       z-index: -1;
 }
 .mainbottom_rt_bottom{
-      background: url(../../../assets/img/right.svg) 0 0 no-repeat;
+      background: url(../../assets/img/right.svg) 0 0 no-repeat;
       padding-bottom: 24px;
       position: relative;
 }

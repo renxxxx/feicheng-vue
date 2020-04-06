@@ -126,7 +126,7 @@
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
-import login from '../../../common/functionPage/login.vue'
+import login from '@/components/login.vue'
 export default {
   data() {
     return {

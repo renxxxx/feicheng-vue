@@ -1,25 +1,25 @@
 <template>
-	<div class="sharePage" >
+	<div style="min-width:150px;max-width:850px;margin:auto">
 		
+			<div style="color:#000000;    font-size: 24px;
+    font-weight: 400;
+    word-wrap: break-word;margin-top:10px;">{{data.name}}</div>
+			<hr>
+			 <div v-html="content"  >
+			 </div>
 	</div>
 </template>
 
 <script>
 import axios from 'axios'
-import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
 export default {
-	name: 'caseDetails',
+	name: 'article',
 	data () {
 		return {
-			
-		}
-	},
-	computed:{
-		
-	},
-	components:{
-
+			data:{},
+			content:null
+		};
 	},
 	beforeCreate(){
 
@@ -67,15 +67,33 @@ export default {
 
   },
 	mounted(){
-
-
+		this.getData()
 	},
 	methods: {
-		
+		getData(){
+			 var _this = this
+			this.$axios.get('/user/article/article?'+qs.stringify({
+				articleId:this.$route.query.data
+			}))
+			.then(res=>{
+				debugger;
+				_this.data=res.data.data
+				this.$axios.get(_this.data.contentUrl).then(res=>{
+					debugger
+					_this.content=res.data
+				})
+			})
+		},
 	},
 }
 </script>
 
 <style scoped>
 
+</style>
+
+<style >
+ body {
+	background-color: #ffffff!important;
+}
 </style>
