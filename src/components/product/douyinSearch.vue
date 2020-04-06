@@ -264,8 +264,8 @@ export default {
 		this.kw = this.$route.query.value;
 		this.userList = []
 	 }
-	 this.nextPage();
-	 this.getDataType();
+	 // this.nextPage();
+	 // this.getDataType();
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
