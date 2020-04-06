@@ -5,7 +5,7 @@ import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-import './assets/rest.css'
+// import './assets/rest.css'
   
 import App from './App'
 import router from './router'
@@ -18,13 +18,17 @@ import h5p from '../build/h5p.js'
 import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
-
 Vue.use(Viewer);
 Viewer.setDefaults({
   Options: { "inline": true, "button": true, "navbar": true, "title": true, "toolbar": true, "tooltip": true, "movable": true, "zoomable": true, "rotatable": true, "scalable": true, "transition": true, "fullscreen": true, "keyboard": true, "url": "data-source" }
 });
 import VueLazyload from 'vue-lazyload'
-//版本号
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  attempt: 1,
+  loading:'./assets/loading.png'
+})
+
  
 Vue.prototype.$version = '2004031042-c2f06fd'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
@@ -52,11 +56,7 @@ Vue.prototype.cookieOn=function() {
 }
 
 
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  attempt: 1,
-  loading:'./assets/loading.png'
-})
+
 
 new Vue({
   el: '#app',
