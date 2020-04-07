@@ -39,7 +39,7 @@
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
 						<div class="nav_user" style="min-width: 480px;">
 							<div class="nav_data" >
-								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
+								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="" style="vertical-align: middle;">
 								<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
 								<el-popover
 								    placement="top-start"
