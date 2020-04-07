@@ -60,8 +60,14 @@ export default {
 #app {
 	/* font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
+<<<<<<< HEAD
     -moz-osx-font-smoothing: grayscale; */
     font-family:'DINPro' !important;
+=======
+	-moz-osx-font-smoothing: grayscale;
+	height: 100%;
+    
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
 }
 .muti::-webkit-scrollbar{
 	width:4px;
@@ -92,15 +98,32 @@ export default {
 
 <style>
 
+<<<<<<< HEAD
     @import url("./assets/font/font.css");
+=======
+body{
+  margin: 0px;
+  padding: 0px;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
 *{
 	word-break: break-all;
 }
 
 img{
   object-fit: cover;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
 }
+
 img[lazy="loading"]{
 	object-fit:scale-down!important;
 	width:20px;
@@ -130,6 +153,7 @@ border-radius:0;
 background:#e0e0e0;
 }
 
+<<<<<<< HEAD
 
 html{font-size: 35.8px;font-family:'DINPro' !important;}
 body{margin: 0px;padding: 0px;color: #e8edee;font-size: 14px;font-family:'DINPro' !important;
@@ -159,6 +183,8 @@ table {border-collapse: collapse; border-spacing: 0;}
 input, select, button, textarea {font-size: 100%; -webkit-appearance: none; border-radius:0px; border:none;font: inherit;}
 /* html, body { width: 100%;height: 100%; box-sizing: border-box;} */
 span{list-style: none}
+=======
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
 .line-1{
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -193,6 +219,7 @@ span{list-style: none}
 }
 
 
+<<<<<<< HEAD
 
 
 
@@ -224,3 +251,6 @@ span{list-style: none}
   }
 
 </style>
+=======
+</style>
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3

@@ -93,7 +93,5 @@ export default {
 </style>
 
 <style scoped>
- body {
-	background-color: #ffffff!important;
-}
+
 </style>

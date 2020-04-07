@@ -7,7 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 // import './assets/rest.css'
-
+  
 import App from './App'
 import router from './router'
 import axios from 'axios'
@@ -36,7 +36,8 @@ Vue.use(VueLazyload, {
 })
 
 
-Vue.prototype.$version = '2004071323-d5e4fa4'
+ 
+Vue.prototype.$version = '2004071540-5624830'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 

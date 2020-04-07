@@ -39,7 +39,7 @@
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
 						<div class="nav_user" style="min-width: 480px;">
 							<div class="nav_data" >
-								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="">
+								<img :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt="" style="vertical-align: middle;">
 								<span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
 								<el-popover
 								    placement="top-start"
@@ -114,7 +114,7 @@
 						<el-menu-item index="/product/product_user">
 							<template slot="title" class="data" :to="{path:'/product/product_user'}">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
-								<span style="font-weight: 500;font-size: 16px;margin-left: 3px;">商学院</span>
+								<span style="font-weight: 500;font-size: 16px;">商学院</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.login' index="/product/ruzhu">
@@ -125,7 +125,7 @@
 								</svg>
 								<!-- <svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg> -->
 
-								<span >博主入驻</span>
+								<span style="font-size:16px;">博主入驻</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item v-if='this.$store.state.login' index="/product/ruzhu">
@@ -134,7 +134,7 @@
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
 									<path d="M512 651.636364a302.545455 302.545455 0 1 1 302.545455-302.545455 302.545455 302.545455 0 0 1-302.545455 302.545455z m0-558.545455a256 256 0 1 0 256 256A256 256 0 0 0 512 93.090909z" fill="#FFA942" p-id="1296"></path>
 								</svg>
-								<span style="margin-left: 3px;">
+								<span style="font-size:16px;">
 									<!-- <router-link :to="{path:'/product/ruzhu'}"> -->
 										 {{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"博主入驻"
 											:this.$store.state.wxVideoaccount.type==0?"博主入驻"
@@ -164,7 +164,7 @@
 										<path d="M5.39067365,3.85377784 C3.84231863,2.99561219 3.19707559,3.96073193 3.57812555,8.31646132 C4.49278916,18.801859 5.83023749,26.0066034 7.46610122,30.0973829 C8.65509883,33.0706911 9.57117167,33.7637676 10.3142496,33.3988179 C11.6245853,32.7552695 14.4149117,28.5567184 18.2183327,21.1758626 C12.8922626,11.4518541 8.32996854,5.48286283 5.39067365,3.85377784 Z M29.6857504,33.3988179 C30.4288283,33.7637676 31.3449012,33.0706911 32.5338988,30.0973829 C34.1697625,26.0066034 35.5072108,18.801859 36.4219069,8.31609005 C36.8029244,3.96073193 36.1576814,2.99561219 34.6093264,3.85377784 C31.6700315,5.48286282 27.1077374,11.4518541 21.7816623,21.1758529 C25.5850859,28.5567147 28.3754141,32.7552692 29.6857504,33.3988179 Z M11.6367539,36.0915828 C6.06554735,38.8277834 2.43670477,29.753192 0.589507417,8.57753894 C0.0373697329,2.26613027 2.38340755,-1.24294655 6.84497086,1.22984575 C10.2520331,3.11818774 14.7731509,8.90088485 20,18.2031162 C25.2268491,8.90088485 29.7479669,3.11818774 33.1550291,1.22984575 C37.6165925,-1.24294655 39.9626303,2.26613027 39.410525,8.57716768 C37.5632952,29.753192 33.9344527,38.8277834 28.3632461,36.0915828 C26.3648155,35.1100885 23.7019234,31.26214 20,24.2487383 C16.2980766,31.26214 13.6351845,35.1100885 11.6367539,36.0915828 Z" id="合并形状" fill="#F49732" fill-rule="nonzero"></path>
 									</g>
 								</svg>
-								<span>{{leftNavList[0].name}}</span>
+								<span style="font-size:16px;">{{leftNavList[0].name}}</span>
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
 							<el-menu-item v-for="(child,zhione) in leftNavList[0].onechild" :key="zhione" :index="child.url">
@@ -176,19 +176,19 @@
 						<el-submenu index="4">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
-								<span>{{leftNavList[1].name}}</span>
+								<span style="font-size:16px;">{{leftNavList[1].name}}</span>
 								<!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
 							<el-menu-item v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="child.url">
 								 <!-- <img :src="child.url" alt=""> -->
-								 <span>{{child.name}}</span>
+								 <span >{{child.name}}</span>
 								 <!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="5">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
-								<span>{{leftNavList[2].name}}</span>
+								<span style="font-size:16px;">{{leftNavList[2].name}}</span>
 								<!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
 							<el-menu-item v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="child.url">
@@ -200,7 +200,7 @@
 						<el-submenu index="6">
 							<template slot="title">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M16.3 4.641a2.121 2.121 0 0 0-2.1-2.143H5.8a2.121 2.121 0 0 0-2.1 2.143L3 15.355a2.121 2.121 0 0 0 2.1 2.143h9.8a2.121 2.121 0 0 0 2.1-2.143l-.7-10.714z" fill="#6b6d6d"></path><path d="M13.826 5.948a3.825 3.825 0 0 1-7.651 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.2" stroke-miterlimit="10" fill="none"></path></svg>
-								<span>{{leftNavList[3].name}}</span>
+								<span style="font-size:16px;">{{leftNavList[3].name}}</span>
 								<!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
 							<el-menu-item v-for="(child,zhifour) in leftNavList[3].onechild" :key="zhifour" :index="child.url">
@@ -215,7 +215,7 @@
 			<el-col :xs="20" :sm="20" :md="20" :lg="21" :xl="21" class="height">
 			<div class="appView">
 				<keep-alive>
-					<router-view style="margin-bottom: 56px; width: 100%;"/>
+					<router-view style="margin-bottom: 56px; "/>
 				</keep-alive>
 					<!-- <div style="height: 100px;"></div> -->
 			</div>
@@ -225,7 +225,7 @@
 		<login ref="loginRef"></login>
     <groupCode ref='groupCode'></groupCode>
 		<searchDialog></searchDialog>
-    <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%" >
+    <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%"  style="">
       <div class="avatarBox"><img class="avator" :src="getConfig.servantWxQrcode" alt="" /></div>
       <span class="span">添加运营人员后，进入到交流群</span>
       <span slot="footer" class="dialog-footer">
@@ -407,6 +407,7 @@ askIfEnter(){
   },
 }
 </script>
+<<<<<<< HEAD
 
 <style >
 body{
@@ -439,6 +440,38 @@ el-menu-item {
   min-width: 1000px;
 }
 
+=======
+<style >
+.el-popover {
+     position: absolute!important;
+     background: transparent!important;
+     min-width: none!important;
+     border: none!important;
+     padding: 0px!important;
+     z-index: 2000!important;
+     color: #cdcfcf!important;
+     line-height: 0!important;
+     text-align: justify!important;
+     font-size: 14px!important;
+    box-shadow:none!important;
+     word-break: break-all!important;
+  top: 30px!important;
+  /* left: auto!important; */
+  right: 0px!important;
+      /* left: 285px!important; */
+ }
+ .el-popper[x-placement^=top] .popper__arrow{
+  display: none!important;
+ }
+ .el-popper[x-placement^=bottom] .popper__arrow{
+  display: none!important;
+ }
+ .el-icon--right {
+     display: none!important;
+ }
+
+ 
+>>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
   .dialogThis {
     background: #55555a !important;
     color: #fff !important;
@@ -482,6 +515,68 @@ el-menu-item {
     /* background-color: #2b2b2e; */
     border-color: #ff9429;
   }
+</style>
+
+<style scoped>
+
+ 
+.line-1{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.line-4{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+
+a {text-decoration:none; color: rgba(255, 255, 255, 1);cursor: pointer;}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{
+	list-style: none;
+}
+
+#product {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #2b2b2e;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  min-width: 1000px;
+  color:#fff;
+    height: 100%;
+
+}
+
 
   .avatarBox {
     width: 120px;
@@ -512,21 +607,19 @@ el-menu-item {
 
 
 
-.appView{
-	/* padding-left:10px; */
+/* .appView{
 	min-width: 1020px;
 	width: 100%;
 	height: 100%;
 	margin-bottom: 30px;
 	overflow-x: visible;
-	/* overflow-y: scroll; */
-	/* margin-left: -15px; */
-}
-.appView::-webkit-scrollbar{width:4px;border-radius: 50px;}
+} */
+/* .appView::-webkit-scrollbar{width:4px;border-radius: 50px;}
 .appView::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
 .appView::-webkit-scrollbar-thumb{background-color:#66666d;border-radius: 50px;}
 .appView::-webkit-scrollbar-thumb:hover {background-color:#66666d;border-radius: 50px;}
-.appView::-webkit-scrollbar-thumb:active {background-color:#66666d;border-radius: 50px;}
+.appView::-webkit-scrollbar-thumb:active {background-color:#66666d;border-radius: 50px;} */
+
 .topNav{
 	width: 100%;
 	height: 55px;
@@ -587,6 +680,7 @@ el-menu-item {
 	margin: auto 0; */
 }
 .tanchuang{
+	color:#fff;
 	width: 484px;
 	background: #5a5a5a;
 	border-radius: 4px;
@@ -808,6 +902,7 @@ el-menu-item {
 	/* height: 100%; */
 	/* min-width: 144px; */
 	/* overflow-y: scroll; */
+	
 }
 .leftNav::-webkit-scrollbar{width:8px;border-radius: 50px;}
 .leftNav::-webkit-scrollbar-track{background-color:#2b2b2e;border-radius: 50px;}
@@ -853,7 +948,10 @@ el-menu-item {
 .leftNav li{
 	max-width: 196px;
 	min-width: 138px;
+	font-size:14px;
+	
 }
+
 .leftNav li:hover{
 	color: #ff7800!important;
 	transition: color .3s;

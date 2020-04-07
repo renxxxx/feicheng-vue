@@ -137,7 +137,6 @@
 				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?" + qs.stringify({
 						kw: this.kw,
 						pn: this.page,
-						ps: 5,
 					}))
 					.then(res => {
 						if (res.data.codeMsg)

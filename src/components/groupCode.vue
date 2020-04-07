@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .dialogThis {
   background: #55555a !important;
   color: #fff !important;

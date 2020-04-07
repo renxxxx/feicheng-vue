@@ -214,8 +214,7 @@
 					kw:this.kw,
 					pn:this.page,
 					sort:this.sort,
-					order:this.order,
-					ps:5}))
+					order:this.order}))
 				.then(res =>{
 					if(res.data.code == 20){
 						if(!this.centerDialogVisible){
@@ -292,6 +291,22 @@
 </script>
 
 <style scoped>
+.index{
+		color:#fff;
+}
+ a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+	font-size: inherit;font-weight: normal;
+	margin-block-start: 0rem !important;
+	margin-block-end: 0rem !important;
+}
 .search_box{
 	width: 532px;
 	height: 32px;
