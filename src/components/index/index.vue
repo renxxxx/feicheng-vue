@@ -569,9 +569,6 @@ a:visited{text-decoration:none; }
    min-width: 850px;
   overflow-y: hidden;
   font-family:'DINPro' !important;
-  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
-    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
 }
 #showPage::-webkit-scrollbar {
   width: 4px;

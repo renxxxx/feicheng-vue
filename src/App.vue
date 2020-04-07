@@ -58,10 +58,8 @@ export default {
   }
   
 #app {
-  
 	-moz-osx-font-smoothing: grayscale;
 	height: 100%;
-    
 }
 .muti::-webkit-scrollbar{
 	width:4px;
