@@ -720,7 +720,6 @@ el-row,
 }
 .homeBackIndex > div {
   width: 1200px;
-  padding-top: 103px;
   margin: auto;
 }
 .homeBackIndex > div h1 {
