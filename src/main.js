@@ -20,7 +20,7 @@ import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import './assets/font/font.css'
-
+ 
 
 Vue.use(Viewer);
 Viewer.setDefaults({
