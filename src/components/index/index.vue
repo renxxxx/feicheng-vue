@@ -512,18 +512,11 @@ askIfEnter(){
 };
 </script>
 
-<<<<<<< HEAD
-<style >
-body{
-	background-color: #2b2b2e;
-  font-family:'DINPro' !important;
-}
-</style>
-=======
 
->>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
 a {text-decoration:none; color: rgba(255, 255, 255, 1);}
 a:link{text-decoration:none; }
 a:hover{text-decoration:none; }
@@ -587,12 +580,9 @@ html {
 #showPage {
    min-width: 850px;
   overflow-y: hidden;
-<<<<<<< HEAD
   height: 100%;
+  font-family:'DINPro' !important;
   /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
-=======
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
->>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
 }

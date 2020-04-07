@@ -407,40 +407,9 @@ askIfEnter(){
   },
 }
 </script>
-<<<<<<< HEAD
 
-<style >
-body{
-	background-color: #2b2b2e;
-	height:100%
-}
 
-el-menu-item {
-	color: #fff !important;
-}
-</style>
 
-<style scoped>
-	@font-face {
-	   font-family: 'puhui';
-	   src: url('../../assets/font/puhui.82d0762f.woff2');
-	   font-weight: normal;
-	   font-style: normal;
-	 }
-	 .tanAbout>span>span{
-		 font-family: 'puhui';
-	 }
-#product {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #2b2b2e;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  min-width: 1000px;
-}
-
-=======
 <style >
 .el-popover {
      position: absolute!important;
@@ -471,7 +440,6 @@ el-menu-item {
  }
 
  
->>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
   .dialogThis {
     background: #55555a !important;
     color: #fff !important;
@@ -519,7 +487,17 @@ el-menu-item {
 
 <style scoped>
 
- 
+ 	@font-face {
+	   font-family: 'puhui';
+	   src: url('../../assets/font/puhui.82d0762f.woff2');
+	   font-weight: normal;
+	   font-style: normal;
+	 }
+	 .tanAbout>span>span{
+		 font-family: 'puhui';
+	 }
+
+
 .line-1{
   display: -webkit-box;
   -webkit-line-clamp: 1;
