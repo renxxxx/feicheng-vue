@@ -133,7 +133,7 @@
 				</el-col>
 			</el-row> -->
 		</div>
-		
+
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-table align='center' :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
@@ -340,7 +340,7 @@ export default {
 		typeClickFn(_item,_inx){
 			// //console.log(_item)
 			if(this.typeList[_inx].typeData){
-		
+
 				this.typeList[_inx].typeData = false;
 				this.wxVideoaccountRealmIdNow = '';
 				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
@@ -727,6 +727,13 @@ h1,h2,h3,h4,h5,h6,p{
 }
 >>>.el-table{
 	background-color: transparent;
+
+}
+>>>.el-table::before {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0px;
 }
 >>>.el-table th.is-leaf {
     border:none;
@@ -769,7 +776,7 @@ h1,h2,h3,h4,h5,h6,p{
 .search_box{
 	/* width: 532px; */
 	height: 32px;
-	line-height: 32px;
+	line-height: 30px;
 	margin: 13px 0px;
 	float: left;
 	/* border: 1px solid #6d6d6d; */

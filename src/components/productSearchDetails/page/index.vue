@@ -313,7 +313,7 @@ h1,h2,h3,h4,h5,h6,p{
 .search_box{
 	width: 532px;
 	height: 32px;
-	line-height: 32px;
+	line-height: 30px;
 	margin: 16px 0px;
 	/* border: 1px solid #6d6d6d; */
 

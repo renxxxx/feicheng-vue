@@ -115,7 +115,7 @@ h1,h2,h3,h4,h5,h6,p{
 	margin-block-end: 0rem !important;
 }
 .collection{
-	margin: 24px 40px 24px 16px;
+	margin: 24px 40px 24px 0;
 }
 .ant-tabs {
     -webkit-box-sizing: border-box;
