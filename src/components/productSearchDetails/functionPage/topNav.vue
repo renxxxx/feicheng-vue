@@ -17,8 +17,11 @@
                 <div class="nav_data_xiala">
                   <ul>
                     <!-- <li>视频管家</li> -->
-                    <li><router-link :to="{path : '/product/product_collection'}">我的收藏</router-link></li>
+                    <router-link tag="li" :to="{path : '/product/product_collection'}">我的收藏</router-link>
+                    
+                    <!-- <li><router-link  style="width: 100%;height: 100%;display: inline-block;" :to="{path : '/product/product_collection'}">我的收藏</router-link></li> -->
                     <!-- <li>购买续费</li> -->
+
                     <!-- <li>我的权限</li> -->
                     <li @click="exitFn">退出</li>
                   </ul>
