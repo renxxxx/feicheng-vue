@@ -291,15 +291,16 @@ export default {
       name: from.name,
       query: from.query
     });
-    let lastRoute = localStorage.getItem("lastRoute");
-    // //console.log('fromRoute'+fromRoute)
-    // //console.log('lastRoute'+lastRoute)
-    if (fromRoute == lastRoute || !to.query.time) {
-      localStorage.removeItem("lastRoute");
-    }
+    // let lastRoute = localStorage.getItem("lastRoute");
+    // // //console.log('fromRoute'+fromRoute)
+    // // //console.log('lastRoute'+lastRoute)
+    // if (fromRoute == lastRoute || !to.query.time) {
+    //   localStorage.removeItem("lastRoute");
+    // }
   },
   activated() {
      debugger
+     
   },
   mounted() {
     // //console.log(this.$refs.showPage1.offsetTop);
@@ -312,12 +313,7 @@ export default {
 
 
     // 跳转回跳页面
-    let lastRoute = localStorage.getItem("lastRoute");
-    if (lastRoute) {
-      this.$router.push(JSON.parse(lastRoute));
-      return;
-    }
-
+  
 
     this.$axios
       .get("/user/login-refresh")
@@ -386,9 +382,8 @@ askIfEnter(){
     },
     loginFn() {
       debugger;
-      localStorage.setItem('lastRoute',JSON.stringify({path:'/product/product_user'}))
       this.centerDialogVisible = true;
-      this.$refs.loginRef.getData();
+      this.$refs.loginRef.getData('/product/product_user');
     },
     scrollToTop() {
       // var scrollTop = document.getElementById("showPage").scrollTop;

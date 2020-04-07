@@ -55,23 +55,23 @@ const router = new Router({
 
 		  path: '/',
 		  component: index,
-		  meta: {unkeepLastRoute:true},
+		  meta: {},
 		},
 		{
 		  path: '/index',
 		  component: index,
-		  meta: {unkeepLastRoute:true},
+		  meta: {},
 		},
 		//错误页面
 		{
 			path: '*',
 			component: notFound,
-			meta: {unkeepLastRoute:true},
+			meta: {},
 		},
 		{
 			path: '/tihuan',
 			component: tihuan,
-			meta: {unkeepLastRoute:true},
+			meta: {},
 		},
 		{
 			path: '/product',
@@ -141,7 +141,7 @@ const router = new Router({
 		// 			path: 'searchDetails_index',
 		// 			name: 'searchDetails_index',
 		// 			component: searchDetails_index,
-		// 			meta: {auth:true,unkeepLastRoute:true},
+		// 			meta: {auth:true,},
 		// 		},
 
 		// 	]
@@ -155,9 +155,9 @@ router.afterEach((to,from) => {
 // 	  router.push({path:'/tihuan',query:{urlName:to.path}})
 //   }
   // 缓存最后一次路径
-  if(!to.meta.unkeepLastRoute){
-    localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
-  }
+//   if(!to.meta.unkeepLastRoute){
+//     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
+//   }
 
 	
 })

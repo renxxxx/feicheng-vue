@@ -659,7 +659,6 @@ body{
 	height: 32px;
 	line-height: 32px;
 
-	margin: 13px 0px;
 	float: left;
 	/* border: 1px solid #6d6d6d; */
 
