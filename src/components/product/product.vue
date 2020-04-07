@@ -58,7 +58,7 @@
 									<span v-if='getUserInfo.types==1' slot="reference" style="cursor: pointer;">个人号 </span>
 									<span  v-if='getUserInfo.types==2' slot="reference" style="cursor: pointer;">达人号 </span>
 									<span v-if='getUserInfo.types==3' slot="reference" style="cursor: pointer;">企业号 </span> -->
-										<span v-if="this.$store.state.login" slot="reference" style="cursor: pointer;" >
+										<span v-if="$store.state.login" slot="reference" style="cursor: pointer;" >
 											<span class="spanColor">
 												{{ (!this.$store.state.wxVideoaccount ||  this.$store.state.wxVideoaccount.type==null)?"体验版"
 												:this.$store.state.wxVideoaccount.type==0?"体验版"
@@ -76,7 +76,7 @@
 											<i class="el-icon-arrow-down"></i>
 										</span>
 
-										<span v-if="!this.$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
+										<span v-if="!$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
 											{{ "登录" }}
 										</span>
 
