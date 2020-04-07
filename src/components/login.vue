@@ -28,6 +28,8 @@ export default {
   name: 'gene',
   data() {
     return {
+      last:'',
+      lastQuery:'',
       imgSrc:'',
       loginTicket:'',
       value:1,
@@ -69,12 +71,14 @@ created(){
   },
   methods: {
     closeLogin(){
-      debugger
+      
           clearInterval(this.timer);
           this.centerDialogVisible = false;
     },
-    getData(){
-       debugger
+    getData(last,lastQuery){
+       
+       this.last=last;
+       this.lastQuery=lastQuery;
        let thisVue =this
        if(!this.cookieOn()){
        this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
@@ -95,7 +99,7 @@ created(){
         .catch(err => {});
     },
     get() {
-      debugger
+      
             this.$axios
               .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
@@ -113,7 +117,12 @@ created(){
                             this.$store.state.login=res.data.data
                             this.centerDialogVisible = false;
                             clearInterval(this.timer);
-                            this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                            this.$router.push({path:'/'});
+                              if (this.last) {
+                                this.$router.push({path:this.last,query:this.lastQuery});
+                              }else{
+                                this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                              }
                             }
                         })
                 }else{

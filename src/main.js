@@ -17,7 +17,7 @@ import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 
- 
+   
 import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
@@ -32,8 +32,8 @@ Vue.use(VueLazyload, {
   loading:'./assets/loading.png'
 })
 
-
-Vue.prototype.$version = '2004070252-ba662c0'
+ 
+Vue.prototype.$version = '2004071323-d5e4fa4'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
 

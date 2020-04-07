@@ -494,12 +494,13 @@
 <style >
   
 body{
-	background-color: #2b2b2e;
+	background-color: #2b2b2e!important;
 }
 </style>
 <style scoped>
   body{
     height: 100% !important;
+	background-color: #2b2b2e!important;
   }
   
 	#searchDetails {
