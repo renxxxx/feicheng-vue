@@ -279,7 +279,7 @@ export default {
   },
   // 进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
-    // debugger
+     debugger
     next(vm => {
       document.getElementById("showPage").scrollTop = document.getElementById(
         "showPage"
@@ -294,7 +294,7 @@ export default {
     let lastRoute = localStorage.getItem("lastRoute");
     // //console.log('fromRoute'+fromRoute)
     // //console.log('lastRoute'+lastRoute)
-    if (fromRoute == lastRoute) {
+    if (fromRoute == lastRoute || !to.query.time) {
       localStorage.removeItem("lastRoute");
     }
   },
