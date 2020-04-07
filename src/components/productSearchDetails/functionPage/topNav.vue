@@ -3,7 +3,7 @@
     <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
       <router-link :to="{ path: '/' }" style="height: 55px;width: 100%;display: block;">
         <!-- <span style="height: 55px;width: 100%;line-height: 55px;text-align: center;font-weight: 20px; color:#e8edee;display: block;">飞橙</span> -->
-        <img src="../../../assets/img/logo.png" style="width: 69.8px;heigt:35px;margin-left: 34px;margin-top: 11px;" alt="" />
+        <img src="../../../assets/img/feicheng.svg" style="width: 69.8px;heigt:35px;margin-left: 34px;margin-top: 11px;" alt="" />
       </router-link>
     </el-col>
     <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">

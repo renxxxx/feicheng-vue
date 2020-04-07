@@ -8,7 +8,7 @@
               <el-col :span="6" style="padding: 0;">
                 <div class="grid-content bg-purple fclogo">
                   <img
-                    src="../../assets/img/feicheng.png"
+                    src="../../assets/img/feicheng1.svg"
                     alt
                     style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;"
                   />
@@ -291,22 +291,14 @@ export default {
       name: from.name,
       query: from.query
     });
-    // let lastRoute = localStorage.getItem("lastRoute");
-    // // //console.log('fromRoute'+fromRoute)
-    // // //console.log('lastRoute'+lastRoute)
-    // if (fromRoute == lastRoute || !to.query.time) {
-    //   localStorage.removeItem("lastRoute");
-    // }
+
   },
   activated() {
      debugger
      
   },
   mounted() {
-    // //console.log(this.$refs.showPage1.offsetTop);
-    // //console.log(this.$refs.showPage2.offsetTop);
-    // //console.log(this.$refs.showPage_one.$el.offsetHeight);
-    // //console.log(this.$refs.showPage_two.$el.offsetHeight);
+  
     window.addEventListener("scroll", this.scrollToTop, true);
 
 
@@ -386,10 +378,8 @@ askIfEnter(){
       this.$refs.loginRef.getData('/product/product_user');
     },
     scrollToTop() {
-      // var scrollTop = document.getElementById("showPage").scrollTop;
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      // var height1 = this.$refs.showPage1.offsetTop;
-      // var height2 = this.$refs.showPage2.offsetTop;
+
 
       var height2 = 0;
       var height3 = height2 + this.$refs.showPage_one.$el.scrollHeight;
@@ -420,7 +410,6 @@ askIfEnter(){
           .setAttribute("class", "oneBox_mid_line oneBox_mid_line_five_1");
       }
       if (scrollTop >= height3 + 400) {
-        //console.log(document.getElementById("two_1"));
         document
           .getElementById("two_1")
           .setAttribute("class", "box_indexLf transitionlF_2");
@@ -517,13 +506,7 @@ askIfEnter(){
           .getElementById("nine_1")
           .setAttribute("class", " main main_transition_9");
       }
-      //  setTimeout(function(){
-
-      //  },200)
-      //  setTimeout(function(){
-      //    document.getElementById('seven_3').setAttribute('class',' maindiv_three maindiv_three_transition_7')
-      //  },400)
-      // }
+     
     }
   }
 };
