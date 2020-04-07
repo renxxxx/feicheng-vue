@@ -343,9 +343,12 @@ export default {
 				this.page = 0;
 				this.kw = this.$route.query.value;
 				this.userList = []
-		}
-		this.nextPage();
-		this.getDataType();
+		}else{
+      this.nextPage();
+      this.getDataType();
+    }
+    
+		
 	},
 	methods: {
 		inDataFn(){
@@ -666,7 +669,7 @@ h1,h2,h3,h4,h5,h6,p{
 .search_box{
 	/* width: 532px; */
 	height: 32px;
-	line-height: 32px;
+	line-height: 30px;
 
 	float: left;
 	/* border: 1px solid #6d6d6d; */
