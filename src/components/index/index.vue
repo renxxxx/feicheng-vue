@@ -565,22 +565,9 @@ a:visited{text-decoration:none; }
 }
 
 
-
-html {
-	font-family:'DINPro' !important;
-  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
-    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
-  font-size: 16px;
-  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
-  padding: 0;
-  box-sizing: border-box !important;
-}
 #showPage {
    min-width: 850px;
   overflow-y: hidden;
-  height: 100%;
   font-family:'DINPro' !important;
   /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,

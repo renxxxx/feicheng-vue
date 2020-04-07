@@ -410,7 +410,7 @@ askIfEnter(){
 
 
 
-<style >
+<style>
 .el-popover {
      position: absolute!important;
      background: transparent!important;
@@ -543,7 +543,7 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 }
 
 #product {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+	 font-family:'DINPro' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #2b2b2e;
