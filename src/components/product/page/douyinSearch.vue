@@ -5,7 +5,7 @@
 				<div class="search_box">
 					<!-- <div class="search_box_xiala" @click="showXiaLaFn">
 						<div class="search_box_xialaButton">
-							<span slot="reference">{{searchData}}</span>	
+							<span slot="reference">{{searchData}}</span>
 							<i class="el-icon-arrow-down" v-if="icon_down"></i>
 							<i class="el-icon-arrow-up" v-if="icon_up"></i>
 						</div>
@@ -56,11 +56,11 @@
 					<ul>
 						<li>
 							<span>不限</span>
-						</li> 
+						</li>
 						<li>
 							<span>条件</span>
 							<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
-						</li> 
+						</li>
 						<li class="dataColor">
 							<span class="ant-checkbox ant-checkbox-disabled">
 								<input type="checkbox" disabled="" class="ant-checkbox-input" value="contact">
@@ -105,7 +105,7 @@
 				</el-col>
 			</el-row> -->
 		</div>
-		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10"> 
+		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-row style="background: #3a3a3e;color: #e8edee;font-size: 14px;height: 37px; line-height: 37px;padding: 0px 8px;">
 				<el-col :xs="13" :sm="13" :md="14" :lg="15" :xl="18">
 					<span class="searchList_Title">视频号</span>
@@ -161,7 +161,7 @@
 						<div class="searchList_shuju">
 							<ul>
 								<li>
-									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList" :key='num'>{{biaoqian.name}}</span>
 								</li>
 								<li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.fansCount}}</span>
@@ -178,6 +178,7 @@
 							</ul>
 						</div>
 					</el-col>
+
 				</router-link>
 			</el-row>
 			<el-row class="searchList_lie"   v-for="(user,index) in userList" :key="index">
@@ -202,7 +203,7 @@
 						<div class="searchList_shuju">
 							<ul>
 								<li>
-									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+									<span class="biaoqianClass" v-for="(biaoqian,num) in user.wxVideoaccountRealmList" :key='num'>{{biaoqian.name}}</span>
 								</li>
 								<li :class="clickData.one? 'xuanzhongColor':''">
 									<span>{{user.fansCount}}</span>
@@ -222,7 +223,7 @@
 				</router-link>
 			</el-row>
 			<!-- </div> -->
-			
+
 		</div>
 		<login ref="loginRef" ></login>
 	</div>
@@ -287,7 +288,7 @@ export default {
 
 	},
 	created(){
-		
+
 	},
 	activated(){
 		debugger
@@ -398,7 +399,7 @@ export default {
 				this.show_xiala = true;
 				this.icon_down = false;
 				this.icon_up = true
-				
+
 			}else{
 				this.show_xiala = false;
 				this.icon_down = true;
@@ -474,7 +475,7 @@ export default {
 		typeClickFn(_item,_inx){
 			// //console.log(_item)
 			if(this.typeList[_inx].typeData){
-				
+
 				this.typeList[_inx].typeData = false;
 				this.wxVideoaccountRealmIdNow = '';
 				// let a= this.wxVideoaccountRealmId.find(m=>m != _item.wxVideoaccountRealmId);
@@ -538,7 +539,7 @@ export default {
 	line-height: 32px;
 	margin: 16px 0px;
 	/* border: 1px solid #6d6d6d; */
-	
+
 }
 .search_box_xiala{
 	width: 67px;
@@ -654,8 +655,8 @@ export default {
 	padding-right: 5px;
 }
 .search_box_input>input[type=search]::-webkit-search-cancel-button{
-	-webkit-appearance: none; 
-	/* position: relative; 
+	-webkit-appearance: none;
+	/* position: relative;
 	height: 10px;
 	width: 10px;
 	line-height: 10px;
@@ -685,7 +686,7 @@ export default {
 .search_type ul li,.search_zhishu ul li{
 	display: inline-block;
 	margin-right: 18px;
-	
+
 }
 .search_type ul li span,.search_zhishu ul li span{
 	display: inline-block;
@@ -927,7 +928,7 @@ export default {
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
 	float: left;
-	
+
 }
 .searchList_lie_xinxi_jianjie>p:last-child{
 	width: 90%;
@@ -959,7 +960,7 @@ export default {
 	line-height: 12px;
    background-color: #707070;
 	display: inline-block;
-	
+
 }
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
