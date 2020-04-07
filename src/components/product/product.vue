@@ -47,7 +47,7 @@
 									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
 											<!-- <li>DOU管家</li> -->
-											<li><router-link :to="{path : '/product/product_collection'}">我的收藏</router-link></li>
+											<router-link tag="li" :to="{path : '/product/product_collection'}">我的收藏</router-link>
 											<!-- <li>购买续费</li> -->
 											<!-- <li>我的权限</li> -->
 											<li @click="exitFn">退出</li>
@@ -849,7 +849,7 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	transition: all .3s;
 	background-color: hsla(0,0%,100%,.1);
 }
-.nav_data_xiala>ul>li:hover{
+.nav_data_xiala>ul>li:last-child:hover{
 	transition: all .3s;
 	color: #f5222d;
 }

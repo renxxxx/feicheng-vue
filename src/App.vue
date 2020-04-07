@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="muti" ref='appRef' v-cloak>
     <keep-alive>
-    <router-view />
-</keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

@@ -124,8 +124,9 @@
 				</el-col>
 			</el-row>
 			<el-row style="margin-top: 1px;height: 158px;" >
+				<router-link :to="{path:'/product/product_videoSearch'}">
 				<div class="user_type_one" @mouseenter="mouseFn('one')" @mouseleave="leaveFn('one')">
-					<router-link :to="{path:'/product/product_videoSearch'}">
+					
 						<div class="_IskksKxv" v-if="oneValue.data"><div class="_3EmITLRt"></div></div>
 						<!-- <div class="leftType" v-if="!oneValue.data">
 							<h3>{{oneValue.title}}</h3>
@@ -139,10 +140,11 @@
 							{{oneValue.title}}
 							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
 						</div>
-					</router-link>
-				</div>
+					
+				</div></router-link>
+				<router-link :to="{path:'/product/product_douyinSearch'}">
 				<div class="user_type_two" @mouseenter="mouseFn('two')" @mouseleave="leaveFn('two')">
-					<router-link :to="{path:'/product/product_douyinSearch'}">
+					
 					<div class="_IskksKxv" v-if="twoValue.data"><div class="_3EmITLRt"></div></div>
 					<div class="type_center" :class="[twoValue.data? 'color':'']">
 						{{twoValue.title}}
@@ -150,10 +152,12 @@
 					</div>
 					<!-- <h3>{{twoValue.title}}</h3>
 					<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p> -->
-					</router-link>
+				
 				</div>
-				<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
+					</router-link>
 					<router-link :to="{path:''}">
+				<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
+					
 						<div class="_IskksKxv" v-if="threeValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[threeValue.data? 'color':'']">
 							{{threeValue.title}}
@@ -161,10 +165,12 @@
 						</div>
 						<!-- <h3>{{threeValue.title}}</h3>
 						<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p> -->
-					</router-link>
+					
 				</div>
+				</router-link>
+				<router-link :to="{path:'/product/product_user'}">
 				<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
-					<router-link :to="{path:'/product/product_user'}">
+					
 						<div class="_IskksKxv" v-if="fourValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fourValue.data? 'color':'']">
 							{{fourValue.title}}
@@ -172,10 +178,12 @@
 						</div>
 						<!-- <h3>{{fourValue.title}}</h3>
 						<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p> -->
-					</router-link>
+					
 				</div>
+				</router-link>
+				<router-link :to="{path:'/product/ruzhu'}">
 				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
-					<router-link :to="{path:'/product/ruzhu'}">
+					
 						<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fiveValue.data? 'color':'']">
 							{{fiveValue.title}}
@@ -183,8 +191,9 @@
 						</div>
 						<!-- <h3>{{fiveValue.title}}</h3>
 						<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p> -->
-					</router-link>
+					
 				</div>
+				</router-link>
 			</el-row>
 		</div>
 		<login ref="loginRef"></login>
