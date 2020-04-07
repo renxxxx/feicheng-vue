@@ -134,6 +134,7 @@
 			</el-row> -->
 		</div>
 
+
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10" >
 			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
 				<el-table-column  prop="date" label="视频号" min-width="62%">
@@ -212,6 +213,7 @@
 				</el-table-column>
 			 </el-table>
 			<!-- </div> -->
+
 		</div>
 		<login ref="loginRef" ></login>
 	</div>
@@ -1054,7 +1056,8 @@ body{
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
 	float: left;
-	margin: 3px;
+
+	/* margin: 3px; */
 }
 .searchList_lie_xinxi_jianjie>div{
   color: rgb(120, 122, 122);
@@ -1065,11 +1068,7 @@ body{
       overflow: hidden;
       margin-bottom: 15px;
 }
-/* .searchList_lie_xinxi_jianjie>p:last-child{
-	width: 90%;
-	height: 42px;
-	color: #787a7a;
-} */
+
 .searchList_lie_xinxi_jianjie>svg{
 	position: absolute;
 	margin-top: 3px;
@@ -1095,6 +1094,7 @@ body{
 	line-height: 12px;
    background-color: #707070;
 	display: inline-block;
+
 }
 
 
