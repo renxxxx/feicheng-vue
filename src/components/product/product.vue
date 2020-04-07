@@ -419,9 +419,18 @@ el-menu-item {
 }
 </style>
 
-<style >
+<style scoped>
+	@font-face {
+	   font-family: 'puhui';
+	   src: url('../../assets/font/puhui.82d0762f.woff2');
+	   font-weight: normal;
+	   font-style: normal;
+	 }
+	 .tanAbout>span>span{
+		 font-family: 'puhui';
+	 }
 #product {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #2b2b2e;

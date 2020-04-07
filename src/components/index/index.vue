@@ -390,7 +390,7 @@ askIfEnter(){
       var height8 = height7 + this.$refs.showPage_six.$el.scrollHeight;
       var height9 = height8 + this.$refs.showPage_eight.$el.scrollHeight;
       var height10 = height9 + this.$refs.showPage_nine.$el.scrollHeight;
-      console.log(scrollTop, height2, height3, height4,height5,height6,height7,height8,height9,height10);
+      // console.log(scrollTop, height2, height3, height4,height5,height6,height7,height8,height9,height10);
       if (scrollTop >= height3 / 2) {
         console.log(123)
         document
@@ -515,6 +515,7 @@ askIfEnter(){
 <style >
 body{
 	background-color: #2b2b2e;
+  font-family:'DINPro' !important;
 }
 </style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -565,9 +566,10 @@ body{
 }
 
 html {
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+	font-family:'DINPro' !important;
+  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
   font-size: 16px;
   /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
@@ -578,9 +580,9 @@ html {
    min-width: 850px;
   overflow-y: hidden;
   height: 100%;
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
 }
 #showPage::-webkit-scrollbar {
   width: 4px;
@@ -731,9 +733,10 @@ el-row,
   margin-bottom: 32px !important;
   position: relative;
   color: #fff;
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+  
+  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
 }
 .homeBackIndex > div p {
   font-size: 18px;
@@ -790,14 +793,13 @@ el-row,
 }
 
 .homeIntro_div {
-  font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
+  /* font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important; */
 }
 .homeIntro .homeIntro_div > span {
   color: #ffffff;
   font-family: inherit;
-  font-weight: 600;
 }
 .homeIntro .homeIntro_div > span span:nth-child(2) {
   margin: 0 8px;

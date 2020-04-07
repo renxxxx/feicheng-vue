@@ -50,11 +50,18 @@ export default {
 
 
 <style scoped>
+ @font-face {
+    font-family: 'DINPro';
+    src: url('./assets/font/DINPro.6ea892b4.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 #app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	/* font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
+    -moz-osx-font-smoothing: grayscale; */
+    font-family:'DINPro' !important;
 }
 .muti::-webkit-scrollbar{
 	width:4px;
@@ -84,13 +91,15 @@ export default {
 
 
 <style>
+
+    @import url("./assets/font/font.css");
 *{
 	word-break: break-all;
 }
 
 img{
   object-fit: cover;
-  
+
 }
 img[lazy="loading"]{
 	object-fit:scale-down!important;
@@ -122,8 +131,8 @@ background:#e0e0e0;
 }
 
 
-html{font-size: 35.8px;}
-body{margin: 0px;padding: 0px;font: 15px/1.5 helvetica,arial,"Microsoft YaHei";color: #e8edee;font-size: 14px;
+html{font-size: 35.8px;font-family:'DINPro' !important;}
+body{margin: 0px;padding: 0px;color: #e8edee;font-size: 14px;font-family:'DINPro' !important;
 }
 
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{

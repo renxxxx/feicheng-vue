@@ -17,10 +17,13 @@ import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 
-   
+
 import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
+import './assets/font/font.css'
+
+
 Vue.use(Viewer);
 Viewer.setDefaults({
   Options: { "inline": true, "button": true, "navbar": true, "title": true, "toolbar": true, "tooltip": true, "movable": true, "zoomable": true, "rotatable": true, "scalable": true, "transition": true, "fullscreen": true, "keyboard": true, "url": "data-source" }
@@ -32,7 +35,7 @@ Vue.use(VueLazyload, {
   loading:'./assets/loading.png'
 })
 
- 
+
 Vue.prototype.$version = '2004071323-d5e4fa4'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
