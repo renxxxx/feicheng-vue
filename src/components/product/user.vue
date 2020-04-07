@@ -512,6 +512,7 @@ export default {
 .user{
 	/* height: 100%; */
 	min-width: 1020px;
+	/* overflow-x: auto; */
 }
 .first{
 

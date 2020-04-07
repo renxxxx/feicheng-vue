@@ -48,7 +48,6 @@
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"
                   :before-upload="beforeAvatarUpload"
-                  :on-preview="handlePictureCardPreviewIcon"
                 >
                   <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -82,7 +81,7 @@
               <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
               <div style="margin: 15px 0;"></div>
               <el-checkbox-group  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
-                <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city" :key="city.name">{{ city.name }}</el-checkbox>
+                <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city.wxVideoaccountRealmId" :key="city.name">{{ city.name }}</el-checkbox>
               </el-checkbox-group>
 
             </li>
@@ -173,8 +172,8 @@ export default {
       dialogVisibleIcon:false,
       options: [],
       checkAll: false,
-      checkedCities: [{logo:"",name:"才艺",wxVideoaccountRealmId:"20200401052556016756178133283511"}],
       cities: [],
+      checkedCities: [],
       isIndeterminate: false,
       twocodeNow:'',
       twocode:'',
@@ -297,10 +296,12 @@ export default {
       }
 
      if(this.$store.state.wxVideoaccount.wxVideoaccountRealmList){
+		 console.dir(this.$store.state.wxVideoaccount.wxVideoaccountRealmList)
        for (var i in this.$store.state.wxVideoaccount.wxVideoaccountRealmList) {
          this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].logo = '';
+		 this.checkedCities.push(this.$store.state.wxVideoaccount.wxVideoaccountRealmList[i].wxVideoaccountRealmId);
        }
-       this.checkedCities = this.$store.state.wxVideoaccount.wxVideoaccountRealmList;
+       
      }
      this.num = this.$store.state.wxVideoaccount.type;
      this.name = this.$store.state.wxVideoaccount.name;
@@ -592,26 +593,36 @@ export default {
     lookBigPicNow1() {
       this.dialogVisible1 = true;
     },
-    // checkThis(val){
-    //   console.log(val)
-    //   this.checkVal=val
-    //   console.log(this.checked)
-    // },
+    checkThis(val){
+      // console.log(val)
+      // this.checkVal=val
+      // console.log(this.checked)
+    },
     // 选择领域
     handleCheckAllChange(val) {
-      this.checkedCities = val ? this.cities : [];
+		// console.log(val)
+		if(val){
+			for (let i in this.cities) {
+				this.checkedCities.push(this.cities[i].wxVideoaccountRealmId);
+			}
+		}else{
+			this.checkedCities = []
+		}
+      // this.checkedCities = val ? this.cities : [];
       this.isIndeterminate = false;
       this.wxVideoaccountRealmIdList = [];
       for (let i in this.checkedCities) {
-        this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
+        this.wxVideoaccountRealmIdList=this.checkedCities;
       }
       this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
+	  console.log(this.wxVideoaccountRealmIdListNow)
     },
     handleCheckedCitiesChange(value) {
-      this.wxVideoaccountRealmIdList = [];
-      for (let i in this.checkedCities) {
-        this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
-      }
+		console.log(this.checkedCities)
+      this.wxVideoaccountRealmIdList = this.checkedCities;
+      // for (let i in this.checkedCities) {
+      //   this.wxVideoaccountRealmIdList.push(this.checkedCities[i].wxVideoaccountRealmId);
+      // }
       //console.log(this.checkedCities);
       this.wxVideoaccountRealmIdListNow = this.wxVideoaccountRealmIdList.join(',');
       let checkedCount = value.length;
