@@ -407,7 +407,7 @@ askIfEnter(){
   },
 }
 </script>
-<<<<<<< HEAD
+
 
 <style >
 body{
@@ -440,8 +440,7 @@ el-menu-item {
   min-width: 1000px;
 }
 
-=======
-<style >
+
 .el-popover {
      position: absolute!important;
      background: transparent!important;
@@ -471,7 +470,6 @@ el-menu-item {
  }
 
  
->>>>>>> 0295628cb7f560856ede3b755659fae352bcdba3
   .dialogThis {
     background: #55555a !important;
     color: #fff !important;

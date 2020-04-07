@@ -60,7 +60,7 @@ export default {
 #app {
 	/* font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
+
     -moz-osx-font-smoothing: grayscale; */
     font-family:'DINPro' !important;
 
