@@ -8,7 +8,7 @@
               <el-col :span="6" style="padding: 0;">
                 <div class="grid-content bg-purple fclogo">
                   <img
-                    src="../../assets/img/feicheng.png"
+                    src="../../assets/img/feicheng1.svg"
                     alt
                     style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;"
                   />

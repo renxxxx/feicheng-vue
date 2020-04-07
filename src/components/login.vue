@@ -117,7 +117,6 @@ created(){
                             this.$store.state.login=res.data.data
                             this.centerDialogVisible = false;
                             clearInterval(this.timer);
-                            this.$router.push({path:'/'});
                               if (this.last) {
                                 this.$router.push({path:this.last,query:this.lastQuery});
                               }else{
