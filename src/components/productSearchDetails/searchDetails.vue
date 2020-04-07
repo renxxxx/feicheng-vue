@@ -8,7 +8,7 @@
 						<div class="_3ykadlND">
 							<div class="_28OpAn63">
 								<div class="_3mUgA-Vh">
-									<a target="_blank" rel="noopener noreferrer" href="https://www.iesdouyin.com/share/user/104255897823">
+									<a target="_blank" rel="noopener noreferrer" href="/">
 										<img alt="pic" class="_3t5L3W5T" :src="message.logo">
 									</a>
 									<div class="_3DQ4NUnP">
@@ -23,13 +23,13 @@
 							<div class="_3Mt2vQgI">
 								<div class="_1bv9Xtl-">
 									<span class="xd-ellipsis _3rF1A6fj" :title="message.name">{{message.name}}</span>
-									<span class="_8TRvoTKy">{{message.wx}}</span>
+									<!-- <span class="_8TRvoTKy">{{message.wx}}</span> -->
 								</div>
 								<div class="_1bv9Xtl-">
-									<svg v-if="shouchangData" @click="shouchangFn('false')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
+									<svg v-if="shouchangData" @click="shouchangFn('false')" width="2em" height="2em" viewBox="0 0 19.033 19.019" class="_39iY1Rho">
 										<path fill="none" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
 									</svg>
-									<svg v-if="!shouchangData" @click="shouchangFn('true')" width="1em" height="1em" viewBox="0 0 19.033 19.019" class="_39iY1Rho" style="color: #ff7800;">
+									<svg v-if="!shouchangData" @click="shouchangFn('true')" width="2em" height="2em" viewBox="0 0 19.033 19.019" class="_39iY1Rho" style="color: #ff7800;">
 										<path fill="#ff7800" stroke="currentColor" d="M14.092 18.5a1.777 1.777 0 0 1-.8-.213l-3.77-1.958-3.8 1.955a1.661 1.661 0 0 1-1.808-.142 1.865 1.865 0 0 1-.678-1.778l.776-4.179-2.974-2.882a1.951 1.951 0 0 1-.463-1.839l.006-.021a1.743 1.743 0 0 1 1.4-1.235l4.132-.78 1.853-3.911A1.747 1.747 0 0 1 9.511.5a1.7 1.7 0 0 1 1.555 1.028l1.849 3.9 4.133.75a1.705 1.705 0 0 1 1.377 1.249 1.858 1.858 0 0 1-.431 1.845l-.01.011-2.966 2.9.748 4.181a1.832 1.832 0 0 1-.67 1.767 1.552 1.552 0 0 1-1.004.369z"></path>
 									</svg>
 									<svg width="18" height="18" viewBox="0 0 18 18" class="_oHy0nPgB" style="display:none;">
@@ -51,7 +51,7 @@
 											 transform="translate(918 594)" fill="currentColor"></path>
 										</g>
 									</svg> -->
-									<span>地址:{{message.area1Name}}&nbsp;&nbsp;{{message.area2Name}}</span>
+									<span>地址：{{message.area1Name}}&nbsp;&nbsp;{{message.area2Name}}</span>
 								</div>
 							</div>
 						</div>
@@ -254,7 +254,14 @@
 								<div class="_2UsHTV5v">
 									<div class="_1KGIPaKA"></div>
 									<div class="_1KGIPaKA"></div>
-									<div class="_1KGIPaKA"><canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas></div>
+									<div class="_1KGIPaKA">
+                    <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
+
+					<viewer>
+                    <img style="height: 64px; width: 64px;cursor: pointer;" :src="message.qrcode" alt="">
+					</viewer>
+
+                  </div>
 								</div>
 							</div>
 							<div class="_14YV3H8t">
@@ -298,13 +305,13 @@
 													</router-link>
 												</div>
 												<div role="tab" @click="xiaclickFn(125)" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
-													<router-link :to="{path:'/productPage'}" class="_1zlCAgAE">
+													<router-link :to="{path:'/product'}" class="_1zlCAgAE">
 														作品列表
 													</router-link>
 												</div>
 												<div role="tab" @click="xiaclickFn(250)" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
 													<div class="_1zlCAgAE _2AXT3VPr">
-														<router-link :to="{path:'/productPage/productPage_douyinSearch'}" class="_1zlCAgAE">
+														<router-link :to="{path:'/product/product_douyinSearch'}" class="_1zlCAgAE">
 															作品分析
 															<i aria-label="图标: lock" class="anticon anticon-lock">
 																<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true">
@@ -315,7 +322,7 @@
 													</div>
 												</div>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -341,7 +348,10 @@
 				</keep-alive>
 			</el-col>
 		</el-row>
+    <el-dialog :visible.sync="dialogVisibleIcon" width="20%" style="z-index: 9999;"><img width="100%" style="object-fit: contain; background: #FFFFFF;height: 50vh;" :src="message.qrcode" alt="" /></el-dialog>
 		<login ref="loginRef"></login>
+		<searchDialog></searchDialog>
+
 	</div>
 </template>
 
@@ -349,15 +359,17 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../common/functionPage/login.vue'
+	import login from '../login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
+	import searchDialog from '../product/searchDialog.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
 			return {
 				data:{},
 				message:{},
-				shouchangData:true
+				shouchangData:true,
+        dialogVisibleIcon:false,
 			}
 		},
 		computed: {
@@ -371,7 +383,7 @@
 			}
 		},
 		components: {
-			login,topNav
+			login,topNav,searchDialog
 		},
 		beforeCreate() {
 
@@ -418,7 +430,7 @@
 		mounted() {
 			//this.data = JSON.parse(this.$route.query.data);
 			this.getData()
-			// console.dir(this.data)
+			// console.dir(this.$route.query.data)
 			if(!this.$store.state.login){
 				this.centerDialogVisible = true;
 				this.$refs.loginRef.getData();
@@ -430,13 +442,18 @@
 			},
 			getData(){
 				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({
-					wxVideoaccountId:this.$route.query.id
+					wxVideoaccountId:this.$route.query.data
 				}))
 				.then(res=>{
-					this.message = res.data.data
+					this.message = res.data.data;
+
+					if(res.data.data.favorIs){
+						this.shouchangData = false;
+						console.log(this.shouchangData)
+					}
 				})
 				.catch()
-				
+
 				.catch()
 			},
 			gengxinFn(){
@@ -444,25 +461,47 @@
 			},
 			shouchangFn(){
 				if(this.shouchangData){
-					this.shouchangData = false
-					this.$axios.get('/user/my-object/create-my-object?'+qs.stringify({
-						get:1,
-						link:2,
-						link2WxVideoaccountId:this.$route.query.id
+					this.$axios.post('/user/my-favor/favor-wx-videoaccount',qs.stringify({
+						wxVideoaccountId:this.$route.query.data
 					}))
 					.then(res=>{
-						
+						if(res.data.codeMsg)
+						   this.$message(res.data.codeMsg);
+						if(res.data.code == 0){
+						   this.shouchangData = false;
+						   console.log(this.shouchangData)
+						}
+
 					})
 				}else{
-					this.shouchangData = true
+					this.$axios.post('/user/my-favor/unfavor-wx-videoaccount-list?',qs.stringify({
+						wxVideoaccountIdList:this.$route.query.data
+					}))
+					.then(res=>{
+						if(res.data.codeMsg)
+						   this.$message(res.data.codeMsg);
+						if(res.data.code == 0){
+						   this.shouchangData = true
+						}
+					})
+
 				}
-				
+
 			}
 		},
 	}
 </script>
-
+<style >
+  
+body{
+	background-color: #2b2b2e;
+}
+</style>
 <style scoped>
+  body{
+    height: 100% !important;
+  }
+  
 	#searchDetails {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
@@ -725,7 +764,7 @@
 			-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 			box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 		}
-		
+
 		.nav_data_xiala>ul>li {
 			height: 42px;
 			line-height: 42px;
@@ -1447,7 +1486,7 @@
 	}
 	._1nF74FAR .ant-tabs-ink-bar {
 	    height: 3px;
-		 
+
 	}
 	.ant-tabs-bottom .ant-tabs-ink-bar-animated, .ant-tabs-top .ant-tabs-ink-bar-animated {
 	    opacity: 1;
@@ -1476,13 +1515,14 @@
 		left: 392px;
 		right: 40px;
 		top:70px;
+		/* width: 100%; */
 		overflow-y: scroll;
 		bottom: 10px;
 	}
 	.appView{
 		/* width: 100%; */
 		/* height: 100%; */
-		
+
 	}
-	
+
 </style>

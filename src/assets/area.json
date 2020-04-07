@@ -1,6 +1,7 @@
 [{
   "value": "11",
   "label": "北京市",
+	"zimu":"B",
   "children": [{
     "value": "1101",
     "label": "市辖区",
@@ -57,6 +58,7 @@
 }, {
   "value": "12",
   "label": "天津市",
+  "zimu":"T",
   "children": [{
     "value": "1201",
     "label": "市辖区",
@@ -113,6 +115,7 @@
 }, {
   "value": "13",
   "label": "河北省",
+  "zimu":"H",
   "children": [{
     "value": "1301",
     "label": "石家庄市",
@@ -734,6 +737,7 @@
 }, {
   "value": "14",
   "label": "山西省",
+  "zimu":"S",
   "children": [{
     "value": "1401",
     "label": "太原市",
@@ -1157,6 +1161,7 @@
 }, {
   "value": "15",
   "label": "内蒙古自治区",
+  "zimu":"H",
   "children": [{
     "value": "1501",
     "label": "呼和浩特市",
@@ -1536,6 +1541,7 @@
 }, {
   "value": "21",
   "label": "辽宁省",
+  "zimu":"L",
   "children": [{
     "value": "2101",
     "label": "沈阳市",
@@ -1896,6 +1902,7 @@
 }, {
   "value": "22",
   "label": "吉林省",
+  "zimu":"J",
   "children": [{
     "value": "2201",
     "label": "长春市",
@@ -2143,6 +2150,7 @@
 }, {
   "value": "23",
   "label": "黑龙江省",
+  "zimu":"H",
   "children": [{
     "value": "2301",
     "label": "哈尔滨市",
@@ -2601,6 +2609,7 @@
 }, {
   "value": "31",
   "label": "上海市",
+  "zimu":"S",
   "children": [{
     "value": "3101",
     "label": "市辖区",
@@ -2657,6 +2666,7 @@
 }, {
   "value": "32",
   "label": "江苏省",
+  "zimu":"J",
   "children": [{
     "value": "3201",
     "label": "南京市",
@@ -3034,6 +3044,7 @@
 }, {
   "value": "33",
   "label": "浙江省",
+  "zimu":"Z",
   "children": [{
     "value": "3301",
     "label": "杭州市",
@@ -3352,6 +3363,7 @@
 }, {
   "value": "34",
   "label": "安徽省",
+  "zimu":"A",
   "children": [{
     "value": "3401",
     "label": "合肥市",
@@ -3780,6 +3792,7 @@
 }, {
   "value": "35",
   "label": "福建省",
+  "zimu":"F",
   "children": [{
     "value": "3501",
     "label": "福州市",
@@ -4075,6 +4088,7 @@
 }, {
   "value": "36",
   "label": "江西省",
+  "zimu":"J",
   "children": [{
     "value": "3601",
     "label": "南昌市",
@@ -4423,6 +4437,7 @@
 }, {
   "value": "37",
   "label": "山东省",
+  "zimu":"S",
   "children": [{
     "value": "3701",
     "label": "济南市",
@@ -4966,6 +4981,7 @@
 }, {
   "value": "41",
   "label": "河南省",
+  "zimu":"H",
   "children": [{
     "value": "4101",
     "label": "郑州市",
@@ -5588,6 +5604,7 @@
 }, {
   "value": "42",
   "label": "湖北省",
+  "zimu":"H",
   "children": [{
     "value": "4201",
     "label": "武汉市",
@@ -5963,6 +5980,7 @@
 }, {
   "value": "43",
   "label": "湖南省",
+  "zimu":"H",
   "children": [{
     "value": "4301",
     "label": "长沙市",
@@ -6440,6 +6458,7 @@
 }, {
   "value": "44",
   "label": "广东省",
+  "zimu":"G",
   "children": [{
     "value": "4401",
     "label": "广州市",
@@ -7068,6 +7087,7 @@
 }, {
   "value": "45",
   "label": "广西壮族自治区",
+  "zimu":"G",
   "children": [{
     "value": "4501",
     "label": "南宁市",
@@ -7461,6 +7481,7 @@
 }, {
   "value": "46",
   "label": "海南省",
+  "zimu":"H",
   "children": [{
     "value": "4601",
     "label": "海口市",
@@ -7617,6 +7638,7 @@
 }, {
   "value": "50",
   "label": "重庆市",
+  "zimu":"H",
   "children": [{
     "value": "5001",
     "label": "市辖区",
@@ -7743,6 +7765,7 @@
 }, {
   "value": "51",
   "label": "四川省",
+  "zimu":"S",
   "children": [{
     "value": "5101",
     "label": "成都市",
@@ -8389,6 +8412,7 @@
 }, {
   "value": "52",
   "label": "贵州省",
+  "zimu":"G",
   "children": [{
     "value": "5201",
     "label": "贵阳市",
@@ -8693,6 +8717,7 @@
 }, {
   "value": "53",
   "label": "云南省",
+  "zimu":"Y",
   "children": [{
     "value": "5301",
     "label": "昆明市",
@@ -9148,6 +9173,7 @@
 }, {
   "value": "54",
   "label": "西藏自治区",
+  "zimu":"X",
   "children": [{
     "value": "5401",
     "label": "拉萨市",
@@ -9414,6 +9440,7 @@
 }, {
   "value": "61",
   "label": "陕西省",
+  "zimu":"s",
   "children": [{
     "value": "6101",
     "label": "西安市",
@@ -9779,6 +9806,7 @@
 }, {
   "value": "62",
   "label": "甘肃省",
+  "zimu":"G",
   "children": [{
     "value": "6201",
     "label": "兰州市",
@@ -10121,6 +10149,7 @@
 }, {
   "value": "63",
   "label": "青海省",
+  "zimu":"Q",
   "children": [{
     "value": "6301",
     "label": "西宁市",
@@ -10295,6 +10324,7 @@
 }, {
   "value": "64",
   "label": "宁夏回族自治区",
+  "zimu":"N",
   "children": [{
     "value": "6401",
     "label": "银川市",
@@ -10385,6 +10415,7 @@
 }, {
   "value": "65",
   "label": "新疆维吾尔自治区",
+  "zimu":"X",
   "children": [{
     "value": "6501",
     "label": "乌鲁木齐市",
