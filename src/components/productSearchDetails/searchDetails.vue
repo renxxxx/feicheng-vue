@@ -494,7 +494,7 @@
 <style >
   
 body{
-	background-color: #2b2b2e;
+	background-color: #2b2b2e!important;
 }
 </style>
 <style scoped>
