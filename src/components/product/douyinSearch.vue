@@ -633,12 +633,21 @@ export default {
 </script>
 
 <style scoped>
-body{
-	height: 100%;
+
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{
+	list-style: none;
 }
-#app{
-	height: 100%;
+h1,h2,h3,h4,h5,h6,p{
+	font-size: inherit;font-weight: normal;
+	margin-block-start: 0rem !important;
+	margin-block-end: 0rem !important;
 }
+
 .douyinSearch{
 	width: 100%;
 	height: 100%;

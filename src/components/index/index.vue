@@ -512,13 +512,15 @@ askIfEnter(){
 };
 </script>
 
-<style >
-body{
-	background-color: #2b2b2e;
-}
-</style>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+
   ._2L2iRuHT{
           width: 600px;
     height: 25px;
@@ -560,9 +562,7 @@ body{
   display: inline-block;
 }
 
-body{
-  height: 100% !important;
-}
+
 
 html {
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
@@ -577,7 +577,6 @@ html {
 #showPage {
    min-width: 850px;
   overflow-y: hidden;
-  height: 100%;
   font-family: DINPro Medium, -apple-system, BlinkMacSystemFont, Segoe UI,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
@@ -772,6 +771,7 @@ el-row,
   font-size: 16px;
 }
 .homeBackIndex > div > div:last-child {
+  color: #fff;
   display: inline-flex;
   padding: 0 16px;
   height: 48px;

@@ -187,6 +187,20 @@
 </script>
 
 <style scoped>
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+	font-size: inherit;font-weight: normal;
+	margin-block-start: 0rem !important;
+	margin-block-end: 0rem !important;
+}
+
 	.searchGoods_cls-1,
 	.searchGoods_cls-2 {
 		fill: #fe2c55;

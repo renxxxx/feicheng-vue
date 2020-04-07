@@ -62,6 +62,12 @@
 </script>
 
 <style scoped>
+a {text-decoration:none; color: rgba(255, 255, 255, 1);}
+a:link{text-decoration:none; }
+a:hover{text-decoration:none; }
+a:active{text-decoration:none; }
+a:visited{text-decoration:none; }
+
   .main{
           height: 387px;
           background: url(../../assets/img/freeBack.svg) 0 0 no-repeat;
