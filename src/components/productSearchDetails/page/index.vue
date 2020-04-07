@@ -25,7 +25,7 @@
 			</el-row> -->
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%;min-width: 700px;">
+			<el-table :data="userList"  style="width: 99%;min-width: 700px;" @row-click = "videoFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -176,26 +176,29 @@
 			this.nextPage();
 		},
 		methods: {
-
-			typeClickFn(_item,_inx){
-				// //console.log(_item)
-				if(this.dataList[_inx].typeData){
-					this.dataList[_inx].typeData = false;
-					this.wxVideoaccountRealmId = '';
-					this.userList = [];
-					this.page = 1;
-					this.getData()
-				}else{
-					// for(let i in this.dataList){
-					// 	this.dataList[i].typeData = false;
-					// }
-					this.dataList[_inx].typeData = true;
-					this.wxVideoaccountRealmId = _item.wxVideoaccountRealmId
-					this.userList = [];
-					this.page = 1;
-					this.getData()
-				}
+			videoFn(value){
+				window.open(value.video, '_blank');
+				console.log(value)
 			},
+			// typeClickFn(_item,_inx){
+			// 	// //console.log(_item)
+			// 	if(this.dataList[_inx].typeData){
+			// 		this.dataList[_inx].typeData = false;
+			// 		this.wxVideoaccountRealmId = '';
+			// 		this.userList = [];
+			// 		this.page = 1;
+			// 		this.getData()
+			// 	}else{
+			// 		// for(let i in this.dataList){
+			// 		// 	this.dataList[i].typeData = false;
+			// 		// }
+			// 		this.dataList[_inx].typeData = true;
+			// 		this.wxVideoaccountRealmId = _item.wxVideoaccountRealmId
+			// 		this.userList = [];
+			// 		this.page = 1;
+			// 		this.getData()
+			// 	}
+			// },
 			xiaclickFn(num){
 				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
 			},

@@ -509,7 +509,7 @@ el-menu-item {
 	width: 100%;
 	height: 100%;
 	margin-bottom: 30px;
-	/* overflow-x: scroll; */
+	overflow-x: visible;
 	/* overflow-y: scroll; */
 	/* margin-left: -15px; */
 }
@@ -523,7 +523,7 @@ el-menu-item {
 	height: 55px;
 	line-height: 55px;
 	border-bottom: 1px solid #3a3a3e;
-	min-width: 1020px;
+	min-width: 850px;
 }
 .logo>img{
 	    position: absolute;
