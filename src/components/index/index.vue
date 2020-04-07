@@ -515,6 +515,12 @@ askIfEnter(){
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+ @font-face {
+    font-family: 'DINPro';
+    src: url('../../assets/font/DINPro.6ea892b4.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 
 a {text-decoration:none; color: rgba(255, 255, 255, 1);}
@@ -568,6 +574,7 @@ a:visited{text-decoration:none; }
 #showPage {
    min-width: 850px;
   overflow-y: hidden;
+  -moz-osx-font-smoothing: grayscale;
   font-family:'DINPro' !important;
 }
 #showPage::-webkit-scrollbar {

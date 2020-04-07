@@ -487,6 +487,13 @@ askIfEnter(){
 
 <style scoped>
 
+ @font-face {
+    font-family: 'DINPro';
+    src: url('../../assets/font/DINPro.6ea892b4.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
  	@font-face {
 	   font-family: 'puhui';
 	   src: url('../../assets/font/puhui.82d0762f.woff2');

@@ -493,6 +493,12 @@
 </script>
 
 <style scoped>
+ @font-face {
+    font-family: 'DINPro';
+    src: url('../../assets/font/DINPro.6ea892b4.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 
  a {text-decoration:none; color: rgba(255, 255, 255, 1);}
 a:link{text-decoration:none; }
@@ -509,8 +515,8 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 	#searchDetails {
-		/* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-		-webkit-font-smoothing: antialiased;
+ font-family:'DINPro' !important;
+ 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		height: 100%;
 		width: 100%;

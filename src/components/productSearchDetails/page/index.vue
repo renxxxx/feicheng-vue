@@ -291,8 +291,11 @@
 </script>
 
 <style scoped>
+
+
 .index{
 		color:#fff;
+		 font-family:'DINPro' !important;
 }
  a {text-decoration:none; color: rgba(255, 255, 255, 1);}
 a:link{text-decoration:none; }
