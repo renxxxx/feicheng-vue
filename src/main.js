@@ -17,7 +17,7 @@ import Cookies from 'js-cookie'
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 
-    
+     
 import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
