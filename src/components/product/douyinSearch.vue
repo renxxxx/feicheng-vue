@@ -364,7 +364,7 @@ export default {
 				type:this.dataType,
 				sort:this.sort,
 				order:this.order,
-				pn:this.page,ps:5,
+				pn:this.page,
 			}))
 			.then(res =>{
 				if(res.data.code == 0){

@@ -446,7 +446,6 @@ export default {
 				get:1,
 				link:2,
 				pn:this.page,
-				ps:5,
 				sort:this.sort,
 				order:this.order,
 			}))

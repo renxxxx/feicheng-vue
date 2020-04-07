@@ -214,8 +214,7 @@
 					kw:this.kw,
 					pn:this.page,
 					sort:this.sort,
-					order:this.order,
-					ps:5}))
+					order:this.order}))
 				.then(res =>{
 					if(res.data.code == 20){
 						if(!this.centerDialogVisible){

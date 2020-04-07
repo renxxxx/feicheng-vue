@@ -376,7 +376,6 @@
 					area1Id:this.area1Id,
 					area2Id:this.area2Id,
 					area3Id:this.area3Id,
-					ps:10,
 				}))
 				.then(res =>{
 					if(res.data.code == 0){
