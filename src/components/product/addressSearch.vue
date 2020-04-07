@@ -3,7 +3,7 @@
 		<main class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content" style="margin: 24px 40px 24px 16px;">
 			<div class="_3UQcDOSt">
 				<div class="_3Wc9DmbT amap-container" style="background: rgb(42, 42, 42); overflow: hidden;">
-					<img src="../../assets/img/ditu.png" alt="" style="display: block; position: absolute; top: 0; left: -30px; height: 110%; width: 110%; overflow: hidden; pointer-events: none; ">
+					<img src="../../assets/img/ditu.jpg" alt="" style="display: block; position: absolute; top: 0; left: -30px; height: 110%; width: 110%; overflow: hidden; pointer-events: none; ">
 					<!-- <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;" -->
 					 <!-- type="text/html" data="about:blank"></object> -->
 					<div class="amap-maps">
@@ -22,7 +22,7 @@
 							<div class="l7-popup-content"><button class="l7-popup-close-button" type="button" aria-label="Close popup">×</button>
 								<div class="newPower-tooltip newPower-tooltip-click">
 									<div class="newPower-title newPower-title-click">
-										<img class="newPower-icon" src="//xdcdn1.newrank.cn/data/static/media/location.8080aea0.svg" alt="">
+										<img class="newPower-icon" src="../../assets/img/location.8080aea0.svg" alt="">
 										{{addressTitle}}
 									</div>
 									<div class="newPower-divider newPower-divider-click"></div>
