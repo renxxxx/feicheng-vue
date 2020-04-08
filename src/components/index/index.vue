@@ -308,7 +308,7 @@ export default {
   
 
     this.$axios
-      .get("/user/login-refresh")
+      .get("login-refresh")
       .then(res => {
           if(res.data.code == 0)
            this.$store.state.login=res.data.data
@@ -375,7 +375,7 @@ askIfEnter(){
     loginFn() {
       debugger;
       this.centerDialogVisible = true;
-      this.$refs.loginRef.getData('/product/product_user');
+      // this.$refs.loginRef.getData('/product/product_user');
     },
     scrollToTop() {
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop

@@ -396,7 +396,7 @@ export default {
     supplyVideo(name, pv, imageUrlNow , likeCount, brief, video,videoId) {
       this.$axios
         .post(
-          '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
+          'wx-videoaccount-video/create-my-wx-videoaccount-video?',
           qs.stringify({
             name: name,
             pv: pv,
@@ -411,7 +411,7 @@ export default {
           if (res.data.code == 20) {
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
-              this.$refs.loginRef.getData();
+              // this.$refs.loginRef.getData();
             }
           } else if (res.data.code == 0) {
             //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
@@ -462,7 +462,7 @@ export default {
           }).then(() => {
             this.$axios
           .post(
-            '/user/wx-videoaccount/apply-audit-my-wx-videoaccount?',
+            'wx-videoaccount/apply-audit-my-wx-videoaccount?',
             qs.stringify({
               qrcode:this.twocodeNow,
               name: this.name,
@@ -489,13 +489,13 @@ export default {
             if (res.data.code == 20) {
               if (!this.centerDialogVisible) {
                 this.centerDialogVisible = true;
-                this.$refs.loginRef.getData();
+                // this.$refs.loginRef.getData();
               }
               // this.centerDialogVisible = true;
               // this.$refs.loginRef.getData();
             } else if (res.data.code == 0) {
                   this.$axios
-                          .get('/user/my/wx-videoaccount')
+                          .get('my/wx-videoaccount')
                           .then(res => {
                               if(res.data.code ==0)
                                 this.$store.state.wxVideoaccount=res.data.data
@@ -533,12 +533,12 @@ export default {
     // 获取领域列表
     accountRealmIdList() {
       this.$axios
-        .get('/user/wx-videoaccount/wx-videoaccount-realm-list')
+        .get('wx-videoaccount/wx-videoaccount-realm-list')
         .then(res => {
           if (res.data.code == 20) {
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
-              this.$refs.loginRef.getData();
+              // this.$refs.loginRef.getData();
             }
           } else {
             var itemList = res.data.data.itemList;

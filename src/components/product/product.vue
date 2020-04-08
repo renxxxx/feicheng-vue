@@ -334,7 +334,7 @@ export default {
 	  // //console.log(this.$store.state.login)
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = true;
-		  this.$refs.loginRef.getData();
+		  // this.$refs.loginRef.getData();
 	  }
   },
   watch:{
@@ -388,7 +388,7 @@ askIfEnter(){
 		this.tanShow = false
 	},
 	exitFn(){
-		this.$axios.post("/user/logout")
+		this.$axios.post("/logout")
 		.then(res=>{
 			debugger
 			if(res.data.code == 0){
