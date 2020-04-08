@@ -310,7 +310,7 @@ export default {
   
 
     this.$axios
-      .get("/user/login-refresh")
+      .get("login-refresh")
       .then(res => {
           if(res.data.code == 0)
            this.$store.state.login=res.data.data

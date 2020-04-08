@@ -441,7 +441,7 @@
 				this.$refs.xiahuaxian.style.webkitTransform = "translate3d("+(num)+"px,0px,0)"
 			},
 			getData(){
-				this.$axios.get('/user/wx-videoaccount/wx-videoaccount?'+qs.stringify({
+				this.$axios.get('wx-videoaccount/wx-videoaccount?'+qs.stringify({
 					wxVideoaccountId:this.$route.query.data
 				}))
 				.then(res=>{
@@ -461,7 +461,7 @@
 			},
 			shouchangFn(){
 				if(this.shouchangData){
-					this.$axios.post('/user/my-favor/favor-wx-videoaccount',qs.stringify({
+					this.$axios.post('my-favor/favor-wx-videoaccount',qs.stringify({
 						wxVideoaccountId:this.$route.query.data
 					}))
 					.then(res=>{
@@ -474,7 +474,7 @@
 
 					})
 				}else{
-					this.$axios.post('/user/my-favor/unfavor-wx-videoaccount-list?',qs.stringify({
+					this.$axios.post('my-favor/unfavor-wx-videoaccount-list?',qs.stringify({
 						wxVideoaccountIdList:this.$route.query.data
 					}))
 					.then(res=>{

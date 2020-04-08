@@ -209,7 +209,7 @@
 
 			getData(){
 				this.load = true;
-				this.$axios.get("/user/wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({
+				this.$axios.get("wx-videoaccount-video/wx-videoaccount-video-list?"+qs.stringify({
 					wxVideoaccountId:this.$route.query.data,
 					kw:this.kw,
 					pn:this.page,

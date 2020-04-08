@@ -72,7 +72,7 @@ export default {
 	methods: {
 		getData(){
 			 var _this = this
-			this.$axios.get('/user/article/article?'+qs.stringify({
+			this.$axios.get('article/article?'+qs.stringify({
 				articleId:this.$route.query.data
 			}))
 			.then(res=>{

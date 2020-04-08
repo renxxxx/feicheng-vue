@@ -88,7 +88,7 @@ created(){
     }
     
       this.$axios
-        .get('/user/wx-offiaccount-loginqrcode')
+        .get('wx-offiaccount-loginqrcode')
         .then(res => {
 
               thisVue.loginTicket=res.data.data.loginTicket
@@ -101,17 +101,17 @@ created(){
     get() {
       
             this.$axios
-              .post('/user/login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
+              .post('login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
               .then(res => {
                 if(res.data.code==0){
                    this.$axios
-                        .get('/user/my/wx-videoaccount')
+                        .get('my/wx-videoaccount')
                         .then(res => {
                            if(res.data.code ==0)
                               this.$store.state.wxVideoaccount=res.data.data
                         })     
                     this.$axios
-                        .get('/user/login-refresh')
+                        .get('login-refresh')
                         .then(res => {
                           if(res.data.code ==0){
                             this.$store.state.login=res.data.data

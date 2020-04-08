@@ -253,7 +253,7 @@ export default {
 
 
 	  this.$axios
-	.get('/user/my/wx-videoaccount')
+	.get('my/wx-videoaccount')
 	.then(res => {
 		if(res.data.code ==0)
 			this.$store.state.wxVideoaccount=res.data.data
@@ -403,7 +403,7 @@ export default {
 			}
 		},
 		getDataType(){
-			this.$axios.get("/user/article-classification/article-classification-list?"+qs.stringify({sort:"orderNo",order:"asc",articleClassificationUpperId:0}))
+			this.$axios.get("article-classification/article-classification-list?"+qs.stringify({sort:"orderNo",order:"asc",articleClassificationUpperId:0}))
 			.then(res=>{
 				if(res.data.codeMsg)
 				   this.$message(res.data.codeMsg);
@@ -427,7 +427,7 @@ export default {
 		},
 		getDataOne(){
 			this.loadOne = true
-			this.$axios.get("/user/article/article-list?"+qs.stringify({
+			this.$axios.get("article/article-list?"+qs.stringify({
 				articleClassification1Id:this.typeList[0].articleClassificationId,
 				pn:this.pageOne,
 				ps:5}))
@@ -453,7 +453,7 @@ export default {
 		},
 		getDataTwo(){
 			this.loadTwo = true
-			this.$axios.get("/user/article/article-list?"+qs.stringify({
+			this.$axios.get("article/article-list?"+qs.stringify({
 				articleClassification1Id:this.typeList[1].articleClassificationId,
 				pn:this.pageTwo,
 				ps:5}))
@@ -478,7 +478,7 @@ export default {
 		},
 		getDataThree(){
 			this.loadThree = true
-			this.$axios.get("/user/article/article-list?"+qs.stringify({
+			this.$axios.get("article/article-list?"+qs.stringify({
 				articleClassification1Id:this.typeList[2].articleClassificationId,
 				pn:this.pageThree,
 				ps:5}))

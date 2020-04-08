@@ -389,7 +389,7 @@ askIfEnter(){
 		this.tanShow = false
 	},
 	exitFn(){
-		this.$axios.post("/user/logout")
+		this.$axios.post("logout")
 		.then(res=>{
 			debugger
 			if(res.data.code == 0){
