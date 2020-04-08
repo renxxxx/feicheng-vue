@@ -5,7 +5,7 @@
 				{{data.name}}
 			</div>
 			
-			<div style="margin-top: 20px;color: #9c999b;">
+			<div style="margin-top: 20px;color: #9c999b;font-size: 14px;">
 				<span>{{moment(data.createTime).format('YYYY-MM-DD')}}</span>
 			</div>
 			<hr style="z-index: 9;color: #ABABAB;">

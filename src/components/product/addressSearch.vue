@@ -179,7 +179,7 @@
 																		</div>
 																	</div>
 																</div>
-																<div class="ant-col ant-col-4 _2aS8tvUP"><span class="_3b8ZVHGf">{{item.fansCount}}</span></div>
+																<div class="ant-col ant-col-4 _2aS8tvUP"><span class="_3b8ZVHGf">{{numberTry(item.fansCount)}}</span></div>
 															</div>
 														</router-link>
 													</li>
@@ -1077,7 +1077,7 @@ h1,h2,h3,h4,h5,h6,p{
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	    display: inline-block;
-	    vertical-align: bottom;
+	    vertical-align: middle;
 	}
 	.ant-col-20 {
 	    display: block;
