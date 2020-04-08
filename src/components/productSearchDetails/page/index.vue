@@ -52,7 +52,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
+						<span style="color: #e8edee;font-size: 14px;">{{numberTry(scope.row.likeCount)}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column align='center'   prop="name" min-width="10%">
@@ -64,7 +64,7 @@
             </div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>
+						<span style="color: #e8edee;font-size: 14px;">{{numberTry(scope.row.pv)}}</span>
 					</template>
 				</el-table-column>
 			 </el-table>

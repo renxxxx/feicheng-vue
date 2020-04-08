@@ -14,7 +14,7 @@
 									<div class="_3DQ4NUnP">
 										<div class="_2Y7mZtYv">
 											<span class="_oBww4Ylt">曝光量:</span>
-											<span class="_s6WSF95M">{{message.pv}}</span>
+											<span class="_s6WSF95M">{{numberTry(message.pv)}}</span>
 										</div>
 										<!-- <div class="_1QJ7qoKs">时事 · NO.1</div> -->
 									</div>
@@ -115,7 +115,7 @@
 													</g>
 												</g>
 											</svg><span>粉丝数</span></div>
-										<div class="_tLnD2bXY">{{message.fansCount}}</div>
+										<div class="_tLnD2bXY">{{numberTry(message.fansCount)}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><svg width="14" height="14" viewBox="0 0 14 14" class="_2Xw0et9Q">
@@ -129,14 +129,14 @@
 													</g>
 												</g>
 											</svg><span>视频量</span></div>
-										<div class="_tLnD2bXY">{{message.videoCount}}</div>
+										<div class="_tLnD2bXY">{{numberTry(message.videoCount)}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><i aria-label="图标: heart" class="anticon anticon-heart"><svg viewBox="64 64 896 896" focusable="false"
 												 class="" data-icon="heart" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 													<path d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"></path>
 												</svg></i><span>总获赞</span></div>
-										<div class="_tLnD2bXY">{{message.likeCount}}</div>
+										<div class="_tLnD2bXY">{{numberTry(message.likeCount)}}</div>
 									</div>
 									<div class="_3uYJipmG">
 										<div><svg width="14" height="14" viewBox="0 0 14 14" class="_2Xw0et9Q">
@@ -144,7 +144,7 @@
 												<path d="M1.755 6.661a2.543 2.543 0 0 0 2.014.863A2.685 2.685 0 0 0 5.9 6.6a3.559 3.559 0 0 0 .8-2.419 3.453 3.453 0 0 0-.728-2.338 2.538 2.538 0 0 0-2.027-.839 2.723 2.723 0 0 0-2.153.912 3.607 3.607 0 0 0-.8 2.46 3.348 3.348 0 0 0 .763 2.285zm.909-4.034a1.464 1.464 0 0 1 1.231-.6 1.379 1.379 0 0 1 1.183.573 2.72 2.72 0 0 1 .42 1.624 2.806 2.806 0 0 1-.428 1.665 1.418 1.418 0 0 1-1.216.592 1.439 1.439 0 0 1-1.2-.571 2.6 2.6 0 0 1-.441-1.621 2.7 2.7 0 0 1 .451-1.663zm8.037-1.439l-7.831 12.7h1.314l7.831-12.7zM9.052 13.125a2.525 2.525 0 0 0 2.019.876 2.68 2.68 0 0 0 2.118-.925 4.089 4.089 0 0 0 .078-4.78 2.532 2.532 0 0 0-2.022-.842 2.691 2.691 0 0 0-2.145.925 3.654 3.654 0 0 0-.8 2.471 3.37 3.37 0 0 0 .752 2.274zm.894-4.016a1.455 1.455 0 0 1 1.244-.6 1.4 1.4 0 0 1 1.176.563 2.626 2.626 0 0 1 .428 1.621 2.819 2.819 0 0 1-.428 1.663 1.414 1.414 0 0 1-1.216.594 1.435 1.435 0 0 1-1.2-.573 2.572 2.572 0 0 1-.441-1.6 2.758 2.758 0 0 1 .437-1.669z"
 												 fill="#cdcfcf"></path>
 											</svg><span>曝光量</span></div>
-										<div class="_tLnD2bXY">{{message.pv}}</div>
+										<div class="_tLnD2bXY">{{numberTry(message.pv)}}</div>
 									</div>
 								</div>
 								<!-- <div class="ant-row-flex ant-row-flex-space-between" style="margin-bottom: 16px;">
