@@ -1,5 +1,5 @@
 <template>
-  <div class="ruzhu" style="    margin-top: 24px;">
+  <div class="ruzhu" style="margin-top: 24px;">
     <div>
       <el-row style="height: 60px;">
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10"><span class="maintop">博主入驻:</span></el-col>
@@ -9,7 +9,7 @@
       <el-row>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-            <li>视频号信息:</li>
+            <!-- <li>视频号信息:</li> -->
             <li>
               <span>视频号名:</span>
               <el-input :disabled='disabled' v-model="name" placeholder="请输入内容" clearable></el-input>
@@ -24,7 +24,7 @@
             </li>
             <li>
               <span>简介:</span>
-              <el-input  :disabled='disabled' type="textarea" :rows="2" v-model="brief" placeholder="请输入内容" clearable></el-input>
+              <el-input  :disabled='disabled' type="textarea" :rows="5" v-model="brief" placeholder="请输入内容" clearable></el-input>
             </li>
             <li>
               <span>账号类型:</span>
@@ -59,7 +59,7 @@
         </el-col>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
           <ul>
-            <li style="height: 24px;"></li>
+            <!-- <li style="height: 24px;"></li> -->
             <li>
               <span>粉丝量:</span>
               <el-input :disabled='disabled' type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
@@ -670,7 +670,7 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
   background: #fff;
 } */
 .avatar {
-  object-fit: contain;
+  object-fit: cover;
   background: #e5e5e5;
 }
 .avatar-uploader .el-upload {

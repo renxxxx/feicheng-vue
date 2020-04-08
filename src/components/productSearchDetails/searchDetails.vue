@@ -257,9 +257,9 @@
 									<div class="_1KGIPaKA">
                     <!-- <canvas height="64" width="64" style="height: 64px; width: 64px;"></canvas> -->
 
-					<viewer>
+					<div v-viewer="{navbar:false,title:false,toolbar:false}">
                     <img style="height: 64px; width: 64px;cursor: pointer;" :src="message.qrcode" alt="">
-					</viewer>
+					</div>
 
                   </div>
 								</div>

@@ -182,7 +182,9 @@
             <div>飞橙服务号</div>
             <div>
               <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
-              <img :src="getConfig.servantWxQrcode" alt />
+              <div v-viewer="{navbar:false,title:false,toolbar:false}">
+                <img :src="getConfig.servantWxQrcode" style="cursor:pointer;" />
+					    </div>
 
             </div>
           </div>

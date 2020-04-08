@@ -53,35 +53,32 @@ export default {
 #app {
 	height: 100%;
 }
-.muti::-webkit-scrollbar{
-	width:4px;
-	/* border-radius: 5px; */
-}
-.muti::-webkit-scrollbar-track{
-	background-color:#2b2b2e;
-	/* border-radius: 5px; */
-}
-.muti::-webkit-scrollbar-thumb{
-	background-color:#66666d;
-	/* border-radius: 5px; */
-}
-.muti::-webkit-scrollbar-thumb:hover {
-	background-color:#66666d;
-	/* border-radius: 5px; */
-}
-.muti::-webkit-scrollbar-thumb:active {
-	background-color:#2b2b2e;
-	/* border-radius: 5px; */
-}
 
 [v-cloak]{
     display: none;
 }
+
+
+
+
+
+
 </style>
 
 
-<style>
 
+<style>
+/* img:not([src]),img[src=""] {opacity: 0;} */
+img[lazy="loading"]{
+ }
+ 
+img[lazy="error"]{
+ }
+
+
+*{
+	word-break: break-all;
+}
 
 body{
   margin: 0px;
@@ -92,49 +89,35 @@ body{
   right:0;
   bottom:0;
 }
-
-*{
-	word-break: break-all;
-}
-
 img{
   object-fit: cover;
-
 }
 
-img[lazy="loading"]{
-	object-fit:scale-down!important;
-	width:20px;
- }
-img:not([src]),img[src=""] {opacity: 0;}
-img[lazy="error"]{
-	object-fit:scale-down!important;
-	width:20px;
- }
+::-webkit-scrollbar{
+	width:4px;
+	/* border-radius: 5px; */
+}
+::-webkit-scrollbar-track{
+	background-color:#2b2b2e;
+	/* border-radius: 5px; */
+}
+::-webkit-scrollbar-thumb{
+	background-color:#66666d;
+	/* border-radius: 5px; */
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color:#66666d;
+	/* border-radius: 5px; */
+}
+::-webkit-scrollbar-thumb:active {
+	background-color:#2b2b2e;
+	/* border-radius: 5px; */
+}
 
 ::selection {
     color: #fff;
     background: #ff7800;
 }
-::-webkit-scrollbar{
-width:5px;
-height:4px;
-}
-::-webkit-scrollbar-thumb{
-border-radius:0;
--webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
-background: rgba(0,0,0,0.2);
-}
-::-webkit-scrollbar-track{
--webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
-border-radius:0;
-background:#e0e0e0;
-}
-
-
-
-
-
 
 
 .line-1{
@@ -169,34 +152,5 @@ background:#e0e0e0;
   word-break: break-all;
   word-wrap: break-word;
 }
-
-
-
-/* 首页轮播图重写 */
-.showPage_eight .el-carousel__button{
-    width: 6px !important;
-    height: 6px !important;
-
-       padding: 0;
-       color: transparent;
-       font-size: 0;
-       background: #2b2b2b;
-       border: 0;
-       border-radius: 3px;
-       outline: none;
-       cursor: pointer;
-       opacity: .3;
-       -webkit-transition: all .5s;
-       transition: all .5s;
-  }
-.showPage_eight .el-carousel__indicator.is-active button{
-      width: 32px !important;
-      height: 6px !important;
-      border-radius: 3px !important;
-      background: #ff7800 !important;
-    }
-.el-carousel__indicators{
-   bottom: 0 !important;
-  }
 
 </style>

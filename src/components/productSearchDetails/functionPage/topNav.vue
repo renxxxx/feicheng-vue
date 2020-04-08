@@ -106,7 +106,7 @@
       </div>
     </el-col>
     <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%" >
-      <div class="avatarBox"><img class="avator" :src="getConfig.servantWxQrcode" alt="" /></div>
+      <div class="avatarBox" v-viewer="{navbar:false,title:false,toolbar:false}"><img class="avator" :src="getConfig.servantWxQrcode" style="cursor:pointer;"  /></div>
       <span class="span">添加运营人员后，进入到交流群</span>
       <span slot="footer" class="dialog-footer">
         <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
