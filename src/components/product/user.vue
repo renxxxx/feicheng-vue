@@ -644,12 +644,13 @@ h1,h2,h3,h4,h5,h6,p{
 	/* overflow-x: hidden; */
 }
 .uer_zhixun_gongneng_hezi span,.uer_zhixun_lishi>span{
-	height: 30px;
-	line-height: 30px;
+	height: 19px;
+	line-height: 19px;
 	white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 	display: block;
+	font-size:14px;
 }
 
 .uer_zhixun_gongneng_hezi span:hover,.uer_zhixun_tuisongList_hezhi:hover,.uer_zhixun_lishiList_hezhi_neirong_list:hover{
