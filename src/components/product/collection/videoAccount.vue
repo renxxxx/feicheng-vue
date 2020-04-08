@@ -172,7 +172,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;text-align: center !important;">{{scope.row.fansCount}}</span>
+						<span style="color: #e8edee;font-size: 14px;text-align: center !important;">{{numberTry(scope.row.fansCount)}}</span>
 					</template>
 			   </el-table-column>
 				<el-table-column align='center'   prop="name" min-width="10%">
@@ -183,7 +183,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.likeCount}}</span>
+						<span style="color: #e8edee;font-size: 14px;">{{numberTry(scope.row.likeCount)}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column align='center'   prop="name" min-width="10%">
@@ -194,7 +194,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.videoCount}}</span>
+						<span style="color: #e8edee;font-size: 14px;">{{numberTry(scope.row.videoCount)}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column align='center'   prop="name" min-width="10%">
@@ -205,7 +205,7 @@
 						</div>
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;">{{scope.row.pv}}</span>
+						<span style="color: #e8edee;font-size: 14px;">{{numberTry(scope.row.pv)}}</span>
 					</template>
 				</el-table-column>
 				<el-table-column align='center'   prop="name" min-width="8%">

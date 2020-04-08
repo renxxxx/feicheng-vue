@@ -2,12 +2,12 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-  
+
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 // import './assets/rest.css'
-  
+
 import App from './App'
 import router from './router'
 import axios from 'axios'
@@ -20,7 +20,7 @@ import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import './assets/font/font.css'
- 
+
 
 Vue.use(Viewer);
 Viewer.setDefaults({
@@ -34,7 +34,7 @@ Vue.use(VueLazyload, {
 })
 
 
- 
+
 Vue.prototype.$version = '2004071635-8e2fb70'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 Vue.config.productionTip = false
@@ -60,7 +60,17 @@ Vue.prototype.cookieOn=function() {
   return result;
 }
 
-
+Vue.prototype.numberTry=function(number) {
+		  var numberOut = ''
+			if(10000<=number&&number<100000000){
+				numberOut=(number/10000).toFixed(1)+'w'
+			}else if(number>=100000000){
+        numberOut=(number/100000000).toFixed(1)+'亿'
+			}else if(number<10000){
+        	numberOut=number
+          }
+		  return numberOut
+   }
 
 
 new Vue({
