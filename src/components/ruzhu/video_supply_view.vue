@@ -23,10 +23,10 @@
                   <video controls="controls" style="width: 50%;min-width: 200px;max-width: 500px;" :src="props.row.video"></video>
                 </el-form-item>
                 <el-form-item label="点赞量">
-                  <span>{{ props.row.likeCount }}</span>
+                  <span>{{ numberTry(props.row.likeCount )}}</span>
                 </el-form-item>
                 <el-form-item label="曝光量">
-                  <span>{{ props.row.pv }}</span>
+                  <span>{{numberTry( props.row.pv )}}</span>
                 </el-form-item>
                 <el-form-item label="描述">
                   <span>{{ props.row.brief }}</span>

@@ -377,7 +377,7 @@ askIfEnter(){
     loginFn() {
       debugger;
       this.centerDialogVisible = true;
-      this.$refs.loginRef.getData('/product/product_user');
+      // this.$refs.loginRef.getData('/product/product_user');
     },
     scrollToTop() {
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop

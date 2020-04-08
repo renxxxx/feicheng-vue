@@ -46,7 +46,17 @@ Vue.prototype.cookieOn=function() {
   return result;
 }
 
-
+Vue.prototype.numberTry=function(number) {
+		  var numberOut = ''
+			if(10000<=number&&number<100000000){
+				numberOut=(number/10000).toFixed(1)+'w'
+			}else if(number>=100000000){
+        numberOut=(number/100000000).toFixed(1)+'亿'
+			}else if(number<10000){
+        	numberOut=number
+          }
+		  return numberOut
+   }
 
 
 new Vue({

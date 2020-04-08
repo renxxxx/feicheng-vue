@@ -411,7 +411,7 @@ export default {
           if (res.data.code == 20) {
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
-              this.$refs.loginRef.getData();
+              // this.$refs.loginRef.getData();
             }
           } else if (res.data.code == 0) {
             //    			 this.$message.success('入驻申请已提交，请耐心等待审核')
@@ -489,7 +489,7 @@ export default {
             if (res.data.code == 20) {
               if (!this.centerDialogVisible) {
                 this.centerDialogVisible = true;
-                this.$refs.loginRef.getData();
+                // this.$refs.loginRef.getData();
               }
               // this.centerDialogVisible = true;
               // this.$refs.loginRef.getData();
@@ -538,7 +538,7 @@ export default {
           if (res.data.code == 20) {
             if (!this.centerDialogVisible) {
               this.centerDialogVisible = true;
-              this.$refs.loginRef.getData();
+              // this.$refs.loginRef.getData();
             }
           } else {
             var itemList = res.data.data.itemList;

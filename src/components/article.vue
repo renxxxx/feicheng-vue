@@ -1,10 +1,17 @@
 <template>
 	<div style="min-width:150px;max-width:850px;margin:auto">
 		
-			<div style="color:#000000;    font-size: 24px;
-    font-weight: 400;
-    word-wrap: break-word;margin-top:10px;">{{data.name}}</div>
-			<hr>
+			<div style="color:#000000;font-size: 24px;font-weight: 400;word-wrap: break-word;margin-top:10px;">
+				{{data.name}}
+			</div>
+			
+			<div style="margin-top: 20px;color: #9c999b;">
+				<span>{{moment(data.createTime).format('YYYY-MM-DD')}}</span>
+			</div>
+			<hr style="z-index: 9;color: #ABABAB;">
+			<div style="width: 100%;height: 100%;text-align: center;line-height: 100%;margin-top: 9px;">
+				<img :src="data.cover" alt="" style="max-width: 100%;margin: auto;">
+			</div>
 			 <div v-html="content"  >
 			 </div>
 	</div>

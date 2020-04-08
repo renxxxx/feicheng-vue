@@ -69,6 +69,13 @@ created(){
     // console.log('mounted')
      
   },
+	watch:{
+		centerDialogVisible: function (curVal,oldVal) {
+            if(this.centerDialogVisible){
+                this.getData()
+             }
+		}
+	},
   methods: {
     closeLogin(){
       

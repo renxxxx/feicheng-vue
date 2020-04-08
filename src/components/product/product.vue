@@ -335,7 +335,7 @@ export default {
 	  // //console.log(this.$store.state.login)
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = true;
-		  this.$refs.loginRef.getData();
+		  // this.$refs.loginRef.getData();
 	  }
   },
   watch:{
