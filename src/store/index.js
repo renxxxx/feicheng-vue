@@ -37,7 +37,7 @@ const state = {
     list:function(){
       let videoList;
       Vue.prototype.$jquery.ajax({
-        url: '/user/my/wx-videoaccount-video-list',
+        url: '/my/wx-videoaccount-video-list',
         type: 'get',
         async: false,
         success: function(res) {

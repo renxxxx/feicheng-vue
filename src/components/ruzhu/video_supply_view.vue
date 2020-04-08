@@ -213,7 +213,7 @@ export default {
      //console.log(this.tableData)
     //   this.$axios
     //     .post(
-    //       '/user/wx-videoaccount-video/create-my-wx-videoaccount-video?',
+    //       'wx-videoaccount-video/create-my-wx-videoaccount-video?',
     //       qs.stringify({
     //         name: this.name,
     //         pv: this.pv,
