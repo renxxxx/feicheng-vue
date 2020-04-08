@@ -23,11 +23,11 @@
 					</div>
 					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
 				</div>
-				<div v-if='show_jieguo[0]||show_jieguo[1]' class="ant-col" style="line-height: 32px;padding-left: 16px; padding-right: 16px; float: left;">
+				<div v-if='show_jieguo[0]||show_jieguo[1]' class="ant-col" style="line-height: 60px;padding-left: 16px; padding-right: 16px; float: left;">
 					<span class="_3EYKFwfn">{{searchNum}}</span>
 					<span>条结果</span>
 				</div>
-				<div class="_1OxA1GcO" style="line-height: 32px;" v-if='show_jieguo[0]||show_jieguo[1]' @click="inDataFn">
+				<div class="_1OxA1GcO" style="line-height: 60px;" v-if='show_jieguo[0]||show_jieguo[1]' @click="inDataFn">
 					<i aria-label="图标: sync" class="anticon anticon-sync">
 						<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="sync" width="1em" height="1em" fill="currentColor" aria-hidden="true">
 							<path d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 0 1 755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 0 0 3 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 0 1 512.1 856a342.24 342.24 0 0 1-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 0 0-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 0 0-8-8.2z">
@@ -55,7 +55,7 @@
 						<li v-for="(item,inx) in dataList" :key="inx"  @click="renzhengClickFn(item,inx)">
 							<div class="ant-col" style="padding-left: 16px">
 								<div class="_1CbZWulL">
-									<div class="_3jSKX6Bn">
+									<div class="_3jSKX6Bn" :class="[item.typeData? 'butttonClass':'']">
 										<div class="_o0SOfc8d">{{item.name}}</div>
 									</div>
 								</div>
@@ -137,7 +137,7 @@
 
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10" >
 			<el-table :data="userList"  style="width: 99%"   @row-click="detailsFn">
-				<el-table-column  prop="date" label="视频号" min-width="62%">
+				<el-table-column  prop="date" label="视频号" min-width="60%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
 				       	<img v-lazy="scope.row.logo" alt="">
@@ -155,18 +155,18 @@
 				       </div>
 				    </template>
 			   </el-table-column>
-			   <el-table-column align='center'  prop="name" min-width="13%">
-					<template slot="header" slot-scope="scope">
-			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
+			   <el-table-column align='center'  prop="name" min-width="13%" >
+					<template slot="header" slot-scope="scope" style="text-align: center;">
+			   			<div @click="clickFn('type')" :class="clickData.type? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;width: 100%;height: 100%;">
 			   				<span style="color: #cdcfcf;text-align: center;" :class="clickData.type? 'xuanzhongColor':''">领域</span>
 			   			</div>
 					</template>
-					<template slot-scope="scope">
+					<template slot-scope="scope" >
 			   			<span class="biaoqianClass"  style="text-align: center !important;"  v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList">{{biaoqian.name}}</span>
 					</template>
 			   </el-table-column>
-			   <el-table-column align='center'   prop="name" min-width="10%">
-				   <template slot="header" slot-scope="scope">
+			   <el-table-column align='center'   prop="name" min-width="10%" style="text-align: center;">
+				   <template slot="header" slot-scope="scope" >
 						<div @click="clickFn('one')" :class="clickData.one? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span style="color: #cdcfcf;text-align: center;" :class="clickData.one? 'xuanzhongColor':''">粉丝数</span>
 							<svg viewBox="0 0 1024 1024" focusable="false" class="" style="vertical-align: middle;" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="false"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
@@ -630,7 +630,7 @@ export default {
 		},
 		detailsFn(value){
 			window.open('/#/searchDetails/searchDetails_index?data='+value.wxVideoaccountId, '_blank');
-		}
+		},
 	},
 }
 </script>
@@ -670,7 +670,7 @@ h1,h2,h3,h4,h5,h6,p{
 	/* width: 532px; */
 	height: 32px;
 	line-height: 30px;
-
+	margin: 13px 0px;
 	float: left;
 	/* border: 1px solid #6d6d6d; */
 
@@ -1218,14 +1218,21 @@ svg:not(:root) {
     border-radius: 4px;
     border: 1px solid #6d6d6d;
     width: 104px;
-    line-height: 29px;
+    line-height: 32px;
     height: 32px;
     box-sizing: border-box;
     -webkit-transition: all .2s;
     transition: all .2s;
 }
 ._o0SOfc8d:hover {
-    border-color: #ff7800;
+    background-color: #d95e00;
+        border-color: #d95e00;
+	border-radius: 4px;
+}
+.butttonClass{
+	background-color: #d95e00;
+	border-radius: 4px;
+	    border-color: #d95e00;
 }
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
