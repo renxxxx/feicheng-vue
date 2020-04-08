@@ -401,7 +401,7 @@ export default {
 			}
 		},
 		getDataType(){
-			this.$axios.get("wx-videoaccount/wx-videoaccount-realm-list?")
+			this.$axios.get("/wx-videoaccount/wx-videoaccount-realm-list?")
 			.then(res =>{
 				if(res.data.code == 20){
 					if(!this.centerDialogVisible){
@@ -423,7 +423,7 @@ export default {
 			.catch()
 		},
 		getNum(){
-			this.$axios.get("my-favor/wx-videoaccount-list-sum?"+qs.stringify({
+			this.$axios.get("/my-favor/wx-videoaccount-list-sum?"+qs.stringify({
 				kw:this.kw,
 				type:this.dataType,
 				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
@@ -437,7 +437,7 @@ export default {
 		},
 		getData(){
 			this.load = true;
-			this.$axios.get("my-favor/wx-videoaccount-list?"+qs.stringify({
+			this.$axios.get("/my-favor/wx-videoaccount-list?"+qs.stringify({
 				wxVideoaccountRealmId:this.wxVideoaccountRealmIdNow,
 				type:this.dataType,
 				sort:this.sort,

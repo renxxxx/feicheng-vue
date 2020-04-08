@@ -23,7 +23,7 @@ export default {
     debugger
     let thisVue = this
         this.$jquery.ajax({
-			  url:'login-refresh',
+			  url:'/login-refresh',
 			  type:'get',
 			  async:false,
 			  success:function(res){
@@ -34,7 +34,7 @@ export default {
       })
 
  this.$jquery.ajax({
-			  url:'my/wx-videoaccount',
+			  url:'/my/wx-videoaccount',
 			  type:'get',
 			  async:false,
 			  success:function(res){

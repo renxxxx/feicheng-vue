@@ -141,7 +141,7 @@ export default {
   components: {},
   methods: {
     exitFn() {
-      this.$axios.post('logout').then(res => {
+      this.$axios.post('/logout').then(res => {
         debugger;
         if (res.data.code == 0) {
           localStorage.clear();

@@ -370,7 +370,7 @@
 			},
 			getData(){
 				this.load = true;
-				this.$axios.get("wx-videoaccount/wx-videoaccount-list?"+qs.stringify({
+				this.$axios.get("/wx-videoaccount/wx-videoaccount-list?"+qs.stringify({
 					kw:this.kw,
 					pn:this.page,
 					area1Id:this.area1Id,
