@@ -73,7 +73,6 @@
 
 
 
-		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -81,7 +80,6 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../../login.vue'
 	export default {
 		name: 'searchDetails',
 		data() {
@@ -119,7 +117,6 @@
 
 		},
 		components: {
-			login
 		},
 		beforeCreate() {
 
@@ -130,8 +127,7 @@
 		activated(){
 			let thisVue = this
 			if(this.$route.meta.auth && !this.$store.state.login){
-				this.$store.state.centerDialogVisible = true;
-				this.$refs.loginRef.getData();
+				this.$store.state.loginComponent.getData();
 			}
   		},
 		//离开前判断前进和后退时间来判断是否保存滚动值
@@ -217,10 +213,7 @@
 					order:this.order}))
 				.then(res =>{
 					if(res.data.code == 20){
-						if(!this.centerDialogVisible){
-							this.centerDialogVisible = true;
-							this.$refs.loginRef.getData();
-						}
+						this.$store.state.loginComponent.getData();
 					}else{
 						if(res.data.data.itemList.length !=0){
 							for(let i in res.data.data.itemList){

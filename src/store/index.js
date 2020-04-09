@@ -13,7 +13,7 @@ const state = {
 	loading:true,
   login:null,
   wxVideoaccount:null,
-
+  loginComponent:null,
   
 // 获取配置信息
  getConfig:{

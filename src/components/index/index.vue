@@ -201,8 +201,6 @@
       </div>
 </div>
       <!-- </el-footer> -->
-      <!--  登录扫码框 -->
-      <login  ref="loginRef"></login>
     </div>
 </template>
 
@@ -218,7 +216,6 @@ import showPage_seven from "./showPage_seven.vue";
 import showPage_eight from "./showPage_eight.vue";
 import showPage_nine from "./showPage_nine.vue";
 
-import login from "../login.vue";
 export default {
   name: "account",
   data() {
@@ -336,8 +333,7 @@ export default {
     showPage_six,
     showPage_seven,
     showPage_eight,
-    showPage_nine,
-    login
+    showPage_nine
   },
 
   computed: {
@@ -383,8 +379,7 @@ askIfEnter(){
     },
     loginFn() {
       //debugger;
-      this.centerDialogVisible = true;
-      // this.$refs.loginRef.getData('/product/product_user');
+      this.$store.state.loginComponent.getData();
     },
     scrollToTop() {
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop

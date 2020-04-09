@@ -77,11 +77,11 @@ created(){
 	},
   methods: {
     closeLogin(){
-      
           clearInterval(this.timer);
           this.centerDialogVisible = false;
     },
     getData(last){
+        this.$store.state.centerDialogVisible = true;
        this.last=last;
        let thisVue =this
        if(!this.cookieOn()){
@@ -97,6 +97,7 @@ created(){
 
               thisVue.loginTicket=res.data.data.loginTicket
              thisVue.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
+             clearInterval(thisVue.timer);
              thisVue.timer = setInterval(this.get, 2000);
 
         })

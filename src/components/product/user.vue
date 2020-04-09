@@ -196,7 +196,6 @@
 				</router-link>
 			</el-row>
 		</div>
-		<login ref="loginRef"></login>
 		</div>
 	</div>
 </template>
@@ -205,7 +204,6 @@
 import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 import qs from "qs";
-import login from '@/components/login.vue'
 export default {
   name: "gene",
   data() {
@@ -236,7 +234,6 @@ export default {
     }
   },
   components: {
-	  login
   },
   computed: {
   },
@@ -247,8 +244,7 @@ export default {
 	  //debugger
     let thisVue = this
       if(this.$route.meta.auth && !this.$store.state.login){
-          this.$store.state.centerDialogVisible = true;
-          this.$refs.loginRef.getData();
+         this.$store.state.loginComponent.getData();
 	 }
 
 
@@ -414,10 +410,7 @@ export default {
 				}
 				else{
 				   //开始失败逻辑
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
+					this.$store.state.loginComponent.getData();
 				}
 				this.nextPageOne();
 				this.nextPageTwo();
@@ -441,10 +434,7 @@ export default {
 				}
 				else{
 				   //开始失败逻辑
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
+					this.$store.state.loginComponent.getData();
 
 				}
 				this.loadOne = false
@@ -467,10 +457,7 @@ export default {
 				}
 				else{
 				   //开始失败逻辑
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
+					this.$store.state.loginComponent.getData();
 				}
 				this.loadTwo = false
 			})
@@ -484,10 +471,7 @@ export default {
 				ps:5}))
 			.then(res=>{
 				if(res.data.code == 20){
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
+					this.$store.state.loginComponent.getData();
 				}else{
 					for(let i in res.data.data.itemList){
 						this.articleThree.push(res.data.data.itemList[i])

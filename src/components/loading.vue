@@ -1,5 +1,5 @@
 <template>
-      <div class="loading">
+    <div class="loading">
 		  <img style="width:30px" src="../assets/img/loading.png" />
 	  </div>
 </template>

@@ -215,7 +215,6 @@
 			<!-- </div> -->
 
 		</div>
-		<login ref="loginRef" ></login>
 	</div>
 </template>
 
@@ -224,7 +223,6 @@ import axios from 'axios'
 import h5p from '../../../build/h5p.js'
 import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
-import login from '@/components/login.vue'
 export default {
 	name: 'douyinSearch',
 	data () {
@@ -276,7 +274,6 @@ export default {
 		}
 	},
 	components:{
-		login
 	},
 	beforeCreate(){
 
@@ -288,8 +285,7 @@ export default {
 		//debugger
     	let thisVue = this
       if(this.$route.meta.auth && !this.$store.state.login){
-          this.$store.state.centerDialogVisible = true;
-          this.$refs.loginRef.getData();
+          this.$store.state.loginComponent.getData();
      }
 	 if(this.$route.query.value){
 		this.page = 0;
@@ -398,10 +394,7 @@ export default {
 			this.$axios.get("/wx-videoaccount/wx-videoaccount-realm-list?")
 			.then(res =>{
 				if(res.data.code == 20){
-					if(!this.centerDialogVisible){
-						this.centerDialogVisible = true;
-						this.$refs.loginRef.getData();
-					}
+					this.$store.state.loginComponent.getData();
 				}else{
 					if(res.data.data.itemList.length !=0){
 						for(let i in res.data.data.itemList){

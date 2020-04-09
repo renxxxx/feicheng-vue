@@ -76,7 +76,7 @@
 											<i class="el-icon-arrow-down"></i>
 										</span>
 
-										<span v-if="!$store.state.login" @click="$store.state.centerDialogVisible=true;$refs.loginRef.getData()" slot="reference" style="cursor: pointer;" >
+										<span v-if="!$store.state.login" @click="$store.state.loginComponent.getData();" slot="reference" style="cursor: pointer;" >
 											{{ "登录" }}
 										</span>
 
@@ -223,7 +223,6 @@
 
 		</el-col>
 		</el-row>
-		<login ref="loginRef"></login>
     <groupCode ref='groupCode'></groupCode>
 		<searchDialog></searchDialog>
     <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%"  style="">
@@ -240,7 +239,6 @@
 <script>
 import axios from 'axios'
 import {mapActions,mapGetters} from 'vuex'
-import login from '@/components/login.vue'
 import searchDialog from './searchDialog.vue'
 export default {
   name: 'product',
@@ -335,14 +333,13 @@ export default {
 	  // //console.log(this.$store.state.login)
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = true;
-		  // this.$refs.loginRef.getData();
 	  }
   },
   watch:{
 
   },
   components: {
-    login,searchDialog
+   	searchDialog
   },
   methods:{
 
