@@ -7,10 +7,10 @@
 		<span>联系<br>
 		我们</span>
 	</div>
-	<el-dialog class="popScan" title="联系我们" :visible.sync="showContact" width="402px" @close="closeLogin()" top="10vh" center>
+	<el-dialog class="popScan" title="联系客服" :visible.sync="showContact" width="402px" @close="closeLogin()" top="10vh" center>
 	  <div class="popIndex" style="height: 418px">
 	    <div class="code">
-	      <img v-if="imgSrc" :src="this.$store.state.getConfig.config().servantWxQrcode" alt="" />
+	      <img  :src="this.$store.state.getConfig.config().personalWxQrcode" alt="" />
 	    </div>
 	    <p class="scanNow scanNowFirst">
 	      打开
@@ -201,8 +201,7 @@ export default {
 }
 .scanIntro {
   padding: 12px 0 0;
-  color: #ababab;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 /* 重写 */
