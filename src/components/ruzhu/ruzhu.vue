@@ -269,6 +269,7 @@ export default {
   //   });
   // },
   activated(){
+   debugger
     let thisVue = this
       if(this.$route.meta.auth && !this.$store.state.login){
           this.$store.state.centerDialogVisible = true;

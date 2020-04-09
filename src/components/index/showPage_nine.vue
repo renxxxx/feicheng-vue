@@ -49,7 +49,7 @@
 		this.$emit('loginFn', '');
 		  /* if(!this.centerDialogVisible){
 			  this.centerDialogVisible = true;
-			  debugger;
+			  //debugger;
 			  this.$refs.loginRefs.getData();
 		  }
         // this.centerDialogVisible = true;

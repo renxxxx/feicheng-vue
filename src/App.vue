@@ -19,7 +19,7 @@ export default {
         });
     }
 
-    debugger
+    //debugger
     let thisVue = this
         this.$jquery.ajax({
 			  url:'/login-refresh',

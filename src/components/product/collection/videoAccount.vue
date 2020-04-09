@@ -525,7 +525,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.one++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -550,7 +550,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.two++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -575,7 +575,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.three++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -600,7 +600,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.four++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;

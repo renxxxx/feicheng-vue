@@ -285,7 +285,7 @@ export default {
 
 	},
 	activated(){
-		debugger
+		//debugger
     	let thisVue = this
       if(this.$route.meta.auth && !this.$store.state.login){
           this.$store.state.centerDialogVisible = true;
@@ -478,7 +478,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.one++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -503,7 +503,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.two++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -528,7 +528,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.three++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;
@@ -553,7 +553,7 @@ export default {
 				this.userList = [];
 				this.page = 0;
 				this.four++;
-				debugger
+				//debugger
 				this.nextPage()
 
 				break;

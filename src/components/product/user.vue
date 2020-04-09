@@ -231,7 +231,7 @@ export default {
   },
    watch: {
     $route(to, from) {
-		debugger
+		//debugger
 
     }
   },
@@ -244,7 +244,7 @@ export default {
   beforeCreate(){
   },
   activated(){
-	  debugger
+	  //debugger
     let thisVue = this
       if(this.$route.meta.auth && !this.$store.state.login){
           this.$store.state.centerDialogVisible = true;
@@ -264,12 +264,12 @@ export default {
 
   },
   beforeRouteLeave(to, from, next) {
-	  debugger
+	  //debugger
   	let scrollTop = this.scrollTop =document.getElementById('product').scrollTop;
   	this.scrollTop = scrollTop?scrollTop :0;
   	//console.log(this.scrollTop)
   	if(!to.query.time || !from.query.time || to.query.time < from.query.time){
-  		 // debugger
+  		 // //debugger
   			if (this.$vnode && this.$vnode.data.keepAlive)
   			{
   				if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache)

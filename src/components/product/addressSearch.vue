@@ -321,7 +321,7 @@
 				// // console.log(_value)
 				
 				// for(let i = 0;i<this.area.length;i++){
-				// 	debugger
+				// 	//debugger
 				// 	if(this.area[i].label == _value){
 				// 		this.area1Id = this.area[i].value;
 						
@@ -329,13 +329,13 @@
 				// 		console.log(this.area[i])
 				// 	}
 				// 	if(this.area[i].children.length!=0){
-				// 		debugger
+				// 		//debugger
 				// 		for(let a = 0;i<this.area[i].children.length;a++){
 				// 			console.log(this.area[i].children[a])
 				// 			if(this.area[i].children[a]){
 				// 				if(this.area[i].children[a].label == _value){
 				// 					this.area2Id = this.area[i].children[a].value;
-				// 					debugger
+				// 					//debugger
 				// 					console.log('b')
 				// 					console.log(this.area[i].children[a])
 				// 				}
@@ -344,7 +344,7 @@
 				// 						if(this.area[i].children[a].children){
 				// 							if(this.area[i].children[a].children[b].label == _value){
 				// 								this.area3Id = this.area[i].children[a].children[b].value;
-				// 								debugger
+				// 								//debugger
 				// 								console.log('c')
 				// 								console.log(this.area[i].children[a].children[b].label)
 				// 							}
