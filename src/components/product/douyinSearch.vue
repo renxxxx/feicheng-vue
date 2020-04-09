@@ -56,7 +56,7 @@
 							<div class="ant-col" style="padding-left: 16px">
 								<div class="_1CbZWulL">
 									<div class="_3jSKX6Bn" :class="[item.typeData? 'butttonClass':'']">
-										<div class="_o0SOfc8d">{{item.name}}</div>
+										<div class="_o0SOfc8d" :class="[item.typeData? 'butttonClass':'']">{{item.name}}</div>
 									</div>
 								</div>
 							</div>
@@ -1225,14 +1225,16 @@ svg:not(:root) {
     transition: all .2s;
 }
 ._o0SOfc8d:hover {
-    background-color: #d95e00;
-        border-color: #d95e00;
+    background-color: #ff7800;
+        border-color: #ff7800;
 	border-radius: 4px;
+	color:#FFF;
 }
 .butttonClass{
-	background-color: #d95e00;
+	background-color: #ff7800;
+	    border-color: #ff7800;
 	border-radius: 4px;
-	    border-color: #d95e00;
+	color:#FFF;
 }
 /* @media only screen and (max-width: 1366px) {
     .searchList_canshu ul li:first-child,.searchList_shuju ul li:first-child{
