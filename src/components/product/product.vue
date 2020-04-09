@@ -390,7 +390,6 @@ askIfEnter(){
 		.then(res=>{
 			//debugger
 			if(res.data.code == 0){
-				localStorage.clear();
 				this.$router.replace('/')
 				location.reload()
 			}

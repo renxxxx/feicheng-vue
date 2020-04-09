@@ -14,6 +14,7 @@ const state = {
   login:null,
   wxVideoaccount:null,
   loginComponent:null,
+  loadingComponent:null,
   
 // 获取配置信息
  getConfig:{

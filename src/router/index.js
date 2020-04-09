@@ -148,17 +148,35 @@ const router = new Router({
 		},
 	]
 })
+router.beforeEach((to,from,next) => {
+	debugger
+	if(Store.state.loadingComponent)
+		Store.state.loadingComponent.open()
+	next()
+	// Store.state.bottomShow = !!to.meta.tabbar;
+  //   if(to.name == from.name){
+  // 	  router.push({path:'/tihuan',query:{urlName:to.path}})
+  //   }
+	// 缓存最后一次路径
+  //   if(!to.meta.unkeepLastRoute){
+  //     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
+  //   }
+  
+	  
+  })
 router.afterEach((to,from) => {
-  //debugger
-  // Store.state.bottomShow = !!to.meta.tabbar;
-//   if(to.name == from.name){
-// 	  router.push({path:'/tihuan',query:{urlName:to.path}})
-//   }
-  // 缓存最后一次路径
-//   if(!to.meta.unkeepLastRoute){
-//     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
-//   }
-
-	
-})
+	debugger
+	if(Store.state.loadingComponent)
+		Store.state.loadingComponent.close()
+	// Store.state.bottomShow = !!to.meta.tabbar;
+  //   if(to.name == from.name){
+  // 	  router.push({path:'/tihuan',query:{urlName:to.path}})
+  //   }
+	// 缓存最后一次路径
+  //   if(!to.meta.unkeepLastRoute){
+  //     localStorage.setItem('lastRoute',JSON.stringify({path:to.path,name:to.name,query:to.query}))
+  //   }
+  
+	  
+  })
 export default router

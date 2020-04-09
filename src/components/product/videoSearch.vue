@@ -82,6 +82,7 @@
 		},
 		 activated(){
 			debugger
+			 
 				let thisVue = this
 				if(this.$route.meta.auth && !this.$store.state.login){
 					this.$store.state.loginComponent.getData();
@@ -89,6 +90,7 @@
 	 },
 		//离开前判断前进和后退时间来判断是否保存滚动值
 		beforeRouteLeave(to, from, next) {
+			 
 			this.scrollTop = document.getElementById('product').scrollTop || document.getElementById('product').pageYOffset
 			if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
 				if (this.$vnode && this.$vnode.data.keepAlive) {
