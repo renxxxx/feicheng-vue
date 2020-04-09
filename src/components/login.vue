@@ -29,7 +29,6 @@ export default {
   data() {
     return {
       last:'',
-      lastQuery:'',
       imgSrc:'',
       loginTicket:'',
       value:1,
@@ -53,19 +52,19 @@ export default {
     }
   },
 created(){
-  debugger
+  //debugger
   // console.log('created')
 },
 	activated(){
-		 debugger;
+		 //debugger;
     // console.log('activated')
 	},
 	deactivated(){
-     debugger;
+     //debugger;
     // console.log('deactivated')
 	},
   mounted() {
-    debugger
+    //debugger
     // console.log('mounted')
      
   },
@@ -78,14 +77,12 @@ created(){
 	},
   methods: {
     closeLogin(){
-      
           clearInterval(this.timer);
           this.centerDialogVisible = false;
     },
-    getData(last,lastQuery){
-       
+    getData(last){
+        this.$store.state.centerDialogVisible = true;
        this.last=last;
-       this.lastQuery=lastQuery;
        let thisVue =this
        if(!this.cookieOn()){
        this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
@@ -100,6 +97,7 @@ created(){
 
               thisVue.loginTicket=res.data.data.loginTicket
              thisVue.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.qrcodeTicket
+             clearInterval(thisVue.timer);
              thisVue.timer = setInterval(this.get, 2000);
 
         })
@@ -125,7 +123,7 @@ created(){
                             this.centerDialogVisible = false;
                             clearInterval(this.timer);
                               if (this.last) {
-                                this.$router.push({path:this.last,query:this.lastQuery});
+                                this.$router.push({path:this.last});
                               }else{
                                 this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
                               }

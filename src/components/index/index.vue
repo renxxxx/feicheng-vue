@@ -201,8 +201,6 @@
       </div>
 </div>
       <!-- </el-footer> -->
-      <!--  登录扫码框 -->
-      <login  ref="loginRef"></login>
     </div>
 </template>
 
@@ -218,7 +216,6 @@ import showPage_seven from "./showPage_seven.vue";
 import showPage_eight from "./showPage_eight.vue";
 import showPage_nine from "./showPage_nine.vue";
 
-import login from "../login.vue";
 export default {
   name: "account",
   data() {
@@ -239,14 +236,14 @@ export default {
   },
   directives: {},
   beforeRouteLeave(to, from, next) {
-    debugger;
+    //debugger;
     let scrollTop = (this.scrollTop = document.getElementById(
       "showPage"
     ).scrollTop);
     this.scrollTop = scrollTop ? scrollTop : 0;
     // //console.log(this.scrollTop);
     if (!to.query.time || !from.query.time || to.query.time < from.query.time) {
-      debugger;
+      //debugger;
       if (this.$vnode && this.$vnode.data.keepAlive) {
         if (
           this.$vnode.parent &&
@@ -281,7 +278,7 @@ export default {
   },
   // 进入该页面时，用之前保存的滚动位置赋值
   beforeRouteEnter(to, from, next) {
-     debugger
+     //debugger
     next(vm => {
       document.getElementById("showPage").scrollTop = document.getElementById(
         "showPage"
@@ -297,10 +294,17 @@ export default {
   },
   activated() {
      debugger
-     
+     if(this.$route.query.forward){
+         localStorage.setItem('forward',this.$route.query.forward)
+         this.$router.replace({path:'/'})
+      }
+     var forward = localStorage.getItem('forward')
+     localStorage.removeItem('forward')
+    if(forward)
+        this.$router.push({path:forward})
   },
   mounted() {
-  
+  //debugger
     window.addEventListener("scroll", this.scrollToTop, true);
 
 
@@ -329,8 +333,7 @@ export default {
     showPage_six,
     showPage_seven,
     showPage_eight,
-    showPage_nine,
-    login
+    showPage_nine
   },
 
   computed: {
@@ -375,9 +378,8 @@ askIfEnter(){
       localStorage.setItem("showData", this.showData);
     },
     loginFn() {
-      debugger;
-      this.centerDialogVisible = true;
-      // this.$refs.loginRef.getData('/product/product_user');
+      //debugger;
+      this.$store.state.loginComponent.getData();
     },
     scrollToTop() {
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop

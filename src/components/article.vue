@@ -83,10 +83,10 @@ export default {
 				articleId:this.$route.query.data
 			}))
 			.then(res=>{
-				debugger;
+				//debugger;
 				_this.data=res.data.data
 				this.$axios.get(_this.data.contentUrl).then(res=>{
-					debugger
+					//debugger
 					_this.content=res.data
 				})
 			})

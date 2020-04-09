@@ -213,7 +213,6 @@
 				</span>
 			</div>
 		</main>
-		<login ref="loginRef"></login>
 	</div>
 </template>
 
@@ -221,7 +220,6 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '@/components/login.vue'
 	export default {
 		name: 'douyinSearch',
 		data() {
@@ -255,7 +253,6 @@
 			}
 		},
 		components: {
-			login
 		},
 		beforeCreate() {
 
@@ -266,8 +263,7 @@
 		activated() {
 			let thisVue = this
 			if (this.$route.meta.auth && !this.$store.state.login) {
-				this.$store.state.centerDialogVisible = true;
-				this.$refs.loginRef.getData();
+				this.$store.state.loginComponent.getData();
 			}
 		},
 		//离开前判断前进和后退时间来判断是否保存滚动值
@@ -321,7 +317,7 @@
 				// // console.log(_value)
 				
 				// for(let i = 0;i<this.area.length;i++){
-				// 	debugger
+				// 	//debugger
 				// 	if(this.area[i].label == _value){
 				// 		this.area1Id = this.area[i].value;
 						
@@ -329,13 +325,13 @@
 				// 		console.log(this.area[i])
 				// 	}
 				// 	if(this.area[i].children.length!=0){
-				// 		debugger
+				// 		//debugger
 				// 		for(let a = 0;i<this.area[i].children.length;a++){
 				// 			console.log(this.area[i].children[a])
 				// 			if(this.area[i].children[a]){
 				// 				if(this.area[i].children[a].label == _value){
 				// 					this.area2Id = this.area[i].children[a].value;
-				// 					debugger
+				// 					//debugger
 				// 					console.log('b')
 				// 					console.log(this.area[i].children[a])
 				// 				}
@@ -344,7 +340,7 @@
 				// 						if(this.area[i].children[a].children){
 				// 							if(this.area[i].children[a].children[b].label == _value){
 				// 								this.area3Id = this.area[i].children[a].children[b].value;
-				// 								debugger
+				// 								//debugger
 				// 								console.log('c')
 				// 								console.log(this.area[i].children[a].children[b].label)
 				// 							}

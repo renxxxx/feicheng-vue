@@ -115,7 +115,6 @@
         <el-button type="primary" @click="onSubmit">确 定</el-button>
       </span>
     </el-dialog>
-		<login ref="loginRef"></login>
 
 
     <!-- <child ref="refChild" hidden>{{tableData}}</child> -->
@@ -126,7 +125,6 @@
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
-import login from '@/components/login.vue'
 export default {
   data() {
     return {
@@ -146,9 +144,7 @@ export default {
       getVideoList:this.$store.state.getVideoList.list(),
     };
   },
-	components: {
-	  login
-	},
+
   mounted(){
  //console.log(this.getVideoList.itemList)
  var itemList=this.getVideoList.itemList
@@ -226,7 +222,6 @@ export default {
     //     .then(res => {
 				// if(res.data.code == 20){
 				// 	this.centerDialogVisible = true;
-				// 	this.$refs.loginRef.getData();
 				// }else 	if(res.data.code == 0){
 				// 	this.centerDialogVisible = false;
 				// 	this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief });

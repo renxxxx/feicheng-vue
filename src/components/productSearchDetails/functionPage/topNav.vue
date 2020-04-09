@@ -142,7 +142,7 @@ export default {
   methods: {
     exitFn() {
       this.$axios.post('/logout').then(res => {
-        debugger;
+        //debugger;
         if (res.data.code == 0) {
           localStorage.clear();
           this.$router.replace('/');

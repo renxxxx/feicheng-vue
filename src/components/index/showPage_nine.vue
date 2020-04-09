@@ -47,14 +47,7 @@
 
       loginsFn(){
 		this.$emit('loginFn', '');
-		  /* if(!this.centerDialogVisible){
-			  this.centerDialogVisible = true;
-			  debugger;
-			  this.$refs.loginRefs.getData();
-		  }
-        // this.centerDialogVisible = true;
-		console.dir(this.$refs.loginRefs)
-        // this.$refs.loginRefs.getData(); */
+		  
       }
 
     }

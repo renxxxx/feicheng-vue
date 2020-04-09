@@ -3,13 +3,21 @@
     <keep-alive>
       <router-view />
     </keep-alive>
+    <login ref="loginRef"></login>
   </div>
 </template>
 
 <script>
+import login from '@/components/login.vue'
 export default {
   name: 'App',
+  components: {
+    login
+  },
   watch:{
+  },
+  mounted(){
+    this.$store.state.loginComponent = this.$refs.loginRef
   },
   created(){
     if(!this.cookieOn()){
@@ -19,7 +27,7 @@ export default {
         });
     }
 
-    debugger
+    //debugger
     let thisVue = this
         this.$jquery.ajax({
 			  url:'/login-refresh',

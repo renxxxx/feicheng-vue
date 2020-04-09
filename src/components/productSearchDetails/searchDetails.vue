@@ -349,7 +349,6 @@
 			</el-col>
 		</el-row>
     <el-dialog :visible.sync="dialogVisibleIcon" width="20%" style="z-index: 9999;"><img width="100%" style="object-fit: contain; background: #FFFFFF;height: 50vh;" :src="message.qrcode" alt="" /></el-dialog>
-		<login ref="loginRef"></login>
 		<searchDialog></searchDialog>
 
 	</div>
@@ -359,7 +358,6 @@
 	import axios from 'axios'
 	import {mapActions,mapGetters} from 'vuex'
 	import qs from 'qs';
-	import login from '../login.vue'
 	import topNav from '../productSearchDetails/functionPage/topNav.vue'
 	import searchDialog from '../product/searchDialog.vue'
 	export default {
@@ -383,7 +381,7 @@
 			}
 		},
 		components: {
-			login,topNav,searchDialog
+			topNav,searchDialog
 		},
 		beforeCreate() {
 
@@ -432,8 +430,7 @@
 			this.getData()
 			// console.dir(this.$route.query.data)
 			if(!this.$store.state.login){
-				this.centerDialogVisible = true;
-				this.$refs.loginRef.getData();
+				this.$store.state.loginComponent.getData();
 			}
 		},
 		methods: {

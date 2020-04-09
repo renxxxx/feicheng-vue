@@ -149,7 +149,7 @@ const router = new Router({
 	]
 })
 router.afterEach((to,from) => {
-  debugger
+  //debugger
   // Store.state.bottomShow = !!to.meta.tabbar;
 //   if(to.name == from.name){
 // 	  router.push({path:'/tihuan',query:{urlName:to.path}})

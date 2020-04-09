@@ -35,7 +35,7 @@ Vue.prototype.moment = moment;
 
 
 Vue.prototype.cookieOn=function() {
-  debugger
+  //debugger
   var result = false;
   if (navigator.cookiesEnabled)
     return true;
@@ -66,4 +66,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-// debugger
+// //debugger
