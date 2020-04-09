@@ -4,20 +4,23 @@
       <router-view />
     </keep-alive>
     <login ref="loginRef"></login>
+    <loading ref="loadingRef"></loading>
   </div>
 </template>
 
 <script>
 import login from '@/components/login.vue'
+import loading from '@/components/loading.vue'
 export default {
   name: 'App',
   components: {
-    login
+    login,loading
   },
   watch:{
   },
   mounted(){
     this.$store.state.loginComponent = this.$refs.loginRef
+    this.$store.state.loadingComponent = this.$refs.loadingRef
   },
   created(){
     if(!this.cookieOn()){

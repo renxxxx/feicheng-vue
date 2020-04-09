@@ -230,7 +230,7 @@ export default {
    watch: {
     $route(to, from) {
 		//debugger
-
+		
     }
   },
   components: {
@@ -296,6 +296,7 @@ export default {
 	},
 	//进入该页面时，用之前保存的滚动位置赋值
 	beforeRouteEnter(to, from, next) {
+		
 		next(vm => {
 			document.getElementById('product').scrollTop=document.getElementById('product').pageYOffset=vm.scrollTop;
 		});

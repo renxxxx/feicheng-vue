@@ -81,6 +81,7 @@ created(){
           this.centerDialogVisible = false;
     },
     getData(last){
+      debugger
         this.$store.state.centerDialogVisible = true;
        this.last=last;
        let thisVue =this
