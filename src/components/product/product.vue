@@ -111,13 +111,13 @@
 				<div class="leftNav"  style="margin-top: 10px;">
 					 <el-menu default-active="2" class="navList" @open="handleOpen" @close="handleClose"
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
-						<el-menu-item index="/product/product_user">
+						<el-menu-item :index="{path:'/product/product_user',query:{time:new Date().getTime()}}">
 							<template slot="title" class="data" :to="{path:'/product/product_user'}">
 								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
 								<span style="font-weight: 500;font-size: 16px;">商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.login' index="/product/ruzhu">
+						<el-menu-item  v-if='!this.$store.state.login' :index="{path:'/product/ruzhu'}">
 							<template slot="title">
 							<svg width="1em" height="1em" t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
@@ -167,7 +167,7 @@
 								<span style="font-size:16px;">{{leftNavList[0].name}}</span>
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhione) in leftNavList[0].onechild" :key="zhione" :index="child.url">
+							<el-menu-item v-for="(child,zhione) in leftNavList[0].onechild" :key="zhione" :index="{path:child.url,query:{time:new Date().getTime()}}">
 								<!-- <img :src="child.url" alt=""> -->
 								<span>{{child.name}}</span>
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
@@ -179,7 +179,7 @@
 								<span style="font-size:16px;">{{leftNavList[1].name}}</span>
 								<!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="child.url">
+							<el-menu-item v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="{path:child.url,query:{time:new Date().getTime()}}">
 								 <!-- <img :src="child.url" alt=""> -->
 								 <span >{{child.name}}</span>
 								 <!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
@@ -191,7 +191,7 @@
 								<span style="font-size:16px;">{{leftNavList[2].name}}</span>
 								<!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="child.url">
+							<el-menu-item v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="{path:child.url,query:{time:new Date().getTime()}}">
 								 <!-- <img :src="child.url" alt=""> -->
 								 <span>{{child.name}}</span>
 								 <!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
@@ -203,7 +203,7 @@
 								<span style="font-size:16px;">{{leftNavList[3].name}}</span>
 								<!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
-							<el-menu-item v-for="(child,zhifour) in leftNavList[3].onechild" :key="zhifour" :index="child.url">
+							<el-menu-item v-for="(child,zhifour) in leftNavList[3].onechild" :key="zhifour" :index="{path:child.url}">
 								 <!-- <img :src="child.url" alt=""> -->
 								 <span>{{child.name}}</span>
 								 <!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->

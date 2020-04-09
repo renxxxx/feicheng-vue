@@ -57,7 +57,7 @@
 							<div class="ant-col" style="padding-left: 16px">
 								<div class="_3jSKX6Bn" :class="[item.typeData? 'butttonClass':'']">
 									<div class="_3jSKX6Bn">
-										<div class="_o0SOfc8d">{{item.name}}</div>
+										<div class="_o0SOfc8d" :class="[item.typeData? 'butttonClass':'']">{{item.name}}</div>
 									</div>
 								</div>
 							</div>
@@ -287,11 +287,20 @@ export default {
       if(this.$route.meta.auth && !this.$store.state.login){
           this.$store.state.loginComponent.getData();
      }
-	 if(this.$route.query.value){
-	 		this.page = 0;
-	 		this.kw = this.$route.query.value;
-	 		this.userList = []
-	 }
+	 // if(this.$route.query.value){
+	 // 		this.page = 0;
+	 // 		this.kw = this.$route.query.value;
+	 // 		this.userList = [];
+		// 	this.nextPage();
+	 // }else{
+		//  this.page = 0;
+		//  this.userList = []
+		//  this.nextPage();
+	 // }
+	 // this.getDataType();
+	 // this.page = 0;
+	 // this.userList = []
+	 // this.nextPage();
   },
 	//离开前判断前进和后退时间来判断是否保存滚动值
   beforeRouteLeave(to, from, next) {
@@ -1012,7 +1021,7 @@ h1,h2,h3,h4,h5,h6,p{
     border-radius: 4px;
     border: 1px solid #6d6d6d;
     width: 104px;
-    line-height: 29px;
+    line-height: 32px;
     height: 32px;
     box-sizing: border-box;
     -webkit-transition: all .2s;
@@ -1022,13 +1031,15 @@ h1,h2,h3,h4,h5,h6,p{
     border-color: #ff7800;
 } */
 ._o0SOfc8d:hover {
-    background-color: #d95e00;
-        border-color: #d95e00;
+    background-color: #ff7800;
+        border-color: #ff7800;
 	border-radius: 4px;
+	color:#FFF;
 }
 .butttonClass{
-	background-color: #d95e00;
+	background-color: #ff7800;
+	    border-color: #ff7800;
 	border-radius: 4px;
-	    border-color: #d95e00;
+	color:#FFF!important;
 }
 </style>
