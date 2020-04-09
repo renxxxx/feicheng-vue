@@ -2,13 +2,18 @@
   <div class="ruzhu" style="margin-top: 24px;">
     <div>
       <el-row style="height: 60px;">
-        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10"><span class="maintop">博主入驻:</span></el-col>
+        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
+			<span class="maintop">博主入驻:</span>
+			<a :href="getConfig.ruZhuGuide" target="_blank" style="font-size: 14px;cursor: pointer;">
+				《入住指南》
+			</a>
+		</el-col>
       </el-row>
     </div>
     <div class="people_detail">
       <el-row>
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-          <ul>
+          <ul>	
             <!-- <li>视频号信息:</li> -->
             <li>
               <span>视频号名:</span>
@@ -80,7 +85,7 @@
               <span>选择领域(可多选):</span>
               <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
               <div style="margin: 15px 0;"></div>
-              <el-checkbox-group  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
+              <el-checkbox-group max="3"  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
                 <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city.wxVideoaccountRealmId" :key="city.name">{{ city.name }}</el-checkbox>
               </el-checkbox-group>
 
@@ -425,7 +430,7 @@ export default {
       // };
 
       // this.ruleForm.regionServers = [data.region, data.server]
-
+		
   },
   methods: {
     supplyVideo(name, pv, imageUrlNow , likeCount, brief, video,videoId) {

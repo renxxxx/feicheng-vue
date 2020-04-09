@@ -392,8 +392,8 @@
 			},
 			goAnchor(selector) {
 			        // var anchor = this.$el.querySelector("#12");
-					console.dir(document.getElementById("31"))
-					console.dir(document.getElementById("31").scrollTop.getElementById("31").getBoundingClientRect().height)
+					// console.dir(document.getElementById("31"))
+					// console.dir(document.getElementById("31").scrollTop.getElementById("31").getBoundingClientRect().height)
 					// console.log(anchor.offsetHeight)
 					if(anchor)
 			        this.$refs._25VCulan.scrollTop = document.getElementById("31").scrollTop-document.getElementById("31").getBoundingClientRect().height

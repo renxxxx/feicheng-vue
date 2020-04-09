@@ -3,6 +3,26 @@
     <keep-alive>
       <router-view />
     </keep-alive>
+	<div class="contact" @click="contactFn">
+		<span>联系<br>
+		我们</span>
+	</div>
+	<el-dialog class="popScan" title="联系我们" :visible.sync="showContact" width="402px" @close="closeLogin()" top="10vh" center>
+	  <div class="popIndex" style="height: 418px">
+	    <div class="code">
+	      <img v-if="imgSrc" :src="this.$store.state.getConfig.config().servantWxQrcode" alt="" />
+	    </div>
+	    <p class="scanNow scanNowFirst">
+	      打开
+	      <span>微信 App</span>
+	    </p>
+	    <p class="scanNow">点击页面右上角打开扫一扫</p>
+	    <div class="codelogin" role="separator">
+	      <span class=""><span class="">微信扫码联系</span></span>
+	    </div>
+	    <div class="scanIntro">联系电话：{{this.$store.state.getConfig.config().servantTel}}</div>
+	  </div>
+	</el-dialog>
     <login ref="loginRef"></login>
   </div>
 </template>
@@ -11,13 +31,20 @@
 import login from '@/components/login.vue'
 export default {
   name: 'App',
+  data() {
+    return {
+		showContact:false
+    };
+  },
   components: {
     login
   },
   watch:{
   },
   mounted(){
-    this.$store.state.loginComponent = this.$refs.loginRef
+    this.$store.state.loginComponent = this.$refs.loginRef;
+	let _height = document.getElementById("app").firstChild.getBoundingClientRect()
+	console.log(_height.DOMRect)
   },
   created(){
     if(!this.cookieOn()){
@@ -51,6 +78,14 @@ export default {
 			  }
       })
 
+  },
+  methods: {
+	  contactFn(){
+		  this.showContact = true
+	  },
+	  closeLogin(){
+		  this.showContact = false
+	  }
   }
 }
 </script>
@@ -59,14 +94,123 @@ export default {
 <style scoped>
 #app {
 	height: 100%;
+	position: relative;
 }
 
 [v-cloak]{
     display: none;
 }
+.contact{
+	width: 70px;
+	height: 70px;
+	box-sizing: border-box;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	right: 0;
+	background-color: #2f2f31;
+	z-index: 999;
+	border-radius: 8px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.contact>span{
+	display: block;
+	margin-top: 14px;
+}
+.popIndex {
+  text-align: center;
+}
+.popIndex .code {
+  width: 322px;
+  height: 230px;
+  margin: 0 auto;
+}
+.popIndex .code > img {
+  width: 230px;
+  height: 230px;
+  display: block;
+  vertical-align: middle;
+  border-style: none;
+  margin: 0 auto;
+}
+.code p{
+  font-size: 16px;
+  line-height: 230px;
+}
+.code p span{
+  color: #ff7800;
+  cursor: pointer;
+}
+.scanNow {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+.scanNowFirst {
+  margin-top: 10px !important;
+}
+.codelogin {
+  display: table;
+  margin: 16px 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: center;
+  background: transparent;
+  clear: both;
+  width: 100%;
+  min-width: 100%;
+  height: 1px;
+  margin-top: 26px !important;
+}
+.codelogin:before {
+  position: relative;
+  top: 50%;
+  display: table-cell;
+  width: 50%;
+  border-top: 1px solid #6d6d6d;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  content: '';
+}
+.codelogin:after {
+  position: relative;
+  top: 50%;
+  display: table-cell;
+  width: 50%;
+  border-top: 1px solid #6d6d6d;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  content: '';
+}
+.codelogin > span {
+  display: inline-block;
+  padding: 0 24px;
+}
 
+.codelogin > span > span {
+  font-size: 14px;
+  color: #5a7a9a;
+  text-align: center;
+  /* cursor: pointer; */
+}
+.scanIntro {
+  padding: 12px 0 0;
+  color: #ababab;
+  font-size: 12px;
+}
 
-
+/* 重写 */
+.el-dialog__header {
+  padding-top: 32px;
+}
+.el-dialog__body {
+  padding: 0 !important;
+}
 
 
 
