@@ -379,7 +379,7 @@ askIfEnter(){
     },
     loginFn() {
       //debugger;
-      this.$store.state.loginComponent.getData('/');
+      this.$store.state.loginComponent.getData('/product/product_user');
     },
     scrollToTop() {
          var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
