@@ -789,8 +789,9 @@ h1,h2,h3,h4,h5,h6,p{
 .type_center>p{
 	width: auto;
 	color: rgb(120, 122, 122);
-	font-size: 12px;
 	text-align: left;
+	text-align: left;
+    padding-top: 15px;
 }
 /* .leftType{
 	position: absolute;
