@@ -792,6 +792,7 @@ h1,h2,h3,h4,h5,h6,p{
 	text-align: left;
 	text-align: left;
     padding-top: 15px;
+    font-size: 14px;
 }
 /* .leftType{
 	position: absolute;
