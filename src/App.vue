@@ -112,12 +112,17 @@ export default {
 	background-color: #2f2f31;
 	z-index: 999;
 	border-radius: 8px;
-	color: #FFFFFF;
+	color: #cdcfcf;
 	cursor: pointer;
+	transition: all .2s;
+}
+.contact:hover{
+	color: #FFFFFF;
 }
 .contact>span{
 	display: block;
 	margin-top: 14px;
+	
 }
 .popIndex {
   text-align: center;

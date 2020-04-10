@@ -1022,7 +1022,7 @@ h1,h2,h3,h4,h5,h6,p{
     border: 1px solid #6d6d6d;
     width: 104px;
     line-height: 32px;
-    height: 32px;
+    /* height: 32px; */
     box-sizing: border-box;
     -webkit-transition: all .2s;
     transition: all .2s;

@@ -72,7 +72,7 @@
 				<el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
 					<div class="uer_zhixun_gongneng" style="position: relative;">
 						<div class="uer_zhixun_gongneng_hezi uer_scroll" v-infinite-scroll="nextPageOne" :infinite-scroll-disabled="loadOne" infinite-scroll-distance="10">
-							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;padding: 5px;overflow-x:hidden ;">
+							<div v-for="(item,inx) in articleOne" @click="detailClickFn(item)" :key="inx" style="width: 100%;padding:0px 5px;height: auto;box-sizing: border-box;overflow-x:hidden ;">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
 									<span >{{item.name}}</span>
 								<!-- </router-link> -->
@@ -627,6 +627,10 @@ h1,h2,h3,h4,h5,h6,p{
 	height: 100%;
 	/* overflow-y: scroll; */
 	/* overflow-x: hidden; */
+}
+.uer_zhixun_gongneng_hezi span{
+	width: 100%; padding: 5px;
+	box-sizing: bo;
 }
 .uer_zhixun_gongneng_hezi span,.uer_zhixun_lishi>span{
 	height: 19px;

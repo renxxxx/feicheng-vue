@@ -673,9 +673,11 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	top: 27px;
 	z-index: 1;
 	line-height: 1.5;
+	background-image: url("../../assets/img/bg2.2c3a219e.png");
 	background-size: 388px 194px;
 	background-position: 100% 0;
 	background-repeat: no-repeat;
+	
 }
 .tanchuang>svg{
 	display: inline-block;
