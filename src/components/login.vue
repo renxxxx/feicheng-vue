@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog class="popScan" title="欢迎登录" :visible.sync="centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
+    <el-dialog class="popScan" title="欢迎登录" :visible.sync="$store.state.centerDialogVisible" width="402px" @close="closeLogin()" top="10vh" center>
       <div class="popIndex" style="height: 418px">
         <div class="code">
           <img v-if="imgSrc" :src="imgSrc" alt="" />
@@ -40,17 +40,17 @@ export default {
       // imgSrc:'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyT3BfNjAya0ljbTMxbmpOVWh1Y1MAAgTDY3heAwQQDgAA'
     };
   },
-  computed: {
-    // ...mapGetters(['centerDialogVisible'])
-    centerDialogVisible: {
-      get: function() {
-        return this.$store.state.centerDialogVisible;
-      },
-      set: function(newValue) {
-        this.$store.state.centerDialogVisible = newValue;
-      }
-    }
-  },
+  // computed: {
+  //   // ...mapGetters(['centerDialogVisible'])
+  //   centerDialogVisible: {
+  //     get: function() {
+  //       return this.$store.state.centerDialogVisible;
+  //     },
+  //     set: function(newValue) {
+  //       this.$store.state.centerDialogVisible = newValue;
+  //     }
+  //   }
+  // },
 created(){
   //debugger
   // console.log('created')
@@ -68,17 +68,17 @@ created(){
     // console.log('mounted')
      
   },
-	watch:{
-		centerDialogVisible: function (curVal,oldVal) {
-            if(this.centerDialogVisible){
-                this.getData()
-             }
-		}
-	},
+	// watch:{
+	// 	centerDialogVisible: function (curVal,oldVal) {
+  //           if(this.centerDialogVisible){
+  //               this.getData()
+  //            }
+	// 	}
+	// },
   methods: {
     closeLogin(){
           clearInterval(this.timer);
-          this.centerDialogVisible = false;
+          this.$store.state.centerDialogVisible = false;
     },
     getData(last){
       debugger
@@ -105,28 +105,29 @@ created(){
         .catch(err => {});
     },
     get() {
-      
-            this.$axios
-              .post('login-by-ticket',qs.stringify({loginTicket:this.loginTicket}))
+      debugger
+      let thisVue = this;
+            thisVue.$axios
+              .post('login-by-ticket',qs.stringify({loginTicket:thisVue.loginTicket}))
               .then(res => {
                 if(res.data.code==0){
-                   this.$axios
+                   thisVue.$axios
                         .get('my/wx-videoaccount')
                         .then(res => {
                            if(res.data.code ==0)
-                              this.$store.state.wxVideoaccount=res.data.data
+                              thisVue.$store.state.wxVideoaccount=res.data.data
                         })     
-                    this.$axios
+                    thisVue.$axios
                         .get('login-refresh')
                         .then(res => {
                           if(res.data.code ==0){
-                            this.$store.state.login=res.data.data
-                            this.centerDialogVisible = false;
-                            clearInterval(this.timer);
-                              if (this.last) {
-                                this.$router.push({path:this.last});
+                            thisVue.$store.state.login=res.data.data
+                            thisVue.$store.state.centerDialogVisible = false;
+                            clearInterval(thisVue.timer);
+                              if (thisVue.last) {
+                                thisVue.$router.push({path:thisVue.last});
                               }else{
-                                this.$router.push({path:'/tihuan',query:{path:this.$router.currentRoute.path,query:this.$router.currentRoute.query}});
+                                thisVue.$router.push({path:'/tihuan',query:{path:thisVue.$router.currentRoute.path,query:thisVue.$router.currentRoute.query}});
                               }
                             }
                         })
