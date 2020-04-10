@@ -2,7 +2,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'      
-Vue.prototype.$version = '2004100918-d9aef97'
+Vue.prototype.$version = '2004101442-be1821e'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
