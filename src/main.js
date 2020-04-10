@@ -12,7 +12,7 @@ import router from './router'
 import axios from 'axios'
 import store from './store'
 import jquery from 'jquery'
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie' 
 import qs from 'qs';
 import h5p from '../build/h5p.js'
 import moment from 'moment'
