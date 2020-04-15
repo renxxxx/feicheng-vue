@@ -12,7 +12,7 @@
 							<path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
 						</svg>
 					</div>
-					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜索</span>
+					<span @click="searchFn" :class="searchColor? 'searchColor':''">搜 索</span>
 				</div>
 			</el-row>
 		</div>

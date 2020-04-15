@@ -113,13 +113,13 @@
 						background-color="#2b2b2e" text-color="#ffffffa6" active-text-color="#ff7800" router :default-active="$route.path">
 						<el-menu-item :index="{path:'/product/product_user',query:{time:new Date().getTime()}}">
 							<template slot="title" class="data" :to="{path:'/product/product_user'}">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
+								<svg width="16px" height="16px"  viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-21.435 -6.563)"><path data-name="12905" d="M40.227 15.219l-8.393-7.153a.343.343 0 0 0-.521 0l-8.393 7.1a.566.566 0 0 0-.1.742.546.546 0 0 0 .729.106h.782v5.774a3.432 3.432 0 0 0 3.389 3.391h7.558a3.332 3.332 0 0 0 3.389-3.391v-5.774h.782a.51.51 0 0 0 .729-.106c.361-.208.309-.583.049-.689z" fill="#e8edee"></path><rect width="2" height="6" rx="1" transform="translate(30.58 18.242)" fill="currentColor"></rect></g></svg>
 								<span style="font-weight: 500;font-size: 16px;">商学院</span>
 							</template>
 						</el-menu-item>
 						<el-menu-item  v-if='!this.$store.state.login' :index="{path:'/product/ruzhu'}">
 							<template slot="title">
-							<svg width="1em" height="1em" t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
+							<svg width="16px" height="16px"  t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
 									<path d="M512 651.636364a302.545455 302.545455 0 1 1 302.545455-302.545455 302.545455 302.545455 0 0 1-302.545455 302.545455z m0-558.545455a256 256 0 1 0 256 256A256 256 0 0 0 512 93.090909z" fill="#FFA942" p-id="1296"></path>
 								</svg>
@@ -130,7 +130,7 @@
 						</el-menu-item>
 						<el-menu-item v-if='this.$store.state.login' index="/product/ruzhu">
 							<template slot="title">
-								<svg width="1em" height="1em" t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
+								<svg width="16px" height="16px"  t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
 									<path d="M512 651.636364a302.545455 302.545455 0 1 1 302.545455-302.545455 302.545455 302.545455 0 0 1-302.545455 302.545455z m0-558.545455a256 256 0 1 0 256 256A256 256 0 0 0 512 93.090909z" fill="#FFA942" p-id="1296"></path>
 								</svg>
@@ -175,7 +175,7 @@
 						</el-submenu>
 						<el-submenu index="4">
 							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
+								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
 								<span style="font-size:16px;">{{leftNavList[1].name}}</span>
 								<!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
@@ -187,7 +187,7 @@
 						</el-submenu>
 						<el-submenu index="5">
 							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
+								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
 								<span style="font-size:16px;">{{leftNavList[2].name}}</span>
 								<!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
@@ -199,7 +199,7 @@
 						</el-submenu>
 						<el-submenu index="6">
 							<template slot="title">
-								<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M16.3 4.641a2.121 2.121 0 0 0-2.1-2.143H5.8a2.121 2.121 0 0 0-2.1 2.143L3 15.355a2.121 2.121 0 0 0 2.1 2.143h9.8a2.121 2.121 0 0 0 2.1-2.143l-.7-10.714z" fill="#6b6d6d"></path><path d="M13.826 5.948a3.825 3.825 0 0 1-7.651 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.2" stroke-miterlimit="10" fill="none"></path></svg>
+								<svg width="16px" height="16px"  viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M16.3 4.641a2.121 2.121 0 0 0-2.1-2.143H5.8a2.121 2.121 0 0 0-2.1 2.143L3 15.355a2.121 2.121 0 0 0 2.1 2.143h9.8a2.121 2.121 0 0 0 2.1-2.143l-.7-10.714z" fill="#6b6d6d"></path><path d="M13.826 5.948a3.825 3.825 0 0 1-7.651 0" stroke="currentColor" stroke-linecap="round" stroke-width="1.2" stroke-miterlimit="10" fill="none"></path></svg>
 								<span style="font-size:16px;">{{leftNavList[3].name}}</span>
 								<!-- <svg v-if="leftNavList[3].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</template>
@@ -673,9 +673,11 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	top: 27px;
 	z-index: 1;
 	line-height: 1.5;
+	background-image: url("../../assets/img/bg2.2c3a219e.png");
 	background-size: 388px 194px;
 	background-position: 100% 0;
 	background-repeat: no-repeat;
+	
 }
 .tanchuang>svg{
 	display: inline-block;
@@ -969,6 +971,14 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	.el-icon--right {
 	    display: none;
 	}
+	.data svg{
+		width: 16px;
+		height: 16px;
+	}
+	>>>.el-submenu__icon-arrow {
+		top: 55%;
+	}
+		
 /* .el-icon-arrow-down{
     content: "\E6DF";
 	padding-top: 25px;

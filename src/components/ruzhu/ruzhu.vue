@@ -369,8 +369,8 @@ export default {
         this.imageUrlNow = this.$store.state.wxVideoaccount.logo;
      }
      if(this.$store.state.wxVideoaccount.qrcode!=null&&this.$store.state.wxVideoaccount.qrcode!=undefined&&this.$store.state.wxVideoaccount.qrcode!=''){
-        this.twocode = this.$store.state.wxVideoaccount.logo;
-        this.twocodeNow = this.$store.state.wxVideoaccount.logo;
+        this.twocode = this.$store.state.wxVideoaccount.qrcode;
+        this.twocodeNow = this.$store.state.wxVideoaccount.qrcode;
      }
 
      this.dili = [this.$store.state.wxVideoaccount.area1Id,this.$store.state.wxVideoaccount.area2Id,this.$store.state.wxVideoaccount.area3Id];
