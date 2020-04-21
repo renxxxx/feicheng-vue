@@ -5,7 +5,7 @@
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
 			<span class="maintop">博主入驻:</span>
 			<a :href="getConfig.ruZhuGuide" target="_blank" style="font-size: 14px;cursor: pointer;">
-				《入住指南》
+				《入驻指南》
 			</a>
 		</el-col>
       </el-row>
@@ -182,15 +182,15 @@ export default {
       twocode:'',
       type: [
         {
-          value: '0',
+          value: '1',
           label: '个人号'
         },
         {
-          value: '1',
+          value: '2',
           label: '达人号'
         },
         {
-          value: '2',
+          value: '3',
           label: '企业号'
         }
       ],

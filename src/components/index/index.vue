@@ -18,8 +18,8 @@
             <el-col :span="18">
               <div class="grid-content bg-purple-light tabbarRight">
         	<span v-if='this.$store.state.login' @click='askIfEnter()' class="lf48" >
-        	  {{ (!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null)?"申请成为博主"
-        	    :this.$store.state.wxVideoaccount.type==0?"申请成为博主"
+        	  {{ (!this.$store.state.wxVideoaccount ||   this.$store.state.wxVideoaccount.type==null)?"博主入驻"
+        	    :this.$store.state.wxVideoaccount.type==0?"博主入驻"
         	    :this.$store.state.wxVideoaccount.type==1?"个人号"
         	    :this.$store.state.wxVideoaccount.type==2?"达人号"
         	    :this.$store.state.wxVideoaccount.type==3?"企业号"
@@ -31,7 +31,7 @@
         	    :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
         	    :"未知" }}
         	</span>
-                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">申请成为博主</span></router-link>
+                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">博主入驻</span></router-link>
                 <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
                 <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
                 <router-link :to="{ path: '/product/product_videoSearch' }"><span class="lf48">素材创意</span></router-link>
