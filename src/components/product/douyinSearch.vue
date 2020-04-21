@@ -216,7 +216,7 @@
 						<div @click="clickFn('five')" :class="clickData.five? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
 							<span  style="color: #cdcfcf;text-align: center;" :class="clickData.five? 'xuanzhongColor':''">飞橙指数</span>
 							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
-						</div>
+						</div> 
 					</template>
 					<template slot-scope="scope">
 						<span style="color: #e8edee;font-size: 14px;text-align: center;">{{numberTry(scope.row.indexNum)}}</span>
