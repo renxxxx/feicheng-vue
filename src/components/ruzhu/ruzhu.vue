@@ -182,15 +182,15 @@ export default {
       twocode:'',
       type: [
         {
-          value: '0',
+          value: '1',
           label: '个人号'
         },
         {
-          value: '1',
+          value: '2',
           label: '达人号'
         },
         {
-          value: '2',
+          value: '3',
           label: '企业号'
         }
       ],
