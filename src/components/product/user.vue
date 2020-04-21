@@ -62,7 +62,7 @@
 					<el-carousel height="300px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
 							<router-link :to="{path:item.url}">
-								<img :src="item.src" alt="" style="height: 100%;width: 100%;">
+								<img :src="item.src" alt="" style="width: 100%;">
 							</router-link>
 						</el-carousel-item>
 					</el-carousel>
@@ -219,7 +219,7 @@ export default {
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
 		fourValue:{title:'商学院',center:'',data:false},
 		fiveValue:{title:'博主入驻',center:'',data:false},
-		list:[{url:'/product/ruzhu',src:require('../../assets/img/1.png')}],
+		list:[{url:'/article?data=20200421160608957922657665932315',src:require('../../assets/img/videoNew.png')}],
 		typeList:[],
 		articleOne:[],
 		articleTwo:[],
