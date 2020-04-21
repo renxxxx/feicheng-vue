@@ -42,7 +42,7 @@
               <div>577</div>
             </div>
             <div class="lf_five">
-              <img src="/assets/img/down15.png" alt="">
+              <img src="../../assets/img/down15.png" alt="">
               <div>公司团建，无人机拍摄<br>效果不错嘛.....</div>
               <div>269</div>
               <div>3</div>

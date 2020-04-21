@@ -211,6 +211,17 @@
 						<span style="color: #e8edee;font-size: 14px;text-align: center;">{{numberTry(scope.row.pv)}}</span>
 					</template>
 				</el-table-column>
+				<el-table-column align='center'   prop="name" min-width="10%">
+					<template slot="header" slot-scope="scope">
+						<div @click="clickFn('five')" :class="clickData.five? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
+							<span  style="color: #cdcfcf;text-align: center;" :class="clickData.five? 'xuanzhongColor':''">飞橙指数</span>
+							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+						</div>
+					</template>
+					<template slot-scope="scope">
+						<span style="color: #e8edee;font-size: 14px;text-align: center;">{{numberTry(scope.row.indexNum)}}</span>
+					</template>
+				</el-table-column>
 			 </el-table>
 			<!-- </div> -->
 
@@ -240,6 +251,7 @@ export default {
 				 two:false,
 				 three:false,
 				 four:false,
+				 five:false,
 			},
 			typeList:[],
 			dataList:[
@@ -259,6 +271,7 @@ export default {
 			two:0,
 			three:0,
 			four:0,
+			five:0,
 			type : 0,
 			searchColor:false,
 		}
@@ -443,6 +456,7 @@ export default {
 				this.two=0;
 				this.three= 0;
 				this.four = 0;
+				this.five = 0;
 				if(this.type%2){
 					this.clickData.type = false;
 				}else{
@@ -455,6 +469,7 @@ export default {
 				this.two=0;
 				this.three= 0;
 				this.four = 0;
+				this.five = 0;
 				if(this.one%3 == 0){
 					this.order = 'desc';
 					this.sort = "fansCount";
@@ -480,6 +495,7 @@ export default {
 				this.one=0;
 				this.three= 0;
 				this.four = 0;
+				this.five = 0;
 				if(this.two%3 == 0){
 					this.order = 'desc';
 					this.sort = "likeCount";
@@ -505,6 +521,7 @@ export default {
 				this.one=0;
 				this.two= 0;
 				this.four = 0;
+				this.five = 0;
 				if(this.three%3 == 0){
 					this.order = 'desc';
 					this.sort = "videoCount";
@@ -530,6 +547,7 @@ export default {
 				this.one=0;
 				this.two= 0;
 				this.three = 0;
+				this.five = 0;
 				if(this.four%3 == 0){
 					this.order = 'desc';
 					this.sort = "pv";
@@ -548,7 +566,32 @@ export default {
 				this.four++;
 				//debugger
 				this.nextPage()
-
+				break;
+				case 'five':
+				this.type = 0;
+				this.one=0;
+				this.two= 0;
+				this.three = 0;
+				this.four = 0
+				if(this.five%3 == 0){
+					this.order = 'desc';
+					this.sort = "pv";
+					this.clickData.five = true;
+				}else if(this.five%3 == 1){
+					this.order = 'asc';
+					this.sort = "pv";
+					this.clickData.five = true;
+				}else{
+					this.order = '';
+					this.sort = '';
+					this.clickData.five = false;
+				}
+				this.userList = [];
+				this.page = 0;
+				this.five++;
+				//debugger
+				this.nextPage()
+				
 				break;
 			}
 		},
@@ -820,7 +863,7 @@ h1,h2,h3,h4,h5,h6,p{
 
 .search_type ul li span:hover,.search_zhishu ul li span:hover{
 	cursor: pointer;
-	color: #ff9429;
+	color: #ff7800;
 	transition: all .3s cubic-bezier(.78,.14,.15,.86);
 	/* background-color: #ff7800; */
 }

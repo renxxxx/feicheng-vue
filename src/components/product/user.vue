@@ -139,6 +139,7 @@
 						<div class="type_center" :class="[oneValue.data? 'color':'']">
 							{{oneValue.title}}
 							<p :class="[oneValue.data? 'color':'']">{{oneValue.center}}</p>
+							<svg v-if="oneValue.data" width="49" height="56.354" class="_1A2-UCYe _oWUAZip8"><defs><filter id="brand_svg__a" x="0" y="0" width="49" height="56.354" filterUnits="userSpaceOnUse"><feOffset dy="1"></feOffset><feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur><feFlood flood-color="#bf840f"></feFlood><feComposite operator="in" in2="blur"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g filter="url(#brand_svg__a)"><path data-name="\u8DEF\u5F84 10850" d="M22.893 41.881l19.993-20a.418.418 0 00.122-.333L41.66 5.616a.848.848 0 00-.772-.772L24.955 3.501a.412.412 0 00-.333.122L4.63 23.616a.424.424 0 000 .6l17.667 17.667a.415.415 0 00.596-.002zm6.487-28.2a2.538 2.538 0 110 3.59 2.543 2.543 0 01-.001-3.588zm15 14.955l-2.093-2.088a.424.424 0 00-.6 0l-19.137 19.1L9.994 33.122a.424.424 0 00-.6 0L7.301 35.21a.424.424 0 000 .6l12.857 12.836 2.093 2.088a.424.424 0 00.6 0l21.532-21.495a.424.424 0 00-.001-.6z" fill="#fff"></path></g></svg>
 						</div>
 					
 				</div></router-link>
@@ -149,6 +150,7 @@
 					<div class="type_center" :class="[twoValue.data? 'color':'']">
 						{{twoValue.title}}
 						<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p>
+						<svg v-if="twoValue.data" width="59.909" height="49" viewBox="0 0 59.909 49" class="_1A2-UCYe"><defs><filter id="douyin_svg__a" x="0" y="0" width="59.909" height="49" filterUnits="userSpaceOnUse"><feOffset dy="1"></feOffset><feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur><feFlood flood-color="#12b3ae"></feFlood><feComposite operator="in" in2="blur"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g filter="url(#douyin_svg__a)"><path data-name="\u8DEF\u5F84 10783" fill="#fff" d="M52.682 11.585l-7.273 4.187V7.136A3.64 3.64 0 0041.773 3.5H8.136A3.64 3.64 0 004.5 7.136v32.727A3.64 3.64 0 008.136 43.5h33.636a3.64 3.64 0 003.636-3.636v-8.636l7.273 4.187a1.818 1.818 0 002.727-1.568V13.159a1.819 1.819 0 00-2.726-1.574zM25.489 17.4a.456.456 0 01-.455.455H12.682a.456.456 0 01-.455-.455v-5.722a.456.456 0 01.455-.455h12.353a.456.456 0 01.455.455zm25.829 12.517l-5.909-3.4v-6.04l5.909-3.4z"></path></g></svg>
 					</div>
 					<!-- <h3>{{twoValue.title}}</h3>
 					<p :class="[twoValue.data? 'color':'']">{{twoValue.center}}</p> -->
@@ -162,6 +164,7 @@
 						<div class="type_center" :class="[threeValue.data? 'color':'']">
 							{{threeValue.title}}
 							<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p>
+							<svg v-if="threeValue.data" width="49" height="56.844" viewBox="0 0 49 56.844" class="_1A2-UCYe"><defs><filter id="hotProduct_svg__a" x="0" y="0" width="49" height="56.844" filterUnits="userSpaceOnUse"><feOffset dy="1"></feOffset><feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur><feFlood flood-color="#42a611"></feFlood><feComposite operator="in" in2="blur"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g filter="url(#hotProduct_svg__a)"><path data-name="\u8DEF\u5F84 10853" fill="#fff" d="M24.5 17.479a6.021 6.021 0 104.258 1.763 5.978 5.978 0 00-4.258-1.763zm18.419-2.038a19.489 19.489 0 00-4.3-6.22 19.939 19.939 0 00-6.355-4.183 20.258 20.258 0 00-21.892 4.177 19.548 19.548 0 00-4.3 6.22A19.1 19.1 0 004.5 23.07a25.389 25.389 0 002.694 11.22 35.517 35.517 0 005.968 8.5 48.021 48.021 0 0010.129 8.226 2.375 2.375 0 002.409 0 48.019 48.019 0 0010.129-8.226 35.41 35.41 0 005.968-8.5A25.2 25.2 0 0044.5 23.075a19.094 19.094 0 00-1.581-7.634zM24.5 32.962a9.462 9.462 0 119.462-9.462 9.463 9.463 0 01-9.462 9.462z"></path></g></svg>
 						</div>
 						<!-- <h3>{{threeValue.title}}</h3>
 						<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p> -->
@@ -175,6 +178,7 @@
 						<div class="type_center" :class="[fourValue.data? 'color':'']">
 							{{fourValue.title}}
 							<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p>
+							<svg v-if="fourValue.data" width="49" height="49" viewBox="0 0 49 49" class="_1A2-UCYe"><defs><filter id="brandSearch_svg__a" x="0" y="0" width="49" height="49" filterUnits="userSpaceOnUse"><feOffset dy="1"></feOffset><feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur><feFlood flood-color="#cc6000"></feFlood><feComposite operator="in" in2="blur"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g filter="url(#brandSearch_svg__a)"><path data-name="\u8DEF\u5F84 10852" fill="#fff" d="M43 11.505V5.1a1.6 1.6 0 00-1.6-1.6H7.6A1.6 1.6 0 006 5.1v6.405A1.6 1.6 0 004.5 13.1v6.585A8.973 8.973 0 006 24.65V41.9a1.6 1.6 0 001.6 1.6h13.7v-8.8h6.4v8.8h13.7a1.6 1.6 0 001.6-1.6V24.65a8.749 8.749 0 00.78-1.445 8.937 8.937 0 00.72-3.52V13.1a1.6 1.6 0 00-1.5-1.595zm-3.6 28.4h-8.5v-6.8a1.6 1.6 0 00-1.6-1.6h-9.6a1.6 1.6 0 00-1.6 1.6v6.8H9.6v-12.11c.145.07.3.14.45.2a9.14 9.14 0 007.04 0 9.142 9.142 0 001.935-1.1.032.032 0 01.03 0 9.131 9.131 0 008.975 1.1 9.142 9.142 0 001.935-1.1.032.032 0 01.03 0 9.131 9.131 0 008.975 1.1c.15-.065.3-.13.45-.2V39.9zm0-28.4H9.6v-4.4h29.8z"></path></g></svg>
 						</div>
 						<!-- <h3>{{fourValue.title}}</h3>
 						<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p> -->
@@ -188,6 +192,7 @@
 						<div class="type_center" :class="[fiveValue.data? 'color':'']">
 							{{fiveValue.title}}
 							<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p>
+							<svg v-if="fiveValue.data" width="49" height="56.354" class="_1A2-UCYe _oWUAZip8"><defs><filter id="brand_svg__a" x="0" y="0" width="49" height="56.354" filterUnits="userSpaceOnUse"><feOffset dy="1"></feOffset><feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur><feFlood flood-color="#bf840f"></feFlood><feComposite operator="in" in2="blur"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g filter="url(#brand_svg__a)"><path data-name="\u8DEF\u5F84 10850" d="M22.893 41.881l19.993-20a.418.418 0 00.122-.333L41.66 5.616a.848.848 0 00-.772-.772L24.955 3.501a.412.412 0 00-.333.122L4.63 23.616a.424.424 0 000 .6l17.667 17.667a.415.415 0 00.596-.002zm6.487-28.2a2.538 2.538 0 110 3.59 2.543 2.543 0 01-.001-3.588zm15 14.955l-2.093-2.088a.424.424 0 00-.6 0l-19.137 19.1L9.994 33.122a.424.424 0 00-.6 0L7.301 35.21a.424.424 0 000 .6l12.857 12.836 2.093 2.088a.424.424 0 00.6 0l21.532-21.495a.424.424 0 00-.001-.6z" fill="#fff"></path></g></svg>
 						</div>
 						<!-- <h3>{{fiveValue.title}}</h3>
 						<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p> -->
@@ -797,6 +802,11 @@ h1,h2,h3,h4,h5,h6,p{
 	text-align: left;
     padding-top: 15px;
     font-size: 14px;
+}
+.type_center>svg{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
 }
 /* .leftType{
 	position: absolute;

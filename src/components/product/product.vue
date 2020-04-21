@@ -738,7 +738,10 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	height: 56px;
 	/* position: absolute; */
 }
-.nav_user_search{position: relative;float: right;}
+.nav_user_search{
+	position: relative;float: right;height: 24px;margin-top: 16px;
+	box-sizing: border-box;width: 162px;
+}
 .nav_user_search>input{
 	height: 24px;
 	width: 162px;
@@ -747,6 +750,8 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	background: transparent;
 	padding-left: 30px;
 	border-radius: 5px;
+	position: absolute;
+	left: 0px;
 }
 .nav_user_search>input:active{
 	transition: all .5s;

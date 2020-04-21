@@ -393,19 +393,20 @@ h1,h2,h3,h4,h5,h6,p{
   /* position: absolute; */
 }
 
-.nav_user_search {
-  position: relative;
-  float: right;
+.nav_user_search{
+	position: relative;float: right;height: 24px;margin-top: 16px;
+	box-sizing: border-box;width: 162px;
 }
-
-.nav_user_search > input {
-  height: 24px;
-  width: 162px;
-  color: #e8edee;
-  border: 1px solid #6d6d6d;
-  background: transparent;
-  padding-left: 30px;
-  border-radius: 5px;
+.nav_user_search>input{
+	height: 24px;
+	width: 162px;
+	color: #e8edee;
+	border: 1px solid #6d6d6d;
+	background: transparent;
+	padding-left: 30px;
+	border-radius: 5px;
+	position: absolute;
+	left: 0px;
 }
 
 .nav_user_search > input:active {
