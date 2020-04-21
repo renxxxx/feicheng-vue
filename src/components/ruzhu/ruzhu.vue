@@ -5,7 +5,7 @@
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
 			<span class="maintop">博主入驻:</span>
 			<a :href="getConfig.ruZhuGuide" target="_blank" style="font-size: 14px;cursor: pointer;">
-				《入住指南》
+				《入驻指南》
 			</a>
 		</el-col>
       </el-row>
