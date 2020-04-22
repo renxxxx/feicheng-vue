@@ -96,7 +96,6 @@ export default {
 				  }
 	     })
     //debugger
-    let thisVue = this
         this.$jquery.ajax({
 			  url:'/login-refresh',
 			  type:'get',
