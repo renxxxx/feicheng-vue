@@ -39,7 +39,7 @@ export default {
 		config :this.$store.state.getConfig.config()
 		// this.$store.state.getConfig.config()
     };
-  },
+  }, 
 		metaInfo(){
 			return{
 				title:  this.config.seoTitle, // set a title
