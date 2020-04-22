@@ -1,6 +1,6 @@
 <template>
   <div class="showPage_eight" style="width: 100%;">
-    <div class="main">
+    <div class="main" v-lazy:background-image="{src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACOkAAAL/CAMAAAAOOvE7AAAAYFBMV…euW2J2xc7OLt9u0yDn8NMBAJQOAIDSAQBQOgAASgcA4J/7G2tLq9PBXnp+AAAAAElFTkSuQmCC'}">
       <div>
         <div class="main_top">
           <strong>用户反馈</strong>
@@ -167,7 +167,7 @@
 
 
 .showPage_eight .main {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACOkAAAL/CAMAAAAOOvE7AAAAYFBMV…euW2J2xc7OLt9u0yDn8NMBAJQOAIDSAQBQOgAASgcA4J/7G2tLq9PBXnp+AAAAAElFTkSuQmCC) 0 0
+  background:  0 0
     no-repeat;
   background-size: cover;
   background-color: #fafafe;

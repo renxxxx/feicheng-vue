@@ -18,7 +18,7 @@
       <div class="oneBox_lf"></div>
       <div class="oneBox_mid">
         <div id='one_1' class="oneBox_mid_line  oneBox_mid_line_one">
-          <div class="oneBox_mid_line_top  oneBox_mid_line_top_one" ref="mouseImg"><div></div></div>
+          <div class="oneBox_mid_line_top  oneBox_mid_line_top_one" ref="mouseImg" v-lazy:background-image="{src: require('../../assets/img/video.4531a180.png')}"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="49" height="49" viewBox="0 0 49 49">
               <g id="\u7EC4_6547" data-name="\u7EC4 6547" opacity="0.8" transform="translate(-0.568 -0.55)">
@@ -58,7 +58,7 @@
           </div>
         </div>
         <div id='one_2' class="oneBox_mid_line oneBox_mid_line_two">
-          <div class="oneBox_mid_line_top  oneBox_mid_line_top_two" ref="mouseImg"><div></div></div>
+          <div class="oneBox_mid_line_top  oneBox_mid_line_top_two" ref="mouseImg" v-lazy:background-image="{src: require('../../assets/img/music.98f31e06.png')}"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48.5" height="48.5" viewBox="0 0 48.5 48.5">
               <g id="\u7EC4_6550" data-name="\u7EC4 6550" opacity="0.8" transform="translate(0.25 0.25)">
@@ -140,7 +140,7 @@
           </div>
         </div>
         <div id='one_3' class="oneBox_mid_line oneBox_mid_line_three">
-          <div class="oneBox_mid_line_top  oneBox_mid_line_top_three" ref="mouseImg"><div></div></div>
+          <div class="oneBox_mid_line_top  oneBox_mid_line_top_three" ref="mouseImg" v-lazy:background-image="{src: require('../../assets/img/topic.34b55e00.png')}"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48" height="48" viewBox="0 0 48 48">
               <defs>
@@ -192,7 +192,7 @@
           </div>
         </div>
         <div id='one_4' class="oneBox_mid_line oneBox_mid_line_four">
-          <div class="oneBox_mid_line_top  oneBox_mid_line_top_four" ref="mouseImg"><div></div></div>
+          <div class="oneBox_mid_line_top  oneBox_mid_line_top_four" ref="mouseImg" v-lazy:background-image="{src: require('../../assets/img/comment.11356fb0.png')}"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48.3" height="48.3" viewBox="0 0 48.3 48.3">
               <g id="\u7EC4_6275" data-name="\u7EC4 6275" opacity="0.8" transform="translate(0.15 0.15)">
@@ -265,7 +265,7 @@
           </div>
         </div>
         <div id='one_5' class="oneBox_mid_line oneBox_mid_line_five">
-          <div class="oneBox_mid_line_top  oneBox_mid_line_top_five" ref="mouseImg"><div></div></div>
+          <div class="oneBox_mid_line_top  oneBox_mid_line_top_five" ref="mouseImg" v-lazy:background-image="{src: require('../../assets/img/scene.2de8eadd.png')}"><div></div></div>
           <div class="oneBox_mid_line_bottom" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
             <svg width="48" height="48" viewBox="0 0 48 48">
               <defs>
@@ -482,23 +482,23 @@ export default {
         bottom: 0;
   }
 .oneBox_mid_line_top_one {
-  background: url(../../assets/img/video.4531a180.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_two {
-  background: url(../../assets/img/music.98f31e06.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_three {
-  background: url(../../assets/img/topic.34b55e00.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_four {
-  background: url(../../assets/img/comment.11356fb0.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 100% 100%;
 }
 .oneBox_mid_line_top_five {
-  background: url(../../assets/img/scene.2de8eadd.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 100% 100%;
 }
 

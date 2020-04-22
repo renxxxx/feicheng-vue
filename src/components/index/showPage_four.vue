@@ -15,15 +15,15 @@
         </div>
       </div>
       <div class="mainbottom">
-        <div>
-          <div id="four_1" class="mainbottom_top mainbottom_top_transition">
+        <div v-lazy:background-image="{src: require('../../assets/img/map.svg')}">
+          <div id="four_1" class="mainbottom_top mainbottom_top_transition" v-lazy:background-image="{src: require('../../assets/img/address.svg')}">
             <div>
               <div class="over_one"></div>
               <div class="over_two"></div>
             </div>
           </div>
-          <div id="four_2" class="mainbottom_mid mainbottom_mid_transition">
-            <div>
+          <div id="four_2" class="mainbottom_mid mainbottom_mid_transition" v-lazy:background-image="{src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbMAAACBCAMAAAB99qSnAAAAV1BMVEVHcEzxcgHvcQLTaAklIyMiIiIiIiINBgIaFxUaGhpvQRuVTxL/dwD+dwCqVw7OZQj/dwDIYwm4XAz+dgDBYAr+dgD7dAD5cQCkaTuBZVRfXmhgYGpiYm0899EvAAAAHHRSTlMAf/XqLB0mBQwUR2DbnHjRu7uPYaVGLRj6/ZrTQLn4HAAAAllJREFUeNrt3d1ymlAUgFEFBDSan1pFTd//OcsRNYFYhUzTHjLr2+eqUzqds2aL6U0nE4264lxZlE1VWd1s28y9Nue52zqc44TTo+nb9GkVzmmG9dzMwJbNDCsJE86p5fO6uC6WHV5/KcL2u5ptc23HDi4n3mq1j2iFHYt715Jl1TWzZdFv2qr7LnMpsZcklTUb3aJtvM1G90abtn8ucyUj+HBsm5VuZGRmBbPxmZXMRmH2/h+wyrkbGZlZwYyZmIkZMzETM2ZiJmbMxEzMmImZmDFjxkzMxIyZmIkZMzETM2ZiJmbMmDETMzFjJmZixkzMxIyZmIkZMzHT322XrCpmI2ufJtOS2djUkuWa2fg+IJv/0YIZM/ls1Nt3kMp3kJF919/6ru9najETM2ZiJmbMxEzMmImZmDFjxkzMxIyZmIkZMzETM2ZiJmbMxEzMmDFjJmZixkzMxIyZmIkZMzETM2bMmImZmDHT/zN7dSWxt++aHdxJ7O2Sddts4U5iL02qttnMokW/ZquyZVbOcm+0yN9m6fa92XHRMpsWM1maPLTIjmZ5tjjYtTjBdmmaLuYdswat1SKcesLp38N5wunVYziX6dOPcE4Tzr1+hnOaXr2cp19PzfQubWZIL495TdYyC4tWo3XUmupfzENZONmQjg9lw57Khz6QDfv9A//wYX+TLyvPZ/POmjWLNp/NZo3O5fZ6dbnns+6gp/JBfeKB/Isf+AfVMPOyu2ZHtEZNETa/RhbQarWaTfFVBrGPZCe14Kbo+oPYmU3RNbkhdqNPPfT9cy3St+03NM16MsWqBl8AAAAASUVORK5CYII='}" >
+            <div v-lazy:background-image="{src: require('../../assets/img/cityPic.d155ba3c.png')}">
               <div class="mainbottom_mid_one"></div>
               <div class="mainbottom_mid_two">
                 <div class="onetop">
@@ -182,7 +182,7 @@ strong {
 .mainbottom > div {
   width: 1200px;
   height: 720px;
-  background: url(../../assets/img/map.svg) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   position: relative;
   margin: 0 auto;
 }
@@ -191,7 +191,7 @@ strong {
   opacity: 0;
   width: 601px;
   height: 260px;
-  background: url(../../assets/img/address.svg) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   left: 297px;
   top: 255px;
 }
@@ -266,7 +266,7 @@ strong {
   height: 129px;
   left: 218px;
   top: 343px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbMAAACBCAMAAAB99qSnAAAAV1BMVEVHcEzxcgHvcQLTaAklIyMiIiIiIiINBgIaFxUaGhpvQRuVTxL/dwD+dwCqVw7OZQj/dwDIYwm4XAz+dgDBYAr+dgD7dAD5cQCkaTuBZVRfXmhgYGpiYm0899EvAAAAHHRSTlMAf/XqLB0mBQwUR2DbnHjRu7uPYaVGLRj6/ZrTQLn4HAAAAllJREFUeNrt3d1ymlAUgFEFBDSan1pFTd//OcsRNYFYhUzTHjLr2+eqUzqds2aL6U0nE4264lxZlE1VWd1s28y9Nue52zqc44TTo+nb9GkVzmmG9dzMwJbNDCsJE86p5fO6uC6WHV5/KcL2u5ptc23HDi4n3mq1j2iFHYt715Jl1TWzZdFv2qr7LnMpsZcklTUb3aJtvM1G90abtn8ucyUj+HBsm5VuZGRmBbPxmZXMRmH2/h+wyrkbGZlZwYyZmIkZMzETM2ZiJmbMxEzMmImZmDFjxkzMxIyZmIkZMzETM2ZiJmbMmDETMzFjJmZixkzMxIyZmIkZMzHT322XrCpmI2ufJtOS2djUkuWa2fg+IJv/0YIZM/ls1Nt3kMp3kJF919/6ru9najETM2ZiJmbMxEzMmImZmDFjxkzMxIyZmIkZMzETM2ZiJmbMxEzMmDFjJmZixkzMxIyZmIkZMzETM2bMmImZmDHT/zN7dSWxt++aHdxJ7O2Sddts4U5iL02qttnMokW/ZquyZVbOcm+0yN9m6fa92XHRMpsWM1maPLTIjmZ5tjjYtTjBdmmaLuYdswat1SKcesLp38N5wunVYziX6dOPcE4Tzr1+hnOaXr2cp19PzfQubWZIL495TdYyC4tWo3XUmupfzENZONmQjg9lw57Khz6QDfv9A//wYX+TLyvPZ/POmjWLNp/NZo3O5fZ6dbnns+6gp/JBfeKB/Isf+AfVMPOyu2ZHtEZNETa/RhbQarWaTfFVBrGPZCe14Kbo+oPYmU3RNbkhdqNPPfT9cy3St+03NM16MsWqBl8AAAAASUVORK5CYII=) 0 0
+  background:  0 0
     no-repeat;
   background-size: 100% 98%;
   -webkit-transform: translateX(-720px);
@@ -280,7 +280,7 @@ strong {
   transform: translateX(0px);
 }
 .mainbottom_mid > div {
-  background: url(../../assets/img/cityPic.d155ba3c.png) 0 0 no-repeat;
+  background:  0 0 no-repeat;
   background-size: 117px 117px;
   display: flex;
   padding-left: 57px;

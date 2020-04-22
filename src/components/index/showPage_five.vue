@@ -16,8 +16,8 @@
       </div>
       <div class="mainmid">
         <div class="mainmid_one">
-          <div id="five_1" class="mainmid_one_top mainmid_one_top_transition"></div>
-          <div id="five_2" class="mainmid_one_mid mainmid_one_mid_transition"></div>
+          <div id="five_1" class="mainmid_one_top mainmid_one_top_transition" v-lazy:background-image="{src: require('../../assets/img/brand1.6af25549.png')}"></div>
+          <div id="five_2" class="mainmid_one_mid mainmid_one_mid_transition" v-lazy:background-image="{src: require('../../assets/img/brand2.862c8727.png')}"></div>
         </div>
         <div class="mainmid_two">
           <div class="_2-fRwiyK"></div>
@@ -108,7 +108,7 @@
   }
   .mainmid_one_top{
         height: 222px;
-        background: url(../../assets/img/brand1.6af25549.png) 0 0 no-repeat;
+        background:  0 0 no-repeat;
         background-size: 100% 100%;
         -webkit-transform: translateX(720px);
         transform: translateX(720px);
@@ -121,12 +121,12 @@
   }
   .mainmid_one_mid{
     height: 222px;
-        background: url(../../assets/img/brand2.862c8727.png) 0 0 no-repeat;
+        background:  0 0 no-repeat;
         background-size: 100% 100%;
         -webkit-transform: translateX(720px);
         transform: translateX(720px);
         opacity: 0;
-        background: url(../../assets/img/brand2.862c8727.png) 0 0 no-repeat;
+        background:  0 0 no-repeat;
         background-size: 100% 100%;
         margin-top: 40px;
   }

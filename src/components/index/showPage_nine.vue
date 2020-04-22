@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%;">
-    <div id="nine_1" class="main main_transition">
+    <div id="nine_1" class="main main_transition" v-lazy:background-image="{src: require('../../assets/img/freeBack.svg')}">
       <div>
         <div class="main_top"><strong><span>120+</span>项数据永久免费</strong></div>
         <div class="main_mid">
@@ -63,7 +63,7 @@ a:visited{text-decoration:none; }
 
   .main{
           height: 387px;
-          background: url(../../assets/img/freeBack.svg) 0 0 no-repeat;
+          background: 0 0 no-repeat;
           background-size: 100% 100%;
           -webkit-transform: translateY(400px);
           transform: translateY(400px);

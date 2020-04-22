@@ -8,7 +8,7 @@
               <el-col :span="6" style="padding: 0;">
                 <div class="grid-content bg-purple fclogo">
                   <img
-                    src="../../assets/img/feicheng1.svg"
+                    v-lazy='logo'
                     alt
                     style="height: 34px;object-fit: cover;margin-top: 16px;object-fit: contain;"
                   />
@@ -37,7 +37,7 @@
                 <router-link :to="{ path: '/product/product_videoSearch' }"><span class="lf48">素材创意</span></router-link>
                 <el-button   v-if="this.$store.state.login? false:true" @click="loginFn" >登录 / 注册</el-button>
                 <div v-else class="userToGo">
-                  <span><img style="border-radius: 50%;" :src="this.$store.state.login? this.$store.state.login.userLogo:''" alt=""></span>
+                  <span><img style="border-radius: 50%;" v-lazy="this.$store.state.login? this.$store.state.login.userLogo:''" alt=""></span>
                   <span>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</span>
                   <router-link :to="{path: '/product/product_user'}"><span class="togo">去使用<i aria-label="icon: right" style="font-size:12px" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span>
                   </router-link>
@@ -52,7 +52,7 @@
       <el-main>
         <div class="main">
           <div class="homeBack">
-            <div class="homeBackIndex">
+            <div class="homeBackIndex"  v-lazy:background-image="{src: require('../../assets/img/homeBack.7ca33676.gif')}" >
               <div>
                 <h1>飞橙全场景AI数据平台<div class="_2L2iRuHT"></div></h1>
                 <p>
@@ -170,7 +170,7 @@
         </div>
       </el-main>
       <!-- <el-footer> -->
-      <div class="footer">
+      <div class="footer" v-lazy:background-image="{src: require('../../assets/img/footerBack.56fab624.png')}">
         <div class="footer_1">
 
           <div class="footer_1_3">
@@ -183,7 +183,7 @@
             <div>
               <!-- <img src="../../assets/img/cityPic.d155ba3c.png" alt=""> -->
               <div v-viewer="{navbar:false,title:false,toolbar:false}">
-                <img :src="getConfig.servantWxQrcode" style="cursor:pointer;" />
+                <img v-lazy="getConfig.servantWxQrcode" style="cursor:pointer;" />
 					    </div>
 
             </div>
@@ -220,6 +220,7 @@ export default {
   name: "account",
   data() {
     return {
+      logo:require('../../assets/img/feicheng1.svg'),
       codeSrc: "",
       servant: [],
       userName:'',
@@ -709,7 +710,8 @@ el-row,
 }
 .homeBackIndex {
   height: 650px;
-  background: url(../../assets/img/homeBack.7ca33676.gif) 0 -123px no-repeat;
+  background:  0 -123px no-repeat;
+
   background-size: cover;
   position: absolute;
   width: 100%;
@@ -836,7 +838,7 @@ el-row,
 
 /* 底部 */
 .footer {
-  background: url(../../assets/img/footerBack.56fab624.png) 0 0 no-repeat;
+  background: 0 0 no-repeat;
   background-size: 100% 200px;
 }
 .footer_1 {

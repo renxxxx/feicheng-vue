@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="box_index">
-        <div id="two_1" class="box_indexLf transitionlF">
+        <div id="two_1" class="box_indexLf transitionlF" v-lazy:background-image="{src: require('../../assets/img/phone.9548e850.png')}">
 
         </div>
         <div id="two_2" class="box_indexRt transitionlFTwo">
@@ -24,7 +24,7 @@
               <span>REPORT</span>
             </div>
             <div class="box_indexRt_two">
-              <div></div>
+              <div v-lazy:background-image="{src: require('../../assets/img/down1.png')}"></div>
               <div>
                 <div class="proIntro">
                   <svg data-name="\u7EC4 6456" width="16" height="16" style="vertical-align:-2px;margin-right:3px"><path data-name="\u8DEF\u5F84 10814" d="M5.578 12.018a1.439 1.439 0 01.553.108 1.462 1.462 0 01.461.3 1.317 1.317 0 01.307.453 1.476 1.476 0 010 1.107 1.317 1.317 0 01-.307.453 1.578 1.578 0 01-.461.307 1.356 1.356 0 01-.553.115 1.34 1.34 0 01-.561-.115 1.611 1.611 0 01-.453-.307 1.317 1.317 0 01-.307-.453 1.476 1.476 0 010-1.107 1.317 1.317 0 01.307-.453 1.487 1.487 0 01.453-.3 1.422 1.422 0 01.561-.108zm6.393.031a1.5 1.5 0 01.561.108 1.355 1.355 0 01.461.3 1.477 1.477 0 01.306.455 1.385 1.385 0 010 1.1 1.477 1.477 0 01-.307.453 1.454 1.454 0 01-.461.307 1.41 1.41 0 01-.561.115 1.356 1.356 0 01-.553-.115 1.453 1.453 0 01-.761-.761 1.385 1.385 0 010-1.107 1.477 1.477 0 01.307-.453 1.373 1.373 0 01.453-.3 1.439 1.439 0 01.555-.103zm2.582-8.729a1.568 1.568 0 01.669.115.761.761 0 01.338.284.646.646 0 01.092.361 1.2 1.2 0 01-.054.33l-.192.569q-.146.431-.33.945-.184.515-.361 1.022t-.269.8a1.733 1.733 0 01-.507.853 1.192 1.192 0 01-.753.238H5.117l.231 1.383h7.746q.738 0 .738.63a.946.946 0 01-.146.53.642.642 0 01-.576.223H5.055a.908.908 0 01-.515-.138 1.167 1.167 0 01-.346-.361 2.2 2.2 0 01-.223-.484 4.424 4.424 0 01-.131-.492q-.015-.092-.085-.446t-.169-.884l-.221-1.186-.246-1.314q-.292-1.552-.661-3.458H1.306a.622.622 0 01-.384-.115 1 1 0 01-.254-.277 1.065 1.065 0 01-.138-.346 1.668 1.668 0 01-.038-.338.674.674 0 01.207-.507.775.775 0 01.561-.2h1.552a1.107 1.107 0 01.487.095.835.835 0 01.292.231.892.892 0 01.154.292l.077.261a3.461 3.461 0 01.061.346l.061.453q.046.277.092.584z" fill="#f8c744"></path><path data-name="\u77E9\u5F62 5340" fill="none" d="M0 0h16v16H0z"></path></svg>
@@ -44,9 +44,9 @@
               </div>
               <div class="_3-l53XPK"><span><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>商品销量</span><span class="_2bL9D8ei"><svg data-name="\u7EC4 6428" width="16" height="8"><path data-name="\u8DEF\u5F84 10963" d="M0 4h16" stroke="#5ca1e6" stroke-width="2" fill="none"></path><g data-name="\u692D\u5706 633" transform="translate(4)" fill="#40404d" stroke="#5ca1e6" stroke-width="2"><circle cx="4" cy="4" r="4" stroke="none"></circle><circle cx="4" cy="4" r="3" fill="none"></circle></g></svg>视频访客趋势</span></div>
             </div>
-            <div class="box_indexRt_four">
+            <div class="box_indexRt_four" v-lazy:background-image="{src: require('../../assets/img/down3.png')}">
               <div>
-                <div class="box_indexRt_four_top">2019-12-27 热度解读</div>
+                <div class="box_indexRt_four_top" v-lazy:background-image="{src: require('../../assets/img/down2.png')}">2019-12-27 热度解读</div>
                 <div class="box_indexRt_four_middle">
 <div class="midicon1"><div class="" style="background:#5CA1E6"></div><span>商品销量</span>31620</div>
 <div class="midicon2"><div class="" style="background:#FF7800"></div><span>视频访客</span>398665</div>
@@ -146,7 +146,7 @@
    .box_indexLf{
 width: 377px;
     height: 735px;
-    background: url(../../assets/img/phone.9548e850.png) 0 0 no-repeat;
+    background: 0 0 no-repeat;
     background-size: cover;
     margin-right: -28px;
     z-index: 2;
@@ -202,7 +202,7 @@ width: 377px;
     .box_indexRt_two>div:nth-child(1){
           width: 120px;
           height: 80px;
-          background: url(../../assets/img/down1.png) 0 0 no-repeat;
+          background:  0 0 no-repeat;
           background-size: cover;
           margin-right: 16px;
     }
@@ -326,7 +326,7 @@ width: 377px;
       }
       .box_indexRt_four{
             height: 220px;
-            background: url(../../assets/img/down3.png) 0 0 no-repeat;
+            background: 0 0 no-repeat;
             background-size: 100% 100%;
             position: relative;
       }
@@ -349,7 +349,7 @@ width: 377px;
             width: 156px;
             height: 30px;
             line-height: 30px;
-            background: url(../../assets/img/down2.png) 0 0 no-repeat;
+            background: 0 0 no-repeat;
             background-size: 100% 100%;
             font-size: 12px;
             color: #fff;

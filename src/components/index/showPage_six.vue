@@ -18,7 +18,7 @@
             <div class="_2PSDJLVs"></div>
             <div class="_2PSDJLVs"></div>
           </div>
-          <div class="mainbottom_lf_two">
+          <div class="mainbottom_lf_two" v-lazy:background-image="{src: require('../../assets/img/left.svg')}">
             <div class="lf_one"></div>
             <div class="lf_two">
               <svg width="48" height="48"><g data-name="\u7EC4 7213" transform="translate(-345 -5713)"><circle data-name="\u692D\u5706 1758" cx="24" cy="24" r="24" transform="translate(345 5713)" fill="#fff"></circle><g data-name="\u7EC4 7036"><path data-name="\u8DEF\u5F84 13292" d="M388.503 5730.596l-2.391-2.316a.947.947 0 00-1.345 0l-2.241 2.316a.947.947 0 000 1.345l2.395 2.316a1.205 1.205 0 00.672.224.811.811 0 00.672-.3l2.241-2.316a.859.859 0 00-.003-1.269z" fill="#ff7800"></path><path data-name="\u8DEF\u5F84 13293" d="M380.983 5733.311a1.015 1.015 0 00-1.307 0l-6.689 6.342a.25.25 0 01-.308 0l-10.071-9.584a1.038 1.038 0 00-1.384 0l-11.916 11.204a.666.666 0 00-.308.634.625.625 0 00.308.564l2.46 2.184a1.015 1.015 0 001.307 0l8.688-8.1a.25.25 0 01.308 0l10.148 9.583a1.2 1.2 0 00.692.282.982.982 0 00.692-.282l9.918-9.372a.82.82 0 000-1.2z" fill="#3e3e4b"></path></g></g></svg>
@@ -58,7 +58,7 @@
               <div class="_bGvpTp2_"></div>
               <div class="_bGvpTp2_"></div>实时数据<strong>助力视频号投放<span class="_3hclmUyu"></span></strong><div class="_2PSDJLVs"></div><div class="_2PSDJLVs"></div>
             </div>
-            <div class="mainbottom_rt_bottom">
+            <div class="mainbottom_rt_bottom" v-lazy:background-image="{src: require('../../assets/img/right.svg')}">
               <div class="rt_one"></div>
               <div class="rt_two">
                 正在监测
@@ -220,7 +220,7 @@
 }
 /* TODO 圖片 */
 .mainbottom_lf_two{
-      background: url(../../assets/img/left.svg) 0 0 no-repeat;
+      background:  0 0 no-repeat;
       padding: 40px 0 24px 32px;
           position: relative;
 }
@@ -375,7 +375,7 @@
       z-index: -1;
 }
 .mainbottom_rt_bottom{
-      background: url(../../assets/img/right.svg) 0 0 no-repeat;
+      background: 0 0 no-repeat;
       padding-bottom: 24px;
       position: relative;
 }
