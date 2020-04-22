@@ -35,17 +35,47 @@ export default {
   name: 'App',
   data() {
     return {
-		showContact:false
+		showContact:false,
+		config :this.$store.state.getConfig.config()
+		// this.$store.state.getConfig.config()
     };
   },
+		metaInfo(){
+			return{
+				title:  this.config.seoTitle, // set a title
+				meta:[   // set meta
+					{                
+						name: 'keyWords',
+						content: 'this.config.seoKeywords'
+					},
+					{
+						name: 'description',
+						content: 'this.config.seoDescription'
+					},
+				],
+			}
+		},
   components: {
     login,loading
   },
   watch:{
   },
+
   mounted(){
+	console.log(this.config)
     this.$store.state.loginComponent = this.$refs.loginRef
     this.$store.state.loadingComponent = this.$refs.loadingRef
+	// console.log(this.$store.state.getConfig.config())
+	// var objs = document.getElementsByTagName("meta");
+	// console.log(objs)
+	// 	for(var i=0;i<objs.length;i++){
+	// 		// console.log(objs[i].content)
+	// 		if(objs[i].name == 'keywords'){
+				
+	// 			objs[i].content = 'new keywords';
+	// 			console.log(objs[i].content )
+	// 		}
+	// 	}
   },
   created(){
     if(!this.cookieOn()){
@@ -54,7 +84,17 @@ export default {
 
         });
     }
-
+	
+	this.$jquery.ajax({
+				  url:'/my/wx-videoaccount',
+				  type:'get',
+				  async:false,
+				  success:function(res){
+				    if(res.code == 0){
+						  thisVue.$store.state.wxVideoaccount=res.data
+				    }
+				  }
+	     })
     //debugger
     let thisVue = this
         this.$jquery.ajax({

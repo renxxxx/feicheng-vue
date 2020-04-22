@@ -12,6 +12,7 @@
             </template>
           </el-table-column> -->
           <el-table-column label="描述" prop="brief"></el-table-column>
+		  <el-table-column label="浏览量" prop="viewCount"></el-table-column>
            <el-table-column label="视频"  align="center">
              <template slot-scope="scope">
                 <video controls="controls" style="width: 100px;height: 100px;object-fit: contain;" :poster="scope.row.cover" :src="scope.row.video"></video>
@@ -77,6 +78,10 @@
               <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
             </el-upload>
           </li>
+		<li>
+			<span>浏览量:</span>
+			<el-input type='number' placeholder="请输入内容" v-model="viewCount" clearable></el-input>
+		</li>
           <li>
             <span>点赞量:</span>
             <el-input type='number' placeholder="请输入内容" v-model="likeCount" clearable></el-input>
@@ -116,6 +121,7 @@ export default {
       disabled:'',
       name: '',
       likeCount: '',
+	  viewCount:'',
       pv: '',
       brief: '',
       imageUrl: '',
@@ -161,7 +167,7 @@ export default {
      if(this.getVideoList&&this.getVideoList.itemList!=null&&this.getVideoList.itemList!=undefined&&this.getVideoList.itemList.length!=0){
 
        for(var  i  in itemList){
-         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount, pv: itemList[i].pv, brief: itemList[i].brief ,videoId:itemList[i].wxVideoaccountVideoId})
+         this.tableData.push({ name: itemList[i].name, cover: itemList[i].cover, video: itemList[i].video, likeCount: itemList[i].likeCount,viewCount:itemList[i].viewCount, pv: itemList[i].pv, brief: itemList[i].brief ,videoId:itemList[i].wxVideoaccountVideoId})
        }
      }
   },
@@ -205,13 +211,14 @@ export default {
     // 提交视频
     onSubmit() {
      this.centerDialogVisible = false;
-     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount, pv: this.pv, brief: this.brief,videoId:'' });
+     this.tableData.push({ name: this.name, cover: this.imageUrlNow, video: this.video, likeCount: this.likeCount,viewCount:this.viewCount, pv: this.pv, brief: this.brief,videoId:'' });
      this.name=''
      this.pv=''
      this.imageUrl=''
      this.video= ''
      // this.imageUrlNow=''
      this.likeCount=''
+	 this.viewCount = ''
      this.brief=''
      // this.video=''
      this.videolist=[]

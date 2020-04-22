@@ -62,7 +62,7 @@
 					<el-carousel height="300px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
 							<router-link :to="{path:item.url}">
-								<img :src="item.src" alt="" style="width: 100%;">
+								<img :src="item.src" alt="" style="width:100%;">
 							</router-link>
 						</el-carousel-item>
 					</el-carousel>

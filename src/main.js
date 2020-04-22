@@ -24,6 +24,8 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   attempt: 1,
 })
+import MetaInfo from 'vue-meta-info';
+Vue.use(MetaInfo)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.prototype.$store = store
@@ -57,8 +59,6 @@ Vue.prototype.numberTry=function(number) {
           }
 		  return numberOut
    }
-
-
 new Vue({
   el: '#app',
   router,

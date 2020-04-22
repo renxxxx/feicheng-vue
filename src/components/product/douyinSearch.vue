@@ -7,7 +7,7 @@
 						<div class="search_box_xialaButton">
 							<span slot="reference">{{searchData}}</span>
 							<i class="el-icon-arrow-down" v-if="icon_down"></i>
-							<i class="el-icon-arrow-up" v-if="icon_up"></i>
+							<i class="el-icon-arrow-up" v-if="icon_up"></i>	
 						</div>
 						<ul v-if="show_xiala">
 							<li @click="searchChoesFn('全部')">全部</li>
@@ -575,11 +575,11 @@ export default {
 				this.four = 0
 				if(this.five%3 == 0){
 					this.order = 'desc';
-					this.sort = "pv";
+					this.sort = "indexNum";
 					this.clickData.five = true;
 				}else if(this.five%3 == 1){
 					this.order = 'asc';
-					this.sort = "pv";
+					this.sort = "indexNum";
 					this.clickData.five = true;
 				}else{
 					this.order = '';

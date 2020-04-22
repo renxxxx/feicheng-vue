@@ -358,6 +358,7 @@ export default {
      this.brief = this.$store.state.wxVideoaccount.brief;
      this.fansCount = this.$store.state.wxVideoaccount.fansCount;
      this.videoCount = this.$store.state.wxVideoaccount.videoCount;
+		 this.viewCount = this.$store.state.wxVideoaccount.viewCount;
      this.likeCount = this.$store.state.wxVideoaccount.likeCount;
      this.pv = this.$store.state.wxVideoaccount.pv;
       if(this.$store.state.wxVideoaccount.screenshot!=null&&this.$store.state.wxVideoaccount.screenshot!=undefined&&this.$store.state.wxVideoaccount.screenshot!=''){
