@@ -1,9 +1,9 @@
-// import Vue from 'vue'           
+import Vue from 'vue'           
 Vue.prototype.$version = '2004221740' 
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
-// import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
-// Vue.use(ElementUI);  
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);  
 import App from './App'
 import router from './router'
 import axios from 'axios'

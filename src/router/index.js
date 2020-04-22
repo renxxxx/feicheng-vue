@@ -1,6 +1,6 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 import Store from '../store'
-// import Router from 'vue-router'
+import Router from 'vue-router'
 //主页面
 const index = ()=>import("@/components/index/index.vue")
 //404错误页面
@@ -45,9 +45,9 @@ const article = ()=>import( '@/components/article.vue')
 
 // //文章详情页面
 // import articleDetails from '@/components/article/article.vue'
-// Vue.use(Router)
+ Vue.use(Router)
 
-const router = new VueRouter({
+const router = new Router({
 	routes: [
 		// unkeepLastRoute为true是不需要缓存路由值
 		//auth为true是需要登录状态,否则为false
