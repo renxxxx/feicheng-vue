@@ -28,6 +28,23 @@ export default {
 			content:null
 		};
 	},
+		metaInfo(){
+      let thisVue = this
+     let config =  thisVue.$store.state.getConfig.config()
+			return{
+				title:  config.seoTitle+ ' | '+thisVue.data.name, // set a title
+				meta:[   // set meta
+					{                
+						name: 'keyWords',
+						content: config.seoKeywords + ','+thisVue.data.name
+					},
+					{
+						name: 'description',
+						content: config.seoDescription+ ',' + thisVue.data.name
+					},
+				],
+			}
+		},
 	beforeCreate(){
 
 	},
@@ -94,10 +111,6 @@ export default {
 	},
 }
 </script>
-
-<style scoped>
-
-</style>
 
 <style scoped>
 

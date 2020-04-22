@@ -35,22 +35,22 @@ export default {
   name: 'App',
   data() {
     return {
-		showContact:false,
-		config :this.$store.state.getConfig.config()
-		// this.$store.state.getConfig.config()
+		showContact:false
     };
   }, 
 		metaInfo(){
+      let thisVue = this
+     let config =  thisVue.$store.state.getConfig.config()
 			return{
-				title:  this.config.seoTitle, // set a title
+				title:  config.seoTitle, // set a title
 				meta:[   // set meta
 					{                
 						name: 'keyWords',
-						content: 'this.config.seoKeywords'
+						content: config.seoKeywords
 					},
 					{
 						name: 'description',
-						content: 'this.config.seoDescription'
+						content: config.seoDescription
 					},
 				],
 			}
@@ -62,7 +62,6 @@ export default {
   },
 
   mounted(){
-	console.log(this.config)
     this.$store.state.loginComponent = this.$refs.loginRef
     this.$store.state.loadingComponent = this.$refs.loadingRef
 	// console.log(this.$store.state.getConfig.config())
