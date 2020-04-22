@@ -8,7 +8,7 @@
 							<span slot="reference">{{searchData}}</span>
 							<i class="el-icon-arrow-down" v-if="icon_down"></i>
 							<i class="el-icon-arrow-up" v-if="icon_up"></i>	
-						</div>
+						</div> 
 						<ul v-if="show_xiala">
 							<li @click="searchChoesFn('全部')">全部</li>
 							<li @click="searchChoesFn('名称')">名称</li>
@@ -162,7 +162,9 @@
 			   			</div>
 					</template>
 					<template slot-scope="scope" >
-			   			<span class="biaoqianClass"  style="text-align: center !important;"  v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+			   			<!-- <div style="box-sizing: border-box; text-align: center;"> -->
+						<span class="biaoqianClass" :class="scope.row.wxVideoaccountRealmList.length!=1? 'float':''"  style="text-align: center !important;"  v-for="(biaoqian,num) in scope.row.wxVideoaccountRealmList">{{biaoqian.name}}</span>
+						<!-- </div> -->
 					</template>
 			   </el-table-column>
 			   <el-table-column align='center'   prop="name" min-width="10%" style="text-align: center;">
@@ -213,13 +215,13 @@
 				</el-table-column>
 				<el-table-column align='center'   prop="name" min-width="10%">
 					<template slot="header" slot-scope="scope">
-						<div @click="clickFn('five')" :class="clickData.five? 'xuanzhongColor':''" style="text-align:center;cursor: pointer;">
-							<span  style="color: #cdcfcf;text-align: center;" :class="clickData.five? 'xuanzhongColor':''">飞橙指数</span>
+						<div @click="clickFn('five')" class="xuanzhongColor" style="text-align:center;cursor: pointer;">
+							<span  style="color: #cdcfcf;text-align: center;" class="xuanzhongColor">飞橙指数</span>
 							<svg viewBox="0 0 1024 1024" focusable="false"  style="vertical-align: middle;"  class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
 						</div> 
 					</template>
 					<template slot-scope="scope">
-						<span style="color: #e8edee;font-size: 14px;text-align: center;">{{numberTry(scope.row.indexNum)}}</span>
+						<span class="xuanzhongColor" style="color: #e8edee;font-size: 14px;text-align: center;">{{numberTry(scope.row.indexNum)}}</span>
 					</template>
 				</el-table-column>
 			 </el-table>
@@ -1103,9 +1105,10 @@ h1,h2,h3,h4,h5,h6,p{
 	border: 1px solid rgba(205,207,207,.3);
 	background-color: rgba(232,237,238,.1);
 	white-space: nowrap;
+	margin: 3px;
+}
+.float{
 	float: left;
-
-	/* margin: 3px; */
 }
 .searchList_lie_xinxi_jianjie>div{
   color: rgb(120, 122, 122);
