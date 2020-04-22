@@ -1,4 +1,4 @@
-// import Vue from 'vue'        
+// import Vue from 'vue'         
 Vue.prototype.$version = '2004221452'
 Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 // import ElementUI from 'element-ui';
