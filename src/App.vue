@@ -77,6 +77,7 @@ export default {
 	// 	}
   },
   created(){
+    let thisVue=this
     if(!this.cookieOn()){
        this.$alert('您的浏览器限制了第三方Cookie, 这将影响您正常登录, 您可以更改浏览器的隐私设置, 解除限制后重试.', '提示', {
           confirmButtonText: '确定',
@@ -107,16 +108,7 @@ export default {
 			  }
       })
 
- this.$jquery.ajax({
-			  url:'/my/wx-videoaccount',
-			  type:'get',
-			  async:false,
-			  success:function(res){
-			    if(res.code == 0){
-					  thisVue.$store.state.wxVideoaccount=res.data
-			    }
-			  }
-      })
+
 
   },
   methods: {
