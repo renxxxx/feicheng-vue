@@ -32,7 +32,6 @@ Vue.prototype.qs = qs
 Vue.prototype.$Cookies = Cookies
 Vue.prototype.moment = moment;
 
-
 Vue.prototype.cookieOn=function() {
   //debugger
   var result = false;

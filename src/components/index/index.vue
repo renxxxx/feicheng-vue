@@ -91,7 +91,15 @@
           </div>
           <div class="downArrayIcon" ref="showPage1">
             <div>
-              <div>
+				<div class="_A6ZcKRLC">
+					<span class="_2Z_xHgbs" ref="xiahuaSpan">往下滑动，查看更多</span>
+					<div class="_3LQTAbds" ref="xiahuaImg">
+						<svg width="30" height="12" viewBox="0 0 30 12" style="fill: #fff;opacity:0.7">
+							
+							<path id="\u8DEF\u5F84_1" data-name="\u8DEF\u5F84 1" d="M106.421,277.256a.761.761,0,0,0-.034-1.3,1.578,1.578,0,0,0-1.763.025l-12.775,9.5-12.953-9.465a1.579,1.579,0,0,0-1.765.006.762.762,0,0,0,.008,1.3L90.9,287.387c.021.016.049.02.07.034,0,0,.006.008.011.012h0a1.578,1.578,0,0,0,1.763-.006l13.644-10.151.028-.021Z" transform="translate(-76.769 -275.7)" fill="#fff"></path></svg>
+					</div>
+				</div>
+              <!-- <div>
                 <svg width="28" height="28" viewBox="0 0 28 28">
                   <g id="\u7EC4_6058" data-name="\u7EC4 6058" transform="translate(28) rotate(90)">
                     <g id="\u7EC4_6057" data-name="\u7EC4 6057" opacity="0">
@@ -144,7 +152,7 @@
                     </g>
                   </g>
                 </svg>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="oneBox" ref="showPage2">
@@ -215,6 +223,7 @@ const showPage_seven = ()=>import("@/components/index/showPage_seven.vue");
 const showPage_eight = ()=>import("@/components/index/showPage_eight.vue");
 const showPage_nine = ()=>import("@/components/index/showPage_nine.vue");
 
+// import $ from 'jquery'
 export default {
   name: "account",
   data() {
@@ -226,6 +235,7 @@ export default {
       useravator:'',
       showData:false,
       getConfig:this.$store.state.config,
+	  timeout:'',
       // centerDialogVisible: false
     };
   },
@@ -304,7 +314,17 @@ export default {
 
   },
   activated() {
-     debugger
+	let _this = this
+    _this.timeout = setInterval(function(){
+		// console.log(_this.$refs.xiahuaImg)
+		// $("_3LQTAbds").animate({top:'250px',opacity:'0'});
+		// $("_2Z_xHgbs").animate({opacity:'0'});
+		// document.getElementById('_2Z_xHgbs').animate({left:'250px'});
+		// _this.$refs.xiahuaSpan.style.opacity = 0
+		// _this.$refs.xiahuaImg.style.top = '13px'
+		// console.log('ss')
+		
+	},2000)
      if(this.$route.query.forward){
          localStorage.setItem('forward',this.$route.query.forward)
          this.$router.replace({path:'/'})
@@ -318,7 +338,7 @@ export default {
   //debugger
     window.addEventListener("scroll", this.scrollToTop, true);
 
-
+	
 
 
     // 跳转回跳页面
@@ -719,10 +739,15 @@ el-row,
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  height: 100vh;
+  min-height: 650px;
+  padding-top: 1px;
 }
 .homeBackIndex > div {
   width: 1200px;
   margin: auto;
+  box-sizing: border-box;
+  padding-top: 60px;
 }
 .homeBackIndex > div h1 {
   font-size: 56px;
@@ -910,5 +935,49 @@ el-row,
   font-size: 16px;
   width: 1200px;
   margin: auto;
+}
+
+
+._2Z_xHgbs {
+    display: block;
+        position: absolute;
+        top: -92px;
+        white-space: nowrap;
+        left: -56px;
+        /* color: #b4b7c1; */
+		color: #fff;
+		 
+        -webkit-animation: _PPny0_k8 1.4s linear infinite;
+        animation: _PPny0_k8 1.4s linear infinite;
+}
+@-webkit-keyframes _PPny0_k8 /*Safari and Chrome*/
+{
+from {opacity: 0;}
+to {opacity: .7;}
+}
+._3LQTAbds {
+   position: absolute;
+       top: -46px;
+       left: 50%;
+       -webkit-transform: translate(-50%);
+       transform: translate(-50%);
+       cursor: pointer;
+       -webkit-animation: _2NRMCHUL 1.4s linear infinite;
+       animation: _2NRMCHUL 1.4s linear infinite;
+}
+@-webkit-keyframes _2NRMCHUL /*Safari and Chrome*/
+{
+	from {
+	    -webkit-transform: translate(-50%,-20px);
+	    transform: translate(-50%,-20px);
+		top: -57px;
+	    opacity: 1;
+	}
+	to {
+	    -webkit-transform: translate(-50%);
+	    transform: translate(-50%);
+		top: 13px;
+	    opacity: 0;
+	}
 }
 </style>
