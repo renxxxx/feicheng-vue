@@ -52,7 +52,7 @@
       <el-main>
         <div class="main">
           <div class="homeBack">
-            <div class="homeBackIndex"  v-lazy:background-image="{src: require('../../assets/img/homeBack.7ca33676.gif')}" >
+            <div class="homeBackIndex"  v-lazy:background-image="{src: require('../../assets/img/homeBack.7ca33676.jpg')}" >
               <div>
                 <h1>飞橙全场景AI数据平台<div class="_2L2iRuHT"></div></h1>
                 <p>
@@ -632,7 +632,7 @@ el-row,
       top: 0;
       width: 100%;
       z-index: 999;
-      background: #40404d;
+      background: #081132;
       /* left: -8px; */
 }
 .fclogo {
@@ -643,7 +643,7 @@ el-row,
 .indexNav {
   width: 1200px;
   height: 64px;
-  background: #40404d;
+  background: #081132;
   margin: 0 auto !important;
   vertical-align: middle;
   line-break: 64px;
@@ -705,7 +705,7 @@ el-row,
   height: 100vh;
   min-height: 650px;
   padding-top: 1px;
-  background: #40404d;
+  background: #081132;
   position: relative;
 }
 .homeBackIndex {
@@ -814,7 +814,7 @@ el-row,
   height: 0;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
-  border-top: 25px solid #3e3e4a;
+  border-top: 25px solid #081132;
   position: relative;
   margin-left: 20px;
 }
