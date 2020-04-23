@@ -946,7 +946,7 @@ el-row,
         left: -56px;
         /* color: #b4b7c1; */
 		color: #fff;
-		
+		 
         -webkit-animation: _PPny0_k8 1.4s linear infinite;
         animation: _PPny0_k8 1.4s linear infinite;
 }
