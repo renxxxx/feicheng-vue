@@ -234,7 +234,6 @@
 <script>
 import axios from 'axios'
 import h5p from '../../../build/h5p.js'
-import {mapActions,mapGetters} from 'vuex'
 import qs from 'qs';
 export default {
 	name: 'douyinSearch',

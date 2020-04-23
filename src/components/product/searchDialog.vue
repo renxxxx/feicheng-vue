@@ -1,6 +1,6 @@
 <template>
 	<div class="searchDialog">
-		<el-dialog :visible.sync="publicSearchShow" custom-class="beijingColor" @close="closeFn" width="100%" style="background-color: transparent;">
+		<el-dialog :visible.sync="this.$store.state.publicSearchShow" custom-class="beijingColor" @close="closeFn" width="100%" style="background-color: transparent;">
 			<div class="ant-modal-content">
 				<div class="ant-modal-body">
 					<div class="_2-ZfaS6I" @click="closeFn"><i aria-label="图标: close" class="anticon anticon-close"><svg viewBox="64 64 896 896"
@@ -142,10 +142,7 @@
 
 <script>
 	import axios from 'axios'
-	import {
-		mapActions,
-		mapGetters
-	} from 'vuex'
+
 	import qs from 'qs';
 	export default {
 		name: 'searchDialog',
@@ -155,7 +152,6 @@
 			}
 		},
 		computed: {
-			...mapGetters(['publicSearchShow'])
 		},
 		components: {
 

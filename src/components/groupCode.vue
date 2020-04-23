@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 // import Router from 'vue-router';
 import qs from 'qs';
 export default {

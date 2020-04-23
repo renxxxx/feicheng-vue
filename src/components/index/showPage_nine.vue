@@ -19,7 +19,6 @@
 </template>
 
 <script>
-	import { mapActions, mapGetters } from 'vuex';
   import logins from '../login.vue'
 	export default {
 	  name: 'accounts',

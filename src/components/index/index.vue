@@ -205,16 +205,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import showPage_one from "./showPage_one.vue";
-import showPage_two from "./showPage_two.vue";
-import showPage_three from "./showPage_three.vue";
-import showPage_four from "./showPage_four.vue";
-import showPage_five from "./showPage_five.vue";
-import showPage_six from "./showPage_six.vue";
-import showPage_seven from "./showPage_seven.vue";
-import showPage_eight from "./showPage_eight.vue";
-import showPage_nine from "./showPage_nine.vue";
+const showPage_one = ()=>import("@/components/index/showPage_one.vue");
+const showPage_two = ()=>import("@/components/index/showPage_two.vue");
+const showPage_three = ()=>import("@/components/index/showPage_three.vue");
+const showPage_four = ()=>import("@/components/index/showPage_four.vue");
+const showPage_five = ()=>import("@/components/index/showPage_five.vue");
+const showPage_six = ()=>import("@/components/index/showPage_six.vue");
+const showPage_seven = ()=>import("@/components/index/showPage_seven.vue");
+const showPage_eight = ()=>import("@/components/index/showPage_eight.vue");
+const showPage_nine = ()=>import("@/components/index/showPage_nine.vue");
 
 export default {
   name: "account",
@@ -229,6 +228,17 @@ export default {
       getConfig:this.$store.state.getConfig.config(),
       // centerDialogVisible: false
     };
+  },
+    components: {
+    showPage_one,
+    showPage_two,
+    showPage_three,
+    showPage_four,
+    showPage_five,
+    showPage_six,
+    showPage_seven,
+    showPage_eight,
+    showPage_nine
   },
   watch: {
     $route(to, from) {
@@ -325,17 +335,7 @@ export default {
 
     this.showData = localStorage.getItem("showData");
   },
-  components: {
-    showPage_one,
-    showPage_two,
-    showPage_three,
-    showPage_four,
-    showPage_five,
-    showPage_six,
-    showPage_seven,
-    showPage_eight,
-    showPage_nine
-  },
+
 
   computed: {
     // ...mapGetters(['centerDialogVisible'])

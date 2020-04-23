@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import Store from '../store'
 import Router from 'vue-router'
 //主页面

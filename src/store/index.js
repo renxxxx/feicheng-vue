@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 import qs from "qs";
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
 
 

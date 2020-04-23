@@ -123,7 +123,6 @@
 
 <script>
 import axios from 'axios';
-import { mapActions, mapGetters } from 'vuex';
 import qs from 'qs';
 export default {
   data() {
