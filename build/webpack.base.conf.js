@@ -90,8 +90,10 @@ module.exports = {
     child_process: 'empty'
   },
   externals: {
-    Vue: "Vue",
+      Vue: "Vue",
       Vuex: "Vuex",
-    'element-ui': 'ELEMENT'
+      'element-ui': 'ELEMENT',
+      'jquery': '$', 
+      "moment": "moment"
     },
 }

@@ -10,7 +10,7 @@
 	<el-dialog class="popScan" title="联系客服" :visible.sync="showContact" width="402px" @close="closeLogin()" top="10vh" center>
 	  <div class="popIndex" style="height: 418px">
 	    <div class="code">
-	      <img  :src="this.$store.state.getConfig.config().personalWxQrcode" alt="" />
+	      <img  :src="this.$store.state.config.personalWxQrcode" alt="" />
 	    </div>
 	    <p class="scanNow scanNowFirst">
 	      打开
@@ -20,7 +20,7 @@
 	    <div class="codelogin" role="separator">
 	      <span class=""><span class="">微信扫码联系</span></span>
 	    </div>
-	    <div class="scanIntro">联系电话：{{this.$store.state.getConfig.config().servantTel}}</div>
+	    <div class="scanIntro">联系电话：{{this.$store.state.config.servantTel}}</div>
 	  </div>
 	</el-dialog>
     <login ref="loginRef"></login>
@@ -40,17 +40,16 @@ export default {
   }, 
 		metaInfo(){
       let thisVue = this
-     let config =  thisVue.$store.state.getConfig.config()
 			return{
-				title:  config.seoTitle, // set a title
+				title:  thisVue.$store.state.config.seoTitle, // set a title
 				meta:[   // set meta
 					{                
 						name: 'keyWords',
-						content: config.seoKeywords
+						content: thisVue.$store.state.config.seoKeywords
 					},
 					{
 						name: 'description',
-						content: config.seoDescription
+						content: thisVue.$store.state.config.seoDescription
 					},
 				],
 			}
@@ -64,7 +63,7 @@ export default {
   mounted(){
     this.$store.state.loginComponent = this.$refs.loginRef
     this.$store.state.loadingComponent = this.$refs.loadingRef
-	// console.log(this.$store.state.getConfig.config())
+	// console.log(this.$store.state.config)
 	// var objs = document.getElementsByTagName("meta");
 	// console.log(objs)
 	// 	for(var i=0;i<objs.length;i++){
@@ -85,7 +84,7 @@ export default {
         });
     }
 	
-	this.$jquery.ajax({
+	$.ajax({
 				  url:'/my/wx-videoaccount',
 				  type:'get',
 				  async:false,
@@ -96,7 +95,7 @@ export default {
 				  }
 	     })
     //debugger
-        this.$jquery.ajax({
+        $.ajax({
 			  url:'/login-refresh',
 			  type:'get',
 			  async:false,
@@ -107,8 +106,16 @@ export default {
 			  }
       })
 
-
-
+     $.ajax({
+			  url:'/config',
+			  type:'get',
+			  async:false,
+			  success:function(res){
+			    if(res.code == 0){
+					  thisVue.$store.state.config=res.data
+			    }
+			  }
+      })
   },
   methods: {
 	  contactFn(){

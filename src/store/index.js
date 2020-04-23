@@ -12,32 +12,17 @@ const state = {
 	publicSearchShow:false,
 	loading:true,
   login:null,
+  config:null,
   wxVideoaccount:null,
   loginComponent:null,
   loadingComponent:null,
   
 // 获取配置信息
- getConfig:{
-   config:function(){
-	   let configList;
-	   Vue.prototype.$jquery.ajax({
-		   url: '/config',
-		    type: 'get',
-		    async: false,
-		    success: function(res) {
-		        if(res.code==0){
-		          configList = res.data
-		         
-		        }
-		    },
-		   })
-			 return configList;
-		}
-   },
+
   getVideoList:{
     list:function(){
       let videoList;
-      Vue.prototype.$jquery.ajax({
+     $.ajax({
         url: '/my/wx-videoaccount-video-list',
         type: 'get',
         async: false,

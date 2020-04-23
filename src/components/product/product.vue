@@ -244,7 +244,7 @@ export default {
   data(){
   	return{
       codeDialogVisible: false,
-      getConfig: this.$store.state.getConfig.config(),
+      getConfig: this.$store.state.config,
 		tanShow : false,
 		msg	: '视频号数据平台',
 		// 左侧导航栏数据
