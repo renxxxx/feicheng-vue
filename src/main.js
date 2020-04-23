@@ -1,6 +1,5 @@
 // import Vue from 'vue'            
-Vue.prototype.$version = '2004221820' 
-Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
+
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI);  
@@ -21,6 +20,8 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   attempt: 1,
 })
+Vue.prototype.$version = '2004221820' 
+Vue.prototype.$versionBrief = '修复了已知BUG, 优化了用户体验.'
 import MetaInfo from 'vue-meta-info';
 Vue.use(MetaInfo)
 Vue.config.productionTip = false

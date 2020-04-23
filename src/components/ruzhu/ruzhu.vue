@@ -3,142 +3,142 @@
     <div>
       <el-row style="height: 60px;">
         <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-			<span class="maintop">博主入驻:</span>
-			<a :href="getConfig.ruZhuGuide" target="_blank" style="font-size: 14px;cursor: pointer;">
-				《入驻指南》
-			</a>
-		</el-col>
+    		<span class="maintop">博主入驻:</span>
+    		<a :href="getConfig.ruZhuGuide" target="_blank" style="font-size: 14px;cursor: pointer;">
+    			《入驻指南》
+    		</a>
+    	</el-col>
       </el-row>
     </div>
-    <div class="people_detail">
-      <el-row>
-        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-          <ul>	
-            <!-- <li>视频号信息:</li> -->
-            <li>
-              <span>视频号名:</span>
-              <el-input :disabled='disabled' v-model="name" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>手机:</span>
-              <el-input :disabled='disabled' type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>微信号:</span>
-              <el-input :disabled='disabled' v-model="wx" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>简介:</span>
-              <el-input  :disabled='disabled' type="textarea" :rows="5" v-model="brief" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>账号类型:</span>
-              <el-select :disabled='disabled' v-model="value" @change="typeFn(value)" placeholder="请选择">
-                <el-option v-for="item in type" :key="item.value" :label="item.label" :value="item.value"></el-option>
-              </el-select>
-            </li>
-
-            <li>
-              <span>城市:</span>
-              <el-cascader  :disabled='disabled' :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
-            </li>
-            <li>
-              <span>头像:<span @click='lookBigPic()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
-              <div class="avatorUp">
-                <el-upload  :disabled='disabled'
-                  :file-list="dialogImageUrl1"
-                  accept="image/*"
-                  class="avatar-uploader"
-                  action="/upload-file"
-                  :show-file-list="false"
-                  :on-success="handleAvatarSuccess"
-                  :before-upload="beforeAvatarUpload"
-                >
-                  <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
-                 <el-dialog :visible.sync="dialogVisibleIcon"><img width="100%" :src="imageUrl" alt="" /></el-dialog>
-              </div>
-            </li>
-          </ul>
-        </el-col>
-        <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-          <ul>
-            <!-- <li style="height: 24px;"></li> -->
-            <li>
-              <span>粉丝量:</span>
-              <el-input :disabled='disabled' type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>视频量:</span>
-              <el-input :disabled='disabled' type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>点赞量:</span>
-              <el-input :disabled='disabled'  type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
-            </li>
-            <li>
-              <span>曝光量:</span>
-              <el-input :disabled='disabled' type="number" v-model="pv" placeholder="请输入内容"></el-input>
-            </li>
-            <li>
-              <span>选择领域(可多选):</span>
-              <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
-              <div style="margin: 15px 0;"></div>
-              <el-checkbox-group max="3"  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
-                <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city.wxVideoaccountRealmId" :key="city.name">{{ city.name }}</el-checkbox>
-              </el-checkbox-group>
-
-            </li>
-            <li>
-              <span>视频号截图:<span @click='lookBigPicNow()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
-              <div>
-                <el-upload  :disabled='disabled'
-                  :file-list="dialogImageUrl2"
-                  accept="image/*"
-                  class="avatar-uploader"
-                  action="/upload-file"
-                  :show-file-list="false"
-                  :on-success="uploadCover"
-                  :before-upload="beforeAvatarUpload"
-                >
-                  <img v-if="dialogImageUrl" :src="dialogImageUrl" class="avatar" />
-                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
-                <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
-              </div>
-            </li>
-            <li>
-              <span>视频号二维码:<span @click='lookBigPicNow1()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
-              <div>
-                <el-upload  :disabled='disabled'
-                  :file-list="twocode"
-                  accept="image/*"
-                  class="avatar-uploader"
-                  action="/upload-file"
-                  :show-file-list="false"
-                  :on-success="uploadCover1"
-                  :before-upload="beforeAvatarUpload"
-                >
-                  <img v-if="twocodeNow" :src="twocodeNow" class="avatar" />
-                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
-                <el-dialog :visible.sync="dialogVisible1"><img width="100%" :src="twocodeNow" alt="" /></el-dialog>
-              </div>
-            </li>
-          </ul>
-        </el-col>
-      </el-row>
-      <video_supply ref="refChild"></video_supply>
-
-
-      <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a   v-if='showIf' target="_blank" :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
-
-
-
-      <el-row v-if='showIf'>
-        <div class="submit_div"><el-button  type="primary" @click="onSubmit">立即入驻</el-button></div>
-      </el-row>
+   <div class="people_detail">
+     <el-row>
+       <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
+         <ul>	
+           <!-- <li>视频号信息:</li> -->
+           <li>
+             <span>视频号名:</span>
+             <el-input :disabled='disabled' v-model="name" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>手机:</span>
+             <el-input :disabled='disabled' type="tel" v-model="phone" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>微信号:</span>
+             <el-input :disabled='disabled' v-model="wx" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>简介:</span>
+             <el-input  :disabled='disabled' type="textarea" :rows="5" v-model="brief" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>账号类型:</span>
+             <el-select :disabled='disabled' v-model="value" @change="typeFn(value)" placeholder="请选择">
+               <el-option v-for="item in type" :key="item.value" :label="item.label" :value="item.value"></el-option>
+             </el-select>
+           </li>
+   
+           <li>
+             <span>城市:</span>
+             <el-cascader  :disabled='disabled' :options="options" v-model="dili" clearable @change="handleChange"></el-cascader>
+           </li>
+           <li>
+             <span>头像:<span @click='lookBigPic()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
+             <div class="avatorUp">
+               <el-upload  :disabled='disabled'
+                 :file-list="dialogImageUrl1"
+                 accept="image/*"
+                 class="avatar-uploader"
+                 action="/upload-file"
+                 :show-file-list="false"
+                 :on-success="handleAvatarSuccess"
+                 :before-upload="beforeAvatarUpload"
+               >
+                 <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+               </el-upload>
+                <el-dialog :visible.sync="dialogVisibleIcon"><img width="100%" :src="imageUrl" alt="" /></el-dialog>
+             </div>
+           </li>
+         </ul>
+       </el-col>
+       <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
+         <ul>
+           <!-- <li style="height: 24px;"></li> -->
+           <li>
+             <span>粉丝量:</span>
+             <el-input :disabled='disabled' type="number" v-model="fansCount" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>视频量:</span>
+             <el-input :disabled='disabled' type="number" v-model="videoCount" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>点赞量:</span>
+             <el-input :disabled='disabled'  type="number" v-model="likeCount" placeholder="请输入内容" clearable></el-input>
+           </li>
+           <li>
+             <span>曝光量:</span>
+             <el-input :disabled='disabled' type="number" v-model="pv" placeholder="请输入内容"></el-input>
+           </li>
+           <li>
+             <span>选择领域(可多选):</span>
+             <el-checkbox  :disabled='disabled' style="color: #f2f2f2;" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+             <div style="margin: 15px 0;"></div>
+             <el-checkbox-group max="3"  :disabled='disabled' v-model="checkedCities" @change="handleCheckedCitiesChange">
+               <el-checkbox style="color: #f2f2f2;" v-for="city in cities" :label="city.wxVideoaccountRealmId" :key="city.name">{{ city.name }}</el-checkbox>
+             </el-checkbox-group>
+          
+           </li>
+           <li>
+             <span>视频号截图:<span @click='lookBigPicNow()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
+             <div>
+               <el-upload  :disabled='disabled'
+                 :file-list="dialogImageUrl2"
+                 accept="image/*"
+                 class="avatar-uploader"
+                 action="/upload-file"
+                 :show-file-list="false"
+                 :on-success="uploadCover"
+                 :before-upload="beforeAvatarUpload"
+               >
+                 <img v-if="dialogImageUrl" :src="dialogImageUrl" class="avatar" />
+                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+               </el-upload>
+               <el-dialog :visible.sync="dialogVisible"><img width="100%" :src="dialogImageUrl" alt="" /></el-dialog>
+             </div>
+           </li>
+           <li>
+             <span>视频号二维码:<span @click='lookBigPicNow1()' style="color: #ff7800;cursor: pointer;">点击查看大图</span></span>
+             <div>
+               <el-upload  :disabled='disabled'
+                 :file-list="twocode"
+                accept="image/*"
+                class="avatar-uploader"
+                action="/upload-file"
+                :show-file-list="false"
+                :on-success="uploadCover1"
+                :before-upload="beforeAvatarUpload"
+               >
+                 <img v-if="twocodeNow" :src="twocodeNow" class="avatar" />
+                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+               </el-upload>
+               <el-dialog :visible.sync="dialogVisible1"><img width="100%" :src="twocodeNow" alt="" /></el-dialog>
+             </div>
+           </li>
+         </ul>
+       </el-col>
+     </el-row>
+     <video_supply ref="refChild"></video_supply>
+   
+   
+     <el-checkbox  v-if='showIf' @change='checkThis' class="userXy" v-model="checked" style="color: #FFFFFF;"></el-checkbox><a   v-if='showIf' target="_blank" :href="getConfig.userProtocol"><span style="color: #FFFFFF;">用户协议与隐私政策</span></a>
+   
+   
+   
+     <el-row v-if='showIf'>
+       <div class="submit_div"><el-button  type="primary" @click="onSubmit">立即入驻</el-button></div>
+     </el-row>
     </div>
   </div>
 </template>
@@ -178,7 +178,7 @@ export default {
       checkedCities: [],
       isIndeterminate: false,
       twocodeNow:'',
-      twocode:'',
+      twocode:[],
       type: [
         {
           value: '1',
