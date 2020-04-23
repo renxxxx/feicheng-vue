@@ -30,7 +30,7 @@ export default {
 	},
 		metaInfo(){
       let thisVue = this
-     let config =  thisVue.$store.state.getConfig.config()
+     let config =  thisVue.$store.state.config
 			return{
 				title:  config.seoTitle+ ' | '+thisVue.data.name, // set a title
 				meta:[   // set meta

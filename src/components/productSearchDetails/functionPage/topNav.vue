@@ -123,7 +123,7 @@ export default {
   data() {
     return {
     codeDialogVisible: false,
-    getConfig: this.$store.state.getConfig.config(),
+    getConfig: this.$store.state.config,
     };
   },
   computed: {

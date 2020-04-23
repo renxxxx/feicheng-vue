@@ -7,11 +7,11 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from './store'
-import jquery from 'jquery'
+// import jquery from 'jquery'
 import Cookies from 'js-cookie' 
 import qs from 'qs';
 import h5p from '../build/h5p.js'
-import moment from 'moment'
+// import moment from 'moment'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 Vue.use(Viewer);
@@ -29,7 +29,6 @@ Vue.prototype.$axios = axios
 Vue.prototype.$store = store
 Vue.prototype.$h5p = h5p
 Vue.prototype.qs = qs
-Vue.prototype.$jquery = jquery
 Vue.prototype.$Cookies = Cookies
 Vue.prototype.moment = moment;
 

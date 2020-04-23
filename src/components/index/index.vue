@@ -225,7 +225,7 @@ export default {
       userName:'',
       useravator:'',
       showData:false,
-      getConfig:this.$store.state.getConfig.config(),
+      getConfig:this.$store.state.config,
       // centerDialogVisible: false
     };
   },

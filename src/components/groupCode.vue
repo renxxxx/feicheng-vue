@@ -13,7 +13,7 @@ export default {
     return {
       codeDialogVisible: false,
       imgSrc: '',
-      getConfig: this.$store.state.getConfig.config()
+      getConfig: this.$store.state.config
     };
   }
 };

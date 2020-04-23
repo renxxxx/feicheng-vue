@@ -219,6 +219,7 @@
 <script>
 	import axios from 'axios'
 	import qs from 'qs';
+	import area from '@/assets/area.json';
 	export default {
 		name: 'douyinSearch',
 		data() {
@@ -236,8 +237,8 @@
 				six:{data:'false',num:0},seven:{data:'false',num:0},eight:{data:'false',num:0},nine:{data:'false',num:0},ten:{data:'false',num:0},
 				searchColor: false,
 				showAllAdressValue:false,
+				area,
 				heardZhiMu:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-				area:require('../../assets/area.json'),
 				id:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,34]
 			}
 		},
