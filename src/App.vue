@@ -148,7 +148,7 @@ export default {
 	right: 0;
 	background-color: #2f2f31;
 	z-index: 999;
-	border-radius: 8px;
+	border-radius: 8px  0 0 8px;
 	color: #cdcfcf;
 	cursor: pointer;
 	transition: all .2s;
