@@ -92,11 +92,12 @@
           <div class="downArrayIcon" ref="showPage1">
             <div>
 				<div class="_A6ZcKRLC">
-					<span class="_2Z_xHgbs" ref="xiahuaSpan">往下滑动，查看更多</span>
+					<!-- <span class="_2Z_xHgbs" ref="xiahuaSpan">往下滑动，查看更多</span> -->
 					<div class="_3LQTAbds" ref="xiahuaImg">
-						<svg width="30" height="12" viewBox="0 0 30 12" style="fill: #fff;opacity:0.7">
+						<svg width="30" height="12" viewBox="0 0 30 12" style="fill: #fff;opacity:0.7;display:none;">
 							
-							<path id="\u8DEF\u5F84_1" data-name="\u8DEF\u5F84 1" d="M106.421,277.256a.761.761,0,0,0-.034-1.3,1.578,1.578,0,0,0-1.763.025l-12.775,9.5-12.953-9.465a1.579,1.579,0,0,0-1.765.006.762.762,0,0,0,.008,1.3L90.9,287.387c.021.016.049.02.07.034,0,0,.006.008.011.012h0a1.578,1.578,0,0,0,1.763-.006l13.644-10.151.028-.021Z" transform="translate(-76.769 -275.7)" fill="#fff"></path></svg>
+							<path id="\u8DEF\u5F84_1" data-name="\u8DEF\u5F84 1" d="M106.421,277.256a.761.761,0,0,0-.034-1.3,1.578,1.578,0,0,0-1.763.025l-12.775,9.5-12.953-9.465a1.579,1.579,0,0,0-1.765.006.762.762,0,0,0,.008,1.3L90.9,287.387c.021.016.049.02.07.034,0,0,.006.008.011.012h0a1.578,1.578,0,0,0,1.763-.006l13.644-10.151.028-.021Z" transform="translate(-76.769 -275.7)" fill="#fff"></path>
+              </svg>
 					</div>
 				</div>
               <!-- <div>
@@ -950,11 +951,11 @@ el-row,
         -webkit-animation: _PPny0_k8 1.4s linear infinite;
         animation: _PPny0_k8 1.4s linear infinite;
 }
-@-webkit-keyframes _PPny0_k8 /*Safari and Chrome*/
-{
+/*@-webkit-keyframes _PPny0_k8 
+ {
 from {opacity: 0;}
 to {opacity: .7;}
-}
+} */
 ._3LQTAbds {
    position: absolute;
        top: -46px;
@@ -965,8 +966,8 @@ to {opacity: .7;}
        -webkit-animation: _2NRMCHUL 1.4s linear infinite;
        animation: _2NRMCHUL 1.4s linear infinite;
 }
-@-webkit-keyframes _2NRMCHUL /*Safari and Chrome*/
-{
+/*@-webkit-keyframes _2NRMCHUL 
+ {
 	from {
 	    -webkit-transform: translate(-50%,-20px);
 	    transform: translate(-50%,-20px);
@@ -979,5 +980,5 @@ to {opacity: .7;}
 		top: 13px;
 	    opacity: 0;
 	}
-}
+} */
 </style>
