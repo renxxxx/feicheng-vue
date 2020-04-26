@@ -30,8 +30,8 @@
 							</div> -->
 						</div>
 						<div class="user_message">
-							<img :src="this.$store.state.login? this.$store.state.login.userLogo:require('../../assets/img/touxiang.png')" alt="">
-							<h5>{{this.$store.state.login? this.$store.state.login.userNickname:''}}</h5>
+							<img :src="this.$store.state.login? this.$store.state.login.logo:require('../../assets/img/touxiang.png')" alt="">
+							<h5>{{this.$store.state.login? this.$store.state.login.nickname:''}}</h5>
 							<p v-if='!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type' style="font-size: 14px;">
 								您还不是博主，
 								<router-link :to="{path:'/product/ruzhu'}">
