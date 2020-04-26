@@ -255,11 +255,13 @@
 	  </div>
 	  <div class="erweima">
 		  <div class="weixin">
-			   <img class="avator"  :src="getConfig.servantCover" style="cursor:pointer;" />
+			  <div id="qrcode"></div>
+			  <p>- 微信支付 -</p>
+			   <!-- <img class="avator"  :src="weixinImgSrc" style="cursor:pointer;" /> -->
 		  </div>
-		  <div class="zhifubao">
+		 <!-- <div class="zhifubao">
 			   <img class="avator"  :src="getConfig.servantCover" style="cursor:pointer;" />
-		  </div>
+		  </div> -->
 	  </div>
 	</el-dialog>
   </div>
@@ -268,14 +270,19 @@
 <script>
 import axios from 'axios'
 import searchDialog from './searchDialog.vue'
+import qs from 'qs'
+import QRCode from 'qrcodejs2'
 export default {
   name: 'product',
   data(){
   	return{
-		priceClickDataOne:false,
+		priceClickDataOne:true,
 		priceClickDataTwo:false,
 		priceClickDataThree:false,
-      codeDialogVisible: false,
+		codeDialogVisible: false,
+		weixinImgSrc:'',
+		qrcode:null,
+		priceTime:1,
       getConfig: this.$store.state.config,
 		tanShow : false,
 		msg	: '视频号数据平台',
@@ -327,6 +334,7 @@ export default {
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = true;
 	  }
+	  
   },
   watch:{
 
@@ -338,27 +346,91 @@ export default {
 		priceClickFn(_data){
 			switch(_data){
 				case 'one':
-				// this.priceClickDataOne = true
-				// this.priceClickDataTwo = false
-				// this.priceClickDataThree = false
+				this.priceClickDataOne = true
+				this.priceClickDataTwo = false
+				this.priceClickDataThree = false
+				this.priceTime = 1
+				this.qrcode.clear();
+				this.getPrice();
 				break;
 				case 'two':
-				// this.priceClickDataOne = false
-				// this.priceClickDataTwo = true
-				// this.priceClickDataThree = false
+				this.priceClickDataOne = false
+				this.priceClickDataTwo = true
+				this.priceClickDataThree = false
+				this.priceTime = 3
+				this.qrcode.clear();
+				this.getPrice();
 				break;
 				case 'three':
-				// this.priceClickDataOne = false
-				// this.priceClickDataTwo = false
-				// this.priceClickDataThree = true
+				this.priceClickDataOne = false
+				this.priceClickDataTwo = false
+				this.priceClickDataThree = true
+				this.priceTime = 6
+				this.qrcode.clear();
+				this.getPrice();
 				break;
 			}
 		},
 		vipTitleFn(){
 			if(!this.$store.state.login.vip){
-				this.vipDialog = true
+				this.vipDialog = true;
+				this.getPrice();
 			}
 		},
+		getPrice(){
+			console.log('s')
+			this.$axios.post('/my-vip/do-order?',qs.stringify({
+				month:this.priceTime
+			}))
+			.then(res=>{
+				if(res.data.codeMsg)
+					this.$message(res.data.codeMsg);
+				if(res.data.code == 0){
+					this.getPriceWeixinUrl(res.data.data.vipOrderId)
+				}
+					
+			})
+		},
+		getPriceWeixinUrl(_vipOrderId){
+			this.$axios.post('/my-vip/pay',qs.stringify({
+				vipOrderId:_vipOrderId,
+				payType:4
+			}))
+			.then(res=>{
+				if(res.data.codeMsg)
+					this.$message(res.data.codeMsg);
+				if(res.data.code == 0){
+					// this.getPriceErweimaFn(res.data.data.pay4Link)
+					 // this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.pay4Link;
+					if(this.qrcode == null){
+						this.qrcode = new QRCode('qrcode',{
+						    text: res.data.data.pay4Link,
+						    width: 108,
+						    height: 108,
+						    colorDark : "#000000",
+						    colorLight : "#ffffff",
+						    correctLevel : QRCode.CorrectLevel.H
+						})
+					}else{
+						this.qrcode.clear();
+					}
+					this.qrcode.makeCode(res.data.data.pay4Link	);
+				}
+					
+			})
+		},
+		// getPriceErweimaFn(_link){
+		// 	this.$axios
+		// 	  .get('wx-offiaccount-loginqrcode')
+		// 	  .then(res => {
+		// 	        this.loginTicket=res.data.data.loginTicket
+		// 	       this.weixinImgSrc = res.data.data.qrcodeUrl+'?ticket='+res.data.data.qrcodeTicket
+		// 	       clearInterval(this.timer);
+		// 	       this.timer = setInterval(this.get, 2000);
+			
+		// 	  })
+		// 	  .catch(err => {});
+		// },
 		searchDiialogFn(){
 			this.$store.state.publicSearchShow = true
 		},
@@ -1022,7 +1094,7 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 		border: 1px solid #6d6d6d;
 		margin-right: 2%;
 		color: #FFFFFF;
-		/* cursor: pointer; */
+		cursor: pointer;
 	}
 	.priceClickClass{
 		border-color: #FFFFFF;
@@ -1052,12 +1124,27 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 		text-align: center;
 		padding: 20px;
 	}
+	.weixin>p{
+		color: #FFFFFF;
+	}
 	.zhifubao{
 		float: left;
 	}
-	.weixin>img,.zhifubao>img{
+	#qrcode{
 		width: 120px;
 		height: 120px;
+		text-align: center;
+		/* margin: 10px; */
+		display: inline-block;
+		background-color: #fff;
+		padding: 6px;
+		box-sizing: border-box;
+	}
+	#qrcode img{
+	  width: 114px;
+	  height: 114px;
+	 
+	  
 	}
 	.vipColor{
 		color: #787a7a!important;
