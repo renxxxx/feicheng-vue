@@ -43,7 +43,7 @@ Vue.prototype.cookieOn=function() {
   Cookies.set('tc', '', { expires: -1 });
   return result;
 }
-
+document.cookie = "loginId =123123"
 Vue.prototype.numberTry=function(number) {
 		  var numberOut = ''
 			if(10000<=number&&number<100000000){

@@ -173,28 +173,28 @@
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
-						<el-submenu index="4">
+						<el-submenu index="4" :disabled="this.$store.state.login.vip" >
 							<template slot="title">
 								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
 								<span style="font-size:16px;">{{leftNavList[1].name}}</span>
-								<!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
+								<svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</template>
-							<el-menu-item v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="{path:child.url,query:{time:new Date().getTime()}}">
+							<el-menu-item @click="vipTitleFn" :class="leftNavList[1].data? 'vipColor':''" v-for="(child,zhitwo) in leftNavList[1].onechild" :key="zhitwo" :index="{path:child.url,query:{time:new Date().getTime()}}">
 								 <!-- <img :src="child.url" alt=""> -->
-								 <span >{{child.name}}</span>
-								 <!-- <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
+								 <span :class="leftNavList[1].data? 'vipColor':''">{{child.name}}</span>
+								 <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="5">
 							<template slot="title">
 								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
 								<span style="font-size:16px;">{{leftNavList[2].name}}</span>
-								<!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
+								<svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</template>
-							<el-menu-item v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="{path:child.url,query:{time:new Date().getTime()}}">
+							<el-menu-item @click="vipTitleFn" :class="leftNavList[1].data? 'vipColor':''" v-for="(child,zhithree) in leftNavList[2].onechild" :key="zhithree" :index="{path:child.url,query:{time:new Date().getTime()}}">
 								 <!-- <img :src="child.url" alt=""> -->
-								 <span>{{child.name}}</span>
-								 <!-- <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
+								 <span :class="leftNavList[1].data? 'vipColor':''">{{child.name}}</span>
+								 <svg v-if="leftNavList[2].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</el-menu-item>
 						</el-submenu>
 						<el-submenu index="6">
@@ -226,13 +226,42 @@
     <groupCode ref='groupCode'></groupCode>
 		<searchDialog></searchDialog>
     <el-dialog custom-class="dialogThis" title="飞橙产品用户交流群" :visible.sync="codeDialogVisible" width="30%"  style="">
-      <div class="avatarBox" v-viewer="{navbar:false,title:false,toolbar:false}"><img class="avator"  :src="getConfig.servantWxQrcode" style="cursor:pointer;" /></div>
+      <div class="avatarBox" v-viewer="{navbar:false,title:false,toolbar:false}">
+		  <img class="avator"  :src="getConfig.servantWxQrcode" style="cursor:pointer;" />
+		</div>
       <span class="span">添加运营人员后，进入到交流群</span>
       <span slot="footer" class="dialog-footer">
         <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
         <el-button type="primary" @click="codeDialogVisible = false">关闭</el-button>
       </span>
     </el-dialog>
+	<el-dialog custom-class="priceDialog" title="充值" :visible.sync="vipDialog" width="40%"  style="" center>
+	  <div class="price">
+		  <div class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
+			  <h6>包月</h6>
+			  <p>原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
+			  <p>特惠<span>￥{{getConfig.vipMoneyForMonth}}</span></p>
+		  </div>
+		  <div class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
+				<h6>包季</h6>
+				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
+				<p>特惠<span>￥{{getConfig.vipMoneyFor6Month}}</span></p>
+		  </div>
+		  <div class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
+				<h6>包年</h6>
+				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
+				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
+		  </div>
+	  </div>
+	  <div class="erweima">
+		  <div class="weixin">
+			   <img class="avator"  :src="getConfig.servantCover" style="cursor:pointer;" />
+		  </div>
+		  <div class="zhifubao">
+			   <img class="avator"  :src="getConfig.servantCover" style="cursor:pointer;" />
+		  </div>
+	  </div>
+	</el-dialog>
   </div>
 </template>
 
@@ -243,6 +272,9 @@ export default {
   name: 'product',
   data(){
   	return{
+		priceClickDataOne:false,
+		priceClickDataTwo:false,
+		priceClickDataThree:false,
       codeDialogVisible: false,
       getConfig: this.$store.state.config,
 		tanShow : false,
@@ -251,22 +283,22 @@ export default {
 		leftNavList: [{
 			name:'找视频号',
 			icon:'',
-			data:false,
+			data:true,
 			onechild:[{name:'视频号搜索',data:'',url:'/product/product_douyinSearch'},
 		]},
 		{
 			name:'素材创意',
 			icon:'',
-			data:true,
-			onechild:[{name:'视频搜索',data:'true',url:'/product/product_videoSearch'},
+			data:this.$store.state.login.vip? false:true,
+			onechild:[{name:'视频搜索',data:'true',url:this.$store.state.login.vip? '/product/product_videoSearch':''},
 
 		]},
 		{
 			name:'探店打卡',
 			icon:'',
-			data:true,
+			data:this.$store.state.login.vip? false:true,
 			onechild:[
-				{name:'打卡地点搜索',data:'true',url:'/product/product_addressSearch'},
+				{name:'打卡地点搜索',data:'true',url:this.$store.state.login.vip? '/product/product_addressSearch':''},
 					// {name:'热门城市',data:'true',url:''},
 		]},
 		{
@@ -275,8 +307,8 @@ export default {
 			data:true,
 			onechild:[
 					{name:'博主',data:'true',url:'/product/product_collection'},
-		]},
-		],
+		]},],
+		vipDialog:false,
     }
   },
   computed:{
@@ -303,29 +335,51 @@ export default {
    	searchDialog
   },
   methods:{
-
-	  searchDiialogFn(){
-	  this.$store.state.publicSearchShow = true
-
-	  },
-  	//询问是否入驻
-askIfEnter(){
-	if(this.$store.state.wxVideoaccount){
-    if(this.$store.state.wxVideoaccount.audit==12){
-        this.$confirm(this.$store.state.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-              this.$router.push({path:'/product/ruzhu'});
-           })
-    }else{
-      this.$router.push({path:'/product/ruzhu'});
-    }
-  }else{
-    this.$router.push({path:'/product/ruzhu'});
-  }
-},
+		priceClickFn(_data){
+			switch(_data){
+				case 'one':
+				// this.priceClickDataOne = true
+				// this.priceClickDataTwo = false
+				// this.priceClickDataThree = false
+				break;
+				case 'two':
+				// this.priceClickDataOne = false
+				// this.priceClickDataTwo = true
+				// this.priceClickDataThree = false
+				break;
+				case 'three':
+				// this.priceClickDataOne = false
+				// this.priceClickDataTwo = false
+				// this.priceClickDataThree = true
+				break;
+			}
+		},
+		vipTitleFn(){
+			if(!this.$store.state.login.vip){
+				this.vipDialog = true
+			}
+		},
+		searchDiialogFn(){
+			this.$store.state.publicSearchShow = true
+		},
+		//询问是否入驻
+		askIfEnter(){
+			if(this.$store.state.wxVideoaccount){
+			if(this.$store.state.wxVideoaccount.audit==12){
+				this.$confirm(this.$store.state.wxVideoaccount.audit12Message+'，是否重新认证?', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						type: 'warning'
+					}).then(() => {
+					  this.$router.push({path:'/product/ruzhu'});
+				   })
+			}else{
+			  this.$router.push({path:'/product/ruzhu'});
+			}
+		  }else{
+			this.$router.push({path:'/product/ruzhu'});
+		  }
+		},
 	// initData(){
 	// 	let showData = true;
 	// 	localStorage.setItem('showData',showData)
@@ -351,7 +405,8 @@ askIfEnter(){
 		.then(res=>{
 			//debugger
 			if(res.data.code == 0){
-				this.$router.replace('/')
+				// this.$router.replace({path:'/index'})
+				this.$router.push('/')
 				location.reload()
 			}
 		})
@@ -890,7 +945,7 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 } */
 
 .el-submenu:hover,.el-submenu .el-menu-item:hover,.el-submenu__title:hover{
-	color: #ff7800 !important;
+	color: #ff7800 ;
 }
 .leftNav i{
 	color: #e8edee;
@@ -944,7 +999,75 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 	>>>.el-submenu__icon-arrow {
 		top: 55%;
 	}
-		
+	>>>.priceDialog{
+		background: #55555a !important;
+		color:#FFFF!important;
+	}
+	>>>.el-dialog__title{
+		font-size: 30px;
+		color:#FFFF!important;
+	}
+	.price{
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	.price_Mounth{
+		width: 30%;
+		box-sizing: border-box;
+		display: inline-block;
+		text-align: center;
+		background-color: transparent;
+		border-radius: 5px;
+		border: 1px solid #6d6d6d;
+		margin-right: 2%;
+		color: #FFFFFF;
+		/* cursor: pointer; */
+	}
+	.priceClickClass{
+		border-color: #FFFFFF;
+	}
+	.price_Mounth>p>s{
+		font-size: 20px;
+		margin-left: 10px;
+	}
+	.price_Mounth>p>span{
+		font-size: 20px;
+		margin-left: 10px;
+	}
+	.price_Mounth>h6{
+		font-size: 20px;
+		font-weight: 700;
+		margin-block-start: 1rem !important;
+			margin-block-end: 1rem !important;
+	}
+	.erweima{
+		width: 100%;
+		margin-top: 30px;
+	}
+	.weixin,.zhifubao{
+		width: 50%;
+		box-sizing: border-box;
+		display: inline-block;
+		text-align: center;
+		padding: 20px;
+	}
+	.zhifubao{
+		float: left;
+	}
+	.weixin>img,.zhifubao>img{
+		width: 120px;
+		height: 120px;
+	}
+	.vipColor{
+		color: #787a7a!important;
+	}
+	.vipColor:hover{
+		color: #787a7a!important;
+	}
+	.vipColor>svg{
+		color: #787a7a!important;
+	}
 /* .el-icon-arrow-down{
     content: "\E6DF";
 	padding-top: 25px;
