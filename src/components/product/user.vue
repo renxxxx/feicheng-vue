@@ -42,8 +42,6 @@
 								<!-- <span v-if='getUserInfo.audits==1'>等待审核</span>
 								<span v-if='getUserInfo.audits==11'>已认证</span>
 								<span @click='askIfEnter()' v-if='getUserInfo.audits==12'>认证失败</span> -->
-
-
 								<span @click='askIfEnter()' >{{
 									(!this.$store.state.wxVideoaccount|| this.$store.state.wxVideoaccount.audit==null)?""
 									:this.$store.state.wxVideoaccount.audit==0?""
@@ -51,8 +49,8 @@
 									:this.$store.state.wxVideoaccount.audit==11?"(已认证)"
 									:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 									:"未知" }}</span>
-
 							</p>
+							<p v-if="this.$store.state.login.vipEndTime">VIP于{{moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')}}到期</p>
 						</div>
 						<div class="_1aHAtMPw _1xvNCILN"></div>
 						<div class="_1aHAtMPw"></div>
@@ -604,6 +602,10 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .user_message{
 	text-align: center;
+}
+.user_message>p:last-child{
+	padding-top: 40px;
+	font-size: 14px;
 }
 .user_message>img{
 	height: 48px;

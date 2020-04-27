@@ -46,10 +46,11 @@
 								    trigger="hover">
 									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
-											<!-- <li>DOU管家</li> -->
+											<li @click="vipTitleFn">续费</li>
 											<router-link tag="li" :to="{path : '/product/product_collection'}">我的收藏</router-link>
 											<!-- <li>购买续费</li> -->
 											<!-- <li>我的权限</li> -->
+											
 											<li @click="exitFn">退出</li>
 										</ul>
 									</div>
@@ -173,7 +174,7 @@
 								<!-- <svg v-if="leftNavList[0].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg> -->
 							</el-menu-item>
 						</el-submenu>
-						<el-submenu index="4" :disabled="this.$store.state.login.vip" >
+						<el-submenu index="4" >
 							<template slot="title">
 								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M9.564.996a6.94 6.94 0 0 0-.8 3.36c0 2.7 1.289 4.882 2.882 4.882 1.241 0 2.289-1.336 2.7-3.2a12.03 12.03 0 0 1 2.656 6.682c0 3.471-3.134 6.283-7 6.283s-7-2.812-7-6.283C3 6.421 9.31 1.207 9.564.996z" fill="#e8edee"></path><path d="M9.874 16.744c1.882 0 2.444-1.425 2.347-2-.192-1.145-1.348-1.333-2.224-1.333a3.227 3.227 0 0 1-2.966-2.663s-.748 5.996 2.843 5.996z" fill="currentColor"></path></svg>
 								<span style="font-size:16px;">{{leftNavList[1].name}}</span>
@@ -185,7 +186,7 @@
 								 <svg v-if="leftNavList[1].data" viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path></svg>
 							</el-menu-item>
 						</el-submenu>
-						<el-submenu index="5">
+						<el-submenu index="5" >
 							<template slot="title">
 								<svg width="16px" height="16px" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" class=""><g transform="translate(-19.439 -91.303)"><path d="M29.439 92.3a7.368 7.368 0 0 0-7.5 7.229c0 4.438 4.465 8.33 6.853 10.52a.963.963 0 0 0 1.294 0c2.331-2.133 6.853-6.1 6.853-10.522a7.368 7.368 0 0 0-7.5-7.227z" fill="#6b6d6d"></path><ellipse cx="2.5" cy="2.41" rx="2.5" ry="2.41" transform="translate(26.939 96.817)" fill="currentColor"></ellipse></g></svg>
 								<span style="font-size:16px;">{{leftNavList[2].name}}</span>
@@ -238,17 +239,17 @@
 	<el-dialog custom-class="priceDialog" title="充值" :visible.sync="vipDialog" width="40%"  style="" center>
 	  <div class="price">
 		  <div class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
-			  <h6>包月</h6>
+			  <h6>1 个月</h6>
 			  <p>原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
 			  <p>特惠<span>￥{{getConfig.vipMoneyForMonth}}</span></p>
 		  </div>
 		  <div class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
-				<h6>包季</h6>
+				<h6>6 个月</h6>
 				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor6Month}}</span></p>
 		  </div>
 		  <div class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
-				<h6>包年</h6>
+				<h6>12 个月</h6>
 				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
 		  </div>
@@ -357,7 +358,7 @@ export default {
 				this.priceClickDataOne = false
 				this.priceClickDataTwo = true
 				this.priceClickDataThree = false
-				this.priceTime = 3
+				this.priceTime = 6
 				this.qrcode.clear();
 				this.getPrice();
 				break;
@@ -365,33 +366,33 @@ export default {
 				this.priceClickDataOne = false
 				this.priceClickDataTwo = false
 				this.priceClickDataThree = true
-				this.priceTime = 6
+				this.priceTime = 12
 				this.qrcode.clear();
 				this.getPrice();
 				break;
 			}
 		},
 		vipTitleFn(){
-			if(!this.$store.state.login.vip){
-				this.vipDialog = true;
-				this.getPrice();
-			}
+			this.vipDialog = true;
+			this.getPrice();
 		},
 		getPrice(){
-			console.log('s')
-			this.$axios.post('/my-vip/do-order?',qs.stringify({
-				month:this.priceTime
+			let _this = this
+			_this.$axios.post('/my-vip/do-order?',qs.stringify({
+				month:_this.priceTime
 			}))
 			.then(res=>{
 				if(res.data.codeMsg)
-					this.$message(res.data.codeMsg);
+					_this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
-					this.getPriceWeixinUrl(res.data.data.vipOrderId)
+					_this.getPriceWeixinUrl(res.data.data.vipOrderId)
+					
 				}
 					
 			})
 		},
 		getPriceWeixinUrl(_vipOrderId){
+			let _this = this
 			this.$axios.post('/my-vip/pay',qs.stringify({
 				vipOrderId:_vipOrderId,
 				payType:4
@@ -411,6 +412,28 @@ export default {
 						    colorLight : "#ffffff",
 						    correctLevel : QRCode.CorrectLevel.H
 						})
+						_this.vipTime = setInterval(()=>{
+							_this.$axios.get('/my-vip/order-info?'+qs.stringify({
+								rand:new Date().getTime(),
+								vipOrderId:_vipOrderId
+							}))
+							.then(res=>{
+								if(res.data.codeMsg)
+									this.$message(res.data.codeMsg);
+								if(res.data.code == 0){
+									if(res.data.data.pay == 1){
+										
+										this.$message.success({
+											message:"支付成功",
+											onClose:function(){
+												clearInterval(_this.vipTime)
+												location.reload();
+											}
+										});
+									}
+								}
+							})
+						},2000)
 					}else{
 						this.qrcode.clear();
 					}
