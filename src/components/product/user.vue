@@ -50,7 +50,7 @@
 									:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 									:"未知" }}</span>
 							</p>
-							<p v-if="this.$store.state.login.vipEndTime">VIP于{{moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')}}到期</p>
+							<p v-if="this.$store.state.login? this.$store.state.login.vipEndTime:false">VIP于{{moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')}}到期</p>
 						</div>
 						<div class="_1aHAtMPw _1xvNCILN"></div>
 						<div class="_1aHAtMPw"></div>

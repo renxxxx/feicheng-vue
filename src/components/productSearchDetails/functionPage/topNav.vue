@@ -17,6 +17,7 @@
                 <div class="nav_data_xiala">
                   <ul>
                     <!-- <li>视频管家</li> -->
+										<li @click="vipXufeiFn">续费</li>
                     <router-link tag="li" :to="{path : '/product/product_collection'}">我的收藏</router-link>
                     
                     <!-- <li><router-link  style="width: 100%;height: 100%;display: inline-block;" :to="{path : '/product/product_collection'}">我的收藏</router-link></li> -->
@@ -113,17 +114,56 @@
         <el-button type="primary" @click="codeDialogVisible = false">关闭</el-button>
       </span>
     </el-dialog>
+	<el-dialog custom-class="priceDialog" title="充值" @close="closepriceDialogFn" :visible.sync="vipDialog" width="40%"  style="" center>
+	  <div class="price">
+		  <div v-if="getConfig.vipMoneyForMonth" class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
+			  <h6>1 个月</h6>
+			  <p v-if="getConfig.vipOriginalMoneyForMonth">原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
+			  <p>特惠<span>￥{{getConfig.vipMoneyForMonth}}</span></p>
+		  </div>
+		  <div v-if="getConfig.vipMoneyFor6Month" class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
+				<h6>6 个月</h6>
+				<p v-if="getConfig.vipOriginalMoneyFor6Month">原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
+				<p>特惠<span>￥{{getConfig.vipMoneyFor6Month}}</span></p>
+		  </div>
+		  <div v-if="getConfig.vipMoneyFor12Month" class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
+				<h6>12 个月</h6>
+				<p v-if="getConfig.vipOriginalMoneyFor12Month">原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
+				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
+		  </div>
+	  </div>
+	  <div class="erweima" v-show="erweimaShow">
+		  <div class="weixin">
+			  <div id="qrcode" ></div>
+			  <p>- 微信支付 -</p>
+			   <!-- <img class="avator"  :src="weixinImgSrc" style="cursor:pointer;" /> -->
+		  </div>
+		 <!-- <div class="zhifubao">
+			   <img class="avator"  :src="getConfig.servantCover" style="cursor:pointer;" />
+		  </div> -->
+	  </div>
+	</el-dialog>
   </el-row>
 
 </template>
 
 <script>
+import qs from 'qs'
+import QRCode from 'qrcodejs2'
 export default {
   name: 'topNav',
   data() {
     return {
-    codeDialogVisible: false,
-    getConfig: this.$store.state.config,
+		getConfig: this.$store.state.config,
+		weixinImgSrc:'',
+		qrcode:null,
+		erweimaShow:true,
+		priceTime:1,
+		priceClickDataOne:true,
+		priceClickDataTwo:false,
+		priceClickDataThree:false,
+		codeDialogVisible: false,
+		vipDialog:false,
     };
   },
   computed: {
@@ -140,6 +180,122 @@ export default {
   watch: {},
   components: {},
   methods: {
+	  closepriceDialogFn(){
+	  	console.log('s')
+	  	 clearInterval(this.vipTime)
+	  	 console.log(this.vipTime)
+	  },
+	  priceClickFn(_data){
+	  	// if()
+	  	// this.qrcode.clear();
+	  	clearInterval(this.vipTime)
+	  	this.erweimaShow = false;
+	  	switch(_data){
+	  		case 'one':
+	  		this.priceClickDataOne = true
+	  		this.priceClickDataTwo = false
+	  		this.priceClickDataThree = false
+	  		this.priceTime = 1
+	  		this.getPrice();
+	  		break;
+	  		case 'two':
+	  		this.priceClickDataOne = false
+	  		this.priceClickDataTwo = true
+	  		this.priceClickDataThree = false
+	  		this.priceTime = 6
+	  		this.getPrice();
+	  		break;
+	  		case 'three':
+	  		this.priceClickDataOne = false
+	  		this.priceClickDataTwo = false
+	  		this.priceClickDataThree = true
+	  		this.priceTime = 12
+	  		this.getPrice();
+	  		break;
+	  	}
+	  },
+		vipXufeiFn(){
+			if(this.$store.state.login){
+				this.vipDialog = true;
+				this.getPrice();
+			}else{
+				this.$store.state.loginComponent.getData('/product/product_user');
+			}
+			
+		},
+		getPrice(){
+			debugger
+			let _this = this
+			_this.$axios.post('/my-vip/do-order?',qs.stringify({
+				month:_this.priceTime
+			}))
+			.then(res=>{
+				if(res.data.codeMsg)
+					_this.$message(res.data.codeMsg);
+				if(res.data.code == 0){
+					_this.getPriceWeixinUrl(res.data.data.vipOrderId)
+					
+				}
+					
+			})
+		},
+		getPriceWeixinUrl(_vipOrderId){
+			debugger
+			let _this = this
+			this.$axios.post('/my-vip/pay',qs.stringify({
+				vipOrderId:_vipOrderId,
+				payType:4
+			}))
+			.then(res=>{
+				debugger
+				if(res.data.codeMsg)
+					this.$message(res.data.codeMsg);
+				if(res.data.code == 0){
+					// this.getPriceErweimaFn(res.data.data.pay4Link)
+					 // this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.pay4Link;
+					if(this.qrcode == null){
+						this.qrcode = new QRCode('qrcode',{
+						    // text: res.data.data.pay4Link,
+						    width: 108,
+						    height: 108,
+						    colorDark : "#000000",
+						    colorLight : "#ffffff",
+						    correctLevel : QRCode.CorrectLevel.H
+						})			
+						this.qrcode.makeCode(res.data.data.pay4Link	);
+					}else{
+						// this.qrcode.clear();
+						this.qrcode.makeCode(res.data.data.pay4Link	);
+					}
+					_this.erweimaShow = true;
+					clearInterval(_this.vipTime)
+					_this.vipTime = setInterval(()=>{
+						_this.$axios.get('/my-vip/order-info?'+qs.stringify({
+							rand:new Date().getTime(),
+							vipOrderId:_vipOrderId
+						}))
+						.then(res=>{
+							if(res.data.codeMsg)
+								this.$message(res.data.codeMsg);
+							if(res.data.code == 0){
+								if(res.data.data.pay == 1){
+									
+									this.$message.success({
+										message:"支付成功",
+										duration:1500,
+										onClose:function(){
+											clearInterval(_this.vipTime)
+											location.reload();
+										}
+									});
+								}
+							}
+						})
+					},2000)
+				}
+					
+			})
+		},
     exitFn() {
       this.$axios.post('/logout').then(res => {
         //debugger;
@@ -566,4 +722,92 @@ h1,h2,h3,h4,h5,h6,p{
 .el-icon--right {
   display: none;
 }
+>>>.priceDialog{
+		background: #55555a !important;
+		color:#FFFF!important;
+	}
+	>>>.priceDialog{
+		background: #55555a !important;
+		color:#FFFF!important;
+	}
+	>>>.el-dialog__title{
+		font-size: 30px;
+		color:#FFFF!important;
+	}
+	.price{
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	.price_Mounth{
+		width: 30%;
+		box-sizing: border-box;
+		display: inline-block;
+		text-align: center;
+		background-color: transparent;
+		border-radius: 5px;
+		border: 1px solid #6d6d6d;
+		margin-right: 2%;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+	.priceClickClass{
+		border-color: #FFFFFF;
+	}
+	.price_Mounth>p>s{
+		font-size: 20px;
+		margin-left: 10px;
+	}
+	.price_Mounth>p>span{
+		font-size: 20px;
+		margin-left: 10px;
+	}
+	.price_Mounth>h6{
+		font-size: 20px;
+		font-weight: 700;
+		margin-block-start: 1rem !important;
+			margin-block-end: 1rem !important;
+	}
+	.erweima{
+		width: 100%;
+		margin-top: 30px;
+	}
+	.weixin,.zhifubao{
+		width: 50%;
+		box-sizing: border-box;
+		display: inline-block;
+		text-align: center;
+		padding: 20px;
+	}
+	.weixin>p{
+		color: #FFFFFF;
+	}
+	.zhifubao{
+		float: left;
+	}
+	#qrcode{
+		width: 120px;
+		height: 120px;
+		text-align: center;
+		/* margin: 10px; */
+		display: inline-block;
+		background-color: #fff;
+		padding: 6px;
+		box-sizing: border-box;
+	}
+	#qrcode img{
+	  width: 114px;
+	  height: 114px;
+	 
+	  
+	}
+	.vipColor{
+		color: #787a7a!important;
+	}
+	.vipColor:hover{
+		color: #787a7a!important;
+	}
+	.vipColor>svg{
+		color: #787a7a!important;
+	}
 </style>

@@ -284,6 +284,8 @@ export default {
 		weixinImgSrc:'',
 		qrcode:null,
 		erweimaShow:true,
+		vipTime:'',
+		vipDom:'',
 		priceTime:1,
       getConfig: this.$store.state.config,
 		tanShow : false,
@@ -339,14 +341,7 @@ export default {
 	  if(!this.$store.state.login){
 		  this.centerDialogVisible = false;
 	  }
-	  if(this.$store.state.login){
-	  	if(this.$store.state.login.vip){
-	  		this.leftNavList[1].data = false;
-	  		this.leftNavList[1].onechild[0].url = '/product/product_videoSearch';
-	  		this.leftNavList[2].data = false;
-	  		this.leftNavList[2].onechild[0].url = '/product/product_addressSearch';
-	  	}
-	  }
+	  this.getVipFn()
   },
   watch:{
 
@@ -355,10 +350,23 @@ export default {
    	searchDialog
   },
   methods:{
+		getVipFn(){
+			if(this.$store.state.login){
+				if(this.$store.state.login.vip){
+					this.leftNavList[1].data = false;
+					this.leftNavList[1].onechild[0].url = '/product/product_videoSearch';
+					this.leftNavList[2].data = false;
+					this.leftNavList[2].onechild[0].url = '/product/product_addressSearch';
+					this.getVipFn('')
+					clearInterval(this.vipDom)
+				}
+			}
+			if(!this.$store.state.centerDialogVisible){
+				clearInterval(this.vipDom)
+			}
+		},
 		closepriceDialogFn(){
-			console.log('s')
 			 clearInterval(this.vipTime)
-			 console.log(this.vipTime)
 		},
 		priceClickFn(_data){
 			// if()
@@ -390,15 +398,34 @@ export default {
 			}
 		},
 		vipTitleFn(){
-			console.log(this.$store.state.login.vip)
-			if(!this.$store.state.login.vip){
-				this.vipDialog = true;
-				this.getPrice();
+			let _this = this
+			console.log('sss')
+			if(_this.$store.state.login){
+				if(!_this.$store.state.login.vip){
+					_this.vipDialog = true;
+					_this.getPrice();
+				}
+			}else{
+				_this.$store.state.loginComponent.getData('/product/product_user');
+				_this.vipDom = setInterval(()=>{
+					this.getVipFn()
+					console.log('s')
+				},2000)
+				
 			}
 		},
 		vipXufeiFn(){
-			this.vipDialog = true;
-			this.getPrice();
+			if(this.$store.state.login){
+				this.vipDialog = true;
+				this.getPrice();
+			}else{
+				this.$store.state.loginComponent.getData('/product/product_user');
+				_this.vipDom = setInterval(()=>{
+					this.getVipFn()
+					console.log('s')
+				},2000)
+			}
+			
 		},
 		getPrice(){
 			debugger
@@ -411,7 +438,7 @@ export default {
 					_this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
 					_this.getPriceWeixinUrl(res.data.data.vipOrderId)
-					
+					this.getVipFn()
 				}
 					
 			})
