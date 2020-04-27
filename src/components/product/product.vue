@@ -46,7 +46,7 @@
 								    trigger="hover">
 									<div  v-if="this.$store.state.login" class="nav_data_xiala">
 										<ul>
-											<li @click="vipTitleFn">续费</li>
+											<li @click="vipXufeiFn">续费</li>
 											<router-link tag="li" :to="{path : '/product/product_collection'}">我的收藏</router-link>
 											<!-- <li>购买续费</li> -->
 											<!-- <li>我的权限</li> -->
@@ -254,9 +254,9 @@
 				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
 		  </div>
 	  </div>
-	  <div class="erweima">
+	  <div class="erweima" v-show="erweimaShow">
 		  <div class="weixin">
-			  <div id="qrcode"></div>
+			  <div id="qrcode" ></div>
 			  <p>- 微信支付 -</p>
 			   <!-- <img class="avator"  :src="weixinImgSrc" style="cursor:pointer;" /> -->
 		  </div>
@@ -283,6 +283,7 @@ export default {
 		codeDialogVisible: false,
 		weixinImgSrc:'',
 		qrcode:null,
+		erweimaShow:true,
 		priceTime:1,
       getConfig: this.$store.state.config,
 		tanShow : false,
@@ -345,13 +346,16 @@ export default {
   },
   methods:{
 		priceClickFn(_data){
+			// if()
+			// this.qrcode.clear();
+			clearInterval(this.vipTime)
+			this.erweimaShow = false;
 			switch(_data){
 				case 'one':
 				this.priceClickDataOne = true
 				this.priceClickDataTwo = false
 				this.priceClickDataThree = false
 				this.priceTime = 1
-				this.qrcode.clear();
 				this.getPrice();
 				break;
 				case 'two':
@@ -359,7 +363,6 @@ export default {
 				this.priceClickDataTwo = true
 				this.priceClickDataThree = false
 				this.priceTime = 6
-				this.qrcode.clear();
 				this.getPrice();
 				break;
 				case 'three':
@@ -367,16 +370,23 @@ export default {
 				this.priceClickDataTwo = false
 				this.priceClickDataThree = true
 				this.priceTime = 12
-				this.qrcode.clear();
 				this.getPrice();
 				break;
 			}
 		},
 		vipTitleFn(){
+			console.log(this.$store.state.login.vip)
+			if(!this.$store.state.login.vip){
+				this.vipDialog = true;
+				this.getPrice();
+			}
+		},
+		vipXufeiFn(){
 			this.vipDialog = true;
 			this.getPrice();
 		},
 		getPrice(){
+			debugger
 			let _this = this
 			_this.$axios.post('/my-vip/do-order?',qs.stringify({
 				month:_this.priceTime
@@ -392,12 +402,14 @@ export default {
 			})
 		},
 		getPriceWeixinUrl(_vipOrderId){
+			debugger
 			let _this = this
 			this.$axios.post('/my-vip/pay',qs.stringify({
 				vipOrderId:_vipOrderId,
 				payType:4
 			}))
 			.then(res=>{
+				debugger
 				if(res.data.codeMsg)
 					this.$message(res.data.codeMsg);
 				if(res.data.code == 0){
@@ -405,39 +417,41 @@ export default {
 					 // this.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+res.data.data.pay4Link;
 					if(this.qrcode == null){
 						this.qrcode = new QRCode('qrcode',{
-						    text: res.data.data.pay4Link,
+						    // text: res.data.data.pay4Link,
 						    width: 108,
 						    height: 108,
 						    colorDark : "#000000",
 						    colorLight : "#ffffff",
 						    correctLevel : QRCode.CorrectLevel.H
-						})
-						_this.vipTime = setInterval(()=>{
-							_this.$axios.get('/my-vip/order-info?'+qs.stringify({
-								rand:new Date().getTime(),
-								vipOrderId:_vipOrderId
-							}))
-							.then(res=>{
-								if(res.data.codeMsg)
-									this.$message(res.data.codeMsg);
-								if(res.data.code == 0){
-									if(res.data.data.pay == 1){
-										
-										this.$message.success({
-											message:"支付成功",
-											onClose:function(){
-												clearInterval(_this.vipTime)
-												location.reload();
-											}
-										});
-									}
-								}
-							})
-						},2000)
+						})			
+						this.qrcode.makeCode(res.data.data.pay4Link	);
 					}else{
-						this.qrcode.clear();
+						// this.qrcode.clear();
+						this.qrcode.makeCode(res.data.data.pay4Link	);
 					}
-					this.qrcode.makeCode(res.data.data.pay4Link	);
+					_this.erweimaShow = true;
+					_this.vipTime = setInterval(()=>{
+						_this.$axios.get('/my-vip/order-info?'+qs.stringify({
+							rand:new Date().getTime(),
+							vipOrderId:_vipOrderId
+						}))
+						.then(res=>{
+							if(res.data.codeMsg)
+								this.$message(res.data.codeMsg);
+							if(res.data.code == 0){
+								if(res.data.data.pay == 1){
+									
+									this.$message.success({
+										message:"支付成功",
+										onClose:function(){
+											clearInterval(_this.vipTime)
+											location.reload();
+										}
+									});
+								}
+							}
+						})
+					},2000)
 				}
 					
 			})
