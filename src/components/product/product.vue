@@ -236,7 +236,7 @@
         <el-button type="primary" @click="codeDialogVisible = false">关闭</el-button>
       </span>
     </el-dialog>
-	<el-dialog custom-class="priceDialog" title="充值" :visible.sync="vipDialog" width="40%"  style="" center>
+	<el-dialog custom-class="priceDialog" title="充值" @close="closepriceDialogFn" :visible.sync="vipDialog" width="40%"  style="" center>
 	  <div class="price">
 		  <div v-if="getConfig.vipMoneyForMonth" class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
 			  <h6>1 个月</h6>
@@ -298,16 +298,16 @@ export default {
 		{
 			name:'素材创意',
 			icon:'',
-			data:this.$store.state.login.vip? false:true,
-			onechild:[{name:'视频搜索',data:'true',url:this.$store.state.login.vip? '/product/product_videoSearch':''},
+			data:true,
+			onechild:[{name:'视频搜索',data:'true',url:''},
 
 		]},
 		{
 			name:'探店打卡',
 			icon:'',
-			data:this.$store.state.login.vip? false:true,
+			data:true,
 			onechild:[
-				{name:'打卡地点搜索',data:'true',url:this.$store.state.login.vip? '/product/product_addressSearch':''},
+				{name:'打卡地点搜索',data:'true',url:''},
 					// {name:'热门城市',data:'true',url:''},
 		]},
 		{
@@ -319,6 +319,9 @@ export default {
 		]},],
 		vipDialog:false,
     }
+  },
+  created() {
+  	
   },
   computed:{
     centerDialogVisible: {
@@ -334,9 +337,16 @@ export default {
   mounted(){
 	  // //console.log(this.$store.state.login)
 	  if(!this.$store.state.login){
-		  this.centerDialogVisible = true;
+		  this.centerDialogVisible = false;
 	  }
-	  
+	  if(this.$store.state.login){
+	  	if(this.$store.state.login.vip){
+	  		this.leftNavList[1].data = false;
+	  		this.leftNavList[1].onechild[0].url = '/product/product_videoSearch';
+	  		this.leftNavList[2].data = false;
+	  		this.leftNavList[2].onechild[0].url = '/product/product_addressSearch';
+	  	}
+	  }
   },
   watch:{
 
@@ -345,6 +355,11 @@ export default {
    	searchDialog
   },
   methods:{
+		closepriceDialogFn(){
+			console.log('s')
+			 clearInterval(this.vipTime)
+			 console.log(this.vipTime)
+		},
 		priceClickFn(_data){
 			// if()
 			// this.qrcode.clear();
