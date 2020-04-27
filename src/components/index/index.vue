@@ -34,7 +34,9 @@
                           <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">博主入驻</span></router-link>
                 <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
                 <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
-                <router-link :to="{ path: '/product/product_videoSearch' }"><span class="lf48">素材创意</span></router-link>
+                <!-- <router-link :to="{ path: videpVipURl }"> -->
+									<span class="lf48" @click="submitVipFn">素材创意</span>
+								<!-- </router-link> -->
                 <el-button   v-if="this.$store.state.login? false:true" @click="loginFn" >登录 / 注册</el-button>
                 <div v-else class="userToGo">
                   <span><img style="border-radius: 50%;" v-lazy="this.$store.state.login? this.$store.state.login.logo:''" alt=""></span>
@@ -237,6 +239,7 @@ export default {
       showData:false,
       getConfig:this.$store.state.config,
 	  timeout:'',
+		videpVipURl:''
       // centerDialogVisible: false
     };
   },
@@ -338,13 +341,7 @@ export default {
   mounted() {
   //debugger
     window.addEventListener("scroll", this.scrollToTop, true);
-
-	
-
-
     // 跳转回跳页面
-  
-
     this.$axios
       .get("login-refresh")
       .then(res => {
@@ -378,6 +375,17 @@ export default {
   },
   methods: {
   	  	//询问是否入驻
+		submitVipFn(){
+			if(this.$store.state.login){
+				if(this.$store.state.login.vip){
+					// this.videpVipURl = '/product/product_videoSearch';
+					this.$router.push({path:"/product/product_videoSearch"})
+				}
+			}else{
+				 this.$store.state.loginComponent.getData('/product/product_user');
+			}
+			
+		},
 askIfEnter(){
   if(this.$store.state.wxVideoaccount){
     if(this.$store.state.wxVideoaccount.audit==12){
