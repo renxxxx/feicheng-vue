@@ -430,6 +430,7 @@ export default {
 						this.qrcode.makeCode(res.data.data.pay4Link	);
 					}
 					_this.erweimaShow = true;
+					clearInterval(_this.vipTime)
 					_this.vipTime = setInterval(()=>{
 						_this.$axios.get('/my-vip/order-info?'+qs.stringify({
 							rand:new Date().getTime(),
@@ -443,6 +444,7 @@ export default {
 									
 									this.$message.success({
 										message:"支付成功",
+										duration:1500,
 										onClose:function(){
 											clearInterval(_this.vipTime)
 											location.reload();
