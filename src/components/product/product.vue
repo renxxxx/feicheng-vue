@@ -238,19 +238,19 @@
     </el-dialog>
 	<el-dialog custom-class="priceDialog" title="充值" :visible.sync="vipDialog" width="40%"  style="" center>
 	  <div class="price">
-		  <div class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
+		  <div v-if="getConfig.vipMoneyForMonth" class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
 			  <h6>1 个月</h6>
-			  <p>原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
+			  <p v-if="getConfig.vipOriginalMoneyForMonth">原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
 			  <p>特惠<span>￥{{getConfig.vipMoneyForMonth}}</span></p>
 		  </div>
-		  <div class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
+		  <div v-if="getConfig.vipMoneyFor6Month" class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
 				<h6>6 个月</h6>
-				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
+				<p v-if="getConfig.vipOriginalMoneyFor6Month">原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor6Month}}</span></p>
 		  </div>
-		  <div class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
+		  <div v-if="getConfig.vipMoneyFor12Month" class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
 				<h6>12 个月</h6>
-				<p>原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
+				<p v-if="getConfig.vipOriginalMoneyFor12Month">原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
 		  </div>
 	  </div>
