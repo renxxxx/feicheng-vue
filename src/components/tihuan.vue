@@ -23,8 +23,8 @@ export default {
 	created(){
 	},
 	mounted(){
-		console.dir(this.$route.query.value)
-		this.$router.replace({path:this.$route.query.path,query:{value:this.$route.query.value}})
+		// console.dir(this.$route.query.value)
+		// this.$router.replace({path:this.$route.query.path,query:{value:this.$route.query.value}})
 	},
 	activated(){
 		console.dir(this.$route.query.value)

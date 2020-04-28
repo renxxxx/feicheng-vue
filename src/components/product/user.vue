@@ -30,8 +30,8 @@
 							</div> -->
 						</div>
 						<div class="user_message">
-							<img :src="this.$store.state.login? this.$store.state.login.logo:require('../../assets/img/touxiang.png')" alt="">
-							<h5>{{this.$store.state.login? this.$store.state.login.nickname:''}}</h5>
+							<img :src="login? login.logo:require('../../assets/img/touxiang.png')" alt="">
+							<h5>{{login? login.nickname:''}}</h5>
 							<p v-if='!this.$store.state.wxVideoaccount ||  !this.$store.state.wxVideoaccount.type' style="font-size: 14px;">
 								您还不是博主，
 								<router-link :to="{path:'/product/ruzhu'}">
@@ -50,8 +50,8 @@
 									:this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
 									:"未知" }}</span>
 							</p>
-							<p v-if="this.$store.state.login? this.$store.state.login.vipEndTime:false">VIP于{{moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')}}到期</p>
-						</div>
+							<p v-if="login? login.vipEndTime:false"> VIP于{{moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')}}到期</p>
+						</div>	
 						<div class="_1aHAtMPw _1xvNCILN"></div>
 						<div class="_1aHAtMPw"></div>
 					</div>
@@ -211,6 +211,7 @@ export default {
   data() {
     return {
 		loading:true,
+		login:null,
 		oneValue:{title:'素材创意',center:'看集赞最多的视频作品',data:false},
 		twoValue:{title:'找视频号',center:'找涨粉最快的视频达人',data:false},
 		threeValue:{title:'探店打卡',center:'探寻网红打卡地',data:false},
@@ -229,91 +230,28 @@ export default {
 		loadThree:false,
     };
   },
-   watch: {
-    $route(to, from) {
-		//debugger
-		
-    }
-  },
-  components: {
-  },
-  computed: {
-  },
-
-  beforeCreate(){
-  },
   activated(){
-	  //debugger
-    let thisVue = this
-      if(this.$route.meta.auth && !this.$store.state.login){
-         this.$store.state.loginComponent.getData();
-	 }
-
-
+	  debugger
+	  console.log('s')
+	 this.login = this.$store.state.login
+	   console.log(this.login)
+	 
+	   if(this.$route.meta.auth && !this.$store.state.login){
+	      this.$store.state.loginComponent.getData();
+	  }
+	 
 	  this.$axios
-	.get('my/wx-videoaccount')
-	.then(res => {
-		if(res.data.code ==0)
-			this.$store.state.wxVideoaccount=res.data.data
-	})
+	 .get('my/wx-videoaccount')
+	 .then(res => {
+	 	if(res.data.code ==0)
+	 		this.$store.state.wxVideoaccount=res.data.data
+	 })
+	this.loading=false;
+	this.getDataType();
 
   },
-  created() {
-
-  },
-  beforeRouteLeave(to, from, next) {
-	  //debugger
-  	let scrollTop = this.scrollTop =document.getElementById('product').scrollTop;
-  	this.scrollTop = scrollTop?scrollTop :0;
-  	//console.log(this.scrollTop)
-  	if(!to.query.time || !from.query.time || to.query.time < from.query.time){
-  		 // //debugger
-  			if (this.$vnode && this.$vnode.data.keepAlive)
-  			{
-  				if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache)
-  				{
-  					if (this.$vnode.componentOptions)
-  					{
-  						var key = this.$vnode.key == null
-  									? this.$vnode.componentOptions.Ctor.cid + (this.$vnode.componentOptions.tag ? `::${this.$vnode.componentOptions.tag}` : '')
-  									: this.$vnode.key;
-  						var cache = this.$vnode.parent.componentInstance.cache;
-  						var keys  = this.$vnode.parent.componentInstance.keys;
-  						if (cache[key])
-  						{
-  							if (keys.length) {
-  								var index = keys.indexOf(key);
-  								if (index > -1) {
-  									keys.splice(index, 1);
-  								}
-  							}
-  							delete cache[key];
-  						}
-  					}
-  				}
-  			}
-  			this.$destroy();
-  		}
-		next();
-	},
-	//进入该页面时，用之前保存的滚动位置赋值
-	beforeRouteEnter(to, from, next) {
-		
-		next(vm => {
-			document.getElementById('product').scrollTop=document.getElementById('product').pageYOffset=vm.scrollTop;
-		});
-
-	  },
-	beforeMount(){
-
-	  },
 	mounted() {
-		this.getDataType();
-		this.loading=false;
-	},
-
-	deactivated(){
-
+		
 	},
 	methods: {
 		mouseFn(_value){
@@ -422,9 +360,11 @@ export default {
 			.catch()
 		},
 		getDataOne(){
-			this.loadOne = true
+			this.loadOne = true;
+			let articleClassificationId = ''
+			this.typeList[0]? articleClassificationId = this.typeList[0].articleClassificationId:''
 			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:this.typeList[0].articleClassificationId,
+				articleClassification1Id:articleClassificationId,
 				pn:this.pageOne,
 				ps:5}))
 			.then(res=>{
@@ -446,8 +386,10 @@ export default {
 		},
 		getDataTwo(){
 			this.loadTwo = true
+			let articleClassificationId = ''
+			this.typeList[1]? articleClassificationId = this.typeList[1].articleClassificationId:''
 			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:this.typeList[1].articleClassificationId,
+				articleClassification1Id:articleClassificationId,
 				pn:this.pageTwo,
 				ps:5}))
 			.then(res=>{
@@ -467,9 +409,11 @@ export default {
 			.catch()
 		},
 		getDataThree(){
-			this.loadThree = true
+			this.loadThree = true;
+			let articleClassificationId = ''
+			this.typeList[2]? articleClassificationId = this.typeList[2].articleClassificationId:''
 			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:this.typeList[2].articleClassificationId,
+				articleClassification1Id:articleClassificationId,
 				pn:this.pageThree,
 				ps:5}))
 			.then(res=>{
