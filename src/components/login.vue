@@ -123,6 +123,7 @@ created(){
                             thisVue.$store.state.login=res.data.data
                             thisVue.$store.state.centerDialogVisible = false;
                             clearInterval(thisVue.timer);
+							console.log(thisVue.last)
                               if (thisVue.last) {
                                 thisVue.$router.push({path:thisVue.last});
                               }else{

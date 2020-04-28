@@ -34,7 +34,13 @@
 									</span>
 								</div>
 							  </el-popover>
+							<el-tooltip class="item" effect="dark" :content="'VIP于'+vipEndTIme+'到期'" placement="bottom">
+								<div style="width: 30px;position: absolute;top: 0;bottom: 0;left: 180px;margin: auto 0rem;">
+									<img class="vipImg" v-show="vipImg"  src="../../assets/img/vipImg.png" alt="">
+								</div>
+							 </el-tooltip>
 						</div>
+						
 					</el-col>
 					<el-col :xs="17" :sm="18" :md="12" :lg="11" :xl="9" >
 						<div class="nav_user" style="min-width: 500px;">
@@ -320,6 +326,7 @@ export default {
 					{name:'博主',data:'true',url:'/product/product_collection'},
 		]},],
 		vipDialog:false,
+		vipImg:false
     }
   },
   created() {
@@ -338,11 +345,15 @@ export default {
   },
   mounted(){
 	  // //console.log(this.$store.state.login)
-	  if(!this.$store.state.login){
-		  this.centerDialogVisible = false;
-	  }
-	  this.getVipFn()
+	  
+	  
   },
+activated(){
+	this.getVipFn()
+	if(!this.$store.state.login){
+		this.centerDialogVisible = false;
+	}
+},
   watch:{
 
   },
@@ -357,7 +368,8 @@ export default {
 					this.leftNavList[1].onechild[0].url = '/product/product_videoSearch';
 					this.leftNavList[2].data = false;
 					this.leftNavList[2].onechild[0].url = '/product/product_addressSearch';
-					this.getVipFn('')
+					this.vipImg = true;
+					this.vipEndTIme = moment(this.$store.state.login.vipEndTime).format('YYYY-MM-DD hh:mm')
 					clearInterval(this.vipDom)
 				}
 			}
@@ -561,8 +573,10 @@ export default {
 				// this.$router.replace({path:'/index'})
 				this.$router.push('/')
 				location.reload()
+				// location.href=location.pathname
 			}
 		})
+		
 		// this.$router.push('/')
 		// var exp = new Date();
 		//       exp.setTime(exp.getTime() - 1);
@@ -799,6 +813,15 @@ div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockqu
 }
 .nav_title{
 	width: 100%;
+	position: relative;
+}
+.vipImg{
+	width: 24px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	/* left: 180px; */
+	margin: auto 0rem;
 }
 .tanAbout{
 	margin-left: 4px;

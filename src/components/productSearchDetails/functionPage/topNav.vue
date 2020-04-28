@@ -11,7 +11,7 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
           <div class="nav_user">
             <div class="nav_data">
-              <img :src="this.$store.state.login ? this.$store.state.login.logo : ''" alt="" />
+              <img :src="this.$store.state.login ? this.$store.state.login.logo : ''" alt="" style="vertical-align: middle;"/>
               <span>{{ this.$store.state.login ? this.$store.state.login.nickname : '' }}</span>
               <el-popover placement="top-start" trigger="hover">
                 <div class="nav_data_xiala">
