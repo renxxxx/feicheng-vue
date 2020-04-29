@@ -246,17 +246,17 @@
 	  <div class="price">
 		  <div v-if="getConfig.vipMoneyForMonth" class="price_Mounth" @click="priceClickFn('one')" :class="priceClickDataOne? 'priceClickClass':''">
 			  <h6>1 个月</h6>
-			  <p v-if="getConfig.vipOriginalMoneyForMonth">原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
+			  <p :style="{visibility:getConfig.vipOriginalMoneyForMonth?'visible':'hidden'}">原价<s>￥{{getConfig.vipOriginalMoneyForMonth}}</s></p>
 			  <p>特惠<span>￥{{getConfig.vipMoneyForMonth}}</span></p>
 		  </div>
 		  <div v-if="getConfig.vipMoneyFor6Month" class="price_Mounth" @click="priceClickFn('two')" :class="priceClickDataTwo? 'priceClickClass':''">
 				<h6>6 个月</h6>
-				<p v-if="getConfig.vipOriginalMoneyFor6Month">原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
+				<p :style="{visibility:getConfig.vipOriginalMoneyFor6Month?'visible':'hidden'}">原价<s>￥{{getConfig.vipOriginalMoneyFor6Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor6Month}}</span></p>
-		  </div>
-		  <div v-if="getConfig.vipMoneyFor12Month" class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
+		  </div>	
+		  <div v-if="getConfig.vipMoneyFor12Month"  class="price_Mounth" @click="priceClickFn('three')" style="margin: 0px;" :class="priceClickDataThree? 'priceClickClass':''">
 				<h6>12 个月</h6>
-				<p v-if="getConfig.vipOriginalMoneyFor12Month">原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
+				<p :style="{visibility:getConfig.vipOriginalMoneyFor12Month?'visible':'hidden'}">原价<s>￥{{getConfig.vipOriginalMoneyFor12Month}}</s></p>
 				<p>特惠<span>￥{{getConfig.vipMoneyFor12Month}}</span></p>
 		  </div>
 	  </div>
@@ -289,7 +289,7 @@ export default {
 		codeDialogVisible: false,
 		weixinImgSrc:'',
 		qrcode:null,
-		erweimaShow:true,
+		erweimaShow:false,
 		vipTime:'',
 		vipDom:'',
 		priceTime:1,
@@ -415,12 +415,12 @@ activated(){
 			if(_this.$store.state.login){
 				if(!_this.$store.state.login.vip){
 					_this.vipDialog = true;
-					_this.getPrice();
+					// _this.getPrice();
 				}
 			}else{
 				_this.$store.state.loginComponent.getData('/product/product_user');
 				_this.vipDom = setInterval(()=>{
-					this.getVipFn()
+					// this.getVipFn()
 					console.log('s')
 				},2000)
 				
@@ -429,11 +429,11 @@ activated(){
 		vipXufeiFn(){
 			if(this.$store.state.login){
 				this.vipDialog = true;
-				this.getPrice();
+				// this.getPrice();
 			}else{
 				this.$store.state.loginComponent.getData('/product/product_user');
 				_this.vipDom = setInterval(()=>{
-					this.getVipFn()
+					// this.getVipFn()
 					console.log('s')
 				},2000)
 			}
@@ -495,12 +495,12 @@ activated(){
 								this.$message(res.data.codeMsg);
 							if(res.data.code == 0){
 								if(res.data.data.pay == 1){
-									
+									clearInterval(_this.vipTime)
 									this.$message.success({
 										message:"支付成功",
 										duration:1500,
 										onClose:function(){
-											clearInterval(_this.vipTime)
+											
 											location.reload();
 										}
 									});
