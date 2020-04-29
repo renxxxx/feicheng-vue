@@ -59,7 +59,7 @@
 				<el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
 					<el-carousel height="300px">
 						<el-carousel-item v-for="(item,inx) in list" :key="inx">
-							<router-link :to="{path:item.url}">
+							<router-link :to="{path:item.url}"  target="_blank">
 								<img :src="item.src" alt="" style="height:100%;width: 100%;">
 							</router-link>
 						</el-carousel-item>
@@ -103,11 +103,11 @@
 						<div class="uer_zhixun_lishiList uer_scroll" v-infinite-scroll="nextPageThree" :infinite-scroll-disabled="loadThree" infinite-scroll-distance="10">
 							<div class="uer_zhixun_lishiList_hezhi" @click="detailClickFn(item)" v-for="(item,inx) in articleThree" :key="inx">
 								<!-- <router-link target='_blank' :to="{path:'/articleDetails',query:{data:JSON.stringify(item)}}"> -->
-								<div class="ant-timeline-item-tail"></div>
-								<div class="ant-timeline-item-head ant-timeline-item-head-gray"></div>
+								<div class="ant-timeline-item-tail" v-if="item.data"></div>
+								<div class="ant-timeline-item-head ant-timeline-item-head-gray" ></div>
 									<div class="uer_zhixun_lishiList_hezhi_neirong">
 										<div class="uer_zhixun_lishiList_hezhi_neirong_list">
-										<span>{{item.name}}</span>
+										<span>{{item.name}}{{item.data}}</span>
 										<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
 
 										</div>
@@ -155,8 +155,8 @@
 				
 				</div>
 					</router-link>
-					<router-link :to="{path:''}">
-				<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
+				<router-link :to="{path:'/product/product_addressSearch'}">
+					<div class="user_type_three" @mouseenter="mouseFn('three')" @mouseleave="leaveFn('three')">
 					
 						<div class="_IskksKxv" v-if="threeValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[threeValue.data? 'color':'']">
@@ -167,10 +167,10 @@
 						<!-- <h3>{{threeValue.title}}</h3>
 						<p :class="[threeValue.data? 'color':'']">{{threeValue.center}}</p> -->
 					
-				</div>
+					</div>
 				</router-link>
 				<router-link :to="{path:'/product/product_user'}">
-				<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
+					<div class="user_type_four" @mouseenter="mouseFn('four')" @mouseleave="leaveFn('four')">
 					
 						<div class="_IskksKxv" v-if="fourValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fourValue.data? 'color':'']">
@@ -181,10 +181,10 @@
 						<!-- <h3>{{fourValue.title}}</h3>
 						<p :class="[fourValue.data? 'color':'']">{{fourValue.center}}</p> -->
 					
-				</div>
+					</div>
 				</router-link>
 				<router-link :to="{path:'/product/ruzhu'}">
-				<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
+					<div class="user_type_five" @mouseenter="mouseFn('five')" @mouseleave="leaveFn('five')">
 					
 						<div class="_IskksKxv" v-if="fiveValue.data"><div class="_3EmITLRt"></div></div>
 						<div class="type_center" :class="[fiveValue.data? 'color':'']">
@@ -195,7 +195,7 @@
 						<!-- <h3>{{fiveValue.title}}</h3>
 						<p :class="[fiveValue.data? 'color':'']">{{fiveValue.center}}</p> -->
 					
-				</div>
+					</div>
 				</router-link>
 			</el-row>
 		</div>
@@ -421,7 +421,21 @@ export default {
 					this.$store.state.loginComponent.getData();
 				}else{
 					for(let i in res.data.data.itemList){
-						this.articleThree.push(res.data.data.itemList[i])
+						if(i == res.data.data.itemList.length-1){
+							this.articleThree.push({
+								name:res.data.data.itemList[i].name,
+								createTime:res.data.data.itemList[i].createTime,
+								data:false
+							})
+						}else{
+							this.articleThree.push({
+								name:res.data.data.itemList[i].name,
+								createTime:res.data.data.itemList[i].createTime,
+								data:true
+							})
+						}
+						
+							// res.data.data.itemList[i])
 					}
 					this.loadThree = false
 				}
@@ -668,7 +682,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .ant-timeline-item-tail {
     position: absolute;
-    top: 15px;
+    top: 25px;
     left: 4px;
     height: calc(100% - 10px);
     border-left: 2px solid #6d6d6d;
@@ -679,7 +693,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .ant-timeline-item-head {
     position: absolute;
-	top: 5px;
+	top: 15px;
     width: 6px;
     height: 6px;
     background-color: #2b2b2e;
