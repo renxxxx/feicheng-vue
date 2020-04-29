@@ -283,7 +283,7 @@ export default {
   name: 'product',
   data(){
   	return{
-		priceClickDataOne:true,
+		priceClickDataOne:false,
 		priceClickDataTwo:false,
 		priceClickDataThree:false,
 		codeDialogVisible: false,
@@ -378,6 +378,11 @@ activated(){
 			}
 		},
 		closepriceDialogFn(){
+			this.priceClickDataOne = false,
+			this.priceClickDataTwo = false,
+			this.priceClickDataThree = false,
+			this.codeDialogVisible = false,
+			this.erweimaShow = false
 			 clearInterval(this.vipTime)
 		},
 		priceClickFn(_data){
