@@ -44,8 +44,8 @@
 				</div>
 			</el-row>
 		</div>
-		<el-dialog custom-class="dialogVideo" title="" :visible.sync="codeDialogVisible" width="30%" height="80%"  style="" @close="closeLogin()">
-		  <video :src="videoUrl" class="ant-modal-content" autoplay controls></video>
+		<el-dialog custom-class="dialogVideo" title="" :visible.sync="codeDialogVisible" width="460px"  style="" @close="closeLogin()">
+		  <video :src="videoUrl" class="ant-modal-content" loop="loop" autoplay controls id="movie" v-focus="true"></video>
 		</el-dialog>
 	</div>
 </template>
@@ -139,11 +139,22 @@
 			playFn(_videoValue){
 				// console.log(_videoValue)
 				this.codeDialogVisible = true;
-				this.videoUrl = _videoValue
+				this.videoUrl = _videoValue;
+				var video = document.getElementById('movie');
+				// console.log(document.activeElement.id="movie")
+				if(video){
+					video.focus()
+					if(video.paused)
+						video.play();
+				}
+				
 			},
 			closeLogin(){
 				console.log('_videoValue')
 				this.codeDialogVisible = false;
+				var video = document.getElementById('movie');
+				video.pause();
+				video.currentTime = 0
 			}
 		},
 	}
@@ -701,18 +712,26 @@ a:active {
 .dialogVideo{
 	height: 100%;
 	width: 100%;
-	
+	position: relative;
 }
 
 >>>.el-dialog__body{
 	padding: 0px!important;
-	max-height: 70vh;
+	/* max-height: 70vh; */
+	width: 460px;
+	height: 550px;
 	background-color: transparent;
 }
 .dialogVideo video{
-	width: 100%;
-	/* height: 100%; */
-	max-height: 70vh;
+	width: 460px;
+	height: 550px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	/* max-height: 70vh; */
 }
 >>>.el-dialog__header{
 	padding: 0px!important;
