@@ -18,8 +18,8 @@
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-row style="margin-top: 15px;min-width: 500px;">
-				<div class="_1oRkJsku" v-for="(item,inx) in videoList" :key="inx" @click="playFn">
-					<a :href="item.video" target="_blank">
+				<div class="_1oRkJsku" v-for="(item,inx) in videoList" :key="inx" @click="playFn(item.video)">
+					<!-- <a :href="item.video" target="_blank"> -->
 						<div class="_rGpKvENU">
 							<video :src="item.video" :poster="item.cover"></video>
 							<!-- <img class="_2CYlY4Be" :src="item.cover" alt=""> -->
@@ -40,10 +40,13 @@
 								<span>{{item.wxVideoaccountName}}</span>
 							</div>
 						</div>
-					</a>
+					<!-- </a> -->
 				</div>
 			</el-row>
 		</div>
+		<el-dialog custom-class="dialogVideo" title="" :visible.sync="codeDialogVisible" width="30%" height="80%"  style="" @close="closeLogin()">
+		  <video :src="videoUrl" class="ant-modal-content" autoplay controls></video>
+		</el-dialog>
 	</div>
 </template>
 
@@ -58,7 +61,9 @@
 				page: 0,
 				load: false,
 				videoList:[],
-				searchColor:false
+				searchColor:false,
+				codeDialogVisible:false,
+				videoUrl:''
 			}
 		},
 		computed: {
@@ -131,8 +136,14 @@
 				this.videoList = []
 				this.getData()
 			},
-			playFn(){
-				// this.$route.
+			playFn(_videoValue){
+				// console.log(_videoValue)
+				this.codeDialogVisible = true;
+				this.videoUrl = _videoValue
+			},
+			closeLogin(){
+				console.log('_videoValue')
+				this.codeDialogVisible = false;
 			}
 		},
 	}
@@ -685,5 +696,28 @@ a:active {
 }
 .listTitle_xia>span:last-child:hover {
     color: #ff7800;
+}
+
+.dialogVideo{
+	height: 100%;
+	width: 100%;
+	
+}
+
+>>>.el-dialog__body{
+	padding: 0px!important;
+	max-height: 70vh;
+	background-color: transparent;
+}
+.dialogVideo video{
+	width: 100%;
+	/* height: 100%; */
+	max-height: 70vh;
+}
+>>>.el-dialog__header{
+	padding: 0px!important;
+}
+>>>.el-dialog__headerbtn{
+	z-index: 999;
 }
 </style>

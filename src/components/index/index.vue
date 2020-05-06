@@ -31,11 +31,13 @@
         	    :this.$store.state.wxVideoaccount.audit==12?"(认证失败)"
         	    :"未知" }}
         	</span>
-                          <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"><span class="lf48">博主入驻</span></router-link>
+                <!-- <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"> -->
+					<span class="lf48" @click="submitVipFn('product/ruzhu')">博主入驻</span>
+				<!-- </router-link> -->
                 <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
                 <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
                 <!-- <router-link :to="{ path: videpVipURl }"> -->
-									<span class="lf48" @click="submitVipFn">素材创意</span>
+									<span class="lf48" @click="submitVipFn('/product/product_videoSearch')">素材创意</span>
 								<!-- </router-link> -->
                 <el-button   v-if="this.$store.state.login? false:true" @click="loginFn" >登录 / 注册</el-button>
                 <div v-else class="userToGo">
@@ -318,11 +320,11 @@ export default {
   },
   methods: {
   	  	//询问是否入驻
-		submitVipFn(){
+		submitVipFn(_urlValue){
 			if(this.$store.state.login){
 				if(this.$store.state.login.vip){
 					// this.videpVipURl = '/product/product_videoSearch';
-					this.$router.push({path:"/product/product_videoSearch"})
+					this.$router.push({path:_urlValue})
 				}
 			}else{
 				 this.$store.state.loginComponent.getData('/product/product_user');

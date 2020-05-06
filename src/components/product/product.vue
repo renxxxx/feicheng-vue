@@ -124,7 +124,7 @@
 								<span style="font-weight: 500;font-size: 16px;">商学院</span>
 							</template>
 						</el-menu-item>
-						<el-menu-item  v-if='!this.$store.state.login' :index="{path:'/product/ruzhu'}">
+						<el-menu-item  v-if='!this.$store.state.login' :index="{path:boZhuUrl}" @click="submitVipFn('/product/ruzhu')">
 							<template slot="title">
 							<svg width="16px" height="16px"  t="1585878775774" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294">
 									<path d="M889.018182 977.454545v-46.545454a39.563636 39.563636 0 0 0 32.581818-16.290909 41.890909 41.890909 0 0 0 4.654545-39.563637 430.545455 430.545455 0 0 0-267.636363-262.981818l13.963636-44.218182a477.090909 477.090909 0 0 1 300.218182 290.909091 88.436364 88.436364 0 0 1-11.636364 81.454546 86.109091 86.109091 0 0 1-72.145454 37.236363zM134.981818 977.454545a86.109091 86.109091 0 0 1-72.145454-37.236363 88.436364 88.436364 0 0 1-11.636364-81.454546 477.090909 477.090909 0 0 1 300.218182-290.909091l13.963636 44.218182A430.545455 430.545455 0 0 0 95.418182 875.054545a41.890909 41.890909 0 0 0 4.654545 39.563637 39.563636 39.563636 0 0 0 32.581818 16.290909z" fill="#FFA942" p-id="1295"></path>
@@ -361,6 +361,17 @@ activated(){
    	searchDialog
   },
   methods:{
+	  submitVipFn(_urlValue){
+	  	if(this.$store.state.login){
+	  		if(this.$store.state.login.vip){
+	  			// this.videpVipURl = '/product/product_videoSearch';
+	  			this.$router.push({path:_urlValue})
+	  		}
+	  	}else{
+	  		 this.$store.state.loginComponent.getData('/product/product_user');
+	  	}
+	  	
+	  },
 		getVipFn(){
 			if(this.$store.state.login){
 				if(this.$store.state.login.vip){
