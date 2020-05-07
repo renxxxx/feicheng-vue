@@ -24,8 +24,9 @@
 				</el-col>
 			</el-row> -->
 		</div>
+		
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%;min-width: 700px;" @row-click = "videoFn">
+			<el-table :data="userList"  style="width: 99%;min-width: 700px;" @row-click = "playFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -70,9 +71,13 @@
 			 </el-table>
 			<!-- </div> -->
 		</div>
-
-
-
+		
+		<!-- <el-dialog custom-class="dialogVideo" modal="false" :visible.sync="codeDialogVisible" width="460px"  style="z-index:9999" @close="closeLogin()">
+		  <video :src="videoUrl" class="ant-modal-content" loop="loop" autoplay controls id="movie" v-focus="true"></video>
+		</el-dialog> -->
+		<el-dialog custom-class="dialogVideo" title="" :visible.sync="codeDialogVisible" width="460px"  style="" @close="closeLogin()">
+		  <video :src="videoUrl" class="ant-modal-content" loop="loop" autoplay controls id="movie" v-focus="true"></video>
+		</el-dialog>
 	</div>
 </template>
 
@@ -89,6 +94,8 @@
 				show_xiala:false,
 				num:0,
 				kw:'',
+				codeDialogVisible:false,
+				videoUrl:'',
 				clickData:{
 					 one:false,
 					 two:false,
@@ -135,10 +142,6 @@
 			this.nextPage();
 		},
 		methods: {
-			videoFn(value){
-				window.open(value.video, '_blank');
-				console.log(value)
-			},
 			// typeClickFn(_item,_inx){
 			// 	// //console.log(_item)
 			// 	if(this.dataList[_inx].typeData){
@@ -241,6 +244,26 @@
 					this.nextPage()
 					break;
 				}
+			},
+			playFn(_videoValue){
+				// console.log(_videoValue)
+				this.codeDialogVisible = true;
+				this.videoUrl = _videoValue.video;
+				var video = document.getElementById('movie');
+				// console.log(document.activeElement.id="movie")
+				if(video){
+					video.focus()
+					if(video.paused)
+						video.play();
+				}
+				
+			},
+			closeLogin(){
+				console.log('_videoValue')
+				this.codeDialogVisible = false;
+				var video = document.getElementById('movie');
+				video.pause();
+				video.currentTime = 0
 			}
 		},
 	}
@@ -760,5 +783,42 @@ h1,h2,h3,h4,h5,h6,p{
 >>>.el-table th {
     background: rgb(58, 58, 62);
         color: rgb(232, 237, 238);
+}
+
+.dialogVideo{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	z-index: 9999 !important;
+}
+
+>>>.el-dialog__body{
+	padding: 0px!important;
+	/* max-height: 70vh; */
+	width: 460px;
+	height: 550px;
+	background-color: transparent;
+	z-index: 999
+}
+.dialogVideo video{
+	width: 460px;
+	height: 550px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	/* z-index: 999 */
+	/* max-height: 70vh; */
+}
+>>>.el-dialog__header{
+	padding: 0px!important;
+}
+>>>.el-dialog__headerbtn{
+	z-index: 999;
+}
+>>>.v-modal{
+	z-index: 1!important
 }
 </style>
