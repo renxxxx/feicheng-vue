@@ -2,7 +2,7 @@
 	<div id="searchDetails">
 		<topNav></topNav>
 		<el-row class="height" :gutter='17'>
-			<el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4" class="height">
+			<el-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5" class="height">
 				<div class="leftNav">
 					<div class="_1cGmRv6B">
 						<div class="_3ykadlND">
@@ -271,84 +271,13 @@
 					</div>
 				</div>
 			</el-col>
-			<el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20" class="height">
-				<!-- <div class="_1mYqP-NC">
-					<div class="ant-tabs ant-tabs-top _1nF74FAR ant-tabs-line">
-						<div role="tablist" class="ant-tabs-bar ant-tabs-top-bar" tabindex="0">
-							<div class="ant-tabs-nav-container ant-tabs-nav-container-scrolling">
-								<span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled ant-tabs-tab-arrow-show">
-									<span class="ant-tabs-tab-prev-icon">
-										 <i aria-label="图标: left" class="anticon anticon-left ant-tabs-tab-prev-icon-target">
-											 <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="left" width="1em" height="1em" fill="currentColor"  aria-hidden="true">
-													<path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path>
-												</svg>
-											</i>
-									</span>
-								</span>
-								<span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-arrow-show">
-									<span class="ant-tabs-tab-next-icon">
-										<i aria-label="图标: right" class="anticon anticon-right ant-tabs-tab-next-icon-target">
-											<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-												<path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
-											</svg>
-										</i>
-									</span>
-								</span>
-								<div class="ant-tabs-nav-wrap">
-									<div class="ant-tabs-nav-scroll">
-										<div class="ant-tabs-nav ant-tabs-nav-animated">
-											<div>
-												<div ref="xiahuaxian" class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="display: block; transform: translate3d(0px, 0px, 0px); width: 64px;"></div>
-												<div role="tab" @click="xiaclickFn(0)" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 56px;">
-													<router-link :to="{path:'/searchDetails'}" class="_1zlCAgAE">
-														趋势表现
-													</router-link>
-												</div>
-												<div role="tab" @click="xiaclickFn(125)" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 56px;">
-													<router-link :to="{path:'/product'}" class="_1zlCAgAE">
-														作品列表
-													</router-link>
-												</div>
-												<div role="tab" @click="xiaclickFn(250)" aria-disabled="true" aria-selected="false" class=" ant-tabs-tab ant-tabs-tab-disabled" style="margin-right: 56px;">
-													<div class="_1zlCAgAE _2AXT3VPr">
-														<router-link :to="{path:'/product/product_douyinSearch'}" class="_1zlCAgAE">
-															作品分析
-															<i aria-label="图标: lock" class="anticon anticon-lock">
-																<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="lock" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-																	<path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"></path>
-																</svg>
-															</i>
-														</router-link>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-						<div class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content" style="margin-left: -100%;">
-							<div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
-							<div role="tabpanel" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active">
-								<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-								<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-							</div>
-							<div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
-							<div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
-							<div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
-							<div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
-						</div>
-						<div tabindex="0" role="presentation" style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-					</div>
-				</div> -->
+			<el-col :xs="19" :sm="19" :md="19" :lg="19" :xl="19" class="height2" style="position:relative:">
 				<keep-alive>
 					<router-view class="appView2" />
 				</keep-alive>
 			</el-col>
 		</el-row>
-    <el-dialog :visible.sync="dialogVisibleIcon" width="20%" style="z-index: 9999;"><img width="100%" style="object-fit: contain; background: #FFFFFF;height: 50vh;" :src="message.qrcode" alt="" /></el-dialog>
+    <el-dialog :visible.sync="dialogVisibleIcon" v-if="dialogVisibleIcon" width="20%" style="z-index: 9998;"><img width="100%" style="object-fit: contain; background: #FFFFFF;height: 50vh;" :src="message.qrcode" alt="" /></el-dialog>
 		<searchDialog></searchDialog>
 
 	</div>
@@ -759,10 +688,11 @@ h1,h2,h3,h4,h5,h6,p{
 	.leftNav {
 		width: 100%;
 		width: 320px;
-		    position: fixed;
+		    /* position: absolute; */
 		        height: calc(100vh - 95px);
-		        bottom: 0;
-		        left: 32px;
+		        /* bottom: 0; */
+		        /* left: 32px; */
+				/* margin-left: 32px */
 	}
 
 
@@ -771,10 +701,11 @@ h1,h2,h3,h4,h5,h6,p{
 	._1cGmRv6B {
 		width: 320px;
 		background: rgba(62, 62, 62, .2);
-		position: fixed;
+		/* position: fixed; */
 		height: calc(100vh - 95px);
 		bottom: 0;
-		left: 32px;
+		/* left: 32px; */
+		/* margin-left: 32px */
 	}
 
 	._3ykadlND {
@@ -1197,7 +1128,8 @@ h1,h2,h3,h4,h5,h6,p{
 
 	._1nWZLuYc,
 	._3Mt2vQgI {
-		display: flex;
+		/* display: flex; */
+		position: relative;
 		align-items: center;
 		color: #cdcfcf;
 	}
@@ -1484,10 +1416,12 @@ h1,h2,h3,h4,h5,h6,p{
 	    opacity: 0;
 	}
 	.appView2{
-		position: fixed;
-		left: 392px;
-		right: 40px;
-		top:70px;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 30px;
+		/* right: 40px; */
+		top:0px;
 		/* width: 100%; */
 		overflow-y: scroll;
 		bottom: 10px;
@@ -1497,5 +1431,18 @@ h1,h2,h3,h4,h5,h6,p{
 		/* height: 100%; */
 
 	}
-
+	.height{
+		/* position: relative; */
+		/* margin-left:32px; */
+		/* width: 320px; */
+		box-sizing: border-box;
+		min-width:320px;
+		padding-left:16px;
+	}
+	.height2{
+		position: relative;
+		height: calc(100vh - 95px);
+		box-sizing: border-box;
+		max-width: 1280px;
+	}
 </style>

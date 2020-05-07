@@ -18,7 +18,7 @@
 		</div>
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
 			<el-row style="margin-top: 15px;min-width: 500px;">
-				<div class="_1oRkJsku" v-for="(item,inx) in videoList" :key="inx" @click="playFn(item.video)">
+				<div class="_1oRkJsku" v-for="(item,inx) in videoList" :key="inx" @click.prevent="playFn(item.video)">
 					<!-- <a :href="item.video" target="_blank"> -->
 						<div class="_rGpKvENU">
 							<video :src="item.video" :poster="item.cover"></video>
@@ -28,17 +28,20 @@
 						</div>
 						<div class="listTitle">
 							<div class="listTitle_shang">
-								<svg width="20" height="20" viewBox="0 0 20 20"class="_30f8UTxO">
+								<svg width="20" height="20" viewBox="0 0 20 20" class="_30f8UTxO">
 									<path d="M7.211 3.484a4.105 4.105 0 0 0-1.85.438 4.685 4.685 0 0 0-2.473 4.321c.012 1.484.7 5.255 6.849 8.213a.61.61 0 0 0 .531 0c6.119-2.969 6.825-6.741 6.845-8.225a4.629 4.629 0 0 0-2.374-4.259 4.117 4.117 0 0 0-1.907-.463 5.293 5.293 0 0 0-2.821.887 5.079 5.079 0 0 0-2.8-.911z"fill="#cdcfcf"></path>
 								</svg>
 								<span class="_2qolAsfj">{{numberTry(item.likeCount)}}</span>
 							</div>
-							<div class="listTitle_xia">
-								<span class="ant-avatar ant-avatar-circle ant-avatar-image" style="width: 24px; height: 24px; line-height: 24px; font-size: 18px;">
-									<img :src="item.wxVideoaccountLogo">
-								</span>
-								<span>{{item.wxVideoaccountName}}</span>
-							</div>
+							<!-- <router-link :to="{path:'/searchDetails/searchDetails_index',query:{data:item.wxVideoaccountId}}"  target="_blank"> -->
+								<div class="listTitle_xia" @click.stop="nameDetalisFn(item.wxVideoaccountId)">
+									<span class="ant-avatar ant-avatar-circle ant-avatar-image" style="width: 24px; height: 24px; line-height: 24px; font-size: 18px;">
+										<img :src="item.wxVideoaccountLogo">
+									</span>
+									<span>{{item.wxVideoaccountName}}</span>
+								</div>
+							<!-- </router-link> -->
+							
 						</div>
 					<!-- </a> -->
 				</div>
@@ -103,6 +106,9 @@
 			
 		},
 		methods: {
+			nameDetalisFn(_value){
+				window.open('/#/searchDetails/searchDetails_index?data='+_value, '_blank');
+			},
 			nextPage() {
 				this.page++;
 				this.getData();

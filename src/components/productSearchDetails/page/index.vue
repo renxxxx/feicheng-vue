@@ -26,7 +26,7 @@
 		</div>
 		
 		<div class="searchList" v-infinite-scroll="nextPage" :infinite-scroll-disabled="load" infinite-scroll-distance="10">
-			<el-table :data="userList"  style="width: 99%;min-width: 700px;" @row-click = "playFn">
+			<el-table :data="userList"  style="width: 96%;min-width: 700px;" @row-click = "playFn">
 				<el-table-column   prop="date" label="视频号" min-width="62%">
 					<template slot-scope="scope">
 				       <div class="searchList_lie_xinxi">
@@ -273,8 +273,9 @@
 
 
 .index{
-		color:#fff;
-		 font-family:'DINPro' !important;
+	color:#fff;
+	font-family:'DINPro' !important;
+	/* z-index: 3000 */
 }
  a {text-decoration:none; color: rgba(255, 255, 255, 1);}
 a:link{text-decoration:none; }
