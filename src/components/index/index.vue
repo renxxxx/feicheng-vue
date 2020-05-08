@@ -32,7 +32,7 @@
         	    :"未知" }}
         	</span>
                 <!-- <router-link v-if='!this.$store.state.login' :to="{ path: '/product/ruzhu' }"> -->
-					<span class="lf48" @click="submitVipFn('product/ruzhu')">博主入驻</span>
+					<span class="lf48" v-if='!this.$store.state.login'  @click="submitVipFn('product/ruzhu')">博主入驻</span>
 				<!-- </router-link> -->
                 <router-link :to="{ path: '/product/product_douyinSearch' }"><span class="lf48">找视频号</span></router-link>
                 <router-link :to="{ path: '/product/product_user' }"><span class="lf48">飞橙商学院</span></router-link>
