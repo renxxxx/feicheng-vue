@@ -90,7 +90,7 @@
 										{{item.name}}
 									</p>
 									<p>{{item.brief}}</p>
-								<!-- </router-link> -->
+								</router-link>
 							</div>
 
 							<!-- <span>查看更多 ></span> -->
@@ -107,7 +107,7 @@
 								<div class="ant-timeline-item-head ant-timeline-item-head-gray" ></div>
 									<div class="uer_zhixun_lishiList_hezhi_neirong">
 										<div class="uer_zhixun_lishiList_hezhi_neirong_list">
-										<span>{{item.name}}{{item.data}}</span>
+										<span>{{item.name}}</span>
 										<span>{{moment(item.createTime).format('YYYY-MM-DD HH-MM')}}</span>
 
 										</div>
@@ -330,7 +330,7 @@ export default {
 		}
     },
 		detailClickFn(_data){
-			//console.log(_data)
+			console.log(_data)
 			if(_data.link==0){
 				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
 				// window.open('/#/articleDetails?data='+_data.articleId, '_blank');
@@ -340,6 +340,9 @@ export default {
 			}
 		},
 		getDataType(){
+			this.loadOne = true;
+			this.loadTwo = true;
+			this.loadThree = true;
 			this.$axios.get("/article-classification/article-classification-list?"+qs.stringify({sort:"orderNo",order:"asc",articleClassificationUpperId:0}))
 			.then(res=>{
 				if(res.data.codeMsg)
@@ -353,18 +356,27 @@ export default {
 				   //开始失败逻辑
 					this.$store.state.loginComponent.getData();
 				}
+				// this.articleOne = [],
+				// this.articleTwo = [],
+				// this.articleThree = [],
+				// this.pageOne = 1,
+				// this.pageTwo = 1,
+				// this.pageThree = 1,
 				this.nextPageOne();
 				this.nextPageTwo();
 				this.nextPageThree();
+				
+				this.loadOne = false;
+				this.loadTwo = false;
+				this.loadThree = false;
 			})
 			.catch()
 		},
 		getDataOne(){
 			this.loadOne = true;
-			let articleClassificationId = ''
-			this.typeList[0]? articleClassificationId = this.typeList[0].articleClassificationId:''
-			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:articleClassificationId,
+			debugger
+			 this.$axios.get("/article/article-list?"+qs.stringify({
+				articleClassification1Id:this.typeList[0].articleClassificationId,
 				pn:this.pageOne,
 				ps:5}))
 			.then(res=>{
@@ -386,10 +398,9 @@ export default {
 		},
 		getDataTwo(){
 			this.loadTwo = true
-			let articleClassificationId = ''
-			this.typeList[1]? articleClassificationId = this.typeList[1].articleClassificationId:''
+			debugger
 			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:articleClassificationId,
+				articleClassification1Id:this.typeList[1].articleClassificationId,
 				pn:this.pageTwo,
 				ps:5}))
 			.then(res=>{
@@ -409,11 +420,8 @@ export default {
 			.catch()
 		},
 		getDataThree(){
-			this.loadThree = true;
-			let articleClassificationId = ''
-			this.typeList[2]? articleClassificationId = this.typeList[2].articleClassificationId:''
 			this.$axios.get("/article/article-list?"+qs.stringify({
-				articleClassification1Id:articleClassificationId,
+				articleClassification1Id:this.typeList[2].articleClassificationId,
 				pn:this.pageThree,
 				ps:5}))
 			.then(res=>{
@@ -425,13 +433,19 @@ export default {
 							this.articleThree.push({
 								name:res.data.data.itemList[i].name,
 								createTime:res.data.data.itemList[i].createTime,
-								data:false
+								data:false,
+								link:res.data.data.itemList[i].link,
+								articleId:res.data.data.itemList[i].articleId,
+								link1Url:res.data.data.itemList[i].link1Url,
 							})
 						}else{
 							this.articleThree.push({
 								name:res.data.data.itemList[i].name,
 								createTime:res.data.data.itemList[i].createTime,
-								data:true
+								data:true,
+								link:res.data.data.itemList[i].link,
+								articleId:res.data.data.itemList[i].articleId,
+								link1Url:res.data.data.itemList[i].link1Url,
 							})
 						}
 						
@@ -443,15 +457,15 @@ export default {
 			.catch()
 		},
 		nextPageOne(){
-			this.getDataOne();
+			this.getDataOne()
 			this.pageOne++;
 		},
 		nextPageTwo(){
-			this.getDataTwo();
+			this.getDataTwo()
 			this.pageTwo++;
 		},
 		nextPageThree(){
-			this.getDataThree();
+			this.getDataThree()
 			this.pageThree++;
 		}
 	}
