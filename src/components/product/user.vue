@@ -334,7 +334,7 @@ export default {
 			if(_data.link==0){
 				// this.$router.resolve({path: '/articleDetails',query:{data:JSON.stringify(_data)}})
 				// window.open('/#/articleDetails?data='+_data.articleId, '_blank');
-				window.open('/#/article?data='+_data.articleId, '_blank');
+				window.open('/article_jsp?articleId='+_data.articleId, '_blank');
 			}else if (_data.link==1){
 				window.open(_data.link1Url, '_blank');
 			}

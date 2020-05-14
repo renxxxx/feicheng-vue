@@ -32,15 +32,15 @@ export default {
       let thisVue = this
      let config =  thisVue.$store.state.config
 			return{
-				title:  config.seoTitle+ ' | '+thisVue.data.name, // set a title
+				title:  thisVue.data.name + ' | ' + config.seoTitle, // set a title
 				meta:[   // set meta
 					{                
 						name: 'keyWords',
-						content: config.seoKeywords + ','+thisVue.data.name
+						content: thisVue.data.name+ ','+ config.seoKeywords 
 					},
 					{
 						name: 'description',
-						content: config.seoDescription+ ',' + thisVue.data.name
+						content: thisVue.data.name + ',' + config.seoDescription
 					},
 				],
 			}
