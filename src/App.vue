@@ -38,22 +38,6 @@ export default {
 		showContact:false
     };
   }, 
-		metaInfo(){
-      let thisVue = this
-			return{
-				title:  thisVue.$store.state.config.seoTitle, // set a title
-				meta:[   // set meta
-					{                
-						name: 'keyWords',
-						content: thisVue.$store.state.config.seoKeywords
-					},
-					{
-						name: 'description',
-						content: thisVue.$store.state.config.seoDescription
-					},
-				],
-			}
-		},
   components: {
     login,loading
   },
